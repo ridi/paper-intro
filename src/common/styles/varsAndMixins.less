@@ -782,21 +782,6 @@
             }
           }
         }
-        .header_nav {
-          a {
-            .nav_icon {
-              color: white;
-            }
-            .nav_title {
-              color: white;
-            }
-            &:hover{
-              .nav_icon, .nav_title {
-                color: white;
-              }
-            }
-          }
-        }
         .header_mymenu {
           a {
             color: white;
@@ -823,7 +808,7 @@
         &.active {
           top: 0;
         }
-        .header_title, .header_nav, .header_mymenu {
+        .header_title, .header_mymenu {
           padding: 0; height: 50px; vertical-align: middle;
         }
         .header_title {
@@ -833,18 +818,6 @@
             }
             &:hover .header_title_logo {
               //.svg_logo_paper_regular(@color_slategray_2);
-            }
-          }
-        }
-        .header_nav {
-          a {
-            .nav_icon, .nav_title {
-              color: @color_slategray_2
-            }
-            &:hover {
-              .nav_icon, .nav_title {
-                color: @color_dodgerblue_3;
-              }
             }
           }
         }
@@ -874,26 +847,6 @@
             color: white;
             &:hover {
               color: white;
-            }
-          }
-          .header_nav {
-            background: none; border-bottom: none; .box_shadow(~"none");
-            a {
-              .nav_icon, .nav_title {
-                color: white;
-              }
-              &:hover {
-                .nav_icon, .nav_title {
-                  color: white;
-                }
-              }
-            }
-          }
-        }
-        &.fixed {
-          .header_bottom {
-            .header_nav {
-              display: none;
             }
           }
         }

@@ -15,7 +15,17 @@ $(() => {
     return positions;
   };
 
+  const mobileBrSlots = $('.mobile_br');
+  const toggleMobileBr = isMobile => {
+    if (isMobile && mobileBrSlots.eq(0).children().length === 0) {
+      mobileBrSlots.append('<br />');
+    } else if (!isMobile && mobileBrSlots.eq(0).children().length) {
+      $('.mobile_br > br').remove();
+    }
+  };
+
   let windowHeight = $(window).height();
+  let windowWidth = $(window).width();
   let triggersTops = getSectionsTops(windowHeight);
 
   let paperProSimpleInfoTop = $('#paper_pro_simple_info').position().top;
@@ -80,11 +90,14 @@ $(() => {
     })
     .resize(() => {
       windowHeight = $(window).height();
+      windowWidth = $(window).width();
       triggersTops = getSectionsTops(windowHeight);
       rangeInputTop = $rangeInput.position().top;
       paperProSimpleInfoTop = $('#paper_pro_simple_info').position().top;
       rangeSectionTop = $('#light_upgrade').position().top;
+      toggleMobileBr(windowWidth < 671);
     })
+    .trigger('resize')
     .trigger('scroll');
 
   // Temperature range slider input event binding with display image

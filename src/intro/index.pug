@@ -17,6 +17,7 @@ block contents
         h1.main_title PAPER PRO
         .logo_wrapper
           include /intro/paper_logo.pug
+          include /intro/paper_pro_logo.pug
         include /intro/providers.pug
         .js_trigger.device
           .device_wrapper
@@ -31,7 +32,11 @@ block contents
           img.book_image(src='/images/paper_pro/display_upgrade/book.png', alt='book')
         article.display_size_article
           h3.article_title
-            strong 처음 만나는 7.8인치 {{ mobile_br }}전자 잉크 디스플레이
+            strong
+              | 처음 만나는 7.8인치
+              |
+              span.mobile_br
+              | 전자 잉크 디스플레이
           p.article_paragraph
             | 국내 최초로 선보이는 7.8인치 전자 잉크 디스플레이는
             | 6인치 디스플레이에 비해 69% 더 큰 화면을 제공합니다.
@@ -74,7 +79,11 @@ block contents
             img.high_resolution_image(src='/images/paper_pro/display_upgrade/300ppi.jpg', alt='300 ppi')
     section#light_upgrade.js_trigger.intro_section
       .contents_wrapper.dark_tone
-        h2.js_trigger.section_title 어둠 속에서 드러나는{{ mobile_br }} 우월함
+        h2.js_trigger.section_title
+          | 어둠 속에서 드러나는
+          |
+          span.mobile_br
+          | 우월함
         .js_trigger.color_temperature
           .tmp
             img.tmp_low(src='/images/paper_pro/light_upgrade/tmp_high.jpg', alt='색 온도 높음, 백색')
@@ -83,7 +92,11 @@ block contents
             input.range_ui.js_tmp_range_input(type='range', min='0', max='1', step='0.01', value='0')
         article
           h3.js_trigger.article_title
-            strong 색 온도 조절 가능한 {{ mobile_br }}프론트라이트 프로
+            strong
+              | 색 온도 조절 가능한
+              |
+              span.mobile_br
+              | 프론트라이트 프로
           p.article_paragraph
             | 차가운 백색부터 따뜻한 황백색까지 내 눈에 편안한 색 온도를 설정하세요.
             br
@@ -119,7 +132,11 @@ block contents
             | 주변 눈치 보지 않고 독서를 즐길 수 있습니다.
     section#ux_upgrade.js_trigger.intro_section
       .contents_wrapper.white_tone
-        h2.section_title 누구도 예상 못 한 {{ mobile_br }}디테일
+        h2.section_title
+          | 누구도 예상 못 한
+          |
+          span.mobile_br
+          | 디테일
         .js_trigger.one_hand_pagination
           .pagination_wrapper
             ol
@@ -185,6 +202,7 @@ block contents
       .contents_wrapper
         h2.section_title 강력한 이끌림
         include /intro/paper_logo.pug
+        include /intro/paper_pro_logo.pug
         .js_trigger.devices
           img.device_back(src='/images/paper_pro/simple_info/back.png', alt='PAPER PRO 뒷면')
           img.device_front(src='/images/paper_pro/simple_info/front.png', alt='PAPER PRO 앞면')

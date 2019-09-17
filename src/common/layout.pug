@@ -34,7 +34,7 @@ html(lang='ko')
           .header_bottom
             h1.header_title
               a(href='/')
-                span.header_title_logo
+                include /intro/paper_logo.pug
                 span.hidden PAPER
             .header_mymenu
               a(href='https://help.ridibooks.com/hc/ko/categories/115000967987', target='_blank') 고객센터
@@ -49,14 +49,5 @@ html(lang='ko')
       section#shop_contents
         block contents
       hr
-      footer#shop_footer
-        .footer_wrap
-          p © RIDI Corp.
-          ul
-            li 1644-0331
-            li 고객센터
-            li 이용약관
-            li 개인 정보 처리 방침
-            li 청소년 보호 정책
-            li 사업자 정보 확인
+      include /common/footer.pug
     block scripts
