@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "local": "parcel src/index.pug & onchange '**/*.{html,js,json,pug}' -e 'dist/**/*.*' -- prettier --write {{changed}}",
-    "build": "parcel build src/index.pug"
+    "build": "rimraf dist & parcel build src/index.pug"
   },
   "devDependencies": {
     "@prettier/plugin-pug": "^1.0.3",
@@ -13,7 +13,8 @@
     "onchange": "^6.1.0",
     "parcel": "^1.12.3",
     "prettier": "^1.18.2",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "rimraf": "^3.0.0"
   },
   "browserslist": [
     "last 2 versions",
