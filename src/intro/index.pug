@@ -1,0 +1,230 @@
+extends /common/layout.pug
+
+block styles
+  link(rel='stylesheet', href='/intro/styles/intro.less')
+  link(rel='stylesheet', href='/intro/styles/intro_ani.less')
+
+block scripts
+  script(src='/intro/index.js')
+
+block contents
+  #page_intro.js_trigger
+    #header_video
+      video(src='/videos/intro.mp4', loop, preload, playsinline, autoplay)
+    section#intro_header.js_trigger.intro_section
+      .contents_wrapper
+        p.sub_title 존재감의 차이
+        h1.main_title PAPER PRO
+        .logo_wrapper
+          include /intro/paper_logo.pug
+        include /intro/providers.pug
+        .js_trigger.device
+          .device_wrapper
+            img.paper_off(src='/images/paper_pro/header/paper_off.jpg', alt='PAPER OFF')
+            img.paper_on(src='/images/paper_pro/header/paper_on.jpg', alt='PAPER ON')
+    section#display_upgrade.js_trigger.intro_section
+      .contents_wrapper.white_tone
+        h2.section_title 압도적 피지컬
+        .js_trigger.size_compare
+          img.paper_image(src='/images/paper_pro/display_upgrade/paper.png', alt='PAPER')
+          img.paper_pro_image(src='/images/paper_pro/display_upgrade/paper_pro.png', alt='PAPER PRO')
+          img.book_image(src='/images/paper_pro/display_upgrade/book.png', alt='book')
+        article.display_size_article
+          h3.article_title
+            strong 처음 만나는 7.8인치 {{ mobile_br }}전자 잉크 디스플레이
+          p.article_paragraph
+            | 국내 최초로 선보이는 7.8인치 전자 잉크 디스플레이는
+            | 6인치 디스플레이에 비해 69% 더 큰 화면을 제공합니다.
+            br
+            | 가로모드도 지원하여 더 쾌적한 화면을 경험할 수 있습니다.
+        .js_trigger.landscape_mode
+          img.landscape_display_image(src='/images/paper_pro/display_upgrade/landscape.png', alt='PAPER PRO landscape mode')
+          img.landscape_display_shadow_image(
+            src='/images/paper_pro/display_upgrade/landscape_shadow.jpg',
+            alt='PAPER PRO landscape mode shadow'
+          )
+        .js_trigger.thickness_and_weight_section
+          .thickness_and_weight_wrapper.white_tone
+            article.thickness
+              h3.article_title
+                strong 얇고
+                br
+                | 두께 7.69mm
+              p.article_paragraph 기존 페이퍼보다 0.4mm 더 얇아졌습니다.
+            article.weight
+              h3.article_title
+                strong 가볍고
+                br
+                | 무게 250g
+              p.article_paragraph 비슷한 크기의 태블릿 PC, 종이책보다 가볍습니다.
+          .side_view
+            img.side_view_image(src='/images/paper_pro/display_upgrade/side_view.png', alt='PAPER PRO side_view')
+            img.side_view_shadow_image(src='/images/paper_pro/display_upgrade/side_view_shadow.jpg', alt='PAPER PRO side_view shadow')
+        .ppi_info_wrapper
+          article.ppi.white_tone
+            h3.article_title
+              strong 선명하다
+              br
+              | 해상도 300PPI
+            p.article_paragraph
+              | 7.8인치 전자 잉크 디스플레이에서
+              br
+              | 현존하는 최고 해상도입니다.
+          .js_trigger.high_resolution
+            img.high_resolution_image(src='/images/paper_pro/display_upgrade/300ppi.jpg', alt='300 ppi')
+    section#light_upgrade.js_trigger.intro_section
+      .contents_wrapper.dark_tone
+        h2.js_trigger.section_title 어둠 속에서 드러나는{{ mobile_br }} 우월함
+        .js_trigger.color_temperature
+          .tmp
+            img.tmp_low(src='/images/paper_pro/light_upgrade/tmp_high.jpg', alt='색 온도 높음, 백색')
+            img.tmp_high.js_tmp_high(src='/images/paper_pro/light_upgrade/tmp_low.jpg', alt='색 온도 높음, 황백색')
+          .tmp_controller
+            input.range_ui.js_tmp_range_input(type='range', min='0', max='1', step='0.01', value='0')
+        article
+          h3.js_trigger.article_title
+            strong 색 온도 조절 가능한 {{ mobile_br }}프론트라이트 프로
+          p.article_paragraph
+            | 차가운 백색부터 따뜻한 황백색까지 내 눈에 편안한 색 온도를 설정하세요.
+            br
+            | 색 온도 조절 기능* 은 어두운 밤에 유용하며,
+            br
+            | 황백색에 가까울수록 숙면을 방해하는 블루라이트가 줄어듭니다.
+          p.annotation * 색 온도 조절 기능: CTM (Color Temperature Management)
+        .js_trigger.lowest_brightness
+          table.brightness_table
+            tbody
+              tr
+                td
+                  .device_image_wrapper.brightness_paper
+                    img.min_brightness.paper(src='/images/paper_pro/light_upgrade/paper_bright_down.jpg', alt='PAPER 최저밝기')
+                    img.max_brightness.paper(src='/images/paper_pro/light_upgrade/paper_bright_up.jpg', alt='PAPER 최대밝기')
+                td
+                  .device_image_wrapper.brightness_paper_pro
+                    img.min_brightness.paper_pro(src='/images/paper_pro/light_upgrade/paper_pro_bright_down.jpg', alt='PAPER PRO 최저밝기')
+                    img.max_brightness.paper_pro(src='/images/paper_pro/light_upgrade/paper_pro_bright_up.jpg', alt='PAPER PRO 최대밝기')
+              tr
+                th PAPER
+                th PAPER PRO
+        article
+          h3.js_trigger.article_title
+            strong 더 어두워진 최저 밝기
+          p.article_paragraph
+            | 화면의 밝기를 더 어둡게 조절할 수 있습니다.
+            br
+            | 기존 페이퍼의 최저 밝기가 10이라면, 페이퍼 프로의 최저 밝기는 3입니다.
+            br
+            | 어두운 곳에서 눈의 부담이 적으며,
+            br
+            | 주변 눈치 보지 않고 독서를 즐길 수 있습니다.
+    section#ux_upgrade.js_trigger.intro_section
+      .contents_wrapper.white_tone
+        h2.section_title 누구도 예상 못 한 {{ mobile_br }}디테일
+        .js_trigger.one_hand_pagination
+          .pagination_wrapper
+            ol
+              li.page_list.page1
+                img.page(src='/images/paper_pro/ux_upgrade/pagination_1.jpg', alt='이미지')
+              li.page_list.page2
+                img.page(src='/images/paper_pro/ux_upgrade/pagination_2.jpg', alt='이미지')
+              li.page_list.page3
+                img.page(src='/images/paper_pro/ux_upgrade/pagination_3.jpg', alt='이미지')
+            .pointer
+        article.one_hand_article
+          h3.article_title
+            strong 한 손으로 충분한 페이지 이동
+          p.article_paragraph
+            | 상하 구분된 물리 버튼을 활용하여
+            br
+            | 한 손으로 앞뒤 페이지를 편하게 넘기세요.
+        .js_trigger.prominent_button
+          img.button_bg(src='/images/paper_pro/ux_upgrade/button_bg.jpg', alt='기기본체')
+          img.button(src='/images/paper_pro/ux_upgrade/button.png', alt='돌출된 버튼')
+        article
+          h3.article_title
+            strong 손끝에 느껴지는 버튼
+          p.article_paragraph
+            | 돌출된 점으로 버튼 위치를 쉽게 알 수 있어,
+            br
+            | 독서 흐름이 끊기지 않습니다.
+    section#hardware_upgrade.js_trigger.intro_section
+      .contents_wrapper.dark_tone
+        h2.section_title 탄탄한 기본기
+        .js_trigger.layer
+          .layer_wrapper
+            img.layer_image.bottom(src='/images/paper_pro/hardware_upgrade/06.png', alt='외관 바닥면')
+            img.layer_image.pcb(src='/images/paper_pro/hardware_upgrade/05.png', alt='기판')
+            img.layer_image.point(src='/images/paper_pro/hardware_upgrade/04.png', alt='보강판')
+            img.layer_image.housing(src='/images/paper_pro/hardware_upgrade/03.png', alt='하우징')
+            img.layer_image.display(src='/images/paper_pro/hardware_upgrade/02.png', alt='디스플레이')
+            img.layer_image.front(src='/images/paper_pro/hardware_upgrade/01.png', alt='외관 전면')
+        article.durability
+          h3.article_title
+            strong 견고해진 내구성
+          p.article_paragraph
+            | 가볍고 강한 마그네슘 보강재를 추가하여 기존 페이퍼보다 충격과 압력에 강합니다.
+        article.battery
+          h3.article_title
+            strong 강해진 배터리
+          p.article_paragraph
+            | 배터리 소모가 적은 i.MX6 CPU를 장착하여 배터리 효율을 높였습니다.
+            br
+            | 기존 페이퍼보다 배터리 용량은 작지만, 사용 시간과 대기 시간이 길어졌습니다.
+          .js_trigger.battery_compare_chart
+            h4.chart_title 대기 시간
+            ul
+              li.paper_pro_chart
+                .bar.paper_pro_battery_bar 약 4주
+                .description_wrapper
+                  p.device_title PAPER PRO
+                  p.description 3배 더 길어진 대기 시간
+              li.paper_chart
+                .bar.paper_battery_bar 약 1.5주
+                p.device_title PAPER
+    section#paper_pro_simple_info.js_trigger.intro_section
+      .contents_wrapper
+        h2.section_title 강력한 이끌림
+        include /intro/paper_logo.pug
+        .js_trigger.devices
+          img.device_back(src='/images/paper_pro/simple_info/back.png', alt='PAPER PRO 뒷면')
+          img.device_front(src='/images/paper_pro/simple_info/front.png', alt='PAPER PRO 앞면')
+        p.price 249,000원
+        include /intro/providers.pug
+    section#designed_by_ridi.js_trigger.intro_section
+      .contents_wrapper
+        .description_wrapper.dark_tone
+          h2.section_title
+            | Designed by
+            span.indent_hidden RIDI
+            include /intro/ridi_logo.pug
+          p.article_paragraph.p1
+            | 종이책에서의 경험을 온전히 전자 잉크로 재현하고 싶다는 바람에서
+            | RIDI는 PAPER PRO를 만들기 시작했습니다.
+          p.article_paragraph.p2
+            | 기본 인쇄 판형과 가장 유사한 7.8인치 디스플레이,
+            br
+            | 얇은 두께와 가벼운 무게,
+            br
+            | 플랫 스크린과 어울리는 물리 버튼,
+            br
+            | 불필요한 요소를 최대한 줄인 심플한 디자인.
+          p.article_paragraph.p3
+            strong
+              | 그렇게 1년 6개월의 개발 기간 끝에 PAPER PRO를 완성했습니다.
+              br
+              | 전자책 독자들에게 완전히 새로운 경험을 선사할 것입니다.
+        .js_trigger.device
+          img.device_back(src='/images/paper_pro/by_ridi/back.jpg', alt='PAPER PRO 뒷면')
+    section#spec_compare.js_trigger.intro_section
+      .contents_wrapper
+        h2.table_section_title 페이퍼 모델 비교
+        include /intro/spec_compare.pug
+    section#detail_spec.js_trigger.intro_section
+      .contents_wrapper
+        h2.table_section_title 상세 스펙
+        .image_wrapper
+          img.paper_pro_front_and_back_image(
+            src='/images/paper_pro/detail_spec/paper_pro_front_and_back.jpg',
+            alt='paper pro front and back image'
+          )
+        include /intro/spec_table.pug

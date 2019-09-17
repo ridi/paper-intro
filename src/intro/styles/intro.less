@@ -1,0 +1,1526 @@
+@import "../../common/styles/varsAndMixins.less";
+
+.shop_header_for_intro_page();
+.create_pointer(@size: 40px) {
+  width: @size;
+  height: @size;
+  border-radius: @size;
+  background: @color_dodgerblue_1;
+  border: (@size / 10) solid white;
+  opacity: .5;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -(@size / 2);
+  margin-top: -(@size / 2);
+}
+.provider_button {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  line-height: 1em;
+  vertical-align: baseline;
+  color: #fff;
+  background: #1f8ce6;
+  border: 2px solid #0077d9;
+  box-shadow: 0 1px 1px 0 rgba(31,140,230,.3);
+  font-size: 16px;
+  padding: 16px 34px;
+}
+
+// ========================================================= default color
+#page_intro {
+  background: #171717;
+  .white_tone {
+    color: #212121;
+  }
+  .dark_tone {
+    color: white;
+  }
+  .section_title {
+    color: inherit;
+  }
+  .article_title {
+    color: inherit;
+  }
+  .article_paragraph {
+    color: inherit;
+  }
+  .annotation {
+    color: #666;
+  }
+  .table_section_title {
+    color: #212121;
+  }
+  .spec_table {
+    thead {
+      th {
+        color: black;
+      }
+    }
+    tbody {
+      th {
+        color: #999;
+      }
+      td {
+        color: #212121;
+        li {
+          color: inherit;
+        }
+        .sub_info {
+          color: #999;
+        }
+      }
+    }
+  }
+  .spec_alert {
+    color: #999;
+  }
+  .paper_pro_detail_button {
+    color: white;
+    padding: 16px 0;
+    box-shadow: none;
+    &.naver {
+      background: #1ec800;
+      border: 0 none;
+    }
+    &._29cm {
+      background: #000;
+      border: 1px solid #e6e8eb;
+      box-sizing: border-box;
+    }
+    &.gmarket {
+      background: #fff;
+      border: 1px solid #e6e8eb;
+      box-sizing: border-box;
+      color: #636c73;
+    }
+    &.papershop .link_text {
+      font-weight: 700;
+    }
+  }
+  #intro_header {
+    .sub_title {
+      color: white;
+    }
+    .logo_wrapper {
+      .svg_logo_paper {
+        fill: white;
+      }
+      .svg_logo_pro {
+        fill: #D5A172;
+      }
+    }
+  }
+
+  #display_upgrade {
+    background: #e8e8e8;
+  }
+
+  #light_upgrade {
+    background: black;
+    .lowest_brightness {
+      .brightness_table {
+        th {
+          color: #aaa;
+        }
+      }
+    }
+  }
+
+  #ux_upgrade {
+    background: #f0f0f0;
+  }
+
+  #hardware_upgrade {
+    background: #212121;
+    .battery_compare_chart {
+      .chart_title {
+        color: white;
+      }
+      .paper_pro_chart {
+        .bar {
+          background: #1f8eeb;
+        }
+        .description_wrapper {
+          .device_title {
+            color: white;
+          }
+          .description {
+            color: #1f8eeb;
+          }
+        }
+      }
+      .paper_chart {
+        .bar {
+          background: #666;
+        }
+      }
+    }
+  }
+
+  #paper_pro_simple_info {
+    background: white;
+    .svg_logo_pro {
+      fill: #D5A172;
+    }
+    .price {
+      color: @color_dodgerblue_1;
+    }
+  }
+
+  #designed_by_ridi {
+    background: #141414;
+    .article_paragraph {
+      color: #c0c0c6;
+    }
+  }
+
+  #spec_compare {
+    background: white;
+  }
+
+  #detail_spec {
+    background: #f0f0f0;
+  }
+}
+
+// ========================================================= queries_small
+@media @queries_small {
+  // ====================== common
+  @max-width: 670px;
+  #page_intro {
+    .intro_section {
+      overflow: hidden;
+      .contents_wrapper {
+        max-width: @max-width;
+        margin: 0 auto;
+      }
+    }
+    .white_tone {
+      font-weight: bold;
+    }
+    .section_title {
+      font-size: 34px;
+      line-height: 1.25em;
+      text-align: center;
+      font-weight: normal;
+    }
+    .article_title {
+      padding: 0 20px;
+      font-size: 24px;
+      line-height: 1.3em;
+      text-align: left;
+      font-weight: normal;
+      strong {
+        font-weight: bold;
+      }
+    }
+    .article_paragraph {
+      padding: 0 20px;
+      margin-top: 18px;
+      font-size: 15px;
+      line-height: 1.6em;
+      font-weight: normal;
+      word-break: keep-all;
+    }
+    .annotation {
+      padding: 0 20px;
+      margin-top: 15px;
+      font-size: 12px;
+    }
+    .table_section_title {
+      font-size: 24px;
+      margin-top: 50px;
+      text-align: center;
+    }
+    .spec_table {
+      @font_size: 12px;
+      width: 100%;
+      margin: 27px auto 0 auto;
+      thead {
+        th {
+          padding-bottom: 10px;
+          height: 100px;
+          overflow: hidden;
+          box-sizing: border-box;
+          font-size: @font_size;
+          vertical-align: bottom;
+          text-align: left;
+          .spec_title {
+            display: block;
+            margin-top: 11px;
+          }
+        }
+      }
+      tbody {
+        tr {
+          th, td {
+            font-size: @font_size;
+            line-height: 1.8em;
+            padding-top: 6px;
+            word-break: keep-all;
+          }
+          th {
+            text-align: right;
+            padding-right: 10px;
+            vertical-align: top;
+            font-weight: normal;
+            width: 78px;
+          }
+          td {
+            text-align: left;
+            vertical-align: top;
+            padding-right: 10px;
+            li {
+              padding-top: 6px;
+              font-size: inherit;
+              line-height: inherit;
+              &:first-child {
+                padding-top: 0;
+              }
+            }
+          }
+          &:first-child {
+            th, td {
+              padding-top: 6px;
+            }
+          }
+        }
+      }
+    }
+    .spec_alert {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .paper_pro_detail_button {
+      width: 200px;
+      height: 50px;
+      display: block;
+      margin: 0 auto;
+      .providers {
+        margin-right: -2px;
+        height: 20px;
+        vertical-align: middle;
+        transform: translateY(-2px);
+      }
+      .link_text {
+        font-size: 14px;
+        font-weight: normal;
+      }
+      &.papershop .link_text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  // ====================== #intro_header
+  #header_video {
+    display: none;
+  }
+  #intro_header {
+    padding: 160px 0 0 0;
+    text-align: center;
+    .sub_title {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 300;
+    }
+    .main_title {
+      width: 0;
+      height: 0;
+      font-size: 0;
+      overflow: hidden;
+    }
+    .logo_wrapper {
+      .svg_logo_paper, .svg_logo_pro {
+        display: block;
+        margin: 0 auto;
+      }
+      .svg_logo_paper {
+        margin-top: 18px;
+        width: 185px;
+        height: 48px;
+      }
+      .svg_logo_pro {
+        margin-top: 9px;
+        width: 76px;
+        height: 25px;
+      }
+    }
+    .paper_pro_detail_button {
+      margin-top: 10px;
+      &:first-of-type {
+        margin-top: 24px;
+      }
+    }
+    .device {
+      margin: 40px 0 0 0;
+      .device_wrapper {
+        width: 257px;
+        height: 308px;
+        margin: 0 auto;
+        position: relative;
+        .paper_on, .paper_off {
+          width: 257px;
+          height: 308px;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  // ====================== #display_upgrade
+  #display_upgrade {
+    padding: 46px 0 0 0;
+    .article_paragraph {
+      margin-top: 10px;
+    }
+    .size_compare {
+      margin-top: 33px;
+      height: 203px;
+      position: relative;
+      @box_left: -10px;
+      @box_bottom: 3px;
+      .paper_image, .paper_pro_image, .book_image {
+        position: absolute;
+        bottom: 0 + @box_bottom;
+        left: 50%;
+      }
+      .paper_image {
+        width: 115px;
+        margin-left: -(88px + 115px) + @box_left;
+      }
+      .paper_pro_image {
+        width: 135px;
+        margin-left: -67px + @box_left;
+        bottom: -3px + @box_bottom;
+      }
+      .book_image {
+        width: 270px;
+        margin-left: 88px + @box_left;
+        bottom: -15px + @box_bottom;
+      }
+    }
+    .display_size_article {
+      margin-top: 45px;
+      .article_paragraph {
+        margin-top: 16px;
+      }
+    }
+    .landscape_mode {
+      margin-top: 54px;
+      .landscape_display_image, .landscape_display_shadow_image {
+        display: block;
+        margin: 0 auto;
+      }
+      .landscape_display_image {
+        width: 280px;
+      }
+      .landscape_display_shadow_image {
+        width: 320px;
+        margin-top: -8px;
+      }
+    }
+    .thickness_and_weight_wrapper {
+      margin-top: 40px;
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      .thickness, .weight {
+        display: table-cell;
+      }
+      .thickness {
+        .article_title {
+          padding-right: 0;
+        }
+        .article_paragraph {
+          padding-right: 10px;
+        }
+      }
+      .weight {
+        .article_title, .article_paragraph {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }
+    }
+    .side_view {
+      margin-top: 40px;
+      .side_view_image, .side_view_shadow_image {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+      }
+      .side_view_image {
+        width: 280px;
+        z-index: 100;
+      }
+      .side_view_shadow_image {
+        width: 320px;
+        margin-top: 20px;
+        z-index: 50;
+      }
+    }
+    .ppi_info_wrapper {
+      @ppi_info_height: 170px;
+      margin-top: 44px;
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      height: @ppi_info_height;
+      .ppi, .high_resolution {
+        display: table-cell;
+      }
+      .ppi {
+        width: 212px;
+      }
+      .high_resolution {
+        position: relative;
+        .high_resolution_image {
+          height: @ppi_info_height;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  // ====================== #light_upgrade
+  #light_upgrade {
+    padding: 46px 0;
+    .section_title {
+      font-weight: 300;
+    }
+    .color_temperature {
+      margin-top: 30px;
+      .tmp {
+        width: 198px;
+        height: 274px;
+        margin: 0 auto;
+        position: relative;
+        .tmp_low, .tmp_high {
+          width: 198px;
+          height: 274px;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        .tmp_high {
+          opacity: 0;
+        }
+      }
+      .tmp_controller {
+        width: 200px;
+        margin: 27px auto;
+        padding-bottom: 10px;
+        .range_ui_generator(17px, white, 5px, 5px, #cedde9, #e2a44c);
+      }
+    }
+    .lowest_brightness {
+      margin-top: 55px;
+      .brightness_table {
+        table-layout: fixed;
+        margin: 0 auto;
+        width: 300px;
+        td, th {
+          text-align: center;
+          width: 50%;
+          min-width: 140px;
+          vertical-align: bottom;
+          font-weight: 300;
+          &:first-child {
+            width: 40%;
+          }
+        }
+        .device_image_wrapper {
+          width: 100%;
+          height: 190px;
+          position: relative;
+          .min_brightness, .max_brightness {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+          }
+          .paper {
+            width: 114px;
+            margin-left: -57px;
+          }
+          .paper_pro {
+            width: 136px;
+            margin-left: -68px;
+          }
+        }
+        th {
+          height: 20px;
+          font-size: 12px;
+        }
+      }
+    }
+    .article_title {
+      margin-top: 30px;
+    }
+    .article_paragraph {
+      font-weight: 300;
+    }
+    .annotation {
+      font-weight: bold;
+    }
+  }
+
+  // ====================== #ux_upgrade
+  #ux_upgrade {
+    padding: 46px 0;
+    .one_hand_pagination {
+      margin-top: 35px;
+      .pagination_wrapper {
+        position: relative;
+        width: 202px;
+        height: 283px;
+        margin: 0 auto;
+        .page_list {
+          position: absolute;
+          width: 202px;
+          left: 0;
+          top: 0;
+          .page {
+            width: 100%;
+          }
+        }
+        .pointer {
+          .create_pointer(30px);
+          opacity: 0;
+        }
+      }
+    }
+    .prominent_button {
+      margin-top: 36px;
+      height: 100px;
+      position: relative;
+      .button_bg, .button {
+        position: absolute;
+        left: 50%;
+      }
+      .button_bg {
+        width: 800px;
+        margin-left: -400px;
+      }
+      .button {
+        width: 244px;
+        top: 62px;
+        margin-left: -119px;
+        height: 10px;
+      }
+    }
+    .article_title {
+      margin-top: 35px;
+    }
+  }
+
+  // ====================== #hardware_upgrade
+  #hardware_upgrade {
+    padding: 46px 0;
+    .layer {
+      margin-top: 20px;
+      height: 60px;
+      position: relative;
+      .layer_image {
+        position: absolute;
+        width: 266px;
+        left: 50%;
+        margin-left: -133px;
+        &.display {
+          margin-top: 10px;
+        }
+      }
+    }
+    .section_title {
+      font-weight: 300;
+    }
+    .article_paragraph {
+      font-weight: 300;
+    }
+    .durability {
+      margin-top: 5px;
+    }
+    .battery {
+      margin-top: 50px;
+    }
+    .battery_compare_chart {
+      margin-top: 30px;
+      padding: 0 20px;
+      width: 85%;
+      .chart_title {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .bar {
+        height: 6px;
+        font-size: 0;
+        text-indent: -20px;
+        overflow: hidden;
+        &.paper_pro_battery_bar {
+          width: 100%;
+        }
+        &.paper_battery_bar {
+          width: 35%;
+        }
+      }
+      .paper_pro_chart, .paper_chart {
+        margin-top: 14px;
+      }
+      .device_title, .description {
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .paper_pro_chart {
+        .description_wrapper {
+          margin-top: 7px;
+          display: table;
+          table-layout: fixed;
+          width: 100%;
+          .device_title {
+            display: table-cell;
+            font-weight: 300;
+          }
+          .description {
+            display: table-cell;
+            text-align: right;
+          }
+        }
+      }
+      .paper_chart {
+        .device_title {
+          margin-top: 7px;
+        }
+      }
+    }
+  }
+
+  // ====================== #paper_pro_simple_info
+  #paper_pro_simple_info {
+    padding: 50px 0;
+    text-align: center;
+    .section_title {
+      font-size: 30px;
+      text-align: center;
+      font-weight: 300;
+    }
+    .svg_logo_paper, .svg_logo_pro {
+      display: block;
+      margin: 0 auto;
+    }
+    .svg_logo_paper {
+      width: 127px;
+      margin-top: 15px;
+    }
+    .svg_logo_pro {
+      width: 52px;
+      margin-top: 8px;
+    }
+    .devices {
+      height: 290px;
+      margin-top: 15px;
+      .device_back, .device_front {
+        position: absolute;
+        left: 50%;
+      }
+      .device_back {
+        width: 184px;
+        margin-left: -170px;
+        z-index: 100;
+      }
+      .device_front {
+        width: 205px;
+        margin-left: -42px;
+        z-index: 200;
+      }
+    }
+    .price {
+      margin-top: 14px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .paper_pro_detail_button {
+      margin-top: 10px;
+      &:first-of-type {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  // ====================== #designed_by_ridi
+  #designed_by_ridi {
+    padding-top: 45px;
+    .description_wrapper {
+      .section_title {
+        text-align: left;
+        padding: 0 20px;
+        font-size: 30px;
+        .svg_logo_ridi {
+          display: inline-block;
+          width: 54px;
+          height: 22px;
+          margin-left: 10px;
+          fill: white;
+        }
+      }
+      .article_paragraph {
+        margin-top: 13px;
+      }
+    }
+    .device {
+      margin-top: 60px;
+      height: 190px;
+      text-align: center;
+      .device_back {
+        height: 100%;
+      }
+    }
+  }
+
+
+  // ====================== #spec_compare
+  #spec_compare {
+    padding: 0 20px 50px 20px;
+    .paper_pro_image {
+      width: 41px;
+      height: 56px;
+    }
+    .paper_image {
+      width: 35px;
+      height: 47px;
+    }
+    #spec_compare_table {
+      tbody {
+        tr:first-child {
+          th, td {
+            border-top: 1px solid black;
+          }
+        }
+      }
+    }
+    .spec_alert {
+      position: relative;
+      text-align: left;
+      line-height: 1.5em;
+      padding-left: 9px;
+      .star {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+
+  // ====================== #detail_spec
+  #detail_spec {
+    padding: 0 10px 50px 10px;
+    .image_wrapper {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .paper_pro_front_and_back_image {
+      width: 160px;
+    }
+  }
+}
+
+// ========================================================= queries_large
+@media @queries_large {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+  @max-width: 900px;
+  #page_intro {
+    .intro_section {
+      overflow: hidden;
+      .contents_wrapper {
+        max-width: @max-width;
+        margin: 0 auto;
+      }
+    }
+    .white_tone {
+      font-weight: bold;
+    }
+    .section_title {
+      font-size: 50px;
+      text-align: center;
+      font-weight: 300;
+    }
+    .article_title {
+      font-size: 30px;
+      font-weight: normal;
+      line-height: 1.3em;
+      strong {
+        font-weight: bold;
+      }
+    }
+    .article_paragraph {
+      font-size: 18px;
+      line-height: 1.7em;
+      font-weight: normal;
+      word-break: keep-all;
+      margin: 22px auto 0 auto;
+    }
+    .annotation {
+      margin-top: 30px;
+      font-size: 18px;
+      text-align: center;
+    }
+    .table_section_title {
+      font-size: 40px;
+    }
+    .spec_table {
+      @font_size: 15px;
+      width: 100%;
+      margin: 50px auto 0 auto;
+      thead {
+        th {
+          border-bottom: 1px solid black;
+          padding-bottom: 10px;
+          height: 100px;
+          overflow: hidden;
+          box-sizing: border-box;
+          font-size: @font_size;
+          vertical-align: bottom;
+          text-align: left;
+          .spec_title {
+            display: block;
+            margin-top: 11px;
+          }
+        }
+      }
+      tbody {
+        tr {
+          th, td {
+            font-size: @font_size;
+            line-height: 1.5em;
+            padding-top: 10px;
+            word-break: keep-all;
+          }
+          th {
+            text-align: right;
+            font-weight: normal;
+            width: 120px;
+            padding-right: 22px;
+            vertical-align: top;
+          }
+          td {
+            text-align: left;
+            vertical-align: top;
+            padding-right: 10px;
+            li {
+              padding-top: 10px;
+              font-size: inherit;
+              line-height: inherit;
+              &:first-child {
+                padding-top: 0;
+              }
+            }
+          }
+          &:first-child {
+            th, td {
+              padding-top: 15px;
+            }
+          }
+        }
+      }
+    }
+    .spec_alert {
+      margin-top: 35px;
+      text-align: center;
+      font-size: 15px;
+    }
+    .paper_pro_detail_button {
+      width: 250px;
+      height: 50px;
+      box-sizing: border-box;
+      display: inline-block;
+      margin: 0 5px;
+      .providers {
+        margin-right: -2px;
+        height: 20px;
+        vertical-align: middle;
+        transform: translateY(-2px);
+      }
+      .link_text {
+        font-size: 14px;
+        font-weight: normal;
+      }
+      &.papershop .link_text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  // ====================== #intro_header
+  @header_width: 1600px;
+  @header_height: 900px;
+  #header_video {
+    position: absolute;
+    left: 50%;
+    margin-left: -(@header_width / 2);
+    top: 0;
+    width: @header_width;
+    height: @header_height;
+    opacity: .8;
+    video {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  #intro_header {
+    background: black;
+    padding: 300px 0 0 0;
+    text-align: center;
+    box-sizing: border-box;
+    height: @header_height;
+    .sub_title {
+      text-align: center;
+      font-size: 50px;
+      font-weight: 300;
+    }
+    .main_title {
+      width: 0;
+      height: 0;
+      font-size: 0;
+      overflow: hidden;
+    }
+    .logo_wrapper {
+      .svg_logo_paper, .svg_logo_pro {
+        display: block;
+        margin: 0 auto;
+      }
+      .svg_logo_paper {
+        margin-top: 38px;
+        width: 320px;
+        height: 83px;
+      }
+      .svg_logo_pro {
+        margin-top: 14px;
+        width: 140px;
+        height: 45px;
+      }
+    }
+    .paper_pro_detail_button {
+      margin-top: 60px;
+    }
+    .device {
+      display: none;
+    }
+  }
+
+  // ====================== #display_upgrade
+  #display_upgrade {
+    padding: 160px 0 0 0;
+    .size_compare {
+      margin-top: 86px;
+      height: 400px;
+      position: relative;
+      .paper_image, .paper_pro_image, .book_image {
+        position: absolute;
+        left: 50%;
+      }
+      .paper_image {
+        width: 240px;
+        margin-left: -414px;
+        bottom: 26px;
+      }
+      .paper_pro_image {
+        width: 290px;
+        margin-left: -136px;
+        bottom: 0;
+      }
+      .book_image {
+        width: 530px;
+        margin-left: 176px;
+        bottom: -10px;
+      }
+    }
+    .display_size_article {
+      margin-top: 100px;
+      .article_title, .article_paragraph {
+        text-align: center;
+      }
+      .article_paragraph {
+        margin: 36px auto 0 auto;
+        width: 430px;
+      }
+    }
+    .landscape_mode {
+      margin-top: 50px;
+      .landscape_display_image, .landscape_display_shadow_image {
+        display: block;
+        margin: 0 auto;
+      }
+      .landscape_display_image {
+        width: 725px;
+      }
+      .landscape_display_shadow_image {
+        width: 820px;
+        margin-top: -24px;
+      }
+    }
+    .thickness_and_weight_wrapper {
+      display: table;
+      width: 780px;
+      table-layout: fixed;
+      margin: 120px auto 0 auto;
+      .thickness, .weight {
+        display: table-cell;
+        .article_title, .article_paragraph {
+          padding: 0 70px;
+        }
+        .article_paragraph {
+          margin-top: 10px;
+        }
+      }
+      .thickness .article_paragraph {
+        padding-right: 130px;
+      }
+    }
+    .side_view {
+      margin-top: 86px;
+      .side_view_image, .side_view_shadow_image {
+        display: block;
+        margin: 0 auto;
+      }
+      .side_view_image {
+        width: 780px;
+      }
+      .side_view_shadow_image {
+        width: 800px;
+        margin-top: 40px;
+      }
+    }
+    .ppi_info_wrapper {
+      @ppi_info_height: 260px;
+      margin: 120px auto 0 auto;
+      display: table;
+      width: 720px;
+      table-layout: fixed;
+      height: @ppi_info_height;
+      .ppi, .high_resolution {
+        display: table-cell;
+      }
+      .ppi {
+        width: 240px;
+        padding-top: 6px;
+      }
+      .high_resolution {
+        position: relative;
+        .high_resolution_image {
+          height: @ppi_info_height;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  // ====================== #light_upgrade
+  #light_upgrade {
+    padding: 120px 0 105px 0;
+    .article_title, .article_paragraph {
+      text-align: center;
+    }
+    .article_title {
+      margin-top: 75px;
+    }
+    .article_paragraph {
+      width: 560px;
+      font-weight: 300;
+    }
+    .color_temperature {
+      margin-top: 90px;
+      .tmp {
+        width: 400px;
+        height: 553px;
+        margin: 0 auto;
+        position: relative;
+        .tmp_low, .tmp_high {
+          width: 397px;
+          height: 548px;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        .tmp_high {
+          opacity: 0;
+        }
+      }
+      .tmp_controller {
+        width: 400px;
+        margin: 50px auto 17px auto;
+        .range_ui_generator(34px, white, 10px, 10px, #cedde9, #e2a44c);
+      }
+    }
+    .lowest_brightness {
+      margin-top: 120px;
+      .brightness_table {
+        width: 600px;
+        table-layout: fixed;
+        margin: 0 auto;
+        td, th {
+          text-align: center;
+          width: 50%;
+          min-width: 140px;
+          vertical-align: bottom;
+          font-weight: 300;
+        }
+        .device_image_wrapper {
+          width: 100%;
+          height: 378px;
+          position: relative;
+          .min_brightness, .max_brightness {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+          }
+          .paper {
+            width: 231px;
+            margin-left: -115px;
+          }
+          .paper_pro {
+            width: 271px;
+            margin-left: -134px;
+          }
+        }
+        th {
+          height: 48px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  // ====================== #ux_upgrade
+  #ux_upgrade {
+    padding: 120px 0;
+    .one_hand_pagination {
+      margin-top: 90px;
+      .pagination_wrapper {
+        position: relative;
+        width: 400px;
+        height: 559px;
+        margin: 0 auto;
+        .page_list {
+          position: absolute;
+          width: 400px;
+          left: 0;
+          top: 0;
+          .page {
+            width: 100%;
+          }
+        }
+        .pointer {
+          .create_pointer(40px);
+          opacity: 0;
+        }
+      }
+    }
+    .prominent_button {
+      margin-top: 110px;
+      height: 149px;
+      position: relative;
+      .button_bg, .button {
+        position: absolute;
+        left: 50%;
+      }
+      .button_bg {
+        width: 900px;
+        margin-left: -450px;
+      }
+      .button {
+        width: 274px;
+        top: 69px;
+        margin-left: -134px;
+        height: 11px;
+      }
+    }
+    .article_title, .article_paragraph {
+      text-align: center;
+    }
+    .article_title {
+      margin-top: 30px;
+    }
+    .one_hand_article {
+      .article_paragraph {
+        width: 500px;
+      }
+    }
+  }
+
+  // ====================== #hardware_upgrade
+  #hardware_upgrade {
+    padding: 120px 0 160px 0;
+    .layer {
+      position: relative;
+      @layer_width: 525px;
+      .layer_wrapper {
+        position: absolute;
+        left: 475px;
+        top: 55px;
+      }
+      .layer_image {
+        position: absolute;
+        width: @layer_width;
+        left: 0;
+        top: 60px;
+        &.display {
+          margin-top: 10px;
+        }
+      }
+    }
+    .article_paragraph {
+      font-weight: 300;
+    }
+    @padding_left: 90px;
+    .durability {
+      margin-top: 120px;
+      padding-left: @padding_left;
+      width: 300px;
+    }
+    .battery {
+      margin-top: 90px;
+      padding-left: @padding_left;
+      width: 540px;
+      .article_paragraph {
+        width: 310px;
+        margin: 22px 0 0 0;
+      }
+    }
+    .battery_compare_chart {
+      margin-top: 75px;
+      width: 100%;
+      .chart_title {
+        font-size: 24px;
+        font-weight: normal;
+      }
+      .bar {
+        height: 10px;
+        font-size: 0;
+        text-indent: -200px;
+        overflow: hidden;
+        &.paper_pro_battery_bar {
+          width: 100%;
+        }
+        &.paper_battery_bar {
+          width: 35%;
+        }
+      }
+      .paper_pro_chart, .paper_chart {
+        margin-top: 30px;
+      }
+      .device_title, .description {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .paper_pro_chart {
+        .description_wrapper {
+          margin-top: 14px;
+          display: table;
+          table-layout: fixed;
+          width: 100%;
+          .device_title {
+            display: table-cell;
+            font-weight: 300;
+          }
+          .description {
+            display: table-cell;
+            text-align: right;
+          }
+        }
+      }
+      .paper_chart {
+        margin-top: 40px;
+        .device_title {
+          margin-top: 14px;
+        }
+      }
+    }
+  }
+
+  // ====================== #paper_pro_simple_info
+  #paper_pro_simple_info {
+    padding: 120px 0 140px 0;
+    text-align: center;
+    .section_title {
+      font-size: 50px;
+      text-align: center;
+      font-weight: 300;
+      color: #212121;
+    }
+    .svg_logo_paper, .svg_logo_pro {
+      display: block;
+      margin: 0 auto;
+    }
+    .svg_logo_paper {
+      width: 253px;
+      height: 66px;
+      margin-top: 32px;
+    }
+    .svg_logo_pro {
+      width: 104px;
+      height: 34px;
+      margin-top: 12px;
+    }
+    .devices {
+      height: 600px;
+      margin-top: 52px;
+      .device_back, .device_front {
+        position: absolute;
+        left: 50%;
+      }
+      .device_back {
+        width: 400px;
+        height: 390px;
+        margin-left: -352px;
+        z-index: 100;
+      }
+      .device_front {
+        width: 430px;
+        height: 600px;
+        margin-left: -50px;
+        z-index: 200;
+      }
+    }
+    .price {
+      margin-top: 30px;
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .paper_pro_detail_button {
+      margin-top: 50px;
+    }
+  }
+
+  // ====================== #designed_by_ridi
+  #designed_by_ridi {
+    padding-top: 120px;
+    .description_wrapper {
+      width: 500px;
+      margin: 0 auto;
+      .section_title {
+        .svg_logo_ridi {
+          width: 90px;
+          height: 36px;
+          fill: white;
+          margin-left: 15px;
+        }
+      }
+      .section_title, .article_paragraph {
+        text-align: center;
+      }
+    }
+    .device {
+      margin-top: 100px;
+      height: 385px;
+      text-align: center;
+      .device_back {
+        height: 100%;
+      }
+    }
+  }
+
+  // ====================== #spec_compare
+  #spec_compare {
+    padding: 120px 0;
+    .table_section_title {
+      text-align: center;
+    }
+    .paper_pro_image {
+      width: 82px;
+      & + .spec_title {
+        width: 82px;
+        text-align: center;
+      }
+    }
+    .paper_image {
+      width: 70px;
+      & + .spec_title {
+        width: 70px;
+        text-align: center;
+      }
+    }
+    #spec_compare_table {
+      width: 500px;
+      tbody {
+        tr:first-child {
+          th, td {
+            border-top: 1px solid black;
+          }
+        }
+        th {
+          width: 100px;
+          padding-right: 28px;
+        }
+        td {
+          padding-right: 40px;
+        }
+        td:last-child {
+          width: 35%;
+          padding-right: 10px;
+        }
+      }
+    }
+    .spec_alert {
+      width: 450px;
+      margin: 35px auto 0 auto;
+      text-align: left;
+      line-height: 1.8em;
+      position: relative;
+      padding-left: 10px;
+      font-size:13px;
+      .star {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+
+  // ====================== #detail_spec
+  #detail_spec {
+    padding: 120px 0;
+    .table_section_title {
+      text-align: center;
+    }
+    .image_wrapper {
+      margin-top: 50px;
+      text-align: center;
+    }
+    .paper_pro_front_and_back_image {
+      width: 360px;
+    }
+    #paper_pro_spec_table {
+      width: 560px;
+      tbody {
+        th {
+          padding-right: 18px;
+        }
+        td {
+
+        }
+      }
+    }
+  }
+}
