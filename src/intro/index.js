@@ -66,10 +66,10 @@ $(() => {
   $(window)
     .scroll(e => {
       const currentScrollTop = $(e.currentTarget).scrollTop() + windowHeight;
-      for (const [index, value] of triggersTops.entries()) {
+      triggersTops.map((top, index) => {
         const triggerClassList = document.querySelectorAll(trigger)[index].classList;
-        value < currentScrollTop ? triggerClassList.add(active) : triggerClassList.remove(active);
-      }
+        top < currentScrollTop ? triggerClassList.add(active) : triggerClassList.remove(active);
+      });
       if (!rangeAnimationPlay && currentScrollTop > rangeInputTop) {
         rangeIncrement();
         rangeAnimationPlay = true;
