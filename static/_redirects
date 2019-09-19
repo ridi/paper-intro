@@ -1,2 +1,3 @@
 # Redirect default Netlify subdomain to primary domain
-http://fervent-brattain-19d82d.netlify.com/* http://paper.ridibooks.com/:splat 301!
+http://paper-ridibooks-com.netlify.com/* https://paper.ridibooks.com/:splat 301!
+https://paper-ridibooks-com.netlify.com/* https://paper.ridibooks.com/:splat 301!
