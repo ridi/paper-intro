@@ -25,6 +25,7 @@
   ],
   "dependencies": {
     "common": "^0.2.5",
+    "ismobilejs": "^1.0.3",
     "jquery": "^3.4.1"
   }
 }
