@@ -41,79 +41,48 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-#ridi_shop {
-  position: relative; cursor: default;
-  min-width: @shop_min_width + 40px;
-  transition: transform .15s ease-out;
-}
-
 #shop_header {
-  position: absolute; left: 0; top: 0; width: 100%;
+  box-sizing: border-box;
+  position: absolute; left: 0; top: 0; width: 100%; height: 100px;
+  overflow: visible;
   background: white; background: rgba(255, 255, 255, .9);
+  border-bottom: 1px solid @color_slategray_4;
+  border-bottom-color: rgba(255, 255, 255, .3);
+  font-family: 'Noto Sans KR', sans-serif;
   .box_shadow(~"0 2px 5px 0 rgba(0,0,0,.1)");
-  .header_top_wrapper {
-    position: absolute; left: 0; top: 0; width: 100%;
-    border-bottom: 1px solid @color_slategray_8;
+
+  .header_wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: @shop_min_width + 32px;
+    margin: 0 auto;
+    padding: 0 16px;
 
     .header_top {
-      width: @shop_min_width; height: 29px; margin: 0 auto; display: table;
-
-      .ridibooks_link_wrapper {
+      display: table;
+      .ridipaper_logo {
         display: table-cell; vertical-align: middle;
-      }
-      .ridibooks_link_wrapper {
-        .ridibooks_link {
-          font-size: 12px;
-          .svg_logo_ridibooks {
-            fill: white;
-            width: 76px;
-            height: 13px;
-            vertical-align: top;
-            margin-right: 10px;
-          }
-          .icon-logo_ridibooks_2 {
-            font-size: 13px; padding-right: 7px; vertical-align: -12%;
-            .transition(~"color .2s");
-          }
-          &:hover {
-            .icon-logo_ridibooks_2 {
-              color: @color_dodgerblue_3;
-            }
-          }
-        }
+        height: 16px;
+        margin: 24px 0 10px;
+        fill: white;
       }
     }
-  }
-  .header_bottom_wrapper {
-    border-bottom: 1px solid @color_slategray_4; padding-top: 30px;
 
     .header_bottom {
-      width: @shop_min_width; margin: 0 auto; display: table;
-
-      .header_title, .header_mymenu {
-        display: table-cell; vertical-align: middle; padding: 20px 0 19px 0
-      }
-      .header_title {
-        width: 200px;
-        a {
-          display: block; font-size: 0;
-          .svg_logo_paper {
-            width: 94px; height: 28px;
-            fill: white;
-          }
+      .nav_item > div {
+        display: inline-block;
+        padding: 12px 4px;
+        font-size: 16px;
+        line-height: 24px;
+        border-bottom: 2px solid transparent;
+        color: rgba(255, 255, 255, .7);
+        &.active {
+          border-bottom-color: white;
+          color: white;
         }
       }
-      .header_mymenu {
-        width: 200px; text-align: right;
-        li {
-          display: inline-block; margin-left: 16px
-        }
-        a {
-          font-size: 17px; color: @color_slategray_2; font-weight: 600;
-          &:hover {
-            color: @color_dodgerblue_3
-          }
-        }
+      > * + * {
+        margin-left: 16px;
       }
     }
   }
@@ -125,6 +94,7 @@ body {
 }
 
 #shop_footer {
+  font-family: 'RidiSans', sans-serif;
   .footer_top_wrapper {
     border-top: 1px solid @color_slategray_8;
 
@@ -321,33 +291,10 @@ body {
     }
   }
 
-  #ridi_shop {
-    min-width: inherit; width: 100%;
-  }
-
   #shop_header {
-    background: rgba(255,255,255,.9); position: absolute; left: 0; top: 0; z-index: 800;
-    .box_shadow(~"none");
-    .header_top_wrapper {
-      display: none;
-    }
-    .header_bottom_wrapper {
-      padding: 0; position: relative;
-      .header_bottom {
-        width: 100%; .box_sizing(~"border-box"); padding: 0 15px; border-color: @color_slategray_8;
-        .header_title {
-          width: auto; padding: 16px 0;
-          a{
-            display: block; font-size: 0;
-            .svg_logo_paper {
-              width: 60px; height: 18px;
-            }
-          }
-        }
-        .header_mymenu a {
-          font-size: 15px;
-        }
-      }
+    height: 94px;
+    .header_wrapper .header_top .ridipaper_logo {
+      margin: 16px 0 12px;
     }
   }
 
@@ -370,9 +317,8 @@ body {
                 font-weight: bold;
                 color: @slategray_80;
                 padding: 0 12px;
-                .svg_ridibooks_logo {
-                  width: 69px;
-                  height: 17px;
+                .svg_logo_ridibooks {
+                  height: 13px;
                   vertical-align: top;
                   fill: @slategray_80;
                 }

@@ -1,1 +1,12 @@
-include intro/index.pug
+extends /common/layout.pug
+
+block page_var
+  - var page = 'ridipaper';
+
+block styles
+  link(rel='stylesheet', href='/new-paper/styles/main.less')
+
+block contents
+  #page_intro
+    #intro_header
+    #intro_body

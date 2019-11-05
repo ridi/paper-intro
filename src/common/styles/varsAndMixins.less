@@ -1,7 +1,7 @@
 @import "colors.less";
 
 // PC샵 기본 가로폭
-@shop_min_width: 900px;
+@shop_min_width: 1000px;
 
 // media queries
 @queries_small: ~"only screen and (max-width: 670px)";
@@ -740,7 +740,6 @@
   #shop_header {
     z-index: 10; background: none; .box_shadow(~"none");
     .header_top_wrapper {
-      border-color: #eee; border-color: rgba(255, 255, 255, .3);
       .header_top {
         .ridibooks_link_wrapper {
           .ridibooks_link {
@@ -770,7 +769,6 @@
       }
     }
     .header_bottom_wrapper {
-      border-bottom: none;
       .header_bottom {
         .header_title {
           a {
@@ -804,7 +802,6 @@
       &.fixed {
         position: fixed; width: 100%; left: 0; top: -50px; .transition(~"top .5s");
         padding: 0; background: white;
-        border-bottom: 1px solid #ced2d6; .box_shadow(~"0 0 4px 0 rgba(0,0,0,.3)");
         &.active {
           top: 0;
         }
@@ -826,39 +823,6 @@
             display: none;
             &.event_button_wrapper {
               display: inline-block;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // ====================================================== shop_header for mobile
-  @media @queries_small {
-    #shop_header {
-      background: none;
-      .header_bottom_wrapper{
-        border-bottom: 1px solid rgba(255,255,255,.3);
-        .header_bottom{
-          .header_title a .header_title_logo {
-            //.svg_logo_paper_regular(white);
-          }
-          .header_mymenu a {
-            color: white;
-            &:hover {
-              color: white;
-            }
-          }
-        }
-        &.active {
-          .header_bottom {
-            .header_title a {
-              .header_title_logo {
-                //.svg_logo_paper_regular(black);
-              }
-              &:hover .header_title_logo{
-                //.svg_logo_paper_regular(black);
-              }
             }
           }
         }
