@@ -51,12 +51,20 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   .box_shadow(~"0 2px 5px 0 rgba(0,0,0,.1)");
 
+  @media @query_mobile {
+    height: 94px;
+  }
+
   .header_wrapper {
     box-sizing: border-box;
     width: 100%;
     max-width: @shop_min_width + 32px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 20px;
+
+    @media @query_mobile {
+      padding: 0 16px;
+    }
 
     .header_top {
       display: table;
@@ -65,6 +73,10 @@ body {
         height: 16px;
         margin: 24px 0 10px;
         fill: white;
+
+        @media @query_mobile {
+          margin: 16px 0 12px;
+        }
       }
     }
 
@@ -288,13 +300,6 @@ body {
     .close {
       margin: 0; padding: 0; position: absolute; top: 0; right: 0;
       width: 40px; height: 40px; line-height: 39px; text-align: center;
-    }
-  }
-
-  #shop_header {
-    height: 94px;
-    .header_wrapper .header_top .ridipaper_logo {
-      margin: 16px 0 12px;
     }
   }
 

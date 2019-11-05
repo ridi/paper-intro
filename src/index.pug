@@ -8,5 +8,15 @@ block styles
 
 block contents
   #page_intro
-    #intro_header
-    #intro_body
+    .intro_header_wrapper
+      .intro_header
+        .image_wrapper
+          img(src='/new-paper/silhouette.jpg')
+        .text
+          .phrase 세상이 나의 서재가 된다
+          include /intro/ridipaper_logo.pug
+          .date 2019.12.09. 12:00#[span.am AM]
+          .date_desc.
+            #[strong 단 하루,] 사전 예약 구매 오픈
+          .seller 사전 예약 구매처: 29CM, 스마트 스토어
+    .intro_body

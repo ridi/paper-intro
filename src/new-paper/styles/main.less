@@ -5,47 +5,118 @@ html {
 }
 
 .shop_header_for_intro_page();
-// ========================================================= default color
-#page_intro {
-  .white_tone {
-    color: #212121;
-  }
-  .dark_tone {
-    color: white;
-  }
-  .section_title {
-    color: inherit;
-  }
-  .article_title {
-    color: inherit;
-  }
-  .article_paragraph {
-    color: inherit;
-  }
-  .annotation {
-    color: #666;
-  }
-  .table_section_title {
-    color: #212121;
-  }
+
+#page_intro * {
+  box-sizing: border-box;
 }
 
-#intro_header {
-  height: 900px;
+.intro_header_wrapper {
+  padding-top: 100px;
   background: #151515;
-  .sub_title {
-    color: white;
+
+  @media @query_mobile {
+    padding-top: 94px;
   }
-  .logo_wrapper {
-    .svg_logo_paper {
-      fill: white;
+}
+
+.intro_header {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 230px 20px;
+
+  @media @query_mobile {
+    padding: 50px 0 30px;
+    text-align: center;
+  }
+
+  > .image_wrapper {
+    position: absolute;
+    top: 100px;
+    right: 35px;
+    bottom: 0;
+    width: 700px;
+
+    display: flex;
+    align-items: center;
+
+    > img {
+      width: 100%;
     }
-    .svg_logo_pro {
-      fill: #D5A172;
+
+    @media @query_mobile {
+      position: static;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  > .text {
+    position: relative;
+    > .phrase {
+      margin-bottom: 18px;
+      font-size: 35px;
+      line-height: 52px;
+      color: white;
+
+      @media @query_mobile {
+        font-size: 24px;
+        line-height: 36px;
+        margin-bottom: 15px;
+      }
+    }
+
+    > .ridipaper_logo {
+      height: 50px;
+      margin-bottom: 100px;
+      fill: white;
+
+      @media @query_mobile {
+        height: 30px;
+        margin-bottom: 70px;
+      }
+    }
+
+    > .date {
+      margin-bottom: 5px;
+      font-family: Roboto, sans-serif;
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 38px;
+      color: @dodgerblue_40;
+
+      > .am {
+        font-size: 20px;
+        line-height: 20px;
+      }
+
+      @media @query_mobile {
+        margin-bottom: 3px;
+      }
+    }
+
+    > .date_desc {
+      margin-bottom: 20px;
+      font-size: 22px;
+      line-height: 32px;
+      color: white;
+
+      @media @query_mobile {
+        margin-bottom: 48px;
+      }
+    }
+
+    > .seller {
+      font-size: 17px;
+      line-height: 25px;
+      color: rgba(255, 255, 255, .5);
     }
   }
 }
 
-#intro_body {
+.intro_body {
   height: 400px;
 }
