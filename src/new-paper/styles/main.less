@@ -24,7 +24,7 @@ html {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 230px 20px;
+  padding: 230px 100px;
 
   @media @query_mobile {
     padding: 50px 0 30px;
@@ -34,7 +34,7 @@ html {
   > .image_wrapper {
     position: absolute;
     top: 100px;
-    right: 35px;
+    right: 0;
     bottom: 0;
     width: 700px;
 
@@ -56,10 +56,11 @@ html {
 
   > .text {
     position: relative;
-    > .phrase {
+    > h2.phrase {
       margin-bottom: 18px;
       font-size: 35px;
       line-height: 52px;
+      font-weight: normal;
       color: white;
 
       @media @query_mobile {
@@ -69,7 +70,7 @@ html {
       }
     }
 
-    > .ridipaper_logo {
+    > h1 > .ridipaper_logo {
       height: 50px;
       margin-bottom: 100px;
       fill: white;
@@ -118,5 +119,73 @@ html {
 }
 
 .intro_body {
-  height: 400px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 100px 30px 150px;
+
+  > section > * + p {
+    margin-top: 20px;
+
+    @media @query_mobile {
+      margin-top: 15px;
+    }
+
+    &:first-of-type {
+      margin-top: 21px;
+
+      @media @query_mobile {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 32px;
+    line-height: 47px;
+    text-align: center;
+    color: @slategray_100;
+
+    @media @query_mobile {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    color: @slategray_60;
+
+    @media @query_mobile {
+      font-size: 17px;
+      line-height: 25px;
+    }
+  }
+
+  > img.stand {
+    margin: 50px 0 100px;
+    width: 100%;
+    max-width: 405px;
+    border-radius: 5px;
+
+    @media @query_mobile {
+      margin: 30px 0 50px;
+      max-width: 315px;
+    }
+  }
+
+  > a.event {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin-top: 50px;
+    border: 2px solid @dodgerblue_50;
+    border-radius: 3px;
+    font-size: 19px;
+    line-height: 46px;
+    font-weight: bold;
+    text-align: center;
+    color: @dodgerblue_50;
+  }
 }
