@@ -3,6 +3,13 @@ extends /common/layout.pug
 block page_var
   - var page = 'ridipaper';
 
+block meta
+  title RIDIPAPER - 리디북스 전자책 단말기, 리디페이퍼
+  meta(name='theme-color', content='#000000')
+  meta(name='description', content='리디북스 전용 전자책 단말기 리디페이퍼. 최고의 전자책 서비스 리디셀렉트와 리디북스를 이용할 수 있는 외출 필수품.')
+  meta(property='og:image', content='/images/banner/ridipaper_teaser.jpg')
+  meta(property='og:description', content='가볍게, 언제 어디서나. 새로운 전자책 단말기')
+
 block styles
   link(rel='stylesheet', href='/ridipaper/styles/main.less')
 
