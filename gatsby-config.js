@@ -8,6 +8,8 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-typescript',
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-astroturf',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
