@@ -1,16 +1,36 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import styled from 'astroturf';
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 import './layout.css';
+
+const Hero = styled.div`
+  position: relative;
+  height: 900px;
+`;
+
+const HeroBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #636c73;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const HeroOverlay = styled.div`
+  position: relative;
+`;
 
 const Container = styled.div`
   margin: 0 auto;
@@ -23,19 +43,14 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Hero>
+        <HeroBackground />
+        <HeroOverlay>
+          <Header />
+        </HeroOverlay>
+      </Hero>
       <Container>
         <main>{children}</main>
         <footer>
