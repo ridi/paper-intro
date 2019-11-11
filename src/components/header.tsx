@@ -4,6 +4,11 @@ import React from 'react';
 import RidipaperLogo from '../svgs/ridipaper.svg';
 
 const Container = styled.header`
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 `;
