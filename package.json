@@ -15,6 +15,7 @@
     "gatsby-plugin-offline": "^3.0.17",
     "gatsby-plugin-postcss": "^2.1.14",
     "gatsby-plugin-react-helmet": "^3.1.13",
+    "gatsby-plugin-react-svg": "^2.1.2",
     "gatsby-plugin-sharp": "^2.2.34",
     "gatsby-plugin-typescript": "^2.1.15",
     "gatsby-source-filesystem": "^2.1.35",

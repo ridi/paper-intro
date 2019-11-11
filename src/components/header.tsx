@@ -1,5 +1,7 @@
-import styled from 'astroturf';
+import styled, { css } from 'astroturf';
 import React from 'react';
+
+import RidipaperLogo from '../svgs/ridipaper.svg';
 
 const Container = styled.header`
   height: 100px;
@@ -22,13 +24,6 @@ const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 16px;
-`;
-
-const RidipaperLogo = styled.div`
-  display: inline-block;
-  width: 106.36px;
-  height: 16px;
-  background-color: #636c73;
 `;
 
 const BuyButton = styled.a`
@@ -67,11 +62,18 @@ const NavButton = styled<'a', { active?: boolean }>('a')`
   }
 `;
 
+const styles = css`
+  .ridipaperLogo {
+    height: 16px;
+    fill: white;
+  }
+`;
+
 const Header = () => (
   <Container>
     <Center>
       <Top>
-        <RidipaperLogo />
+        <RidipaperLogo className={styles.ridipaperLogo} />
         <BuyButton>구매하기</BuyButton>
       </Top>
       <Bottom>
