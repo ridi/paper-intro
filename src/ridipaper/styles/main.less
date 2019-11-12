@@ -4,13 +4,14 @@ html {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+body {
+  background: black;
+}
+
 .shop_header_for_intro_page();
 
-#page_intro {
-  background-color: black;
-  * {
-    box-sizing: border-box;
-  }
+#page_intro * {
+  box-sizing: border-box;
 }
 
 .intro_header_wrapper {
@@ -28,7 +29,7 @@ html {
   margin: 80px auto 0;
 
   @media @query_mobile {
-    max-width: initial;
+    max-width: 600px;
     margin-top: 50px;
   }
 
@@ -50,10 +51,10 @@ html {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 200px 100px;
+  padding: 200px 100px 325px;
 
   @media @query_mobile {
-    padding: 293px 0 75px;
+    padding: 320px 0 100px;
     text-align: center;
   }
 
@@ -111,17 +112,6 @@ html {
       margin-top: 3px;
     }
   }
-
-  > .seller {
-    margin-top: 30px;
-    font-size: 17px;
-    line-height: 25px;
-    color: rgba(255, 255, 255, .5);
-
-    @media @query_mobile {
-      margin-top: 48px;
-    }
-  }
 }
 
 .intro_body {
@@ -130,12 +120,11 @@ html {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 25px 0 84px;
+  padding-bottom: 200px;
   display: flex;
 
   @media @query_mobile {
     display: block;
-    padding-bottom: 100px;
     text-align: center;
   }
 
@@ -189,5 +178,35 @@ html {
     font-weight: bold;
     text-align: center;
     color: white;
+  }
+
+  ul {
+    margin-top: 20px;
+    > li {
+      height: 20px;
+      display: flex;
+      align-items: center;
+
+      @media @query_mobile {
+        justify-content: center;
+      }
+
+      > svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      > .name {
+        height: 20px;
+        margin-left: 10px;
+        font-size: 17px;
+        line-height: 20px;
+        color: white;
+      }
+
+      & + li {
+        margin-top: 20px;
+      }
+    }
   }
 }
