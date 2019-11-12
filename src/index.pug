@@ -16,31 +16,26 @@ block styles
 block contents
   #page_intro
     .intro_header_wrapper
+      .silhouette
+        img(src='/ridipaper/silhouette.jpg')
       .intro_header
-        .image_wrapper
-          img(src='/ridipaper/silhouette.jpg')
-        .text
-          h2.phrase 세상이 나의 서재가 된다
-          h1
-            include /intro/ridipaper_logo.pug
-            span.indent_hidden RIDIPAPER
-          .date 2019.12.09. 12:00#[span.am AM]
-          .date_desc.
-            #[strong 단 하루,] 사전 예약 구매 오픈
-          .seller 사전 예약 구매처: 29CM, 스마트 스토어
+        h2.phrase 세상이 나의 서재가 된다
+        h1
+          include /intro/ridipaper_logo.pug
+          span.indent_hidden RIDIPAPER
+        .date 2019.12.09. 11:00#[span.am AM]
+        .date_desc.
+          새로운 #[strong RIDIPAPER] 정식 출시
+        .seller 사전 예약 구매처: 29CM, 스마트 스토어
     .intro_body
-      section
-        h3 사전 예약 구매자 혜택
-        p.
-          사전 예약으로 구매하신 모든 분들께#[br]
-          #[strong 헤비츠 레더 스탠드]를 제공합니다.
-      img.stand(src='/ridipaper/hevitz-leather-stand.jpg')
       section
         h3 출시 기념 퀴즈 이벤트
         p.
-          #[strong RIDIPAPER] 출시 기념 퀴즈 풀고#[br]
-          다양한 경품 혜택을 놓치지 마세요!
-        p.
           #[strong 2019년 12월 5일] 퀴즈의 정답과 함께#[br]
           RIDIPAPER의 상세 정보가 공개됩니다.
-      a.event 이벤트 참여하기
+        a.event 이벤트 참여하기
+      section
+        h3 출시 첫 날 한정 이벤트
+        p.
+          #[strong 2019년 12월 9일] 구매하신 모든 분들께#[br]
+          #[strong 헤비츠 레더 스탠드]를 제공합니다.

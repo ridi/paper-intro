@@ -6,144 +6,62 @@ html {
 
 .shop_header_for_intro_page();
 
-#page_intro * {
-  box-sizing: border-box;
+#page_intro {
+  background-color: black;
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .intro_header_wrapper {
   padding-top: 100px;
-  background: #151515;
 
   @media @query_mobile {
     padding-top: 94px;
   }
 }
 
-.intro_header {
+.silhouette {
   position: relative;
+  max-width: 1160px;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 230px 100px;
+  margin: 80px auto 0;
 
   @media @query_mobile {
-    padding: 50px 0 30px;
-    text-align: center;
+    max-width: initial;
+    margin-top: 50px;
   }
 
-  > .image_wrapper {
+  > img {
     position: absolute;
-    top: 100px;
     right: 0;
-    bottom: 0;
-    width: 700px;
-
-    display: flex;
-    align-items: center;
-
-    > img {
-      width: 100%;
-    }
+    width: 800px;
+    height: 800px;
 
     @media @query_mobile {
-      position: static;
       width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-      display: block;
-    }
-  }
-
-  > .text {
-    position: relative;
-    > h2.phrase {
-      margin-bottom: 18px;
-      font-size: 35px;
-      line-height: 52px;
-      font-weight: normal;
-      color: white;
-
-      @media @query_mobile {
-        font-size: 24px;
-        line-height: 36px;
-        margin-bottom: 15px;
-      }
-    }
-
-    > h1 > .ridipaper_logo {
-      height: 50px;
-      margin-bottom: 100px;
-      fill: white;
-
-      @media @query_mobile {
-        height: 30px;
-        margin-bottom: 70px;
-      }
-    }
-
-    > .date {
-      margin-bottom: 5px;
-      font-family: Roboto, sans-serif;
-      font-size: 32px;
-      font-weight: bold;
-      line-height: 38px;
-      color: @dodgerblue_40;
-
-      > .am {
-        font-size: 20px;
-        line-height: 20px;
-      }
-
-      @media @query_mobile {
-        margin-bottom: 3px;
-      }
-    }
-
-    > .date_desc {
-      margin-bottom: 20px;
-      font-size: 22px;
-      line-height: 32px;
-      color: white;
-
-      @media @query_mobile {
-        margin-bottom: 48px;
-      }
-    }
-
-    > .seller {
-      font-size: 17px;
-      line-height: 25px;
-      color: rgba(255, 255, 255, .5);
+      height: initial;
     }
   }
 }
 
-.intro_body {
-  box-sizing: border-box;
-  text-align: center;
-  padding: 100px 30px 150px;
+.intro_header {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 200px 100px;
 
-  > section > * + p {
-    margin-top: 20px;
-
-    @media @query_mobile {
-      margin-top: 15px;
-    }
-
-    &:first-of-type {
-      margin-top: 21px;
-
-      @media @query_mobile {
-        margin-top: 30px;
-      }
-    }
+  @media @query_mobile {
+    padding: 293px 0 75px;
+    text-align: center;
   }
 
-  h3 {
-    font-size: 32px;
-    line-height: 47px;
-    text-align: center;
-    color: @slategray_100;
+  > h2.phrase {
+    font-size: 35px;
+    line-height: 52px;
+    font-weight: normal;
+    color: white;
 
     @media @query_mobile {
       font-size: 24px;
@@ -151,41 +69,125 @@ html {
     }
   }
 
-  p {
-    font-size: 20px;
-    line-height: 28px;
+  > h1 {
+    line-height: 0;
+    > .ridipaper_logo {
+      height: 60px;
+      margin-top: 18px;
+      fill: white;
+
+      @media @query_mobile {
+        height: 36px;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  > .date {
+    margin-top: 100px;
+    font-family: Roboto, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 35px;
+    color: @dodgerblue_40;
+
+    > .am {
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+    @media @query_mobile {
+      margin-top: 64px;
+    }
+  }
+
+  > .date_desc {
+    margin-top: 5px;
+    font-size: 22px;
+    line-height: 33px;
+    color: white;
+
+    @media @query_mobile {
+      margin-top: 3px;
+    }
+  }
+
+  > .seller {
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 25px;
+    color: rgba(255, 255, 255, .5);
+
+    @media @query_mobile {
+      margin-top: 48px;
+    }
+  }
+}
+
+.intro_body {
+  box-sizing: border-box;
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 25px 0 84px;
+  display: flex;
+
+  @media @query_mobile {
+    display: block;
+    padding-bottom: 100px;
     text-align: center;
-    color: @slategray_60;
+  }
+
+  > section {
+    flex: 1;
+    margin-left: 100px;
 
     @media @query_mobile {
-      font-size: 17px;
-      line-height: 25px;
+      margin-left: 0;
+
+      & + section {
+        margin-top: 80px;
+      }
+    }
+
+    > p {
+      margin-top: 23px;
     }
   }
 
-  > img.stand {
-    margin: 50px 0 100px;
-    width: 100%;
-    max-width: 405px;
-    border-radius: 5px;
+  h3 {
+    font-size: 20px;
+    line-height: 30px;
+    color: white;
 
     @media @query_mobile {
-      margin: 30px 0 50px;
-      max-width: 315px;
+      font-size: 22px;
+      line-height: 32px;
     }
   }
 
-  > a.event {
+  p {
+    font-size: 17px;
+    line-height: 25px;
+    color: rgba(255, 255, 255, .5);
+
+    strong {
+      color: white;
+    }
+  }
+
+  a.event {
     display: inline-block;
-    width: 200px;
-    height: 50px;
-    margin-top: 50px;
-    border: 2px solid @dodgerblue_50;
+    width: 138px;
+    height: 40px;
+    margin-top: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 3px;
-    font-size: 19px;
-    line-height: 46px;
+    font-size: 15px;
+    line-height: 36px;
     font-weight: bold;
     text-align: center;
-    color: @dodgerblue_50;
+    color: white;
   }
 }
