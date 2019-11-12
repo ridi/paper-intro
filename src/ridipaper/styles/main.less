@@ -10,8 +10,11 @@ body {
 
 .shop_header_for_intro_page();
 
-#page_intro * {
-  box-sizing: border-box;
+#page_intro {
+  letter-spacing: 0;
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .intro_header_wrapper {
@@ -51,10 +54,10 @@ body {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 200px 100px 325px;
+  padding: 200px 100px 305px;
 
   @media @query_mobile {
-    padding: 320px 0 100px;
+    padding: 270px 0 100px;
     text-align: center;
   }
 
@@ -62,6 +65,7 @@ body {
     font-size: 35px;
     line-height: 52px;
     font-weight: normal;
+    letter-spacing: -1px;
     color: white;
 
     @media @query_mobile {
@@ -85,20 +89,27 @@ body {
   }
 
   > .date {
-    margin-top: 100px;
+    margin-top: 70px;
     font-family: Roboto, sans-serif;
     font-size: 30px;
     font-weight: bold;
     line-height: 35px;
     color: @dodgerblue_40;
 
+    @media @query_mobile {
+      margin-top: 64px;
+      font-size: 28px;
+      line-height: 33px;
+    }
+
     > .am {
       font-size: 20px;
       line-height: 20px;
-    }
 
-    @media @query_mobile {
-      margin-top: 64px;
+      @media @query_mobile {
+        font-size: 18px;
+        line-height: 18px;
+      }
     }
   }
 
@@ -110,6 +121,8 @@ body {
 
     @media @query_mobile {
       margin-top: 3px;
+      font-size: 20px;
+      line-height: 30px;
     }
   }
 }
@@ -141,7 +154,7 @@ body {
     }
 
     > p {
-      margin-top: 23px;
+      margin-top: 20px;
     }
   }
 

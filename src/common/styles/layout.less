@@ -49,11 +49,8 @@ body {
   border-bottom: 1px solid @color_slategray_4;
   border-bottom-color: rgba(255, 255, 255, .3);
   font-family: 'Noto Sans KR', sans-serif;
+  letter-spacing: -.02em;
   .box_shadow(~"0 2px 5px 0 rgba(0,0,0,.1)");
-
-  @media @query_mobile {
-    height: 94px;
-  }
 
   .header_wrapper {
     box-sizing: border-box;
@@ -73,10 +70,6 @@ body {
         height: 16px;
         margin: 24px 0 10px;
         fill: white;
-
-        @media @query_mobile {
-          margin: 16px 0 12px;
-        }
       }
     }
 
@@ -90,6 +83,7 @@ body {
         color: rgba(255, 255, 255, .7);
         &.active {
           border-bottom-color: white;
+          font-weight: bold;
           color: white;
         }
       }
