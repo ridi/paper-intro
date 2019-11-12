@@ -26,14 +26,15 @@ html(lang='ko')
 
     script(src='/common/jquery_global.js')
   body
+    block page_var
+      - var page = '';
+      - var suppressFooter = false;
     #shop_header
       .header_wrapper
         header.header_top
           include /intro/ridipaper_logo.pug
           span.hidden RIDIPAPER
         nav.header_bottom
-          block page_var
-            - var page = '';
           a.nav_item(href='/')
             div(class={active: page === 'ridipaper'}) RIDIPAPER
           a.nav_item(href='/pro.pug')
@@ -41,8 +42,9 @@ html(lang='ko')
     #ridi_shop
       section#shop_contents
         block contents
-      hr
-      include /common/footer.pug
+      if !suppressFooter
+        hr
+        include /common/footer.pug
     block scripts
     script(src='/tracking/index.js')
     noscript
