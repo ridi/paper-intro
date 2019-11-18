@@ -4,6 +4,10 @@ import React from 'react';
 const Container = styled.div`
   position: relative;
   height: 900px;
+
+  @media(max-width: 800px) {
+    height: 700px;
+  }
 `;
 
 const HeroBackground = styled.div`
