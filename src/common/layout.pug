@@ -35,10 +35,10 @@ html(lang='ko')
           include /intro/ridipaper_logo.pug
           span.hidden RIDIPAPER
         nav.header_bottom
-          a.nav_item(href='/')
-            div(class={active: page === 'ridipaper'}) RIDIPAPER
-          a.nav_item(href='/pro.pug')
-            div(class={active: page === 'paper-pro'}) PAPER PRO
+          a.nav_item(href='/', class={active: page === 'ridipaper'})
+            div RIDIPAPER
+          a.nav_item(href='/pro.pug', class={active: page === 'paper-pro'})
+            div PAPER PRO
     #ridi_shop
       section#shop_contents
         block contents
