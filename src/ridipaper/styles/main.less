@@ -1,0 +1,232 @@
+@import "../../common/styles/varsAndMixins.less";
+
+html {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+  background: black;
+}
+
+.shop_header_for_intro_page();
+
+#page_intro {
+  letter-spacing: 0;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.intro_header_wrapper {
+  padding-top: 100px;
+
+  @media @query_mobile {
+    padding-top: 94px;
+  }
+}
+
+.silhouette {
+  position: relative;
+  max-width: 1160px;
+  width: 100%;
+  margin: 80px auto 0;
+
+  @media @query_mobile {
+    max-width: 600px;
+    margin-top: 50px;
+  }
+
+  > img {
+    position: absolute;
+    right: 0;
+    width: 800px;
+    height: 800px;
+
+    @media @query_mobile {
+      width: 100%;
+      height: initial;
+    }
+  }
+}
+
+.intro_header {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 200px 100px 305px;
+
+  @media @query_mobile {
+    padding: 270px 0 100px;
+    text-align: center;
+  }
+
+  > h2.phrase {
+    font-size: 35px;
+    line-height: 52px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: white;
+
+    @media @query_mobile {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  > h1 {
+    line-height: 0;
+    > .ridipaper_logo {
+      height: 60px;
+      margin-top: 18px;
+      fill: white;
+
+      @media @query_mobile {
+        height: 36px;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  > .date {
+    margin-top: 70px;
+    font-family: Roboto, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 35px;
+    color: @dodgerblue_40;
+
+    @media @query_mobile {
+      margin-top: 64px;
+      font-size: 28px;
+      line-height: 33px;
+    }
+
+    > .am {
+      font-size: 20px;
+      line-height: 20px;
+
+      @media @query_mobile {
+        font-size: 18px;
+        line-height: 18px;
+      }
+    }
+  }
+
+  > .date_desc {
+    margin-top: 5px;
+    font-size: 22px;
+    line-height: 33px;
+    color: white;
+
+    @media @query_mobile {
+      margin-top: 3px;
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}
+
+.intro_body {
+  box-sizing: border-box;
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 200px;
+  display: flex;
+
+  @media @query_mobile {
+    display: block;
+    text-align: center;
+  }
+
+  > section {
+    flex: 1;
+    margin-left: 100px;
+
+    @media @query_mobile {
+      margin-left: 0;
+
+      & + section {
+        margin-top: 80px;
+      }
+    }
+
+    > p {
+      margin-top: 20px;
+    }
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 30px;
+    color: white;
+
+    @media @query_mobile {
+      font-size: 22px;
+      line-height: 32px;
+    }
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 25px;
+    color: rgba(255, 255, 255, .5);
+
+    strong {
+      color: white;
+    }
+  }
+
+  a.event {
+    display: inline-block;
+    width: 138px;
+    height: 40px;
+    margin-top: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+
+    transition: border-color 0.2s;
+
+    &:hover,
+    &:active {
+      border-color: white;
+    }
+  }
+
+  ul {
+    margin-top: 20px;
+    > li {
+      height: 20px;
+      display: flex;
+      align-items: center;
+
+      @media @query_mobile {
+        justify-content: center;
+      }
+
+      > svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      > .name {
+        height: 20px;
+        margin-left: 10px;
+        font-size: 17px;
+        line-height: 20px;
+        color: white;
+      }
+
+      & + li {
+        margin-top: 20px;
+      }
+    }
+  }
+}

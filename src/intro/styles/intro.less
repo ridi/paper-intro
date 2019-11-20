@@ -1,5 +1,16 @@
 @import "../../common/styles/varsAndMixins.less";
 
+html {
+  font-family: 'RidiSans', sans-serif;
+  letter-spacing: -.03em;
+}
+
+#ridi_shop {
+  position: relative; cursor: default;
+  min-width: @shop_min_width + 40px;
+  transition: transform .15s ease-out;
+}
+
 .shop_header_for_intro_page();
 .create_pointer(@size: 40px) {
   width: @size;
@@ -208,6 +219,9 @@
 
 // ========================================================= queries_small
 @media @queries_small {
+  #ridi_shop {
+    min-width: inherit; width: 100%;
+  }
   // ====================== common
   @max-width: 670px;
   #page_intro {

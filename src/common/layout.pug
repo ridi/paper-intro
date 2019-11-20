@@ -2,20 +2,16 @@ doctype html
 html(lang='ko')
   head
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title RIDIBOOKS PAPER - 리디북스 페이퍼
     meta(charset='utf-8')
-    meta(name='theme-color', content='#171717')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0')
     meta(name='ROBOTS', content='ALL')
     meta(name='author', content='RIDI Corporation')
-    meta(name='description', content='리디북스 페이퍼 프로, 국내 최초 7.8인치 전자책 단말기 PAPER PRO 공식 사이트')
+    meta(name='format-detection', content='telephone=no')
+    block meta
     meta(
       name='keywords',
-      content='페이퍼, 페이퍼 프로, 리디북스 페이퍼, 리디북스 페이퍼 프로, PAPER, PAPER PRO, 7.8인치 전자책 단말기, 전자책 단말기, 전자책 리더, 전자책 리더기, 이북리더, 이북리더기, E-Book Reader, E-Reader, 페이퍼 쇼핑몰, 페이퍼샵, 리디샵'
+      content='페이퍼, 페이퍼 프로, 리디페이퍼, 리디북스 페이퍼, 리디북스 페이퍼 프로, 리디북스 리디페이퍼, PAPER, PAPER PRO, RIDIPAPER, 7.8인치 전자책 단말기, 6인치 전자책 단말기, 전자책 단말기, 전자책 리더, 전자책 리더기, 이북리더, 이북리더기, E-Book Reader, E-Reader, 페이퍼 쇼핑몰, 페이퍼샵, 리디샵, 리페, 리페프, 외출필수품, 전자책, 이북, 리디북스, EBOOK, E북, 오디오북, 베스트셀러, 만화, 웹소설, 책추천, 추천책, 서점, 추천도서, 도서추천, 책대여, 책, 도서, 자기계발, 자기개발, 면접, 독서, 글쓰기, 이직'
     )
-    meta(name='format-detection', content='telephone=no')
-    meta(property='og:image', content='/images/banner/facebook_banner.png')
-    meta(property='og:description', content='리디북스 페이퍼 프로, 존재감의 차이')
 
     link(rel='apple-touch-icon', sizes='180x180', href='/favicon/apple-touch-icon.png')
     link(rel='icon', type='image/png', sizes='32x32', href='/favicon/favicon-32x32.png')
@@ -23,33 +19,32 @@ html(lang='ko')
     link(rel='manifest', href='/favicon/manifest.webmanifest')
     link(rel='mask-icon', href='/favicon/safari-pinned-tab.svg', color='#1672d6')
     link(rel='shortcut icon', href='/favicon/favicon.ico')
+
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700|Roboto:700&display=swap&subset=korean')
     link(rel='stylesheet', href='/common/styles/layout.less')
     block styles
 
     script(src='/common/jquery_global.js')
   body
+    block page_var
+      - var page = '';
+      - var suppressFooter = false;
+    #shop_header
+      .header_wrapper
+        header.header_top
+          include /intro/ridipaper_logo.pug
+          span.hidden RIDIPAPER
+        nav.header_bottom
+          a.nav_item(href='/', class={active: page === 'ridipaper'})
+            div RIDIPAPER
+          a.nav_item(href='/pro.pug', class={active: page === 'paper-pro'})
+            div PAPER PRO
     #ridi_shop
-      #shop_header
-        header.header_bottom_wrapper
-          .header_bottom
-            h1.header_title
-              a(href='/')
-                include /intro/paper_logo.pug
-                span.hidden PAPER
-            .header_mymenu
-              a(href='https://help.ridibooks.com/hc/ko/categories/115000967987', target='_blank') 고객센터
-        section.header_top_wrapper 
-          .header_top
-            p.ridibooks_link_wrapper
-              a.ridibooks_link(href='https://ridibooks.com')
-                include /intro/ridibooks_logo.pug
-                span.hidden RIDIBOOKS
-                span 국내1등 전자책서점
-      hr
       section#shop_contents
         block contents
-      hr
-      include /common/footer.pug
+      if !suppressFooter
+        hr
+        include /common/footer.pug
     block scripts
     script(src='/tracking/index.js')
     noscript
