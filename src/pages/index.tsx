@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 import Feature, { FeatureDescription } from '../components/feature';
+import FeatureAnimation from '../components/feature-animation';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -19,6 +20,21 @@ const FeatureList = styled.div`
     @media(max-width: 800px) {
       margin-top: 100px;
     }
+  }
+`;
+
+const FeatureAnimationTitle = styled.h3`
+  margin-top: 200px;
+  margin-bottom: 96px;
+  font-size: 50px;
+  line-height: 64px;
+  text-align: center;
+
+  @media (max-width: 800px) {
+    margin-top: 120px;
+    margin-bottom: 50px;
+    font-size: 32px;
+    line-height: 48px;
   }
 `;
 
@@ -82,6 +98,8 @@ const IndexPage = () => {
           </FeatureDescription>
         </Feature>
       </FeatureList>
+      <FeatureAnimationTitle>{'책과\xa0가장\xa0가까운, 그러나\xa0책\xa0그\xa0이상'}</FeatureAnimationTitle>
+      <FeatureAnimation />
     </Layout>
   );
 };
