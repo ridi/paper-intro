@@ -1,7 +1,8 @@
 import styled from 'astroturf';
 import React from 'react';
 
-const Container = styled.div`
+const Container = styled.section`
+  display: block;
   position: relative;
   height: 900px;
 

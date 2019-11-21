@@ -1,35 +1,6 @@
 import styled from 'astroturf';
 import React from 'react';
 
-const Container = styled.div`
-  display: flex;
-
-  &:nth-child(2n) {
-    flex-direction: row-reverse;
-  }
-
-  > * {
-    flex: 1;
-  }
-
-  @media(max-width: 800px) {
-    display: block;
-  }
-`;
-
-interface Props {
-  children?: React.ReactNode;
-}
-
-export default function Feature(props: Props) {
-  const { children } = props;
-  return (
-    <Container>
-      {children}
-    </Container>
-  );
-}
-
 const FeatureDescriptionWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -56,7 +27,7 @@ const FeatureDescriptionInner = styled.div`
     background-color: #636c73;
   }
 
-  > h3 {
+  > h4 {
     font-size: 48px;
     line-height: 60px;
 
@@ -68,12 +39,6 @@ const FeatureDescriptionInner = styled.div`
       font-size: 32px;
       line-height: 44px;
     }
-  }
-
-  > p {
-    font-size: 20px;
-    line-height: 28px;
-    color: #636c73;
   }
 
   > * + * {
