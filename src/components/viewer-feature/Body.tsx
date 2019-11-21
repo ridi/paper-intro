@@ -67,7 +67,7 @@ const texts: TextItem[] = [
   },
 ];
 
-export default function FeatureAnimationBody() {
+export default function Body() {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [phase, setPhase] = React.useState(0);
 

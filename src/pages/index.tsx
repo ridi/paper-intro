@@ -2,7 +2,7 @@ import { css } from 'astroturf';
 import React from 'react';
 
 import Features from '../components/feature';
-import FeatureAnimation from '../components/feature-animation';
+import ViewerFeature from '../components/viewer-feature';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -52,7 +52,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Hero />
       <Features />
-      <FeatureAnimation />
+      <ViewerFeature />
     </Layout>
   );
 };
