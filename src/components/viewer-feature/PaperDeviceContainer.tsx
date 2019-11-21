@@ -33,7 +33,7 @@ export default function PaperDeviceContainer(props: Props) {
       bright: file(relativePath: {eq: "device-bright.png"}) {
         childImageSharp {
           fluid(sizes: "(max-width: 490px) 100vw, (max-width: 800px) 490px, (max-width: 980px) 50vw, 490px") {
-            ...GatsbyImageSharpFluid_noBase64
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
