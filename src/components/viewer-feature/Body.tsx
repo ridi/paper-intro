@@ -1,6 +1,6 @@
 import styled from 'astroturf';
 import React from 'react';
-import { Controller, Scene } from 'scrollmagic';
+import { Controller } from 'scrollmagic';
 
 import FeatureView from './FeatureView';
 import FeatureText from './FeatureText';
@@ -72,29 +72,37 @@ export default function Body() {
   const [phase, setPhase] = React.useState(0);
 
   React.useEffect(() => {
-    const controller = new Controller();
+    let controller: Controller;
+    let destroyed = false;
+    import('scrollmagic').then(({ Controller, Scene }) => {
+      if (destroyed) {
+        return;
+      }
+      controller = new Controller();
 
-    // IE only
-    new Scene({
-      triggerElement: containerRef.current!,
-      triggerHook: 'onLeave',
-      duration: SCENE_DURATION * SCENE_COUNT,
-    })
-      .setPin(containerRef.current!)
-      .addTo(controller);
-    Array.from({ length: SCENE_COUNT - 1 }).forEach((_, idx) => {
+      // IE only
       new Scene({
         triggerElement: containerRef.current!,
         triggerHook: 'onLeave',
-        offset: (idx + 1) * SCENE_DURATION,
+        duration: SCENE_DURATION * SCENE_COUNT,
       })
-        .on('enter', () => setPhase(phase => phase + 1))
-        .on('leave', () => setPhase(phase => phase - 1))
+        .setPin(containerRef.current!)
         .addTo(controller);
+      Array.from({ length: SCENE_COUNT - 1 }).forEach((_, idx) => {
+        new Scene({
+          triggerElement: containerRef.current!,
+          triggerHook: 'onLeave',
+          offset: (idx + 1) * SCENE_DURATION,
+        })
+          .on('enter', () => setPhase(phase => phase + 1))
+          .on('leave', () => setPhase(phase => phase - 1))
+          .addTo(controller);
+      });
     });
 
     return () => {
-      controller.destroy();
+      controller && controller.destroy();
+      destroyed = true;
     };
   }, []);
 
