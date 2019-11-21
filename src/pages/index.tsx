@@ -5,6 +5,7 @@ import Features from '../components/feature';
 import ViewerFeature from '../components/viewer-feature';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
+import Ridibatang from '../components/ridibatang';
 import SEO from '../components/seo';
 
 const styles = css`
@@ -53,6 +54,7 @@ const IndexPage = () => {
       <Hero />
       <Features />
       <ViewerFeature />
+      <Ridibatang />
     </Layout>
   );
 };
