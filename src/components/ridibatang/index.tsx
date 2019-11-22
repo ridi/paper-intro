@@ -3,6 +3,7 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import PolyfillImg from 'gatsby-image/withIEPolyfill';
 
 css`
   @font-face {
@@ -124,7 +125,7 @@ export default function Ridibatang() {
   return (
     <SectionWithBg>
       <Background>
-        <Img fluid={data.bg.childImageSharp.fluid} className={styles.background} />
+        <PolyfillImg fluid={data.bg.childImageSharp.fluid} className={styles.background} />
       </Background>
       <Content>
         <Title>리디페이퍼 전용서체, 리디바탕</Title>

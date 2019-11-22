@@ -69,6 +69,7 @@ const NavButton = styled<'a', { active?: boolean }>('a')`
 
 const styles = css`
   .ridipaperLogo {
+    width: 106.36px;
     height: 16px;
     fill: white;
   }
