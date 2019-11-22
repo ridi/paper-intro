@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Footer from  './footer';
 import Header from './header';
 import './layout.css';
 
@@ -13,10 +14,7 @@ const Layout = ({ children, className }: Props) => {
     <>
       <Header />
       <main className={className}>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with{' '}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </>
   );
 };
