@@ -108,7 +108,7 @@ export default function Ridibatang() {
     {
       bg: file(relativePath: {eq: "ridibatang-bg.jpg"}) {
         childImageSharp {
-          fluid(maxHeight: 942, sizes: "100vw") {
+          fluid(sizes: "100vw") {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }

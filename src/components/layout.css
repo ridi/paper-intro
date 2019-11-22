@@ -131,6 +131,12 @@ button,
 html [type="button"] {
   -webkit-appearance: button;
 }
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner,

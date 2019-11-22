@@ -1,6 +1,7 @@
 import { css } from 'astroturf';
 import React from 'react';
 
+import Details from '../components/details';
 import Features from '../components/feature';
 import ViewerFeature from '../components/viewer-feature';
 import Hero from '../components/hero';
@@ -54,6 +55,7 @@ const IndexPage = () => {
       <Hero />
       <Features />
       <ViewerFeature />
+      <Details />
       <Ridibatang />
     </Layout>
   );
