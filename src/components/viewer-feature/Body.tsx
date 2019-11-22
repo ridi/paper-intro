@@ -6,8 +6,21 @@ import FeatureView from './FeatureView';
 import FeatureText from './FeatureText';
 import PaperDeviceContainer from './PaperDeviceContainer';
 
-const Container = styled<'div', { dark?: boolean }>('div')`
+const Container = styled.div`
   position: relative;
+`;
+
+const Trigger = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+`;
+
+const PinTarget = styled<'div', { dark?: boolean }>('div')`
+  position: sticky;
+  top: 0;
   width: 100% !important;
   height: 100vh;
   display: flex;
@@ -68,7 +81,8 @@ const texts: TextItem[] = [
 ];
 
 export default function Body() {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+  const pinRef = React.useRef<HTMLDivElement>(null);
+  const triggerRef = React.useRef<HTMLDivElement>(null);
   const [phase, setPhase] = React.useState(0);
 
   React.useEffect(() => {
@@ -81,16 +95,21 @@ export default function Body() {
       controller = new Controller();
 
       // IE only
-      new Scene({
-        triggerElement: containerRef.current!,
-        triggerHook: 'onLeave',
-        duration: SCENE_DURATION * SCENE_COUNT,
-      })
-        .setPin(containerRef.current!)
-        .addTo(controller);
+      const pinStyle = window.getComputedStyle(pinRef.current!);
+      if (pinStyle.position !== 'sticky') {
+        new Scene({
+          triggerElement: triggerRef.current!,
+          triggerHook: 'onLeave',
+          duration: SCENE_DURATION * SCENE_COUNT,
+        })
+          .setPin(pinRef.current!, {pushFollowers: false})
+          .addTo(controller);
+        console.log('Pin active');
+      }
+
       Array.from({ length: SCENE_COUNT - 1 }).forEach((_, idx) => {
         new Scene({
-          triggerElement: containerRef.current!,
+          triggerElement: triggerRef.current!,
           triggerHook: 'onLeave',
           offset: (idx + 1) * SCENE_DURATION,
         })
@@ -107,22 +126,26 @@ export default function Body() {
   }, []);
 
   return (
-    <Container ref={containerRef} dark={phase === 3}>
-      <FeatureView totalPhases={SCENE_COUNT} phase={phase}>
-        <PaperDeviceContainer>
-        </PaperDeviceContainer>
-        <FeatureTextContainer>
-          {texts.map(({ heading, body }, idx) => {
-            let state: 'before' | 'current' | 'after' = 'before';
-            if (phase === idx) {
-              state = 'current';
-            } else if (phase > idx) {
-              state = 'after';
-            }
-            return <FeatureText state={state} heading={heading} body={body} bright={idx === 3}/>;
-          })}
-        </FeatureTextContainer>
-      </FeatureView>
+    <Container>
+      <Trigger ref={triggerRef} />
+      <PinTarget ref={pinRef} dark={phase === 3}>
+        <FeatureView totalPhases={SCENE_COUNT} phase={phase}>
+          <PaperDeviceContainer>
+          </PaperDeviceContainer>
+          <FeatureTextContainer>
+            {texts.map(({heading, body}, idx) => {
+              let state: 'before' | 'current' | 'after' = 'before';
+              if (phase === idx) {
+                state = 'current';
+              } else if (phase > idx) {
+                state = 'after';
+              }
+              return <FeatureText state={state} heading={heading} body={body} bright={idx === 3} />;
+            })}
+          </FeatureTextContainer>
+        </FeatureView>
+      </PinTarget>
+      <div style={{ height: `${SCENE_DURATION * SCENE_COUNT}px` }} />
     </Container>
   );
 }
