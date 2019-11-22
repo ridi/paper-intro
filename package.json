@@ -18,6 +18,7 @@
     "gatsby-plugin-react-svg": "^2.1.2",
     "gatsby-plugin-sharp": "^2.2.34",
     "gatsby-plugin-typescript": "^2.1.15",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.35",
     "gatsby-transformer-sharp": "^2.3.1",
     "postcss-nested": "^4.2.1",

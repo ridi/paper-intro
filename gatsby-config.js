@@ -26,6 +26,17 @@ module.exports = {
         path: path.resolve(__dirname, 'src/images'),
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Noto Sans KR:400,700'],
+        },
+        custom: {
+          families: ['RIDIBatang'],
+        }
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
   ],
