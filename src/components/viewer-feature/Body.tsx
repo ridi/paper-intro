@@ -104,7 +104,6 @@ export default function Body() {
         })
           .setPin(pinRef.current!, {pushFollowers: false})
           .addTo(controller);
-        console.log('Pin active');
       }
 
       Array.from({ length: SCENE_COUNT - 1 }).forEach((_, idx) => {
