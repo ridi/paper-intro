@@ -49,6 +49,39 @@ const SpecsList = styled.div`
   }
 `;
 
+const UserGuideParagraph = styled.p`
+  margin: 100px auto 0;
+  text-align: center;
+
+  @media (max-width: 800px) {
+    margin-top: 80px;
+    width: 260px;
+  }
+`;
+
+const UserGuideButtonWrapper = styled.div`
+  margin-top: 30px;
+  text-align: center;
+
+  > a {
+    display: inline-block;
+    width: 251px;
+    padding: 17px 0;
+    border: 2px solid #1f8ce6;
+    border-radius: 3px;
+    font-size: 19px;
+    line-height: 16px;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #1f8ce6;
+
+    @media (max-width: 800px) {
+      width: 246px;
+    }
+  }
+`;
+
 const styles = css`
   .device {
     & + & {
@@ -111,6 +144,12 @@ export default function Specs() {
           </SpecSection>
         ))}
       </SpecsList>
+      <UserGuideParagraph>
+        RIDIPAPER의 자세한 사용 방법은 사용자 가이드를 참조해주세요.
+      </UserGuideParagraph>
+      <UserGuideButtonWrapper>
+        <a>사용자 가이드 확인하기</a>
+      </UserGuideButtonWrapper>
     </section>
   );
 }
