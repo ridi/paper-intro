@@ -1,12 +1,9 @@
-import styled, { css } from 'astroturf';
+import styled from 'astroturf';
 import React from 'react';
 
 import Arrow from './Arrow';
 
-const Container = styled.div`
-`;
-
-const Header = styled<'div', { open?: boolean }>('div')`
+const Header = styled.div`
   height: 80px;
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
 
@@ -17,6 +14,8 @@ const Header = styled<'div', { open?: boolean }>('div')`
   font-size: 24px;
   line-height: 24px;
   font-weight: bold;
+
+  cursor: pointer;
 `;
 
 const Body = styled<'div', { hidden?: boolean }>('div')`
@@ -57,14 +56,14 @@ export default function SpecSection(props: Props) {
   }, []);
 
   return (
-    <Container>
+    <div>
       <Header onClick={toggleOpen}>
         {props.title}
-        <Arrow />
+        <Arrow flipped={open} />
       </Header>
       <Body hidden={!open}>
         {props.children}
       </Body>
-    </Container>
+    </div>
   );
 }
