@@ -9,6 +9,7 @@ import Hero from '../components/hero';
 import Layout from '../components/layout';
 import Ridibatang from '../components/ridibatang';
 import SEO from '../components/seo';
+import Specs from '../components/specs';
 
 const styles = css`
   .main {
@@ -41,7 +42,7 @@ css`
   p {
     font-size: 20px;
     line-height: 28px;
-    color: #636c73;
+    color: hsla(0, 0%, 0%, 0.6);
 
     @media (max-width: 800px) {
       font-size: 18px;
@@ -59,6 +60,7 @@ const IndexPage = () => {
       <Details />
       <Ridibatang />
       <AccessoryBanner />
+      <Specs />
     </Layout>
   );
 };

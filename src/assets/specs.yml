@@ -1,0 +1,60 @@
+- title: 기본 사양
+  items:
+  - name: 정식 명칭
+    desc: 리디페이퍼
+  - name: 화면 크기
+    desc: 6인치 (152.4mm)
+  - name: 해상도
+    desc: 300PPI (1072 x 1448 화소)
+  - name: 무게
+    desc: 173g
+  - name: 크기
+    desc: 가로 114.08mm x 세로 156.96mm x 두께 7.94mm
+  - name: 저장공간
+    desc: 기본 8GB (시스템 용량 제외 약 5.72GB 사용 가능)
+  - name: 확장 메모리
+    desc: 마이크로 SD 최대 32GB 추가 가능
+  - name: 배터리 용량
+    desc: 1,500mAh
+  - name: 충전 완료 시간
+    desc: 약 2시간 40분 (5V 1A 충전기 기준)
+- title: 기술 정보
+  items:
+  - name: CPU
+    desc: i.MX6 1GHz
+  - name: RAM
+    desc: 1GB
+  - name: OS
+    desc: 안드로이드 4.4.2
+  - name: 와이파이
+    desc: 802.11a/b/g/n/ac, 2.4GHz / 5GHz
+  - name: 블루투스
+    desc: '4.2 (Profile : A2DP, AVRCP, HID)'
+  - name: 정상 작동 온도
+    desc: 0~40℃
+  - name: 지원 파일
+    desc: EPUB, TXT, PDF, ZIP
+- title: 디스플레이
+  items:
+  - name: 스크린 형태
+    desc: 6" Carta E-ink (플랫 스크린)
+  - name: 페이지 넘김
+    desc: 정전식 터치스크린 + 페이지 넘김 버튼 (2개)
+  - name: 화면 조명
+    desc: 프론트라이트 프로 (밝기 조절 및 색 온도 조절 가능)
+- title: 부가 기능
+  items:
+  - name: 부가 기능
+    desc: 오토 슬립 (정품 하드 플립 케이스 사용 시)
+  - name:
+    desc: 화면 회전 (기기 방향에 따른 화면 자동 회전)
+  - name:
+    desc: 퀵 버튼 (터치 잠금 모드 ON/OFF, 다른 기능으로 변경 가능)
+  - name:
+    desc: TTS (Text to Speech) 기능
+  - name:
+    desc: 사용자 파일 추가 (지원 파일 형식에 한함)
+  - name:
+    desc: 글자 크기, 줄 간격, 문단 간격, 문단 너비, 문단 정렬 조절
+  - name:
+    desc: 기본 글꼴 6가지 제공 (사용자 글꼴 추가 가능)

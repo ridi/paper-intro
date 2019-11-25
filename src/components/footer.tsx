@@ -7,8 +7,13 @@ import InstagramIcon from '../svgs/ig.svg';
 import FacebookIcon from '../svgs/fb.svg';
 
 const Container = styled.div`
+  margin-top: 100px;
   background-color: #f7fafc;
   color: #70808f;
+
+  @media (max-width: 800px) {
+    margin-top: 80px;
+  }
 `;
 
 const FooterWrapper = styled.footer`
