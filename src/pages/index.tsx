@@ -1,6 +1,7 @@
 import { css } from 'astroturf';
 import React from 'react';
 
+import AccessoryBanner from '../components/AccessoryBanner';
 import Details from '../components/details';
 import Features from '../components/feature';
 import ViewerFeature from '../components/viewer-feature';
@@ -57,6 +58,7 @@ const IndexPage = () => {
       <ViewerFeature />
       <Details />
       <Ridibatang />
+      <AccessoryBanner />
     </Layout>
   );
 };
