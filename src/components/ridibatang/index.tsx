@@ -125,7 +125,11 @@ export default function Ridibatang() {
   return (
     <SectionWithBg>
       <Background>
-        <PolyfillImg fluid={data.bg.childImageSharp.fluid} className={styles.background} />
+        <PolyfillImg
+          fluid={data.bg.childImageSharp.fluid}
+          backgroundColor="#212b3b"
+          className={styles.background}
+        />
       </Background>
       <Content>
         <Title>리디페이퍼 전용서체, 리디바탕</Title>
