@@ -1,4 +1,4 @@
-import styled from 'astroturf';
+import styled, { css } from 'astroturf';
 import React from 'react';
 
 const Container = styled<'section', { long?: boolean }>('section')`
@@ -16,22 +16,7 @@ const Container = styled<'section', { long?: boolean }>('section')`
 `;
 
 const HeroBackground = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-color: #636c73;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
 `;
 
 const HeroOverlay = styled.div`
@@ -39,18 +24,38 @@ const HeroOverlay = styled.div`
   padding-top: 100px;
 `;
 
+const styles = css`
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+`;
+
 interface Props {
   children?: React.ReactNode;
   className?: string;
   short?: boolean;
-  renderBackground?(): React.ReactNode;
+  renderBackground?(props: { className: string }): React.ReactNode;
 }
 
 export default function Hero({ children, className, short, renderBackground }: Props) {
-  const background = renderBackground?.();
+  const background = renderBackground?.({ className: styles.bg }) || <HeroBackground className={styles.bg} />;
   return (
     <Container long={!short} className={className}>
-      <HeroBackground>{background}</HeroBackground>
+      {background}
       <HeroOverlay>{children}</HeroOverlay>
     </Container>
   );
