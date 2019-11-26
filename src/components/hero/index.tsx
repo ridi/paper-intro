@@ -16,31 +16,34 @@ const Container = styled<'section', { long?: boolean }>('section')`
 `;
 
 const HeroBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: #636c73;
-`;
 
-const HeroOverlay = styled.div`
-  position: relative;
-  padding-top: 100px;
-`;
-
-const styles = css`
-  .bg {
+  &::after {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`;
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.2);
-    }
+const HeroOverlay = styled.div`
+  position: relative;
+  height: 100%;
+  padding-top: 100px;
+`;
+
+const styles = css`
+  .bg {
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -52,10 +55,12 @@ interface Props {
 }
 
 export default function Hero({ children, className, short, renderBackground }: Props) {
-  const background = renderBackground?.({ className: styles.bg }) || <HeroBackground className={styles.bg} />;
+  const background = renderBackground?.({ className: styles.bg });
   return (
     <Container long={!short} className={className}>
-      {background}
+      <HeroBackground>
+        {background}
+      </HeroBackground>
       <HeroOverlay>{children}</HeroOverlay>
     </Container>
   );
