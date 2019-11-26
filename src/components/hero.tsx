@@ -1,13 +1,17 @@
 import styled from 'astroturf';
 import React from 'react';
 
-const Container = styled.section`
+const Container = styled<'section', { long?: boolean }>('section')`
   display: block;
   position: relative;
-  height: 900px;
+  height: 600px;
 
-  @media(max-width: 800px) {
-    height: 700px;
+  &.long {
+    height: 900px;
+
+    @media(max-width: 800px) {
+      height: 700px;
+    }
   }
 `;
 
@@ -38,12 +42,15 @@ const HeroOverlay = styled.div`
 interface Props {
   children?: React.ReactNode;
   className?: string;
+  short?: boolean;
+  renderBackground?(): React.ReactNode;
 }
 
-export default function Hero({ children, className }: Props) {
+export default function Hero({ children, className, short, renderBackground }: Props) {
+  const background = renderBackground?.();
   return (
-    <Container className={className}>
-      <HeroBackground />
+    <Container long={!short} className={className}>
+      <HeroBackground>{background}</HeroBackground>
       <HeroOverlay>{children}</HeroOverlay>
     </Container>
   );
