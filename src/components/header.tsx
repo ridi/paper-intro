@@ -1,6 +1,8 @@
 import styled, { css } from 'astroturf';
 import React from 'react';
 
+import { Link } from 'gatsby';
+
 import RidipaperLogo from '../svgs/ridipaper.svg';
 
 import Button from './Button';
@@ -42,24 +44,26 @@ const Bottom = styled.nav`
   }
 `;
 
-const NavButton = styled<'a', { active?: boolean }>('a')`
-  padding: 12px 3px;
-  border-bottom: 2px solid transparent;
-  font-size: 16px;
-  line-height: 24px;
-  color: rgba(255, 255, 255, 0.7);
-
-  &.active {
-    border-bottom-color: white;
-    font-weight: bold;
-    color: white;
-  }
-`;
-
 const styles = css`
   .buy {
     padding: 0 10px;
   }
+
+  .navButton {
+    padding: 12px 3px;
+    border-bottom: 2px solid transparent;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+
+    &.active {
+      border-bottom-color: white;
+      font-weight: bold;
+      color: white;
+    }
+  }
+
   .ridipaperLogo {
     width: 106.36px;
     height: 16px;
@@ -75,8 +79,15 @@ const Header = () => (
         <Button size="small" color="white" className={styles.buy}>구매하기</Button>
       </Top>
       <Bottom>
-        <NavButton active>RIDIPAPER</NavButton>
-        <NavButton>PAPER PRO</NavButton>
+        <Link to="/" className={styles.navButton} activeClassName={styles.active}>
+          RIDIPAPER
+        </Link>
+        <Link to="/pro/" className={styles.navButton} activeClassName={styles.active}>
+          PAPER PRO
+        </Link>
+        <Link to="/accessory/" className={styles.navButton} activeClassName={styles.active} partiallyActive>
+          Accessory
+        </Link>
       </Bottom>
     </Center>
   </Container>
