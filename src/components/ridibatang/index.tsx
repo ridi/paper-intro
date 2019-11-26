@@ -5,6 +5,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import PolyfillImg from 'gatsby-image/withIEPolyfill';
 
+import Button from '../Button';
+
 css`
   @font-face {
     font-family: RIDIBatang;
@@ -56,18 +58,9 @@ const Content = styled.div`
   }
 
   > a {
-    display: block;
     width: 166px;
     margin-top: 60px;
-    padding: 17px 0;
-    border: 2px solid #1f8ce6;
-    border-radius: 3px;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 19px;
-    line-height: 16px;
-    font-weight: bold;
-    letter-spacing: -0.3px;
-    color: #1f8ce6;
 
     @media (max-width: 800px) {
       margin-top: 50px;
@@ -137,7 +130,7 @@ export default function Ridibatang() {
           e-ink 디스플레이에서도 또렷하게.<br />더 선명하고, 긴 문장도 잘 읽을
           수 있는<br />전자책 전용 글꼴 리디바탕
         </p>
-        <a>더 알아보기</a>
+        <Button color="blue">더 알아보기</Button>
         <DeviceWrapper>
           <Img fluid={data.device.childImageSharp.fluid} className={styles.device} />
         </DeviceWrapper>

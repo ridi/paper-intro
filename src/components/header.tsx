@@ -3,6 +3,8 @@ import React from 'react';
 
 import RidipaperLogo from '../svgs/ridipaper.svg';
 
+import Button from './Button';
+
 const Container = styled.header`
   position: absolute;
   z-index: 1;
@@ -31,19 +33,6 @@ const Top = styled.div`
   margin-top: 16px;
 `;
 
-const BuyButton = styled.a`
-  display: inline-block;
-  height: 30px;
-  padding: 6px 10px;
-  border: 1px solid white;
-  border-radius: 3px;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 18px;
-  text-align: center;
-  color: white;
-`;
-
 const Bottom = styled.nav`
   display: flex;
   margin-bottom: -1px;
@@ -68,6 +57,9 @@ const NavButton = styled<'a', { active?: boolean }>('a')`
 `;
 
 const styles = css`
+  .buy {
+    padding: 0 10px;
+  }
   .ridipaperLogo {
     width: 106.36px;
     height: 16px;
@@ -80,7 +72,7 @@ const Header = () => (
     <Center>
       <Top>
         <RidipaperLogo className={styles.ridipaperLogo} />
-        <BuyButton>구매하기</BuyButton>
+        <Button size="small" color="white" className={styles.buy}>구매하기</Button>
       </Top>
       <Bottom>
         <NavButton active>RIDIPAPER</NavButton>

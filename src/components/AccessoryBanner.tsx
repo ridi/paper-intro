@@ -1,6 +1,8 @@
 import styled from 'astroturf';
 import React from 'react';
 
+import Button from './Button';
+
 const Container = styled.section`
   position: relative;
   max-width: 1200px;
@@ -82,17 +84,7 @@ const LinkWrapper = styled.div`
   margin-top: 50px;
 
   > a {
-    display: inline-block;
     width: 150px;
-    padding: 17px 0;
-    border: 2px solid #1f8ce6;
-    border-radius: 3px;
-    font-size: 19px;
-    line-height: 16px;
-    font-weight: bold;
-    letter-spacing: -0.3px;
-    text-align: center;
-    color: #1f8ce6;
   }
 `;
 
@@ -106,7 +98,7 @@ export default function AccessoryBanner() {
         <ContentTitle small>안심하고 책에만{'\xa0'}집중하세요</ContentTitle>
         <p>{'견고한\xa0전용\xa0악세서리가 RIDIPAPER를\xa0보호해드립니다.'}</p>
         <LinkWrapper>
-          <a>전체보기</a>
+          <Button color="blue">전체보기</Button>
         </LinkWrapper>
       </Content>
     </Container>

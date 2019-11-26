@@ -4,6 +4,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
+import Button from '../Button';
 import SpecSection, { SpecItem } from './SpecSection';
 
 const Title = styled.h3`
@@ -41,7 +42,7 @@ const Dummy = styled.div`
 const SpecsList = styled.div`
   width: 100%;
   max-width: 1080px;
-  margin-top: 80px;
+  margin: 80px auto 0;
   padding: 0 40px;
 
   @media (max-width: 800px) {
@@ -64,17 +65,7 @@ const UserGuideButtonWrapper = styled.div`
   text-align: center;
 
   > a {
-    display: inline-block;
     width: 251px;
-    padding: 17px 0;
-    border: 2px solid #1f8ce6;
-    border-radius: 3px;
-    font-size: 19px;
-    line-height: 16px;
-    font-weight: bold;
-    letter-spacing: -0.3px;
-    text-align: center;
-    color: #1f8ce6;
 
     @media (max-width: 800px) {
       width: 246px;
@@ -148,7 +139,7 @@ export default function Specs() {
         RIDIPAPER의 자세한 사용 방법은 사용자 가이드를 참조해주세요.
       </UserGuideParagraph>
       <UserGuideButtonWrapper>
-        <a>사용자 가이드 확인하기</a>
+        <Button color="blue">사용자 가이드 확인하기</Button>
       </UserGuideButtonWrapper>
     </section>
   );
