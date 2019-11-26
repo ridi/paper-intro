@@ -65,12 +65,16 @@ const PurchaseLinks = styled.ul`
     display: block;
   }
 
-  li + li {
-    margin-left: 8px;
+  > li {
+    list-style: none;
 
-    @media (max-width: 800px) {
-      margin-left: 0;
-      margin-top: 10px;
+    & + li {
+      margin-left: 8px;
+
+      @media (max-width: 800px) {
+        margin-left: 0;
+        margin-top: 10px;
+      }
     }
   }
 
