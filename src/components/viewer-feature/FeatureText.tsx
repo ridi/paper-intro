@@ -1,6 +1,8 @@
 import styled from 'astroturf';
 import React from 'react';
 
+import LineBreakText from '../LineBreakText';
+
 const Container = styled<'div', { state?: string }>('div')`
   position: absolute;
   top: 0;
@@ -60,16 +62,6 @@ interface Props {
   body: string;
   state: 'before' | 'current' | 'after';
   bright?: boolean;
-}
-
-function LineBreakText(props: { text: string }) {
-  const lines = props.text.split('\n');
-  const nodes: React.ReactNode[] = [];
-  lines.forEach((line, idx) => {
-    nodes.push(line);
-    nodes.push(<br key={idx} />);
-  });
-  return <>{nodes}</>;
 }
 
 export default function FeatureText(props: Props) {

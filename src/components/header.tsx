@@ -85,7 +85,7 @@ const Header = () => (
         <Link to="/pro/" className={styles.navButton} activeClassName={styles.active}>
           PAPER PRO
         </Link>
-        <Link to="/accessory/" className={styles.navButton} activeClassName={styles.active} partiallyActive>
+        <Link to="/accessories/" className={styles.navButton} activeClassName={styles.active} partiallyActive>
           Accessory
         </Link>
       </Bottom>

@@ -99,14 +99,14 @@ const styles = css`
 export default function Ridibatang() {
   const data = useStaticQuery(graphql`
     {
-      bg: file(relativePath: {eq: "ridibatang-bg.jpg"}) {
+      bg: file(relativePath: {eq: "images/ridibatang-bg.jpg"}) {
         childImageSharp {
           fluid(sizes: "100vw") {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
-      device: file(relativePath: {eq: "ridibatang-device.png"}) {
+      device: file(relativePath: {eq: "images/ridibatang-device.png"}) {
         childImageSharp {
           fluid(maxWidth: 830, sizes: "(max-width: 600px) 100vw, (max-width: 800px) 600px, 830px") {
             ...GatsbyImageSharpFluid_withWebp_noBase64

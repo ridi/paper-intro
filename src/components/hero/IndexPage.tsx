@@ -125,7 +125,7 @@ const styles = css`
 export default function IndexHero() {
   const data = useStaticQuery(graphql`
     {
-      bg: file(relativePath: {eq: "bg-landing.jpg"}) {
+      bg: file(relativePath: {eq: "images/bg-landing.jpg"}) {
         childImageSharp {
           fluid(
             maxWidth: 1600
@@ -144,7 +144,7 @@ export default function IndexHero() {
   }
 
   return (
-    <Hero renderBackground={renderBackground}>
+    <Hero bright renderBackground={renderBackground}>
       <HeroContainer>
         <HeroTitle>
           <h2>세상이 나의 서재가 된다</h2>

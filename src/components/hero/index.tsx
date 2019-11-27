@@ -15,7 +15,7 @@ const Container = styled<'section', { long?: boolean }>('section')`
   }
 `;
 
-const HeroBackground = styled.div`
+const HeroBackground = styled<'div', { bright?: boolean }>('div')`
   position: absolute;
   top: 0;
   left: 0;
@@ -30,7 +30,11 @@ const HeroBackground = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &.bright::after {
+    background-color: rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -51,14 +55,15 @@ interface Props {
   children?: React.ReactNode;
   className?: string;
   short?: boolean;
+  bright?: boolean;
   renderBackground?(props: { className: string }): React.ReactNode;
 }
 
-export default function Hero({ children, className, short, renderBackground }: Props) {
+export default function Hero({ children, className, short, bright, renderBackground }: Props) {
   const background = renderBackground?.({ className: styles.bg });
   return (
     <Container long={!short} className={className}>
-      <HeroBackground>
+      <HeroBackground bright={bright}>
         {background}
       </HeroBackground>
       <HeroOverlay>{children}</HeroOverlay>

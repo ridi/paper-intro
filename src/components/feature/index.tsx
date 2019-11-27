@@ -72,10 +72,10 @@ export default function Features() {
     }
 
     {
-      three: file(relativePath: { eq: "3.jpg" }) {
+      three: file(relativePath: { eq: "images/3.jpg" }) {
         ...FeatureImage
       }
-      four: file(relativePath: { eq: "4.jpg" }) {
+      four: file(relativePath: { eq: "images/4.jpg" }) {
         ...FeatureImage
       }
     }

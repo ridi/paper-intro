@@ -20,11 +20,17 @@ const HeroContainer = styled.div`
 
   > hgroup {
     > h2 {
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       color: rgba(255, 255, 255, 0.5);
     }
 
     > h1 {
       margin-top: 20px;
+      font-size: 48px;
+      line-height: 60px;
     }
   }
 
