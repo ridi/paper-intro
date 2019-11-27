@@ -27,7 +27,7 @@ const FeatureDescriptionInner = styled.div`
     background-color: #636c73;
   }
 
-  > h4 {
+  > h3 {
     font-size: 48px;
     line-height: 60px;
 

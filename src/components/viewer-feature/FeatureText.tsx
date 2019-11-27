@@ -26,8 +26,8 @@ const Container = styled<'div', { state?: string }>('div')`
 `;
 
 const Heading = styled<'h3', { bright?: boolean }>('h3')`
-  font-size: 48px;
-  line-height: 60px;
+  font-size: 40px;
+  line-height: 50px;
   font-weight: bold;
   color: #212529;
 
