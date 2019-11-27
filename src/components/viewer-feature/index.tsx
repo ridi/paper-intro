@@ -3,7 +3,7 @@ import React from 'react';
 
 import Body from './Body';
 
-const Title = styled.h3`
+const Title = styled.h2`
   margin-bottom: 96px;
 
   @media (max-width: 800px) {

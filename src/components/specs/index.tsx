@@ -7,7 +7,7 @@ import Img from 'gatsby-image';
 import Button from '../Button';
 import SpecSection, { SpecItem } from './SpecSection';
 
-const Title = styled.h3`
+const Title = styled.h2`
   font-size: 35px;
   line-height: 1em;
 

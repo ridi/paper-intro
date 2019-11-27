@@ -133,11 +133,11 @@ export default function Footer() {
       <FooterWrapper>
         <Links className={styles.spaceBetween}>
           <div>
-            <LogoLink>
+            <LogoLink aria-label="리디북스로 이동">
               <RidibooksLogo className={styles.ridibooks} />
             </LogoLink>
             <Divider />
-            <LogoLink>
+            <LogoLink aria-label="리디셀렉트로 이동">
               <RidiselectLogo className={styles.ridiselect} />
             </LogoLink>
           </div>

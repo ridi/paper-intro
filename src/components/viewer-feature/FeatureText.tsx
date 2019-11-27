@@ -25,7 +25,7 @@ const Container = styled<'div', { state?: string }>('div')`
   }
 `;
 
-const Heading = styled<'div', { bright?: boolean }>('div')`
+const Heading = styled<'h3', { bright?: boolean }>('h3')`
   font-size: 48px;
   line-height: 60px;
   font-weight: bold;
@@ -41,11 +41,8 @@ const Heading = styled<'div', { bright?: boolean }>('div')`
   }
 `;
 
-const Body = styled<'div', { bright?: boolean }>('div')`
+const Body = styled<'p', { bright?: boolean }>('p')`
   margin-top: 30px;
-  font-size: 20px;
-  line-height: 28px;
-  color: #636c73;
 
   &.bright {
     color: white;
@@ -53,7 +50,6 @@ const Body = styled<'div', { bright?: boolean }>('div')`
 
   @media (max-width: 800px) {
     margin-top: 20px;
-    font-size: 18px;
   }
 `;
 

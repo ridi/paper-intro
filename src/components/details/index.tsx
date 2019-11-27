@@ -147,7 +147,7 @@ export default function Details() {
 
   return (
     <section>
-      <h3>차원이 다른 디테일</h3>
+      <h2>차원이 다른 디테일</h2>
       <StaticSlider hidden={showSlider}>
         <StaticSliderInner>
           <Spacer />

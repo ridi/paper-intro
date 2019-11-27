@@ -58,7 +58,7 @@ const Content = styled.div`
   }
 `;
 
-const ContentTitle = styled<'h3', { small?: boolean }>('h3')`
+const ContentTitle = styled<'h2', { small?: boolean }>('h2')`
   font-size: 40px;
   line-height: 50px;
   text-align: left;

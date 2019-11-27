@@ -20,7 +20,7 @@ css`
     }
   }
 
-  h3 {
+  h2 {
     font-size: 36px;
     line-height: 48px;
   }

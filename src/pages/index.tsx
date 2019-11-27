@@ -29,7 +29,7 @@ const styles = css`
 `;
 
 css`
-  h3 {
+  h2 {
     font-size: 50px;
     line-height: 64px;
     text-align: center;

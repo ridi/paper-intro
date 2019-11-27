@@ -3,40 +3,37 @@ import React from 'react';
 
 import Hero from './index';
 
-const HeroContainer = styled.div`
+const HeroContainer = styled.header`
   width: 100%;
   height: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 100px;
 
-  h1 {
-    color: white;
-  }
-
   > h1 {
-    margin-top: 30px;
-  }
+    margin-top: 20px;
+    font-size: 48px;
+    line-height: 60px;
+    color: white;
 
-  > hgroup {
-    > h2 {
-      font-size: 13px;
-      line-height: 19px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    > h1 {
-      margin-top: 20px;
-      font-size: 48px;
-      line-height: 60px;
+    &:first-child {
+      margin-top: 30px;
     }
   }
 
   > p {
     margin-top: 30px;
     color: white;
+
+    &:first-child {
+      margin-top: 0;
+      font-size: 13px;
+      line-height: 19px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
   }
 `;
 

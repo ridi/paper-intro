@@ -30,7 +30,7 @@ const Background = styled.div`
   bottom: 0;
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   font-weight: normal;
   color: #f2f6fc;
 `;

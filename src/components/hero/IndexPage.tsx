@@ -28,10 +28,11 @@ const HeroContainer = styled.div`
   }
 `;
 
-const HeroTitle = styled.hgroup`
+const HeroTitle = styled.header`
   color: white;
 
-  > h2 {
+  > p {
+    color: white;
     font-size: 40px;
     line-height: 1.5em;
     font-weight: 300;
@@ -147,7 +148,7 @@ export default function IndexHero() {
     <Hero bright renderBackground={renderBackground}>
       <HeroContainer>
         <HeroTitle>
-          <h2>세상이 나의 서재가 된다</h2>
+          <p>세상이 나의 서재가 된다</p>
           <h1>
             <RidipaperLogo className={styles.logo} />
             <span>RIDIPAPER</span>

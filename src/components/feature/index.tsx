@@ -11,7 +11,7 @@ const Head = styled.div`
   margin: 0 40px;
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   width: 500px;
   margin: 0 auto;
 
@@ -89,14 +89,14 @@ export default function Features() {
           출근길 지하철, 여행 떠나는 비행기 안, 잠들기 전 침대 위 어디서든 책을
           읽고 싶은 순간 <strong>RIDIPAPER</strong>를 꺼내보세요. 내가 있는 모든
           곳이 독서하기 가장 좋은 곳이 됩니다.
-      </Description>
+        </Description>
       </Head>
       <FeatureList>
         <FeatureItem>
           <Img className={styles.image} fluid={query.three.childImageSharp.fluid} />
           <FeatureDescription>
             <div />
-            <h4>{'이제\xa0이야기를 들어보세요'}</h4>
+            <h3>{'이제\xa0이야기를 들어보세요'}</h3>
             <p>
               일상에 지친 눈을 감고 온전히 이야기에만 빠져보세요.{' '}
               <strong>블루투스</strong>와{'\xa0'}<strong>듣기(TTS)</strong> 기능으로
@@ -108,7 +108,7 @@ export default function Features() {
           <Img className={styles.image} fluid={query.four.childImageSharp.fluid} />
           <FeatureDescription>
             <div />
-            <h4>{'언제나\xa0책과 함께\xa0해야\xa0한다면'}</h4>
+            <h3>{'언제나\xa0책과 함께\xa0해야\xa0한다면'}</h3>
             <p>
               글라스 파이버 소재를 사용해 더욱 단단해진{' '}
               <strong>하드 플립 케이스</strong>가

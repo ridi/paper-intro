@@ -42,12 +42,10 @@ export default function AccessoryDetail(props: Props) {
     <Layout>
       <SEO title={data.detail.name.full.replace(/\n/g, ' ')} />
       <Hero renderBackground={renderBackground}>
-        <hgroup>
-          <h2>{data.detail.name.en}</h2>
-          <h1>
-            <LineBreakText text={data.detail.name.full} />
-          </h1>
-        </hgroup>
+        <p>{data.detail.name.en}</p>
+        <h1>
+          <LineBreakText text={data.detail.name.full} />
+        </h1>
         <p>
           <LineBreakText text={data.detail.description} />
         </p>
