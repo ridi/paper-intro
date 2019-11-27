@@ -13,10 +13,22 @@ const Container = styled.ul`
   display: flex;
   flex-wrap: wrap;
 
+  @media (max-width: 600px) {
+    display: block;
+    margin: 0;
+    padding: 0 20px;
+  }
+
   > li {
     width: calc(50% - 5px);
     margin-top: 10px;
     list-style: none;
+
+    @media (max-width: 600px) {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+    }
 
     > a {
       display: block;
@@ -36,6 +48,18 @@ const ThumbnailWrapper = styled.div`
   max-width: 330px;
   margin: 0 auto;
   padding: 10px;
+  line-height: 0;
+
+  @media (max-width: 600px) {
+    width: 280px;
+    max-width: 280px;
+    padding: 30px 0 20px;
+  }
+`;
+
+const Name = styled.p`
+  font-size: 20px;
+  line-height: 1em;
 `;
 
 const styles = css`
@@ -62,7 +86,7 @@ export default function AccessoryTabPage(props: Props) {
             <ThumbnailWrapper>
               <Img fixed={fixed} className={styles.thumbnail} />
             </ThumbnailWrapper>
-            <div>{name}</div>
+            <Name>{name}</Name>
           </Link>
         </li>
       ))}
