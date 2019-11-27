@@ -10,6 +10,11 @@ const HeroContainer = styled.header`
   margin: 0 auto;
   padding: 100px;
 
+  @media (max-width: 600px) {
+    padding: 50px 0;
+    text-align: center;
+  }
+
   > h1 {
     margin-top: 20px;
     font-size: 48px;
@@ -18,6 +23,10 @@ const HeroContainer = styled.header`
 
     &:first-child {
       margin-top: 30px;
+
+      @media (max-width: 600px) {
+        margin-top: 10px;
+      }
     }
   }
 

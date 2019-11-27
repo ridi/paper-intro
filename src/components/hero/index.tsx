@@ -6,10 +6,15 @@ const Container = styled<'section', { long?: boolean }>('section')`
   position: relative;
   height: 600px;
 
+  @media (max-width: 600px) {
+    height: 440px;
+  }
+
   &.long {
     height: 900px;
 
-    @media(max-width: 800px) {
+    @media (max-width: 800px),
+    @media (max-width: 600px) {
       height: 700px;
     }
   }
