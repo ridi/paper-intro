@@ -4,12 +4,11 @@ import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 import PolyfillImg from 'gatsby-image/withIEPolyfill';
 
+import AccessorySection, { Section } from '../components/accessories/AccessorySection';
 import Hero from '../components/hero/Accessory';
 import Layout from '../components/layout';
 import LineBreakText from '../components/LineBreakText';
 import SEO from '../components/seo';
-
-import AccessorySection, { Section } from '../components/accessories/AccessorySection';
 
 interface AccessoryDetailQueryData {
   detail: {

@@ -4,13 +4,12 @@ import React from 'react';
 import AccessoryBanner from '../components/AccessoryBanner';
 import Details from '../components/details';
 import Features from '../components/feature';
-import ViewerFeature from '../components/viewer-feature';
+import Hero from '../components/hero/IndexPage';
 import Layout from '../components/layout';
 import Ridibatang from '../components/ridibatang';
 import SEO from '../components/seo';
 import Specs from '../components/specs';
-
-import Hero from '../components/hero/IndexPage';
+import ViewerFeature from '../components/viewer-feature';
 
 const styles = css`
   .main {
