@@ -2,14 +2,7 @@ import styled from 'astroturf';
 import React from 'react';
 
 import AccessoryDetailSection, { DetailSection } from './AccessoryDetailSection';
-
-interface SpecSection {
-  type: 'spec';
-  items: {
-    name: string;
-    desc: string;
-  }[];
-}
+import AccessorySpecSection, { SpecSection } from './AccessorySpecSection';
 
 interface TableSection {
   type: 'table';
@@ -52,6 +45,7 @@ export default function AccessorySection(props: Props) {
       inner = <AccessoryDetailSection data={props.data} />;
       break;
     case 'spec':
+      inner = <AccessorySpecSection data={props.data} />;
       break;
     case 'table':
       break;
