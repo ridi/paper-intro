@@ -3,14 +3,7 @@ import React from 'react';
 
 import AccessoryDetailSection, { DetailSection } from './AccessoryDetailSection';
 import AccessorySpecSection, { SpecSection } from './AccessorySpecSection';
-
-interface TableSection {
-  type: 'table';
-  rows: {
-    head: string;
-    items: string[];
-  }[];
-}
+import AccessoryTableSection, { TableSection } from './AccessoryTableSection';
 
 export type Section = DetailSection | SpecSection | TableSection;
 
@@ -48,6 +41,7 @@ export default function AccessorySection(props: Props) {
       inner = <AccessorySpecSection data={props.data} />;
       break;
     case 'table':
+      inner = <AccessoryTableSection data={props.data} />;
       break;
     default:
       throw ((_: never) => new Error(`Unknown type: ${_}`))(props.data);

@@ -1,0 +1,69 @@
+slug: ridipaper-protection-film
+for: ridipaper
+name:
+  short: 보호필름
+  en: RIDIPAPER Protection Film
+  full: |-
+    리디페이퍼
+    보호 필름
+description: |-
+  나소 소재 코팅 기술로
+  스크래치로부터 안전하게
+thumbnail: ../images/accessories/ridipaper-protection-film/thumbnail.png
+bg: ../images/accessories/ridipaper-protection-film/bg.jpg
+sections:
+- type: detail
+  name: Choice 01
+  title: 저반사의 편안함
+  description: |-
+    독서 피크닉을 즐기는 분들에게 추천! 햇빛 아래에서도 편하게 볼 수 있어요.
+    E-ink의 강점을 그대로 살린 저반사 필름.
+  image: ../images/accessories/ridipaper-protection-film/1.jpg
+- type: detail
+  name: Choice 02
+  title: 고광택의 선명함
+  description: |-
+    선명한 화면을 원하는 섬세한 독서가를 위해.
+    광학기기에 가까운 뛰어난 투과율로 한 끗의 세밀함까지 찾아주는 고광택 필름.
+  image: ../images/accessories/ridipaper-protection-film/2.jpg
+- type: detail
+  name: Detail spec
+  title: 제품 기능 비교
+  description: ''
+  image: ../images/accessories/ridipaper-protection-film/3.jpg
+- type: table
+  rows:
+  - head: 기능
+    items:
+    - 지문 방지와 저반사
+    - 지문 방지와 고선명
+  - head: 표면 강도
+    items:
+    - '4'
+    - '4'
+  - head: 투과율 / 선명도
+    items:
+    - '3'
+    - '4'
+  - head: 지문 방지력
+    items:
+    - '5'
+    - '3.5'
+  - head: 빛 반사율
+    items:
+    - '1'
+    - '4'
+  - head: 두께
+    items:
+    - '4'
+    - '4'
+  - head: 특징
+    items:
+    - 아웃도어 활동 및 손에 유분기가 많은 사용자에게 적합한 저반사 무광 필름
+    - 가장 일반적인 지문 방지 및 이지클린 (올레포빅) 기능의 베이직형 필름
+- type: spec
+  items:
+  - name: 크기
+    desc: 가로 106.3mm, 세로 153mm
+  - name: 구성품
+    desc: 필름2장, 건식 극세사클리너, 습식 클리너, 먼지 제거 스티커, 밀개

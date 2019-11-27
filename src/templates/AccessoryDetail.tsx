@@ -85,6 +85,10 @@ export const query = graphql`
           name
           desc
         }
+        rows {
+          head
+          items
+        }
       }
     }
   }
