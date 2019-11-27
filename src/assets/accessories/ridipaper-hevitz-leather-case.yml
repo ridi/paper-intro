@@ -1,0 +1,46 @@
+slug: ridipaper-hevitz-leather-case
+for: ridipaper
+name:
+  short: 헤비츠 가죽 케이스
+  en: RIDIPAPER HEVITZ Leather Case
+  full: |-
+    리디페이퍼
+    헤비츠 가죽케이스
+description: |-
+  책과 함께 한 시간을 고스란히 담는
+  세상에 하나뿐인 나만의 케이스
+thumbnail: ../images/accessories/ridipaper-hevitz-leather-case/thumbnail.png
+bg: ../images/accessories/ridipaper-hevitz-leather-case/bg.jpg
+sections:
+- type: detail
+  name: Detail 01
+  title: 이탈리아 천연 베지터블 가죽
+  description: |-
+    중금속과 비닐, 독성 안료를 사용하지 않고 천연 탄닌으로 40일 이상 무두질한 가죽.
+    최고급 친환경의 가치를 소장하세요.
+  image: ../images/accessories/ridipaper-hevitz-leather-case/1.jpg
+- type: detail
+  name: Detail 02
+  title: 나만의 빛깔을 남기는 에이징
+  description: |-
+    표면에 어떠한 가공도 하지 않은 천연 가죽에서만 누릴 수 있는
+    자연스럽고 멋스러운 에이징
+  image: ../images/accessories/ridipaper-hevitz-leather-case/2.jpg
+- type: detail
+  name: Detail 03
+  title: Collaboration with HEVITZ
+  description: |-
+    헤비츠는 가죽을 좋아하는 사람들이 모여 오래도록 마음에 두고
+    사용할 수 있는 가죽 제품을 생산하는 가죽공방입니다.
+    시간이 지날수록 가치를 더하는 가죽처럼 RIDIPAPER와 함께하는 일상의 가치도 올라갑니다.
+  image: ../images/accessories/ridipaper-hevitz-leather-case/3.jpg
+- type: spec
+  items:
+  - name: 크기
+    desc: 가로 131mm, 세로 181mm, 두께 5.5mm
+  - name: 무게
+    desc: 75g
+  - name: 소재
+    desc: 이태리산 미네르바 천연가죽
+  - name: 구성품
+    desc: 헤비츠 가죽 케이스, 워런티 카드, 더스트 백
