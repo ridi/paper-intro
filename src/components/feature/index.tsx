@@ -62,6 +62,10 @@ const styles = css`
 `;
 
 export default function Features() {
+  const [playVideo, setPlayVideo] = React.useState(true);
+  const [ioAvailable, setIoAvailable] = React.useState(false);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
   const query = useStaticQuery(graphql`
     fragment FeatureImage on File {
       childImageSharp {
@@ -72,6 +76,18 @@ export default function Features() {
     }
 
     {
+      one: file(relativePath: { eq: "images/1.jpg" }) {
+        ...FeatureImage
+      }
+      twoPoster: file(relativePath: { eq: "images/2.jpg" }) {
+        publicURL
+      }
+      twoWebm: file(relativePath: { eq: "images/2.webm" }) {
+        publicURL
+      }
+      twoMp4: file(relativePath: { eq: "images/2.mp4" }) {
+        publicURL
+      }
       three: file(relativePath: { eq: "images/3.jpg" }) {
         ...FeatureImage
       }
@@ -80,6 +96,33 @@ export default function Features() {
       }
     }
   `);
+
+  React.useEffect(() => {
+    if (window.IntersectionObserver == null) {
+      return;
+    }
+    setIoAvailable(true);
+    const io = new window.IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.target === videoRef.current) {
+            const isIntersecting = entry.isIntersecting || entry.intersectionRatio > 0;
+            if (isIntersecting) {
+              videoRef.current!.play();
+            } else {
+              videoRef.current!.pause();
+              videoRef.current!.currentTime = 0;
+            }
+            setPlayVideo(isIntersecting);
+          }
+        });
+      },
+      {
+        rootMargin: '200px',
+      },
+    );
+    io.observe(videoRef.current!);
+  }, []);
 
   return (
     <section>
@@ -93,6 +136,39 @@ export default function Features() {
       </Head>
       <FeatureList>
         <FeatureItem>
+          <Img className={styles.image} fluid={query.one.childImageSharp.fluid} />
+          <FeatureDescription>
+            <div />
+            <h3>{'천\xa0페이지가\xa0넘는 책도\xa0얇고\xa0가볍게'}</h3>
+            <p>
+              <strong>{'한\xa0손에\xa0쏙'}</strong> 들어오는 사이즈.{' '}
+              <strong>{'타월\xa0한\xa0장'}</strong>만큼 가벼운 무게.<br />
+              덕분에 부담 없이 휴대하고 어디서든 가볍게 책을 읽을 수 있어요.
+            </p>
+          </FeatureDescription>
+        </FeatureItem>
+        <FeatureItem>
+          <video
+            autoPlay={!ioAvailable}
+            loop
+            muted
+            poster={query.twoPoster.publicURL}
+            className={styles.image}
+            ref={videoRef}
+          >
+            <source src={query.twoWebm.publicURL} type="video/webm" />
+            <source src={query.twoMp4.publicURL} type="video/mp4" />
+          </video>
+          <FeatureDescription>
+            <div />
+            <h3>{'어느\xa0손이든 한\xa0손으로\xa0편하게'}</h3>
+            <p>
+              들고 있는 손에 맞춰 알아서 <strong>화면이 회전</strong>하고
+              버튼만 누르면 책장이 넘어가니까 한결 편하게 읽을 수 있답니다.
+            </p>
+          </FeatureDescription>
+        </FeatureItem>
+        <FeatureItem>
           <Img className={styles.image} fluid={query.three.childImageSharp.fluid} />
           <FeatureDescription>
             <div />
@@ -101,7 +177,7 @@ export default function Features() {
               일상에 지친 눈을 감고 온전히 이야기에만 빠져보세요.{' '}
               <strong>블루투스</strong>와{'\xa0'}<strong>듣기(TTS)</strong> 기능으로
               책을 보는 방법이 다양해집니다.
-              </p>
+            </p>
           </FeatureDescription>
         </FeatureItem>
         <FeatureItem>
@@ -113,7 +189,7 @@ export default function Features() {
               글라스 파이버 소재를 사용해 더욱 단단해진{' '}
               <strong>하드 플립 케이스</strong>가
               RIDIPAPER를 철벽 보호해드릴게요.
-              </p>
+            </p>
           </FeatureDescription>
         </FeatureItem>
       </FeatureList>
