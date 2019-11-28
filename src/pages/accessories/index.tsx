@@ -55,7 +55,7 @@ interface QueryData {
 export default function AccessoryIndexPage() {
   const data = useStaticQuery<QueryData>(graphql`
     {
-      accessories: allAccessoriesYaml {
+      accessories: allAccessoriesYaml(sort: {fields: order}) {
         edges {
           node {
             slug
