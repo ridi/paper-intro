@@ -12,6 +12,7 @@ const Container = styled.ul`
 
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   @media (max-width: 600px) {
     display: block;
