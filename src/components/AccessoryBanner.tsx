@@ -1,7 +1,7 @@
 import styled from 'astroturf';
 import React from 'react';
 
-import Button from './Button';
+import { LinkButton } from './Button';
 
 const Container = styled.section`
   position: relative;
@@ -98,7 +98,7 @@ export default function AccessoryBanner() {
         <ContentTitle small>안심하고 책에만{'\xa0'}집중하세요</ContentTitle>
         <p>{'견고한\xa0전용\xa0악세서리가 RIDIPAPER를\xa0보호해드립니다.'}</p>
         <LinkWrapper>
-          <Button color="blue">전체보기</Button>
+          <LinkButton to="/accessories/" color="blue">전체보기</LinkButton>
         </LinkWrapper>
       </Content>
     </Container>

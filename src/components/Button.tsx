@@ -1,35 +1,40 @@
-import styled from 'astroturf';
+import { css } from 'astroturf';
 import React from 'react';
 
-const Container = styled<'a', { size?: string, color?: string }>('a')`
-  height: 50px;
+import { Link, GatsbyLinkProps } from 'gatsby';
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+const styles = css`
+  .button {
+    height: 50px;
 
-  border: 2px solid transparent;
-  border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  font-size: 19px;
-  line-height: 1em;
-  font-weight: bold;
-  letter-spacing: -0.3px;
+    border: 2px solid transparent;
+    border-radius: 3px;
 
-  &.size-small {
-    height: 30px;
-    border-width: 1px;
-    font-size: 13px;
-  }
+    font-size: 19px;
+    line-height: 1em;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+    text-decoration: none;
 
-  &.color-blue {
-    border-color: #1f8ce6;
-    color: #1f8ce6;
-  }
+    &.sizeSmall {
+      height: 30px;
+      border-width: 1px;
+      font-size: 13px;
+    }
 
-  &.color-white {
-    border-color: white;
-    color: white;
+    &.colorBlue {
+      border-color: #1f8ce6;
+      color: #1f8ce6;
+    }
+
+    &.colorWhite {
+      border-color: white;
+      color: white;
+    }
   }
 `;
 
@@ -40,7 +45,28 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export default function Button(props: Props) {
-  const { size, color, className, children } = props;
-  return <Container size={size} color={color} className={className}>{children}</Container>;
+function createClassesFromProps(props: Props) {
+  const { size, color, className } = props;
+  const classes = [styles.button];
+  if (size === 'small') {
+    classes.push(styles.sizeSmall);
+  }
+  if (color === 'blue') {
+    classes.push(styles.colorBlue);
+  }
+  if (color === 'white') {
+    classes.push(styles.colorWhite);
+  }
+  className && classes.push(className);
+  return classes.join(' ');
+}
+
+export default function Button(props: Props & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const { children, ...anchorProps } = props;
+  return <a {...anchorProps} className={createClassesFromProps(props)}>{children}</a>;
+}
+
+export function LinkButton(props: Props & GatsbyLinkProps<any>) {
+  const { size, color, className, children, ref, ...linkProps } = props;
+  return <Link {...linkProps} className={createClassesFromProps(props)}>{children}</Link>;
 }
