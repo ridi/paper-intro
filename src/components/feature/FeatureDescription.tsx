@@ -21,10 +21,9 @@ const FeatureDescriptionInner = styled.div`
     padding: 0 20px;
   }
 
-  > div {
+  > img {
     width: 60px;
     height: 60px;
-    background-color: #636c73;
   }
 
   > h3 {

@@ -4,6 +4,11 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
+import Icon6Inch from '../../svgs/features/6inch.svg';
+import IconRotate from '../../svgs/features/rotate.svg'
+import IconBluetooth from '../../svgs/features/bluetooth.svg';
+import IconFlipCover from '../../svgs/features/flipcover.svg';
+
 import FeatureItem from './FeatureItem';
 import { FeatureDescription } from './FeatureDescription';
 
@@ -142,7 +147,7 @@ export default function Features() {
         <FeatureItem>
           <Img className={styles.image} fluid={query.one.childImageSharp.fluid} />
           <FeatureDescription>
-            <div />
+            <img src={Icon6Inch} alt="6인치 기기 아이콘" />
             <h3>{'천\xa0페이지가\xa0넘는 책도\xa0얇고\xa0가볍게'}</h3>
             <p>
               <strong>{'한\xa0손에\xa0쏙'}</strong> 들어오는 사이즈.{' '}
@@ -164,7 +169,7 @@ export default function Features() {
             <source src={query.twoMp4.publicURL} type="video/mp4" />
           </video>
           <FeatureDescription>
-            <div />
+            <img src={IconRotate} alt="왼손으로 기기를 잡은 모습 아이콘" />
             <h3>{'어느\xa0손이든 한\xa0손으로\xa0편하게'}</h3>
             <p>
               들고 있는 손에 맞춰 알아서 <strong>화면이 회전</strong>하고
@@ -175,7 +180,7 @@ export default function Features() {
         <FeatureItem>
           <Img className={styles.image} fluid={query.three.childImageSharp.fluid} />
           <FeatureDescription>
-            <div />
+            <img src={IconBluetooth} alt="Bluetooth 아이콘" />
             <h3>{'이제\xa0이야기를 들어보세요'}</h3>
             <p>
               일상에 지친 눈을 감고 온전히 이야기에만 빠져보세요.{' '}
@@ -187,7 +192,7 @@ export default function Features() {
         <FeatureItem>
           <Img className={styles.image} fluid={query.four.childImageSharp.fluid} />
           <FeatureDescription>
-            <div />
+            <img src={IconFlipCover} alt="하드 플립 케이스 아이콘" />
             <h3>{'언제나\xa0책과 함께\xa0해야\xa0한다면'}</h3>
             <p>
               글라스 파이버 소재를 사용해 더욱 단단해진{' '}
