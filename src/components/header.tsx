@@ -23,9 +23,13 @@ const Center = styled.div`
   align-items: stretch;
   justify-content: space-between;
   height: 100%;
-  max-width: 1032px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 40px;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
 `;
 
 const Top = styled.div`
