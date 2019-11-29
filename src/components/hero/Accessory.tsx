@@ -3,7 +3,7 @@ import React from 'react';
 
 import Hero from './index';
 
-const HeroContainer = styled.header`
+const HeroContainer = styled.div`
   width: 100%;
   height: 100%;
   max-width: 1200px;

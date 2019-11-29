@@ -28,7 +28,7 @@ const HeroContainer = styled.div`
   }
 `;
 
-const HeroTitle = styled.header`
+const HeroTitle = styled.div`
   color: white;
 
   > p {

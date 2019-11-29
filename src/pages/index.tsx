@@ -15,13 +15,21 @@ const styles = css`
   .main {
     > section {
       display: block;
-    }
 
-    > section + section {
-      margin-top: 200px;
+      &:first-of-type {
+        margin-top: 200px;
 
-      @media (max-width: 800px) {
-        margin-top: 120px;
+        @media (max-width: 800px) {
+          margin-top: 80px;
+        }
+      }
+
+      & + section {
+        margin-top: 200px;
+
+        @media (max-width: 800px) {
+          margin-top: 120px;
+        }
       }
     }
   }

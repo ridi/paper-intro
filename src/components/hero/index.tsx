@@ -1,8 +1,7 @@
 import styled, { css } from 'astroturf';
 import React from 'react';
 
-const Container = styled<'section', { long?: boolean }>('section')`
-  display: block;
+const Container = styled<'header', { long?: boolean }>('header')`
   position: relative;
   height: 600px;
 
