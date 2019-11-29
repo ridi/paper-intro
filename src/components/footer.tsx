@@ -19,7 +19,7 @@ const Container = styled.div`
 const FooterWrapper = styled.footer`
   display: block;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 40px;
 
@@ -85,7 +85,7 @@ const SocialLink = styled.a`
   }
 
   > svg {
-    fill: #8c9a9d;
+    fill: #8c9dad;
   }
 
   > span {
