@@ -75,7 +75,7 @@ const Header = () => (
   <Container>
     <Center>
       <Top>
-        <RidipaperLogo className={styles.ridipaperLogo} />
+        <img src={RidipaperLogo} className={styles.ridipaperLogo} alt="RIDIPAPER" />
         <Button size="small" color="white" className={styles.buy}>구매하기</Button>
       </Top>
       <Bottom>

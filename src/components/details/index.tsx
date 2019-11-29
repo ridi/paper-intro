@@ -3,7 +3,7 @@ import React from 'react';
 
 import Slider, { Settings as SliderSettings } from 'react-slick';
 
-import ArrowV from '../../svgs/arrow-v.svg';
+import ArrowV from '../../svgs/arrow-v.inline.svg';
 
 import './slick.css';
 

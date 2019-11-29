@@ -3,8 +3,8 @@ import React from 'react';
 
 import RidibooksLogo from '../svgs/ridibooks.svg';
 import RidiselectLogo from '../svgs/ridiselect.svg';
-import InstagramIcon from '../svgs/ig.svg';
-import FacebookIcon from '../svgs/fb.svg';
+import InstagramIcon from '../svgs/ig.inline.svg';
+import FacebookIcon from '../svgs/fb.inline.svg';
 
 const Container = styled.div`
   margin-top: 100px;
@@ -58,10 +58,6 @@ const Links = styled<'div', { narrow?: boolean }>('div')`
     @media (max-width: 800px) {
       margin-top: 40px;
     }
-  }
-
-  svg {
-    fill: #9ea7ad;
   }
 `;
 
@@ -133,12 +129,12 @@ export default function Footer() {
       <FooterWrapper>
         <Links className={styles.spaceBetween}>
           <div>
-            <LogoLink aria-label="리디북스로 이동">
-              <RidibooksLogo className={styles.ridibooks} />
+            <LogoLink>
+              <img src={RidibooksLogo} className={styles.ridibooks} alt="리디북스로 이동" />
             </LogoLink>
             <Divider />
-            <LogoLink aria-label="리디셀렉트로 이동">
-              <RidiselectLogo className={styles.ridiselect} />
+            <LogoLink>
+              <img src={RidiselectLogo} className={styles.ridiselect} alt="리디셀렉트로 이동" />
             </LogoLink>
           </div>
           <div>

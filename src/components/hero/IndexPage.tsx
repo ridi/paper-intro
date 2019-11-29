@@ -114,11 +114,10 @@ const styles = css`
     background-color: #1ec800;
     color: white;
 
-    > svg {
+    > img {
       width: 20px;
       height: 20px;
       margin-right: 4px;
-      fill: white;
     }
   }
 `;
@@ -151,7 +150,7 @@ export default function IndexHero() {
         <HeroTitle>
           <p>세상이 나의 서재가 된다</p>
           <h1>
-            <RidipaperLogo className={styles.logo} />
+            <img src={RidipaperLogo} className={styles.logo} />
             <span>RIDIPAPER</span>
           </h1>
         </HeroTitle>
@@ -163,7 +162,7 @@ export default function IndexHero() {
           </li>
           <li>
             <Button className={styles.purchaseNaver}>
-              <NaverLogo /> 쇼핑 에서 구매
+              <img src={NaverLogo} alt="네이버" /> 쇼핑 에서 구매
             </Button>
           </li>
         </PurchaseLinks>
