@@ -7,14 +7,22 @@ import Img from 'gatsby-image';
 import Button from '../Button';
 import SpecSection, { SpecItem } from './SpecSection';
 
-const Title = styled.h2`
+const Container = styled.section`
+  max-width: 1080px;
+  margin: 0 auto;
   padding: 0 40px;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
+`;
+
+const Title = styled.h2`
   font-size: 35px;
   line-height: 35px;
   text-align: left;
 
   @media (max-width: 800px) {
-    padding: 0 20px;
     font-size: 28px;
     line-height: 41px;
     text-align: center;
@@ -46,13 +54,10 @@ const Dummy = styled.div`
 
 const SpecsList = styled.div`
   width: 100%;
-  max-width: 1080px;
   margin: 80px auto 0;
-  padding: 0 40px;
 
   @media (max-width: 800px) {
     margin-top: 60px;
-    padding: 0 20px;
   }
 `;
 
@@ -129,7 +134,7 @@ export default function Specs() {
   `);
 
   return (
-    <section>
+    <Container>
       <Title>상세 스펙</Title>
       <DeviceImages>
         <Dummy className={styles.device} />
@@ -157,6 +162,6 @@ export default function Specs() {
       <UserGuideButtonWrapper>
         <Button color="blue">사용자 가이드 확인하기</Button>
       </UserGuideButtonWrapper>
-    </section>
+    </Container>
   );
 }
