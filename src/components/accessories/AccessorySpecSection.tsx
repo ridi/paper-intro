@@ -10,12 +10,9 @@ export interface SpecSection {
   disclaimer: string | null;
 }
 
-const Container = styled.div`
+const SpecList = styled.ul`
   max-width: 1000px;
   margin: 0 auto;
-`;
-
-const SpecList = styled.ul`
   padding: 40px;
   background-color: #f2f4f5;
   color: #636c73;
@@ -54,7 +51,8 @@ const Desc = styled.div`;
 `;
 
 const Disclaimer = styled.p`
-  margin-top: 10px;
+  max-width: 1080px;
+  margin: 10px auto 0;
   padding: 0 40px;
   font-size: 14px;
   line-height: 20px;
@@ -73,7 +71,7 @@ interface Props {
 
 export default function AccessorySpecSection(props: Props) {
   return (
-    <Container>
+    <>
       <SpecList>
         {props.data.items.map(({name, desc}, idx) => (
           <Item key={idx}>
@@ -83,6 +81,6 @@ export default function AccessorySpecSection(props: Props) {
         ))}
       </SpecList>
       {props.data.disclaimer && <Disclaimer>{props.data.disclaimer}</Disclaimer>}
-    </Container>
+    </>
   );
 }
