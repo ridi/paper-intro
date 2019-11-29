@@ -24,17 +24,6 @@ const styles = css`
         margin-top: 120px;
       }
     }
-
-    h2 {
-      font-size: 50px;
-      line-height: 64px;
-      text-align: center;
-
-      @media (max-width: 800px) {
-        font-size: 32px;
-        line-height: 48px;
-      }
-    }
   }
 `;
 

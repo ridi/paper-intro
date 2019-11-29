@@ -65,6 +65,16 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
+h2 {
+  font-size: 50px;
+  line-height: 64px;
+  text-align: center;
+
+  @media (max-width: 800px) {
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
 mark {
   background-color: #ff0;
   color: #000;
@@ -243,47 +253,15 @@ p {
 img {
   max-width: 100%;
 }
-h1 {
-  color: inherit;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
-  line-height: 1.1;
-}
-h2 {
-  color: inherit;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
-  line-height: 1.1;
-}
-h3 {
-  color: inherit;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 1.38316rem;
-  line-height: 1.1;
-}
-h4 {
-  color: inherit;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 1rem;
-  line-height: 1.1;
-}
-h5 {
-  color: inherit;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 0.85028rem;
-  line-height: 1.1;
-}
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
   color: inherit;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 0.78405rem;
-  line-height: 1.1;
 }
 ul {
   list-style-position: outside;

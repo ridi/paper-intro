@@ -10,7 +10,7 @@ import { FeatureDescription } from './FeatureDescription';
 const Head = styled.div`
   margin: 0 40px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 600px) {
     margin: 0 20px;
   }
 
@@ -20,13 +20,13 @@ const Head = styled.div`
 
     @media (max-width: 800px) {
       width: 100%;
-      text-align: left !important;
+      text-align: left;
     }
   }
 `;
 
 const Description = styled.p`
-  width: 520px;
+  width: 530px;
   margin: 40px auto 0;
   font-size: 22px;
   line-height: 32px;
