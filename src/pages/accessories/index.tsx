@@ -36,7 +36,7 @@ export default function AccessoryIndexPage() {
             }
             thumbnail {
               childImageSharp {
-                fixed(width: 310, height: 310) {
+                fixed(width: 310, height: 310, quality: 90) {
                   srcSetWebp
                 }
               }

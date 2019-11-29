@@ -64,7 +64,7 @@ export const query = graphql`
       description
       bg {
         childImageSharp {
-          fluid(maxHeight: 600) {
+          fluid(maxHeight: 600, quality: 80) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -76,7 +76,7 @@ export const query = graphql`
         description
         image {
           childImageSharp {
-            fluid(maxWidth: 1000, sizes: "(max-width: 1000px) 1000px, 100vw") {
+            fluid(maxWidth: 1000, sizes: "(max-width: 1000px) 1000px, 100vw", quality: 90) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }

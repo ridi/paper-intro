@@ -73,7 +73,7 @@ export default function Features() {
   const query = useStaticQuery(graphql`
     fragment FeatureImage on File {
       childImageSharp {
-        fluid(quality: 90, sizes: "(max-width: 800px) 100vw, (max-width: 1200px) 50vw, 600px") {
+        fluid(sizes: "(max-width: 800px) 100vw, (max-width: 1200px) 50vw, 600px", quality: 80) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }

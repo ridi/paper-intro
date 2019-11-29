@@ -101,14 +101,14 @@ export default function Ridibatang() {
     {
       bg: file(relativePath: {eq: "images/ridibatang-bg.jpg"}) {
         childImageSharp {
-          fluid(sizes: "100vw") {
+          fluid(sizes: "100vw", quality: 80) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
       device: file(relativePath: {eq: "images/ridibatang-device.png"}) {
         childImageSharp {
-          fluid(maxWidth: 830, sizes: "(max-width: 600px) 100vw, (max-width: 800px) 600px, 830px") {
+          fluid(maxWidth: 830, sizes: "(max-width: 600px) 100vw, (max-width: 800px) 600px, 830px", quality: 90) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }

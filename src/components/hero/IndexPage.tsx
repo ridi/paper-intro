@@ -132,6 +132,7 @@ export default function IndexHero() {
             maxWidth: 1600
             sizes: "(max-width: 800px) 1244px, 1600px"
             srcSetBreakpoints: [1244, 1600, 1866, 2400, 2488, 3200, 3110, 3732, 4000, 4354, 4800]
+            quality: 80
           ) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
