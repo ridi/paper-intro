@@ -24,6 +24,7 @@ const Container = styled.div`
   p {
     width: 85%;
     margin-top: 30px;
+    color: #525a61;
 
     @media (max-width: 600px) {
       width: 100%;
@@ -37,7 +38,7 @@ const Container = styled.div`
       font-weight: bold;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.5);
+      color: rgba(99, 108, 115, 0.5);
 
       @media (max-width: 600px) {
         font-size: 14px;
