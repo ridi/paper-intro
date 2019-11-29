@@ -7,6 +7,10 @@ import ArrowV from '../../svgs/arrow-v.inline.svg';
 
 import './slick.css';
 
+const Container = styled.section`
+  overflow: hidden;
+`;
+
 const StaticSlider = styled<'div', { hidden?: boolean }>('div')`
   width: 100%;
   max-width: 1320px;
@@ -146,7 +150,7 @@ export default function Details() {
   }
 
   return (
-    <section>
+    <Container>
       <h2>차원이 다른 디테일</h2>
       <StaticSlider hidden={showSlider}>
         <StaticSliderInner>
@@ -160,6 +164,6 @@ export default function Details() {
         </StaticSliderInner>
       </StaticSlider>
       {slider}
-    </section>
+    </Container>
   );
 }
