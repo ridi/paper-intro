@@ -22,7 +22,7 @@ const ArrowInner = styled.div`
 
     position: absolute;
     border-radius: 1px;
-    background-color: hsla(0, 0%, 0%, 0.8);
+    background-color: #212529;
   }
 
   &::before {

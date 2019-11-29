@@ -39,7 +39,6 @@ const Container = styled.ul`
       background-color: #f7fafc;
       text-align: center;
       text-decoration: none;
-      color: hsla(0, 0%, 0%, 0.6);
     }
   }
 `;

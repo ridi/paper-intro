@@ -14,7 +14,7 @@ const Container = styled.ul`
   margin: 0 auto;
   padding: 20px;
   background-color: #f2f4f5;
-  color: hsla(0, 0%, 0%, 0.6);
+  color: #636c73;
 `;
 
 const Item = styled.li`

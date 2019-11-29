@@ -24,28 +24,16 @@ const styles = css`
         margin-top: 120px;
       }
     }
-  }
-`;
 
-css`
-  h2 {
-    font-size: 50px;
-    line-height: 64px;
-    text-align: center;
+    h2 {
+      font-size: 50px;
+      line-height: 64px;
+      text-align: center;
 
-    @media (max-width: 800px) {
-      font-size: 32px;
-      line-height: 48px;
-    }
-  }
-
-  p {
-    font-size: 20px;
-    line-height: 28px;
-    color: hsla(0, 0%, 0%, 0.6);
-
-    @media (max-width: 800px) {
-      font-size: 18px;
+      @media (max-width: 800px) {
+        font-size: 32px;
+        line-height: 48px;
+      }
     }
   }
 `;

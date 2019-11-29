@@ -5,7 +5,7 @@ import Arrow from './Arrow';
 
 const Header = styled.div`
   height: 80px;
-  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+  border-bottom: 1px solid #d1d5d9;
 
   display: flex;
   align-items: center;

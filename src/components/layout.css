@@ -206,7 +206,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
+  color: #212529;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -231,6 +231,15 @@ p {
   padding: 0;
 }
 
+p {
+  font-size: 20px;
+  line-height: 28px;
+  color: #636c73;
+
+  @media (max-width: 800px) {
+    font-size: 18px;
+  }
+}
 img {
   max-width: 100%;
 }

@@ -21,6 +21,11 @@ const HeroContainer = styled.header`
     line-height: 60px;
     color: white;
 
+    @media (max-width: 600px) {
+      font-size: 36px;
+      line-height: 48px;
+    }
+
     &:first-child {
       margin-top: 30px;
 

@@ -1,4 +1,3 @@
-import { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
@@ -8,33 +7,6 @@ import AccessoryTabPage from '../../components/accessories/AccessoryTabPage';
 import Hero from '../../components/hero/Accessory';
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
-
-css`
-  h1 {
-    font-size: 50px;
-    line-height: 64px;
-
-    @media (max-width: 800px) {
-      font-size: 32px;
-      line-height: 48px;
-    }
-  }
-
-  h2 {
-    font-size: 36px;
-    line-height: 48px;
-  }
-
-  p {
-    font-size: 20px;
-    line-height: 28px;
-    color: hsla(0, 0%, 0%, 0.6);
-
-    @media (max-width: 800px) {
-      font-size: 18px;
-    }
-  }
-`;
 
 interface QueryData {
   accessories: {

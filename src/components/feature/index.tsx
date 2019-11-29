@@ -9,15 +9,19 @@ import { FeatureDescription } from './FeatureDescription';
 
 const Head = styled.div`
   margin: 0 40px;
-`;
-
-const Title = styled.h2`
-  width: 500px;
-  margin: 0 auto;
 
   @media (max-width: 800px) {
-    width: 100%;
-    text-align: left;
+    margin: 0 20px;
+  }
+
+  > h2 {
+    width: 500px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+      width: 100%;
+      text-align: left !important;
+    }
   }
 `;
 
@@ -127,7 +131,7 @@ export default function Features() {
   return (
     <section>
       <Head>
-        <Title>{'가볍게,\xa0컴팩트하게 어디서나 독서에 빠지다'}</Title>
+        <h2>{'가볍게,\xa0컴팩트하게 어디서나 독서에 빠지다'}</h2>
         <Description>
           출근길 지하철, 여행 떠나는 비행기 안, 잠들기 전 침대 위 어디서든 책을
           읽고 싶은 순간 <strong>RIDIPAPER</strong>를 꺼내보세요. 내가 있는 모든

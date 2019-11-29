@@ -13,8 +13,8 @@ const Container = styled.table`
   display: block;
   max-width: 1000px;
   margin: 0 auto;
-  border-top: 1px solid hsla(0, 0%, 0%, 0.12);
-  color: hsla(0, 0%, 0%, 0.6);
+  border-top: 1px solid #d1d5d9;
+  color: #636c73;
 `;
 
 const Row = styled.tr`
@@ -61,7 +61,7 @@ const Item = styled.td`
 const Circle = styled<'div', { state?: string }>('div')`
   width: 16px;
   height: 16px;
-  border: 1px solid hsla(0, 0%, 0%, 0.6);
+  border: 1px solid #636c73;
   border-radius: 8px;
   overflow: hidden;
 
@@ -72,7 +72,7 @@ const Circle = styled<'div', { state?: string }>('div')`
   }
 
   &.state-filled {
-    background-color: hsla(0, 0%, 0%, 0.6);
+    background-color: #636c73;
   }
 
   &.state-half::before {
@@ -80,7 +80,7 @@ const Circle = styled<'div', { state?: string }>('div')`
     content: '';
     width: 50%;
     height: 100%;
-    background-color: hsla(0, 0%, 0%, 0.6);
+    background-color: #636c73;
   }
 
   & + & {
