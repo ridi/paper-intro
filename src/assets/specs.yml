@@ -1,4 +1,5 @@
 - title: 기본 사양
+  openByDefault: true
   items:
   - name: 정식 명칭
     desc: 리디페이퍼
@@ -19,6 +20,7 @@
   - name: 충전 완료 시간
     desc: 약 2시간 40분 (5V 1A 충전기 기준)
 - title: 기술 정보
+  openByDefault: false
   items:
   - name: CPU
     desc: i.MX6 1GHz
@@ -35,6 +37,7 @@
   - name: 지원 파일
     desc: EPUB, TXT, PDF, ZIP
 - title: 디스플레이
+  openByDefault: false
   items:
   - name: 스크린 형태
     desc: 6" Carta E-ink (플랫 스크린)
@@ -43,6 +46,7 @@
   - name: 화면 조명
     desc: 프론트라이트 프로 (밝기 조절 및 색 온도 조절 가능)
 - title: 부가 기능
+  openByDefault: false
   items:
   - name: 부가 기능
     desc: 오토 슬립 (정품 하드 플립 케이스 사용 시)

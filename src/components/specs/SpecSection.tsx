@@ -3,7 +3,8 @@ import React from 'react';
 
 import Arrow from './Arrow';
 
-const Header = styled.div`
+const Header = styled.a`
+  display: block;
   height: 80px;
   border-bottom: 1px solid #d1d5d9;
 
@@ -16,6 +17,10 @@ const Header = styled.div`
   font-weight: bold;
 
   cursor: pointer;
+
+  @media (max-width: 800px) {
+    font-size: 20px;
+  }
 `;
 
 const Body = styled<'div', { hidden?: boolean }>('div')`
@@ -43,6 +48,7 @@ export const SpecItem = styled.div`
 
 interface Props {
   title: string;
+  openByDefault?: boolean;
   children?: React.ReactNode;
 }
 
@@ -52,7 +58,7 @@ export default function SpecSection(props: Props) {
   const toggleOpen = React.useCallback(() => setOpen(value => !value), []);
 
   React.useEffect(() => {
-    setOpen(false);
+    setOpen(props.openByDefault || false);
   }, []);
 
   return (

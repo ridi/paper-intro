@@ -47,6 +47,7 @@ const SpecsList = styled.div`
 
   @media (max-width: 800px) {
     margin-top: 60px;
+    padding: 0 20px;
   }
 `;
 
@@ -90,6 +91,7 @@ interface SpecQueryData {
     edges: {
       node: {
         title: string;
+        openByDefault: boolean;
         items: {
           name: string;
           desc: string;
@@ -106,6 +108,7 @@ export default function Specs() {
         edges {
           node {
             title
+            openByDefault
             items {
               name
               desc
@@ -125,7 +128,11 @@ export default function Specs() {
       </DeviceImages>
       <SpecsList>
         {data.specs.edges.map(edge => (
-          <SpecSection key={edge.node.title} title={edge.node.title}>
+          <SpecSection
+            key={edge.node.title}
+            title={edge.node.title}
+            openByDefault={edge.node.openByDefault}
+          >
             {edge.node.items.map((item, idx) => (
               <SpecItem key={idx}>
                 <strong>{item.name}</strong>
