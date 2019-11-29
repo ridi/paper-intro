@@ -85,6 +85,7 @@ export const query = graphql`
           name
           desc
         }
+        disclaimer
         rows {
           head
           items

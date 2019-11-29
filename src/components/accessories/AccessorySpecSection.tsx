@@ -7,11 +7,15 @@ export interface SpecSection {
     name: string;
     desc: string;
   }[];
+  disclaimer: string | null;
 }
 
-const Container = styled.ul`
+const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+`;
+
+const SpecList = styled.ul`
   padding: 20px;
   background-color: #f2f4f5;
   color: #636c73;
@@ -45,6 +49,19 @@ const Desc = styled.div`;
   flex: 1;
 `;
 
+const Disclaimer = styled.p`
+  margin-top: 10px;
+  padding: 0 20px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #9ea7ad;
+
+  @media (max-width: 600px) {
+    font-size: 12px;
+    line-height: 17px;
+  }
+`;
+
 interface Props {
   data: SpecSection;
 }
@@ -52,12 +69,15 @@ interface Props {
 export default function AccessorySpecSection(props: Props) {
   return (
     <Container>
-      {props.data.items.map(({ name, desc }, idx) => (
-        <Item key={idx}>
-          <Name>{name}</Name>
-          <Desc>{desc}</Desc>
-        </Item>
-      ))}
+      <SpecList>
+        {props.data.items.map(({name, desc}, idx) => (
+          <Item key={idx}>
+            <Name>{name}</Name>
+            <Desc>{desc}</Desc>
+          </Item>
+        ))}
+      </SpecList>
+      {props.data.disclaimer && <Disclaimer>{props.data.disclaimer}</Disclaimer>}
     </Container>
   );
 }

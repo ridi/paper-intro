@@ -51,3 +51,8 @@ sections:
     desc: 합성피혁 혹은 폴리우레탄 (PU), 폴리카보네이트 (PC)
   - name: 구성품
     desc: 하드 플립 케이스, 탈착 가이드
+  - name: 제조사
+    desc: 리디 주식회사
+  - name: 제조국
+    desc: 중국(OSM)
+  disclaimer: '* 제품 색상은 디스플레이 설정에 따라 실제 색상과 차이가 있을 수 있습니다.'
