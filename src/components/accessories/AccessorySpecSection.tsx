@@ -16,9 +16,13 @@ const Container = styled.div`
 `;
 
 const SpecList = styled.ul`
-  padding: 20px;
+  padding: 40px;
   background-color: #f2f4f5;
   color: #636c73;
+
+  @media (max-width: 600px) {
+    padding: 20px;
+  }
 `;
 
 const Item = styled.li`
@@ -51,12 +55,13 @@ const Desc = styled.div`;
 
 const Disclaimer = styled.p`
   margin-top: 10px;
-  padding: 0 20px;
+  padding: 0 40px;
   font-size: 14px;
   line-height: 20px;
   color: #9ea7ad;
 
   @media (max-width: 600px) {
+    padding: 0 20px;
     font-size: 12px;
     line-height: 17px;
   }
