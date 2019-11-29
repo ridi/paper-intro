@@ -32,8 +32,7 @@ sections:
   title: 제품 기능 비교
   description: ''
   image: ../images/accessories/ridipaper-protection-film/3.jpg
-- type: table
-  rows:
+  tableRows:
   - head: 기능
     items:
     - 지문 방지와 저반사

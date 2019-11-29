@@ -4,7 +4,7 @@ import React from 'react';
 import { FluidObject } from 'gatsby-image';
 import Img from 'gatsby-image';
 
-import LineBreakText from '../LineBreakText';
+import AccessoryTableSection from './AccessoryTableSection';
 
 export interface DetailSection {
   type: 'detail';
@@ -16,6 +16,10 @@ export interface DetailSection {
       fluid: FluidObject;
     };
   };
+  tableRows: {
+    head: string;
+    items: string[];
+  }[] | null;
 }
 
 const Container = styled.div`
@@ -86,6 +90,7 @@ export default function AccessoryDetailSection(props: Props) {
       <ImgWrapper>
         <Img fluid={props.data.image.childImageSharp.fluid} backgroundColor="#f0f5fa" />
       </ImgWrapper>
+      {props.data.tableRows && <AccessoryTableSection rows={props.data.tableRows} />}
     </Container>
   );
 }

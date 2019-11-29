@@ -81,15 +81,15 @@ export const query = graphql`
             }
           }
         }
+        tableRows {
+          head
+          items
+        }
         items {
           name
           desc
         }
         disclaimer
-        rows {
-          head
-          items
-        }
       }
     }
   }

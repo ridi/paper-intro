@@ -1,20 +1,20 @@
 import styled from 'astroturf';
 import React from 'react';
 
-export interface TableSection {
-  type: 'table';
-  rows: {
-    head: string;
-    items: string[];
-  }[];
-}
-
 const Container = styled.table`
   display: block;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 50px auto 0;
   border-top: 1px solid #d1d5d9;
   color: #636c73;
+
+  @media (max-width: 600px) {
+    margin-top: 40px;
+  }
+
+  > tbody {
+    display: block;
+  }
 `;
 
 const Row = styled.tr`
@@ -38,7 +38,7 @@ const Row = styled.tr`
 const Head = styled.th`
   width: 200px;
   padding: 17px 20px 17px 0;
-  justify-content: right;
+  justify-content: flex-end;
   background-color: #f2f4f5;
 
   @media (max-width: 600px) {
@@ -93,40 +93,45 @@ const Circle = styled<'div', { state?: string }>('div')`
 `;
 
 interface Props {
-  data: TableSection;
+  rows: {
+    head: string;
+    items: string[];
+  }[];
 }
 
 export default function AccessoryTableSection(props: Props) {
   return (
     <Container>
-      {props.data.rows.map(({ head, items }, idx) => (
-        <Row key={idx}>
-          <Head>{head}</Head>
-          {items.map((item, idx) => {
-            let node;
-            if (Number.isNaN(Number(item))) {
-              node = item;
-            } else {
-              const x = Number(item);
-              const filled = Math.floor(x);
-              const half = x !== filled ? 1 : 0;
-              const empty = 5 - filled - half;
-              const stateList = [];
-              for (let i = 0; i < filled; i++) {
-                stateList.push('filled');
+      <tbody>
+        {props.rows.map(({head, items}, idx) => (
+          <Row key={idx}>
+            <Head>{head}</Head>
+            {items.map((item, idx) => {
+              let node;
+              if (Number.isNaN(Number(item))) {
+                node = item;
+              } else {
+                const x = Number(item);
+                const filled = Math.floor(x);
+                const half = x !== filled ? 1 : 0;
+                const empty = 5 - filled - half;
+                const stateList = [];
+                for (let i = 0; i < filled; i++) {
+                  stateList.push('filled');
+                }
+                for (let i = 0; i < half; i++) {
+                  stateList.push('half');
+                }
+                for (let i = 0; i < empty; i++) {
+                  stateList.push('empty');
+                }
+                node = stateList.map((state, idx) => <Circle key={idx} state={state} />);
               }
-              for (let i = 0; i < half; i++) {
-                stateList.push('half');
-              }
-              for (let i = 0; i < empty; i++) {
-                stateList.push('empty');
-              }
-              node = stateList.map((state, idx) => <Circle key={idx} state={state} />);
-            }
-            return <Item key={idx}>{node}</Item>;
-          })}
-        </Row>
-      ))}
+              return <Item key={idx}>{node}</Item>;
+            })}
+          </Row>
+        ))}
+      </tbody>
     </Container>
   );
 }

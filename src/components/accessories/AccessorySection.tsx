@@ -3,9 +3,8 @@ import React from 'react';
 
 import AccessoryDetailSection, { DetailSection } from './AccessoryDetailSection';
 import AccessorySpecSection, { SpecSection } from './AccessorySpecSection';
-import AccessoryTableSection, { TableSection } from './AccessoryTableSection';
 
-export type Section = DetailSection | SpecSection | TableSection;
+export type Section = DetailSection | SpecSection;
 
 const Section = styled.section`
   display: block;
@@ -39,9 +38,6 @@ export default function AccessorySection(props: Props) {
       break;
     case 'spec':
       inner = <AccessorySpecSection data={props.data} />;
-      break;
-    case 'table':
-      inner = <AccessoryTableSection data={props.data} />;
       break;
     default:
       throw ((_: never) => new Error(`Unknown type: ${_}`))(props.data);
