@@ -31,6 +31,10 @@ const StaticSliderInner = styled.div`
 const Spacer = styled.div`
   flex: 0 0 auto;
   width: 60px;
+
+  @media (max-width: 800px) {
+    width: 20px;
+  }
 `;
 
 const StaticImg = styled.div`
@@ -55,7 +59,7 @@ const Arrow = styled<'button', { next?: boolean }>('button').attrs({
 })`
   width: 40px;
   height: 40px;
-  margin: 10px;
+  margin-right: 10px;
 
   border-radius: 20px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15), 0px 1px 5px rgba(0, 0, 0, 0.1);
@@ -70,9 +74,14 @@ const Arrow = styled<'button', { next?: boolean }>('button').attrs({
     fill: #808991;
   }
 
-  &.next > svg {
-    margin: 13px 13px 13px 15px;
-    transform: scaleX(-1);
+  &.next {
+    margin-left: 10px;
+    margin-right: 0;
+
+    > svg {
+      margin: 13px 13px 13px 15px;
+      transform: scaleX(-1);
+    }
   }
 `;
 
@@ -87,7 +96,7 @@ const Img = styled.div`
 
 const styles = css`
   .slider {
-    width: calc(100% - 120px);
+    width: calc(100% - 100px);
     line-height: 0;
   }
 `;

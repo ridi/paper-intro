@@ -11,7 +11,7 @@ const Title = styled.h2`
   }
 `;
 
-export default function ViewerFeature() {
+export default function ViewerFeatures() {
   return (
     <section>
       <Title>{'책과\xa0가장\xa0가까운, 그러나\xa0책\xa0그\xa0이상'}</Title>

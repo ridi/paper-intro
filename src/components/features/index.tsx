@@ -85,22 +85,22 @@ export default function Features() {
     }
 
     {
-      one: file(relativePath: { eq: "images/1.jpg" }) {
+      one: file(relativePath: { eq: "images/features/1.jpg" }) {
         ...FeatureImage
       }
-      twoPoster: file(relativePath: { eq: "images/2.jpg" }) {
+      twoPoster: file(relativePath: { eq: "images/features/2.jpg" }) {
         publicURL
       }
-      twoWebm: file(relativePath: { eq: "images/2.webm" }) {
+      twoWebm: file(relativePath: { eq: "images/features/2.webm" }) {
         publicURL
       }
-      twoMp4: file(relativePath: { eq: "images/2.mp4" }) {
+      twoMp4: file(relativePath: { eq: "images/features/2.mp4" }) {
         publicURL
       }
-      three: file(relativePath: { eq: "images/3.jpg" }) {
+      three: file(relativePath: { eq: "images/features/3.jpg" }) {
         ...FeatureImage
       }
-      four: file(relativePath: { eq: "images/4.jpg" }) {
+      four: file(relativePath: { eq: "images/features/4.jpg" }) {
         ...FeatureImage
       }
     }
