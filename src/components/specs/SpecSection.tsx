@@ -17,6 +17,7 @@ const Header = styled.a`
   font-weight: bold;
 
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   @media (max-width: 800px) {
     font-size: 20px;

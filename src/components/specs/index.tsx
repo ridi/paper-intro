@@ -8,11 +8,16 @@ import Button from '../Button';
 import SpecSection, { SpecItem } from './SpecSection';
 
 const Title = styled.h2`
+  padding: 0 40px;
   font-size: 35px;
-  line-height: 1em;
+  line-height: 35px;
+  text-align: left;
 
   @media (max-width: 800px) {
-    font-size: 32px;
+    padding: 0 20px;
+    font-size: 28px;
+    line-height: 41px;
+    text-align: center;
   }
 `;
 
@@ -54,10 +59,14 @@ const SpecsList = styled.div`
 const UserGuideParagraph = styled.p`
   margin: 100px auto 0;
   text-align: center;
+  font-size: 22px;
+  line-height: 32px;
 
   @media (max-width: 800px) {
+    width: 250px;
     margin-top: 80px;
-    width: 260px;
+    font-size: 16px;
+    line-height: 23px;
   }
 `;
 
