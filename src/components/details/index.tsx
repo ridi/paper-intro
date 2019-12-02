@@ -52,6 +52,11 @@ const SliderContainer = styled.div`
 
   display: flex;
   align-items: center;
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
 `;
 
 const Arrow = styled<'button', { next?: boolean }>('button').attrs({
@@ -66,7 +71,6 @@ const Arrow = styled<'button', { next?: boolean }>('button').attrs({
 
   background-color: white;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
 
   transition: opacity 0.1s;
 
