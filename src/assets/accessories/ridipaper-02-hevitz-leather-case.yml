@@ -25,14 +25,13 @@ sections:
   title: 나만의 빛깔을 남기는 에이징
   description: |-
     표면에 어떠한 가공도 하지 않은 천연 가죽에서만 누릴 수 있는
-    자연스럽고 멋스러운 에이징
+    자연스럽고 멋스러운 에이징.
   image: ../images/accessories/ridipaper-hevitz-leather-case/2.jpg
 - type: detail
   name: Detail 03
   title: Collaboration with HEVITZ
   description: |-
-    헤비츠는 가죽을 좋아하는 사람들이 모여 오래도록 마음에 두고
-    사용할 수 있는 가죽 제품을 생산하는 가죽공방입니다.
+    헤비츠는 가죽을 좋아하는 사람들이 모여 오래도록 마음에 두고 사용할 수 있는 가죽 제품을 생산하는 가죽공방입니다.
     시간이 지날수록 가치를 더하는 가죽처럼 RIDIPAPER와 함께하는 일상의 가치도 올라갑니다.
   image: ../images/accessories/ridipaper-hevitz-leather-case/3.jpg
 - type: spec

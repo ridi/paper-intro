@@ -127,7 +127,7 @@ export default function Ridibatang() {
       <Content>
         <Title>리디페이퍼 전용서체, 리디바탕</Title>
         <p>
-          e-ink 디스플레이에서도 또렷하게.<br />더 선명하고, 긴 문장도 잘 읽을
+          전자잉크 디스플레이에서도 또렷하게.<br />더 선명하고, 긴 문장도 잘 읽을
           수 있는<br />전자책 전용 글꼴 리디바탕
         </p>
         <Button href="https://www.ridicorp.com/branding/fonts/ridibatang/" color="blue">더 알아보기</Button>

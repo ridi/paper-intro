@@ -38,7 +38,7 @@ sections:
   name: Detail 04
   title: 손끝으로 느끼는 스웨이드 질감
   description: |
-    눈에 보이는 외면은 고급스럽게 화면과 접촉하는 내면은 부드럽게
+    눈에 보이는 외면은 고급스럽게. 화면과 접촉하는 내면은 부드럽게.
     책과 함께하는 순간을 느껴보세요.
   image: ../images/accessories/ridipaper-hard-flip-case/4.jpg
 - type: spec
@@ -48,7 +48,7 @@ sections:
   - name: 무게
     desc: 106g
   - name: 소재
-    desc: 합성피혁 혹은 폴리우레탄 (PU), 폴리카보네이트 (PC)
+    desc: 합성피혁, 폴리카보네이트 (PC)
   - name: 구성품
     desc: 하드 플립 케이스, 탈착 가이드
   - name: 제조사

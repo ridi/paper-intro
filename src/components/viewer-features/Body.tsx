@@ -59,7 +59,7 @@ interface TextItem {
 
 const texts: TextItem[] = [
   {
-    heading: '독서에 최적화된\ne-ink 디스플레이',
+    heading: '독서에 최적화된\n전자잉크 디스플레이',
     body: '종이책을 보던 느낌 그대로.\n햇빛 반사도, 블루라이트도 없으니\n오래 읽어도 눈이 피로하지 않아요.',
   },
   {
