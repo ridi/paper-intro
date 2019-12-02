@@ -66,6 +66,14 @@ const Arrow = styled<'button', { next?: boolean }>('button').attrs({
 
   background-color: white;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  transition: opacity 0.1s;
+
+  &:hover,
+  &:active {
+    opacity: 0.6;
+  }
 
   > svg {
     width: 12px;
