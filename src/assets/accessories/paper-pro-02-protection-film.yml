@@ -1,0 +1,19 @@
+slug: paper-pro-protection-film
+for: paper-pro
+order: 2
+name:
+  short: 보호 필름
+  en: PAPER PRO Protection Film
+  full: |-
+    페이퍼프로
+    보호 필름
+description: ''
+thumbnail: ../images/accessories/paper-pro-protection-film/thumbnail.png
+bg: ../images/accessories/paper-pro-protection-film/bg.jpg
+sections:
+- type: image
+  width: 900
+  image: ../images/accessories/paper-pro-protection-film/1.jpg
+- type: image
+  width: 780
+  image: ../images/accessories/paper-pro-protection-film/2.jpg

@@ -3,8 +3,9 @@ import React from 'react';
 
 import AccessoryDetailSection, { DetailSection } from './AccessoryDetailSection';
 import AccessorySpecSection, { SpecSection } from './AccessorySpecSection';
+import AccessoryImageSection, { ImageSection } from './AccessoryImageSection';
 
-export type Section = DetailSection | SpecSection;
+export type Section = DetailSection | SpecSection | ImageSection;
 
 const Section = styled.section`
   display: block;
@@ -38,6 +39,9 @@ export default function AccessorySection(props: Props) {
       break;
     case 'spec':
       inner = <AccessorySpecSection data={props.data} />;
+      break;
+    case 'image':
+      inner = <AccessoryImageSection data={props.data} />;
       break;
     default:
       throw ((_: never) => new Error(`Unknown type: ${_}`))(props.data);

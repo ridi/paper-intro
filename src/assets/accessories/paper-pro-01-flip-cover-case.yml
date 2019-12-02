@@ -1,0 +1,19 @@
+slug: paper-pro-flip-cover-case
+for: paper-pro
+order: 1
+name:
+  short: 플립 커버 케이스
+  en: PAPER PRO Flip Cover Case
+  full: |-
+    페이퍼프로
+    플립 커버 케이스
+description: ''
+thumbnail: ../images/accessories/paper-pro-flip-cover-case/thumbnail.png
+bg: ../images/accessories/paper-pro-flip-cover-case/bg.jpg
+sections:
+- type: image
+  width: 900
+  image: ../images/accessories/paper-pro-flip-cover-case/1.jpg
+- type: image
+  width: 780
+  image: ../images/accessories/paper-pro-flip-cover-case/2.jpg
