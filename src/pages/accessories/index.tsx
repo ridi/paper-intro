@@ -9,6 +9,7 @@ import AccessoryTabPage from '../../components/accessories/AccessoryTabPage';
 import Hero from '../../components/hero/Accessory';
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
+import Tabs, { Tab } from '../../components/Tabs';
 
 const AccessoryTabWrapper = styled.nav`
   width: 100%;
@@ -19,11 +20,6 @@ const AccessoryTabWrapper = styled.nav`
   @media (max-width: 600px) {
     margin: 0;
     padding: 0;
-  }
-
-  > ul {
-    display: flex;
-    border-bottom: 1px solid #d1d5d9;
   }
 `;
 
@@ -153,13 +149,13 @@ export default function AccessoryIndexPage() {
         <p>견고한 전용 악세서리가<br />RIDIPAPER를 보호해드립니다.</p>
       </Hero>
       <AccessoryTabWrapper>
-        <ul>
+        <Tabs>
           {tabs.map(({ id, name }) => (
-            <AccessoryTab key={id} active={id === currentTab}>
-              <a onClick={() => setCurrentTab(id)}>{name}</a>
-            </AccessoryTab>
+            <Tab key={id} active={id === currentTab} onClick={() => setCurrentTab(id)}>
+              {name}
+            </Tab>
           ))}
-        </ul>
+        </Tabs>
       </AccessoryTabWrapper>
       <AccessoryTabPage items={accessories} />
     </Layout>
