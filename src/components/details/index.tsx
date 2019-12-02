@@ -59,7 +59,7 @@ const Arrow = styled<'button', { next?: boolean }>('button').attrs({
 })`
   width: 40px;
   height: 40px;
-  margin-right: 10px;
+  margin: 10px;
 
   border-radius: 20px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15), 0px 1px 5px rgba(0, 0, 0, 0.1);
@@ -74,14 +74,9 @@ const Arrow = styled<'button', { next?: boolean }>('button').attrs({
     fill: #808991;
   }
 
-  &.next {
-    margin-left: 10px;
-    margin-right: 0;
-
-    > svg {
-      margin: 13px 13px 13px 15px;
-      transform: scaleX(-1);
-    }
+  &.next > svg {
+    margin: 13px 13px 13px 15px;
+    transform: scaleX(-1);
   }
 `;
 
@@ -96,7 +91,7 @@ const Img = styled.div`
 
 const styles = css`
   .slider {
-    width: calc(100% - 100px);
+    width: calc(100% - 120px);
     line-height: 0;
   }
 `;
