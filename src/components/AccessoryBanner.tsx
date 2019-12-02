@@ -2,7 +2,7 @@ import styled from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
+import Img, { FixedObject } from 'gatsby-image';
 
 import { LinkButton } from './Button';
 
@@ -38,17 +38,16 @@ const Background = styled.div`
       background-color: rgba(0, 0, 0, 0.4);
     }
   }
+`;
 
-  > picture {
-    position: absolute;
-    top: 0;
-    right: calc(50% - 600px);
-    width: 1200px;
+const BgWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: calc(50% - 715px);
+  height: 100%;
 
-    @media (max-width: 800px) {
-      right: calc(50% - 400px);
-      width: 800px;
-    }
+  @media (max-width: 800px) {
+    right: calc(50% - 400px);
   }
 `;
 
@@ -105,12 +104,7 @@ const LinkWrapper = styled.div`
 `;
 
 interface AccessoryBannerData {
-  desktop: {
-    childImageSharp: {
-      fixed: FixedObject;
-    };
-  };
-  tablet: {
+  bg: {
     childImageSharp: {
       fixed: FixedObject;
     };
@@ -120,14 +114,7 @@ interface AccessoryBannerData {
 export default function AccessoryBanner() {
   const data = useStaticQuery<AccessoryBannerData>(graphql`
     {
-      desktop: file(relativePath: {eq: "images/accessories/banner/1200.png"}) {
-        childImageSharp {
-          fixed(width: 1200, height: 516, quality: 80) {
-            ...GatsbyImageSharpFixed_withWebp_noBase64
-          }
-        }
-      }
-      tablet: file(relativePath: {eq: "images/accessories/banner/800.png"}) {
+      bg: file(relativePath: {eq: "images/accessories/banner/800.png"}) {
         childImageSharp {
           fixed(width: 800, height: 522, quality: 80) {
             ...GatsbyImageSharpFixed_withWebp_noBase64
@@ -140,13 +127,9 @@ export default function AccessoryBanner() {
   return (
     <Container>
       <Background>
-        <picture>
-          <source srcSet={data.tablet.childImageSharp.fixed.srcSetWebp} type="image/webp" media="(max-width: 800px)" />
-          <source srcSet={data.tablet.childImageSharp.fixed.srcSet} type="image/png" media="(max-width: 800px)" />
-          <source srcSet={data.desktop.childImageSharp.fixed.srcSetWebp} type="image/webp" />
-          <source srcSet={data.desktop.childImageSharp.fixed.srcSet} type="image/png" />
-          <img src={data.tablet.childImageSharp.fixed.src} />
-        </picture>
+        <BgWrapper>
+          <Img fixed={data.bg.childImageSharp.fixed} />
+        </BgWrapper>
       </Background>
       <Content>
         <ContentTitle>안심하고 책에만 집중하세요</ContentTitle>
