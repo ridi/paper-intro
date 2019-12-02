@@ -119,20 +119,20 @@ interface AccessoryBannerData {
 
 export default function AccessoryBanner() {
   const data = useStaticQuery<AccessoryBannerData>(graphql`
-    fragment AccessoryBannerBg on File {
-      childImageSharp {
-        fixed(width: 1200, quality: 80) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-
     {
       desktop: file(relativePath: {eq: "images/accessories/banner/1200.png"}) {
-        ...AccessoryBannerBg
+        childImageSharp {
+          fixed(width: 1200, height: 516, quality: 80) {
+            ...GatsbyImageSharpFixed_withWebp_noBase64
+          }
+        }
       }
       tablet: file(relativePath: {eq: "images/accessories/banner/800.png"}) {
-        ...AccessoryBannerBg
+        childImageSharp {
+          fixed(width: 800, height: 522, quality: 80) {
+            ...GatsbyImageSharpFixed_withWebp_noBase64
+          }
+        }
       }
     }
   `);
