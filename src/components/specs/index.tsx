@@ -2,7 +2,7 @@ import styled, { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import Img, { FixedObject } from 'gatsby-image';
 
 import Button from '../Button';
 import SpecSection, { SpecItem } from './SpecSection';
@@ -97,10 +97,32 @@ const styles = css`
         margin-left: 20px;
       }
     }
+
+    > img {
+      width: 290px;
+      height: 400px;
+
+      @media (max-width: 800px) {
+        width: 137.5px;
+        height: 189px;
+      }
+    }
   }
 `;
 
 interface SpecQueryData {
+  front: {
+    childImageSharp: {
+      large: FixedObject;
+      small: FixedObject;
+    };
+  };
+  back: {
+    childImageSharp: {
+      large: FixedObject;
+      small: FixedObject;
+    };
+  };
   specs: {
     edges: {
       node: {
@@ -117,7 +139,24 @@ interface SpecQueryData {
 
 export default function Specs() {
   const data = useStaticQuery<SpecQueryData>(graphql`
+    fragment DeviceImages on File {
+      childImageSharp {
+        large: fixed(height: 400, quality: 90) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+        small: fixed(height: 189, quality: 90) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+
     {
+      front: file(relativePath: {eq: "images/specs/front.png"}) {
+        ...DeviceImages
+      }
+      back: file(relativePath: {eq: "images/specs/back.png"}) {
+        ...DeviceImages
+      }
       specs: allSpecsYaml {
         edges {
           node {
@@ -137,8 +176,20 @@ export default function Specs() {
     <Container>
       <Title>상세 스펙</Title>
       <DeviceImages>
-        <Dummy className={styles.device} />
-        <Dummy className={styles.device} />
+        <picture className={styles.device}>
+          <source srcSet={data.front.childImageSharp.small.srcSetWebp} media="(max-width: 800px)" type="image/webp" />
+          <source srcSet={data.front.childImageSharp.small.srcSet} media="(max-width: 800px)" />
+          <source srcSet={data.front.childImageSharp.large.srcSetWebp} type="image/webp" />
+          <source srcSet={data.front.childImageSharp.large.srcSet} />
+          <img src={data.front.childImageSharp.large.src} />
+        </picture>
+        <picture className={styles.device}>
+          <source srcSet={data.back.childImageSharp.small.srcSetWebp} media="(max-width: 800px)" type="image/webp" />
+          <source srcSet={data.back.childImageSharp.small.srcSet} media="(max-width: 800px)" />
+          <source srcSet={data.back.childImageSharp.large.srcSetWebp} type="image/webp" />
+          <source srcSet={data.back.childImageSharp.large.srcSet} />
+          <img src={data.back.childImageSharp.large.src} />
+        </picture>
       </DeviceImages>
       <SpecsList>
         {data.specs.edges.map(edge => (
