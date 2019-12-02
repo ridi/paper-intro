@@ -10,7 +10,8 @@ const Container = styled.div`
   }
 
   > * {
-    flex: 1;
+    /* Chrome flexbox bug: can't use flex: 1 */
+    width: 50%;
   }
 
   @media(max-width: 800px) {
