@@ -62,7 +62,6 @@ const FeatureList = styled.div`
 const styles = css`
   .image {
     border-radius: 10px;
-    background-color: #636c73;
 
     @media(max-width: 800px) {
       border-radius: 0;
@@ -71,7 +70,6 @@ const styles = css`
 `;
 
 export default function Features() {
-  const [playVideo, setPlayVideo] = React.useState(true);
   const [ioAvailable, setIoAvailable] = React.useState(false);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
@@ -122,7 +120,6 @@ export default function Features() {
               videoRef.current!.pause();
               videoRef.current!.currentTime = 0;
             }
-            setPlayVideo(isIntersecting);
           }
         });
       },
@@ -145,7 +142,7 @@ export default function Features() {
       </Head>
       <FeatureList>
         <FeatureItem>
-          <Img className={styles.image} fluid={query.one.childImageSharp.fluid} />
+          <Img className={styles.image} fluid={query.one.childImageSharp.fluid} backgroundColor="#f7fafc" />
           <FeatureDescription>
             <img src={Icon6Inch} alt="6인치 기기 아이콘" />
             <h3>{'천\xa0페이지가\xa0넘는 책도\xa0얇고\xa0가볍게'}</h3>
@@ -178,7 +175,7 @@ export default function Features() {
           </FeatureDescription>
         </FeatureItem>
         <FeatureItem>
-          <Img className={styles.image} fluid={query.three.childImageSharp.fluid} />
+          <Img className={styles.image} fluid={query.three.childImageSharp.fluid} backgroundColor="#f7fafc" />
           <FeatureDescription>
             <img src={IconBluetooth} alt="Bluetooth 아이콘" />
             <h3>{'이제\xa0이야기를 들어보세요'}</h3>
@@ -190,7 +187,7 @@ export default function Features() {
           </FeatureDescription>
         </FeatureItem>
         <FeatureItem>
-          <Img className={styles.image} fluid={query.four.childImageSharp.fluid} />
+          <Img className={styles.image} fluid={query.four.childImageSharp.fluid} backgroundColor="#f7fafc" />
           <FeatureDescription>
             <img src={IconFlipCover} alt="하드 플립 케이스 아이콘" />
             <h3>{'언제나\xa0책과 함께\xa0해야\xa0한다면'}</h3>
