@@ -5,6 +5,7 @@ import { FluidObject } from 'gatsby-image';
 import Img from 'gatsby-image';
 
 import AccessoryTableSection from './AccessoryTableSection';
+import LineBreakText from '../LineBreakText';
 
 export interface DetailSection {
   type: 'detail';
@@ -26,12 +27,10 @@ const Container = styled.div`
   word-break: keep-all;
 
   p {
-    width: 85%;
     margin-top: 30px;
     color: #525a61;
 
     @media (max-width: 600px) {
-      width: 100%;
       margin-top: 20px;
     }
 
@@ -64,6 +63,20 @@ const Padded = styled.div`
   }
 `;
 
+const Description = styled<'p', { mobile?: boolean }>('p')`
+  &.mobile {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+
+    &.mobile {
+      display: block;
+    }
+  }
+`;
+
 const ImgWrapper = styled.div`
   width: 100%;
   max-width: 1000px;
@@ -79,13 +92,17 @@ interface Props {
 }
 
 export default function AccessoryDetailSection(props: Props) {
-  const description = props.data.description.replace(/ /g, '\xa0');
   return (
     <Container>
       <Padded>
         <p>{props.data.name}</p>
         <h2>{props.data.title}</h2>
-        {Boolean(description) && <p>{description}</p>}
+        {Boolean(props.data.description) && (
+          <>
+            <Description><LineBreakText text={props.data.description} /></Description>
+            <Description mobile>{props.data.description}</Description>
+          </>
+        )}
       </Padded>
       <ImgWrapper>
         <Img fluid={props.data.image.childImageSharp.fluid} backgroundColor="#f0f5fa" />
