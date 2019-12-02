@@ -25,7 +25,6 @@ const HeroBackground = styled<'div', { bright?: boolean }>('div')`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #636c73;
 
   &::after {
     content: '';
