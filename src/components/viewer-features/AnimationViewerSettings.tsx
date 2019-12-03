@@ -120,9 +120,6 @@ export default function AnimationViewerSettings(props: Props) {
       toolbar: file(relativePath: {eq: "images/viewer-features/toolbar.png"}) {
         ...ScreenImage
       }
-      size5: file(relativePath: {eq: "images/viewer-features/size5.png"}) {
-        ...ScreenImage
-      }
       size6: file(relativePath: {eq: "images/viewer-features/size6.png"}) {
         ...ScreenImage
       }
@@ -132,6 +129,9 @@ export default function AnimationViewerSettings(props: Props) {
       size8: file(relativePath: {eq: "images/viewer-features/size8.png"}) {
         ...ScreenImage
       }
+      size9: file(relativePath: {eq: "images/viewer-features/size9.png"}) {
+        ...ScreenImage
+      }
     }
   `);
 
@@ -139,10 +139,10 @@ export default function AnimationViewerSettings(props: Props) {
     <Container state={props.state}>
       <ScreenContainer state={props.state}>
         <Screen file={data.toolbar} />
-        <Screen file={data.size5} />
         <Screen file={data.size6} />
         <Screen file={data.size7} />
         <Screen file={data.size8} />
+        <Screen file={data.size9} />
       </ScreenContainer>
       <TouchIndicatorContainer state={props.state}>
         <TouchIndicator />
