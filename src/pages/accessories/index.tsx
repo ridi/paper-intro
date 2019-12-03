@@ -23,47 +23,6 @@ const AccessoryTabWrapper = styled.nav`
   }
 `;
 
-const AccessoryTab = styled<'li', { active?: boolean }>('li')`
-  list-style: none;
-  margin-bottom: -1px;
-
-  @media (max-width: 600px) {
-    flex: 1;
-  }
-
-  > a {
-    display: block;
-    width: 88px;
-    padding: 12px 0 9px;
-
-    border-bottom: 4px solid transparent;
-    font-size: 15px;
-    line-height: 20px;
-    text-align: center;
-    color: #636c73;
-
-    cursor: pointer;
-
-    @media (max-width: 600px) {
-      width: auto;
-    }
-  }
-
-  &.active > a {
-    border-bottom-color: #9ea7ad;
-    font-weight: bold;
-    color: #303538;
-  }
-
-  & + & {
-    margin-left: 30px;
-
-    @media (max-width: 600px) {
-      margin-left: 0;
-    }
-  }
-`;
-
 interface QueryData {
   bg: {
     childImageSharp: {
@@ -151,8 +110,8 @@ export default function AccessoryIndexPage() {
       <AccessoryTabWrapper>
         <Tabs>
           {tabs.map(({ id, name }) => (
-            <Tab key={id} active={id === currentTab} onClick={() => setCurrentTab(id)}>
-              {name}
+            <Tab key={id} active={id === currentTab}>
+              <a onClick={() => setCurrentTab(id)}>{name}</a>
             </Tab>
           ))}
         </Tabs>

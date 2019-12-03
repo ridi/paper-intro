@@ -6,7 +6,7 @@ const Tabs = styled.ul`
   border-bottom: 1px solid #d1d5d9;
 `;
 
-const TabWrapper = styled<'li', { active?: boolean }>('li')`
+const Tab = styled<'li', { active?: boolean }>('li')`
   list-style: none;
   margin-bottom: -1px;
 
@@ -23,6 +23,7 @@ const TabWrapper = styled<'li', { active?: boolean }>('li')`
     font-size: 15px;
     line-height: 20px;
     text-align: center;
+    text-decoration: none;
     color: #636c73;
 
     cursor: pointer;
@@ -46,16 +47,6 @@ const TabWrapper = styled<'li', { active?: boolean }>('li')`
     }
   }
 `;
-
-interface TabProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  active?: boolean;
-  children?: React.ReactNode;
-}
-
-function Tab(props: TabProps) {
-  const { active, ...anchorProps } = props;
-  return <TabWrapper active={active}><a {...anchorProps} /></TabWrapper>;
-}
 
 export { Tab };
 export default Tabs;
