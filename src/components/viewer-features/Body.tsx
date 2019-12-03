@@ -4,6 +4,7 @@ import { Controller } from 'scrollmagic';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
+import AnimationFrontlight from './AnimationFrontlight';
 import AnimationPage from './AnimationPage';
 import AnimationQuickButton from './AnimationQuickButton';
 import AnimationViewerSettings from './AnimationViewerSettings';
@@ -82,6 +83,7 @@ const texts: TextItem[] = [
   {
     heading: '손가락으로\n빛을 만들어내다',
     body: '한 손가락으로는 밝기 조절\n두 손가락으로는 색온도 조절\n어두운 곳에서도 편안하게 독서하세요.',
+    animation: AnimationFrontlight,
   },
   {
     heading: '다양한 부가 기능을\n퀵 버튼 하나로',
