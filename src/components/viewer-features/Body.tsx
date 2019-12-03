@@ -4,6 +4,7 @@ import { Controller } from 'scrollmagic';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
+import AnimationEink from './AnimationEink';
 import AnimationFrontlight from './AnimationFrontlight';
 import AnimationPage from './AnimationPage';
 import AnimationQuickButton from './AnimationQuickButton';
@@ -69,6 +70,7 @@ const texts: TextItem[] = [
   {
     heading: '독서에 최적화된\n전자잉크 디스플레이',
     body: '종이책을 보던 느낌 그대로.\n햇빛 반사도, 블루라이트도 없으니\n오래 읽어도 눈이 피로하지 않아요.',
+    animation: AnimationEink,
   },
   {
     heading: '더 빠르게\n페이지를 넘기다',
@@ -102,7 +104,7 @@ export default function Body() {
   `);
   const pinRef = React.useRef<HTMLDivElement>(null);
   const triggerRef = React.useRef<HTMLDivElement>(null);
-  const [phase, setPhase] = React.useState(0);
+  const [phase, setPhase] = React.useState(-1);
 
   React.useEffect(() => {
     let controller: Controller;
@@ -125,11 +127,11 @@ export default function Body() {
           .addTo(controller);
       }
 
-      Array.from({ length: SCENE_COUNT - 1 }).forEach((_, idx) => {
+      Array.from({ length: SCENE_COUNT }).forEach((_, idx) => {
         new Scene({
           triggerElement: triggerRef.current!,
           triggerHook: 'onLeave',
-          offset: (idx + 1) * SCENE_DURATION,
+          offset: idx * SCENE_DURATION,
         })
           .on('enter', () => setPhase(phase => phase + 1))
           .on('leave', () => setPhase(phase => phase - 1))
@@ -166,7 +168,7 @@ export default function Body() {
           <FeatureTextContainer>
             {texts.map(({heading, body}, idx) => {
               let state: 'before' | 'current' | 'after' = 'before';
-              if (phase === idx) {
+              if (phase === idx || (idx === 0 && phase < 0)) {
                 state = 'current';
               } else if (phase > idx) {
                 state = 'after';
