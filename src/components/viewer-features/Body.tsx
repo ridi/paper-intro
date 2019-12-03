@@ -2,9 +2,13 @@ import styled from 'astroturf';
 import React from 'react';
 import { Controller } from 'scrollmagic';
 
+import { graphql, useStaticQuery } from 'gatsby';
+
+import AnimationPage from './AnimationPage';
 import FeatureView from './FeatureView';
 import FeatureText from './FeatureText';
 import PaperDeviceContainer from './PaperDeviceContainer';
+import Screen from './Screen';
 
 const Container = styled.div`
   position: relative;
@@ -55,6 +59,7 @@ const SCENE_COUNT = 5;
 interface TextItem {
   heading: string;
   body: string;
+  animation?: React.ComponentType<{ state: 'before' | 'current' | 'after' }>;
 }
 
 const texts: TextItem[] = [
@@ -65,6 +70,7 @@ const texts: TextItem[] = [
   {
     heading: '더 빠르게\n페이지를 넘기다',
     body: '새로운 웨이브폼 기술 적용으로\n22% 더 빨라진 페이지 넘김 속도\n이제 부드럽게 독서하세요.',
+    animation: AnimationPage,
   },
   {
     heading: '내 마음대로\n조절하는 페이지',
@@ -81,6 +87,13 @@ const texts: TextItem[] = [
 ];
 
 export default function Body() {
+  const data = useStaticQuery(graphql`
+    {
+      text1: file(relativePath: {eq: "images/viewer-features/text1.png"}) {
+        ...ScreenImage
+      }
+    }
+  `);
   const pinRef = React.useRef<HTMLDivElement>(null);
   const triggerRef = React.useRef<HTMLDivElement>(null);
   const [phase, setPhase] = React.useState(0);
@@ -130,6 +143,19 @@ export default function Body() {
       <PinTarget ref={pinRef} dark={phase === 3}>
         <FeatureView totalPhases={SCENE_COUNT} phase={phase}>
           <PaperDeviceContainer>
+            <Screen file={data.text1} />
+            {texts.map(({ animation: Animation }, idx) => {
+              if (Animation == null) {
+                return null;
+              }
+              let state: 'before' | 'current' | 'after' = 'before';
+              if (phase === idx) {
+                state = 'current';
+              } else if (phase > idx) {
+                state = 'after';
+              }
+              return <Animation key={idx} state={state} />;
+            })}
           </PaperDeviceContainer>
           <FeatureTextContainer>
             {texts.map(({heading, body}, idx) => {
@@ -139,7 +165,7 @@ export default function Body() {
               } else if (phase > idx) {
                 state = 'after';
               }
-              return <FeatureText state={state} heading={heading} body={body} bright={idx === 3} />;
+              return <FeatureText key={idx} state={state} heading={heading} body={body} bright={idx === 3} />;
             })}
           </FeatureTextContainer>
         </FeatureView>

@@ -2,6 +2,8 @@ module.exports = {
   modules: true,
   plugins: {
     autoprefixer: {},
-    'postcss-nested': {},
+    'postcss-nested': {
+      unwrap: ['-webkit-keyframes'],
+    },
   },
 };
