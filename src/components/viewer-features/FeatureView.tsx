@@ -53,7 +53,7 @@ export default function FeatureView(props: Props) {
       <FlexSpacer />
       <PaperContainer>{children}</PaperContainer>
       <FlexSpacer />
-      <Dots max={totalPhases} value={phase} />
+      <Dots max={totalPhases} value={Math.max(0, phase)} dark={phase === 3} />
     </Container>
   );
 }
