@@ -5,6 +5,7 @@ import { Controller } from 'scrollmagic';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import AnimationPage from './AnimationPage';
+import AnimationQuickButton from './AnimationQuickButton';
 import AnimationViewerSettings from './AnimationViewerSettings';
 import FeatureView from './FeatureView';
 import FeatureText from './FeatureText';
@@ -85,6 +86,7 @@ const texts: TextItem[] = [
   {
     heading: '다양한 부가 기능을\n퀵 버튼 하나로',
     body: '독서를 멈출 필요가 없어요.\n와이파이부터 터치 잠금까지\n퀵 버튼 하나로 조절할 수 있습니다.',
+    animation: AnimationQuickButton,
   },
 ];
 
