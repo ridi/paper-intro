@@ -5,6 +5,7 @@ import { Controller } from 'scrollmagic';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import AnimationPage from './AnimationPage';
+import AnimationViewerSettings from './AnimationViewerSettings';
 import FeatureView from './FeatureView';
 import FeatureText from './FeatureText';
 import PaperDeviceContainer from './PaperDeviceContainer';
@@ -75,6 +76,7 @@ const texts: TextItem[] = [
   {
     heading: '내 마음대로\n조절하는 페이지',
     body: '원하는 글꼴을 선택하고\n글자는 크게, 문단 간격은 여유롭게\n마음대로 페이지를 편집해보세요.',
+    animation: AnimationViewerSettings,
   },
   {
     heading: '손가락으로\n빛을 만들어내다',
