@@ -62,8 +62,8 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
 const TouchIndicatorContainer = styled<'div', { state: string }>('div')`
   > div {
     position: absolute;
-    left: 52.24%;
-    top: 79.82%;
+    left: calc(58.37% - 30px);
+    top: calc(84.27% - 30px);
     opacity: 0;
   }
 
@@ -104,8 +104,8 @@ const TouchIndicatorContainer = styled<'div', { state: string }>('div')`
 
   @keyframes move {
     to {
-      left: 72.45%;
-      top: 49.41%;
+      left: calc(78.57% - 30px);
+      top: calc(53.86% - 30px);
     }
   }
 `;

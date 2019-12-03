@@ -55,8 +55,8 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
 const TouchIndicatorContainer = styled<'div', { state: string }>('div')`
   > div {
     position: absolute;
-    left: 91.02%;
-    top: 52.08%;
+    left: calc(97.14% - 30px);
+    top: calc(56.53% - 30px);
     opacity: 0;
   }
 
