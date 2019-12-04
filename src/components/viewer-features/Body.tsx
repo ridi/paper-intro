@@ -36,6 +36,7 @@ const PinTarget = styled<'div', { dark?: boolean }>('div')`
   align-items: center;
   justify-content: center;
   word-break: keep-all;
+  z-index: -9;
 
   transition: background-color 0.5s;
 
