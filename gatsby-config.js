@@ -7,7 +7,13 @@ module.exports = {
     author: 'RIDI',
   },
   plugins: [
-    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        generateMatchPathRewrites: true,
+      },
+    },
+    'gatsby-plugin-force-trailing-slashes',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     'gatsby-plugin-astroturf',

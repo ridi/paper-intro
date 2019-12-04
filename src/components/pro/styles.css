@@ -1,0 +1,1734 @@
+#ridi_shop {
+  position: relative;
+  cursor: default;
+  min-width: 1040px;
+  transition: transform 0.15s ease-out;
+}
+#shop_header {
+  z-index: 10;
+  background: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+#shop_header .header_top_wrapper .header_top .ridibooks_link_wrapper .ridibooks_link {
+  color: white;
+}
+#shop_header .header_top_wrapper .header_top .ridibooks_link_wrapper .ridibooks_link:hover .icon-logo_ridibooks_2 {
+  color: white;
+}
+#shop_header .header_top_wrapper .header_top .link_list_wrapper a {
+  color: white;
+  font-weight: bold;
+}
+#shop_header .header_top_wrapper .header_top .link_list_wrapper a:hover {
+  color: white;
+}
+#shop_header .header_top_wrapper .header_top .link_list_wrapper a .icon-double_1 {
+  color: white;
+}
+#shop_header .header_top_wrapper .header_top .link_list_wrapper .user_id_button {
+  color: white;
+  font-weight: normal;
+}
+#shop_header .header_top_wrapper .header_top .link_list_wrapper .user_id_button:hover {
+  color: white;
+}
+#shop_header .header_bottom_wrapper .header_bottom .header_mymenu a {
+  color: white;
+}
+#shop_header .header_bottom_wrapper .header_bottom .header_mymenu a:hover {
+  color: white;
+}
+#shop_header .header_bottom_wrapper .header_bottom .header_mymenu .event_button_wrapper {
+  display: none;
+}
+#shop_header .header_bottom_wrapper .header_bottom .header_mymenu .event_button_wrapper .event_button {
+  padding: 9px 18px 7px 18px;
+  font-size: 12px;
+}
+#shop_header .header_bottom_wrapper .header_bottom .header_mymenu .event_button_wrapper .preparation {
+  padding: 9px 12px 7px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  color: #555;
+  border: 1px solid #555;
+}
+#shop_header .header_bottom_wrapper.fixed {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: -50px;
+  -webkit-transition: top .5s;
+  transition: top .5s;
+  padding: 0;
+  background: white;
+}
+#shop_header .header_bottom_wrapper.fixed.active {
+  top: 0;
+}
+#shop_header .header_bottom_wrapper.fixed .header_title,
+#shop_header .header_bottom_wrapper.fixed .header_mymenu {
+  padding: 0;
+  height: 50px;
+  vertical-align: middle;
+}
+#shop_header .header_bottom_wrapper.fixed .header_mymenu li {
+  display: none;
+}
+#shop_header .header_bottom_wrapper.fixed .header_mymenu li.event_button_wrapper {
+  display: inline-block;
+}
+#page_intro {
+  background: #171717;
+  font-family: 'RidiSans', sans-serif;
+  letter-spacing: -0.03em;
+}
+#page_intro ul, #page_intro ol {
+  list-style: none;
+}
+#page_intro table {
+  border-collapse: collapse;
+  box-sizing: initial;
+}
+#page_intro table, #page_intro table th, #page_intro table td {
+  border: none;
+}
+#page_intro .indent_hidden {
+  width: 0;
+  height: 0;
+  text-indent: -9999px;
+  font-size: 0;
+  visibility: hidden;
+}
+#page_intro .dummy {
+  background: none;
+}
+#page_intro .white_tone {
+  color: #212121;
+}
+#page_intro .dark_tone {
+  color: white;
+}
+#page_intro .section_title {
+  color: inherit;
+}
+#page_intro .article_title {
+  color: inherit;
+}
+#page_intro .article_paragraph {
+  color: inherit;
+}
+#page_intro .annotation {
+  color: #666;
+}
+#page_intro .table_section_title {
+  color: #212121;
+}
+#page_intro .spec_table thead th {
+  color: black;
+}
+#page_intro .spec_table tbody th {
+  color: #999;
+}
+#page_intro .spec_table tbody td {
+  color: #212121;
+}
+#page_intro .spec_table tbody td li {
+  color: inherit;
+}
+#page_intro .spec_table tbody td .sub_info {
+  color: #999;
+}
+#page_intro .spec_alert {
+  color: #999;
+}
+#page_intro .provider_button {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  line-height: 1em;
+  vertical-align: baseline;
+  color: #fff;
+  background: #1f8ce6;
+  border: 2px solid #0077d9;
+  box-shadow: 0 1px 1px 0 rgba(31, 140, 230, 0.3);
+  font-size: 16px;
+  padding: 16px 34px;
+}
+#page_intro .paper_pro_detail_button {
+  color: white;
+  padding: 16px 0;
+  box-shadow: none;
+}
+#page_intro .paper_pro_detail_button.naver {
+  background: #1ec800;
+  border: 0 none;
+}
+#page_intro .paper_pro_detail_button._29cm {
+  background: #000;
+  border: 1px solid #e6e8eb;
+  box-sizing: border-box;
+}
+#page_intro .paper_pro_detail_button.gmarket {
+  background: #fff;
+  border: 1px solid #e6e8eb;
+  box-sizing: border-box;
+  color: #636c73;
+}
+#page_intro .paper_pro_detail_button.papershop .link_text {
+  font-weight: 700;
+}
+#page_intro #intro_header .sub_title {
+  color: white;
+}
+#page_intro #intro_header .logo_wrapper .svg_logo_paper {
+  fill: white;
+}
+#page_intro #intro_header .logo_wrapper .svg_logo_pro {
+  fill: #D5A172;
+}
+#page_intro #intro_header .device .device_wrapper {
+  margin: 0 auto;
+  position: relative;
+}
+#page_intro #intro_header .device .device_wrapper .paper_on,
+#page_intro #intro_header .device .device_wrapper .paper_off {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#page_intro #display_upgrade {
+  background: #e8e8e8;
+}
+#page_intro #light_upgrade {
+  background: black;
+}
+#page_intro #light_upgrade .lowest_brightness .brightness_table th {
+  color: #aaa;
+}
+#page_intro #ux_upgrade {
+  background: #f0f0f0;
+}
+#page_intro #hardware_upgrade {
+  background: #212121;
+}
+#page_intro #hardware_upgrade .battery_compare_chart .chart_title {
+  color: white;
+}
+#page_intro #hardware_upgrade .battery_compare_chart .paper_pro_chart .bar {
+  background: #1f8eeb;
+}
+#page_intro #hardware_upgrade .battery_compare_chart .paper_pro_chart .description_wrapper .device_title {
+  color: white;
+}
+#page_intro #hardware_upgrade .battery_compare_chart .paper_pro_chart .description_wrapper .description {
+  color: #1f8eeb;
+}
+#page_intro #hardware_upgrade .battery_compare_chart .paper_chart .bar {
+  background: #666;
+}
+#page_intro #paper_pro_simple_info {
+  background: white;
+}
+#page_intro #paper_pro_simple_info .svg_logo_pro {
+  fill: #D5A172;
+}
+#page_intro #paper_pro_simple_info .price {
+  color: #1f8ce6;
+}
+#page_intro #designed_by_ridi {
+  background: #141414;
+}
+#page_intro #designed_by_ridi .article_paragraph {
+  color: #c0c0c6;
+}
+#page_intro #spec_compare {
+  background: white;
+}
+#page_intro #detail_spec {
+  background: #f0f0f0;
+}
+@media only screen and (max-width: 670px) {
+  #ridi_shop {
+    min-width: inherit;
+    width: 100%;
+  }
+  .section_title {
+    max-width: 300px;
+    margin: auto;
+  }
+  #page_intro .intro_section {
+    overflow: hidden;
+  }
+  #page_intro .intro_section .contents_wrapper {
+    max-width: 670px;
+    margin: 0 auto;
+  }
+  #page_intro .white_tone {
+    font-weight: bold;
+  }
+  #page_intro .section_title {
+    font-size: 34px;
+    line-height: 1.25em;
+    text-align: center;
+    font-weight: normal;
+  }
+  #page_intro .article_title {
+    padding: 0 20px;
+    font-size: 24px;
+    line-height: 1.3em;
+    text-align: left;
+    font-weight: normal;
+  }
+  #page_intro .article_title strong {
+    font-weight: bold;
+  }
+  #page_intro .article_paragraph {
+    padding: 0 20px;
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.6em;
+    font-weight: normal;
+    word-break: keep-all;
+  }
+  #page_intro .annotation {
+    padding: 0 20px;
+    margin-top: 15px;
+    font-size: 12px;
+  }
+  #page_intro .table_section_title {
+    font-size: 24px;
+    margin-top: 50px;
+    text-align: center;
+  }
+  #page_intro .spec_table {
+    width: 100%;
+    margin: 27px auto 0 auto;
+  }
+  #page_intro .spec_table thead th {
+    padding-bottom: 10px;
+    height: 100px;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 12px;
+    vertical-align: bottom;
+    text-align: left;
+  }
+  #page_intro .spec_table thead th .spec_title {
+    display: block;
+    margin-top: 11px;
+  }
+  #page_intro .spec_table tbody tr th,
+  #page_intro .spec_table tbody tr td {
+    font-size: 12px;
+    line-height: 1.8em;
+    padding-top: 6px;
+    word-break: keep-all;
+  }
+  #page_intro .spec_table tbody tr th {
+    text-align: right;
+    padding-right: 10px;
+    vertical-align: top;
+    font-weight: normal;
+    width: 78px;
+  }
+  #page_intro .spec_table tbody tr td {
+    text-align: left;
+    vertical-align: top;
+    padding-right: 10px;
+  }
+  #page_intro .spec_table tbody tr td li {
+    padding-top: 6px;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  #page_intro .spec_table tbody tr td li:first-child {
+    padding-top: 0;
+  }
+  #page_intro .spec_table tbody tr:first-child th,
+  #page_intro .spec_table tbody tr:first-child td {
+    padding-top: 6px;
+  }
+  #page_intro .spec_alert {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+  }
+  #page_intro .paper_pro_detail_button {
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+  }
+  #page_intro .paper_pro_detail_button .providers {
+    margin-right: -2px;
+    height: 20px;
+    vertical-align: middle;
+    transform: translateY(-2px);
+  }
+  #page_intro .paper_pro_detail_button .link_text {
+    font-size: 14px;
+    font-weight: normal;
+  }
+  #page_intro .paper_pro_detail_button.papershop .link_text {
+    font-size: 16px;
+  }
+  #intro_header {
+    padding: 160px 0 0 0;
+    text-align: center;
+  }
+  #intro_header .sub_title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+  }
+  #intro_header .main_title {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    overflow: hidden;
+  }
+  #intro_header .logo_wrapper .svg_logo_paper,
+  #intro_header .logo_wrapper .svg_logo_pro {
+    display: block;
+    margin: 0 auto;
+  }
+  #intro_header .logo_wrapper .svg_logo_paper {
+    margin-top: 18px;
+    width: 185px;
+    height: 48px;
+  }
+  #intro_header .logo_wrapper .svg_logo_pro {
+    margin-top: 9px;
+    width: 76px;
+    height: 25px;
+  }
+  #intro_header .paper_pro_detail_button {
+    margin-top: 10px;
+  }
+  #intro_header .paper_pro_detail_button:first-of-type {
+    margin-top: 24px;
+  }
+  #intro_header .device {
+    margin-top: 40px;
+  }
+  #intro_header .device .device_wrapper {
+    width: 257px;
+    height: 308px;
+  }
+  #intro_header .device .device_wrapper .paper_on,
+  #intro_header .device .device_wrapper .paper_off {
+    width: 257px;
+    height: 308px;
+  }
+  #display_upgrade {
+    padding: 46px 0 0 0;
+  }
+  #display_upgrade .article_paragraph {
+    margin-top: 10px;
+  }
+  #display_upgrade .size_compare {
+    margin-top: 33px;
+    height: 203px;
+    position: relative;
+  }
+  #display_upgrade .size_compare .paper_image,
+  #display_upgrade .size_compare .paper_pro_image,
+  #display_upgrade .size_compare .book_image {
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+  }
+  #display_upgrade .size_compare .paper_image {
+    width: 115px;
+    margin-left: -213px;
+  }
+  #display_upgrade .size_compare .paper_pro_image {
+    width: 135px;
+    margin-left: -77px;
+    bottom: 0px;
+  }
+  #display_upgrade .size_compare .book_image {
+    width: 270px;
+    margin-left: 78px;
+    bottom: -12px;
+  }
+  #display_upgrade .display_size_article {
+    margin-top: 45px;
+  }
+  #display_upgrade .display_size_article .article_paragraph {
+    margin-top: 16px;
+  }
+  #display_upgrade .landscape_mode {
+    margin-top: 54px;
+  }
+  #display_upgrade .landscape_mode .landscape_display_image,
+  #display_upgrade .landscape_mode .landscape_display_shadow_image {
+    display: block;
+    margin: 0 auto;
+  }
+  #display_upgrade .landscape_mode .landscape_display_image {
+    width: 280px;
+  }
+  #display_upgrade .landscape_mode .landscape_display_shadow_image {
+    width: 320px;
+    margin-top: -8px;
+  }
+  #display_upgrade .thickness_and_weight_wrapper {
+    margin-top: 40px;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  #display_upgrade .thickness_and_weight_wrapper .thickness,
+  #display_upgrade .thickness_and_weight_wrapper .weight {
+    display: table-cell;
+  }
+  #display_upgrade .thickness_and_weight_wrapper .thickness .article_title {
+    padding-right: 0;
+  }
+  #display_upgrade .thickness_and_weight_wrapper .thickness .article_paragraph {
+    padding-right: 10px;
+  }
+  #display_upgrade .thickness_and_weight_wrapper .weight .article_title,
+  #display_upgrade .thickness_and_weight_wrapper .weight .article_paragraph {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #display_upgrade .side_view {
+    margin-top: 40px;
+  }
+  #display_upgrade .side_view .side_view_image,
+  #display_upgrade .side_view .side_view_shadow_image {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+  }
+  #display_upgrade .side_view .side_view_image {
+    width: 280px;
+    z-index: 100;
+  }
+  #display_upgrade .side_view .side_view_shadow_image {
+    width: 320px;
+    margin-top: 20px;
+    z-index: 50;
+  }
+  #display_upgrade .ppi_info_wrapper {
+    margin-top: 44px;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    height: 170px;
+  }
+  #display_upgrade .ppi_info_wrapper .ppi,
+  #display_upgrade .ppi_info_wrapper .high_resolution {
+    display: table-cell;
+  }
+  #display_upgrade .ppi_info_wrapper .ppi {
+    width: 212px;
+  }
+  #display_upgrade .ppi_info_wrapper .high_resolution {
+    position: relative;
+  }
+  #display_upgrade .ppi_info_wrapper .high_resolution .high_resolution_image {
+    height: 170px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  #light_upgrade {
+    padding: 46px 0;
+  }
+  #light_upgrade .section_title {
+    font-weight: 300;
+  }
+  #light_upgrade .color_temperature {
+    margin-top: 30px;
+  }
+  #light_upgrade .color_temperature .tmp {
+    width: 198px;
+    height: 274px;
+    margin: 0 auto;
+    position: relative;
+  }
+  #light_upgrade .color_temperature .tmp .tmp_low,
+  #light_upgrade .color_temperature .tmp .tmp_high {
+    width: 198px;
+    height: 274px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #light_upgrade .color_temperature .tmp .tmp_high {
+    opacity: 0;
+  }
+  #light_upgrade .color_temperature .tmp_controller {
+    width: 200px;
+    margin: 27px auto;
+    padding-bottom: 10px;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui {
+    -webkit-appearance: none;
+    background: none;
+    width: 100%;
+    margin: 6px 0;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui:focus {
+    outline: none;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    box-shadow: none;
+    background: linear-gradient(left, #cedde9, #e2a44c);
+    border-radius: 5px;
+    border: 0;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-webkit-slider-thumb {
+    box-shadow: 0 0 6px black;
+    border: 0;
+    height: 17px;
+    width: 17px;
+    border-radius: 17px;
+    background: white;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui:focus::-webkit-slider-runnable-track {
+    background: linear-gradient(left, #cedde9, #e2a44c);
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    box-shadow: none;
+    background: linear-gradient(left, #cedde9, #e2a44c);
+    border-radius: 0;
+    border: 0;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-moz-range-thumb {
+    box-shadow: 0 0 6px black;
+    border: 0;
+    height: 17px;
+    width: 17px;
+    border-radius: 17px;
+    background: white;
+    cursor: pointer;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    background: linear-gradient(left, #cedde9, #e2a44c);
+    border-radius: 5px;
+    border-color: transparent;
+    color: transparent;
+    margin: 6px 0;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-fill-lower {
+    background: transparent;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: none;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-fill-upper {
+    background: transparent;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: none;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-thumb {
+    box-shadow: 0 0 6px black;
+    border: 0;
+    height: 17px;
+    width: 17px;
+    border-radius: 17px;
+    background: white;
+    cursor: pointer;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-tooltip {
+    display: none;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui:focus::-ms-fill-lower {
+    background: transparent;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui:focus::-ms-fill-upper {
+    background: transparent;
+  }
+  #light_upgrade .lowest_brightness {
+    margin-top: 55px;
+  }
+  #light_upgrade .lowest_brightness .brightness_table {
+    table-layout: fixed;
+    margin: 0 auto;
+    width: 300px;
+  }
+  #light_upgrade .lowest_brightness .brightness_table td,
+  #light_upgrade .lowest_brightness .brightness_table th {
+    text-align: center;
+    width: 50%;
+    min-width: 140px;
+    vertical-align: bottom;
+    font-weight: 300;
+  }
+  #light_upgrade .lowest_brightness .brightness_table td:first-child,
+  #light_upgrade .lowest_brightness .brightness_table th:first-child {
+    width: 40%;
+  }
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper {
+    width: 100%;
+    height: 190px;
+    position: relative;
+  }
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper .min_brightness,
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper .max_brightness {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+  }
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper .paper {
+    width: 114px;
+    margin-left: -57px;
+  }
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper .paper_pro {
+    width: 136px;
+    margin-left: -68px;
+  }
+  #light_upgrade .lowest_brightness .brightness_table th {
+    height: 20px;
+    font-size: 12px;
+  }
+  #light_upgrade .article_title {
+    margin-top: 30px;
+  }
+  #light_upgrade .article_paragraph {
+    font-weight: 300;
+  }
+  #light_upgrade .annotation {
+    font-weight: bold;
+  }
+  #ux_upgrade {
+    padding: 46px 0;
+  }
+  #ux_upgrade .one_hand_pagination {
+    margin-top: 35px;
+  }
+  #ux_upgrade .one_hand_pagination .pagination_wrapper {
+    position: relative;
+    width: 202px;
+    height: 283px;
+    margin: 0 auto;
+  }
+  #ux_upgrade .one_hand_pagination .pagination_wrapper .page_list {
+    position: absolute;
+    width: 202px;
+    left: 0;
+    top: 0;
+  }
+  #ux_upgrade .one_hand_pagination .pagination_wrapper .page_list .page {
+    width: 100%;
+  }
+  #ux_upgrade .one_hand_pagination .pagination_wrapper .pointer {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: #1f8ce6;
+    border: 3px solid white;
+    opacity: 0.5;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    opacity: 0;
+  }
+  #ux_upgrade .prominent_button {
+    margin-top: 36px;
+    height: 100px;
+    position: relative;
+  }
+  #ux_upgrade .prominent_button .button_bg,
+  #ux_upgrade .prominent_button .button {
+    position: absolute;
+    left: 50%;
+  }
+  #ux_upgrade .prominent_button .button_bg {
+    max-width: none;
+    width: 800px;
+    margin-left: -400px;
+  }
+  #ux_upgrade .prominent_button .button {
+    width: 244px;
+    top: 62px;
+    margin-left: -119px;
+    height: 10px;
+  }
+  #ux_upgrade .article_title {
+    margin-top: 35px;
+  }
+  #hardware_upgrade {
+    padding: 46px 0;
+  }
+  #hardware_upgrade .layer {
+    margin-top: 20px;
+    height: 60px;
+    position: relative;
+  }
+  #hardware_upgrade .layer .layer_image {
+    position: absolute;
+    width: 266px;
+    left: 50%;
+    margin-left: -133px;
+  }
+  #hardware_upgrade .layer .layer_image.display {
+    margin-top: 10px;
+  }
+  #hardware_upgrade .section_title {
+    font-weight: 300;
+  }
+  #hardware_upgrade .article_paragraph {
+    font-weight: 300;
+  }
+  #hardware_upgrade .durability {
+    margin-top: 5px;
+  }
+  #hardware_upgrade .battery {
+    margin-top: 50px;
+  }
+  #hardware_upgrade .battery_compare_chart {
+    margin-top: 30px;
+    padding: 0 20px;
+    width: 85%;
+  }
+  #hardware_upgrade .battery_compare_chart .chart_title {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  #hardware_upgrade .battery_compare_chart .bar {
+    height: 6px;
+    font-size: 0;
+    text-indent: -20px;
+    overflow: hidden;
+  }
+  #hardware_upgrade .battery_compare_chart .bar.paper_pro_battery_bar {
+    width: 100%;
+  }
+  #hardware_upgrade .battery_compare_chart .bar.paper_battery_bar {
+    width: 35%;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_pro_chart,
+  #hardware_upgrade .battery_compare_chart .paper_chart {
+    margin-top: 14px;
+  }
+  #hardware_upgrade .battery_compare_chart .device_title,
+  #hardware_upgrade .battery_compare_chart .description {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_pro_chart .description_wrapper {
+    margin-top: 7px;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_pro_chart .description_wrapper .device_title {
+    display: table-cell;
+    font-weight: 300;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_pro_chart .description_wrapper .description {
+    display: table-cell;
+    text-align: right;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_chart .device_title {
+    margin-top: 7px;
+  }
+  #paper_pro_simple_info {
+    padding: 50px 0;
+    text-align: center;
+  }
+  #paper_pro_simple_info .section_title {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 300;
+  }
+  #paper_pro_simple_info .svg_logo_paper,
+  #paper_pro_simple_info .svg_logo_pro {
+    display: block;
+    margin: 0 auto;
+  }
+  #paper_pro_simple_info .svg_logo_paper {
+    width: 127px;
+    margin-top: 15px;
+  }
+  #paper_pro_simple_info .svg_logo_pro {
+    width: 52px;
+    margin-top: 8px;
+  }
+  #paper_pro_simple_info .devices {
+    height: 290px;
+    margin-top: 15px;
+  }
+  #paper_pro_simple_info .devices .device_back,
+  #paper_pro_simple_info .devices .device_front {
+    position: absolute;
+    left: 50%;
+  }
+  #paper_pro_simple_info .devices .device_back {
+    width: 184px;
+    margin-left: -170px;
+    z-index: 100;
+  }
+  #paper_pro_simple_info .devices .device_front {
+    width: 205px;
+    margin-left: -42px;
+    z-index: 200;
+  }
+  #paper_pro_simple_info .price {
+    margin-top: 14px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  #paper_pro_simple_info .paper_pro_detail_button {
+    margin-top: 10px;
+  }
+  #paper_pro_simple_info .paper_pro_detail_button:first-of-type {
+    margin-top: 30px;
+  }
+  #designed_by_ridi {
+    padding-top: 45px;
+  }
+  #designed_by_ridi .description_wrapper .section_title {
+    text-align: left;
+    padding: 0 20px;
+    font-size: 30px;
+  }
+  #designed_by_ridi .description_wrapper .section_title .svg_logo_ridi {
+    display: inline-block;
+    width: 54px;
+    height: 22px;
+    margin-left: 10px;
+    fill: white;
+  }
+  #designed_by_ridi .description_wrapper .article_paragraph {
+    margin-top: 13px;
+  }
+  #designed_by_ridi .device {
+    margin-top: 60px;
+    height: 190px;
+    text-align: center;
+  }
+  #designed_by_ridi .device .device_back {
+    height: 100%;
+  }
+  #spec_compare {
+    padding: 0 20px 50px 20px;
+  }
+  #spec_compare .paper_pro_image {
+    width: 41px;
+    height: 56px;
+  }
+  #spec_compare .paper_image {
+    width: 35px;
+    height: 47px;
+  }
+  #spec_compare #spec_compare_table tbody tr:first-child th,
+  #spec_compare #spec_compare_table tbody tr:first-child td {
+    border-top: 1px solid black;
+  }
+  #spec_compare .spec_alert {
+    position: relative;
+    text-align: left;
+    line-height: 1.5em;
+    padding-left: 9px;
+  }
+  #spec_compare .spec_alert .star {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #detail_spec {
+    padding: 0 10px 50px 10px;
+  }
+  #detail_spec .image_wrapper {
+    margin-top: 24px;
+    text-align: center;
+  }
+  #detail_spec .paper_pro_front_and_back_image {
+    width: 160px;
+  }
+}
+@media only screen and (min-width: 671px) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+  #page_intro .intro_section {
+    overflow: hidden;
+  }
+  #page_intro .intro_section .contents_wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  #page_intro .white_tone {
+    font-weight: bold;
+  }
+  #page_intro .section_title {
+    font-size: 50px;
+    text-align: center;
+    font-weight: 300;
+  }
+  #page_intro .article_title {
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.3em;
+  }
+  #page_intro .article_title strong {
+    font-weight: bold;
+  }
+  #page_intro .article_paragraph {
+    font-size: 18px;
+    line-height: 1.7em;
+    font-weight: normal;
+    word-break: keep-all;
+    margin: 22px auto 0 auto;
+  }
+  #page_intro .annotation {
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: center;
+  }
+  #page_intro .table_section_title {
+    font-size: 40px;
+  }
+  #page_intro .spec_table {
+    width: 100%;
+    margin: 50px auto 0 auto;
+  }
+  #page_intro .spec_table thead th {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    height: 100px;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 15px;
+    vertical-align: bottom;
+    text-align: left;
+  }
+  #page_intro .spec_table thead th .spec_title {
+    display: block;
+    margin-top: 11px;
+  }
+  #page_intro .spec_table tbody tr th,
+  #page_intro .spec_table tbody tr td {
+    font-size: 15px;
+    line-height: 1.5em;
+    padding-top: 10px;
+    word-break: keep-all;
+  }
+  #page_intro .spec_table tbody tr th {
+    text-align: right;
+    font-weight: normal;
+    width: 120px;
+    padding-right: 22px;
+    vertical-align: top;
+  }
+  #page_intro .spec_table tbody tr td {
+    text-align: left;
+    vertical-align: top;
+    padding-right: 10px;
+  }
+  #page_intro .spec_table tbody tr td li {
+    padding-top: 10px;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  #page_intro .spec_table tbody tr td li:first-child {
+    padding-top: 0;
+  }
+  #page_intro .spec_table tbody tr:first-child th,
+  #page_intro .spec_table tbody tr:first-child td {
+    padding-top: 15px;
+  }
+  #page_intro .spec_alert {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 15px;
+  }
+  #page_intro .paper_pro_detail_button {
+    width: 250px;
+    height: 50px;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0 5px;
+  }
+  #page_intro .paper_pro_detail_button .providers {
+    margin-right: -2px;
+    height: 20px;
+    vertical-align: middle;
+    transform: translateY(-2px);
+  }
+  #page_intro .paper_pro_detail_button .link_text {
+    font-size: 14px;
+    font-weight: normal;
+  }
+  #page_intro .paper_pro_detail_button.papershop .link_text {
+    font-size: 16px;
+  }
+  #intro_header {
+    padding: 200px 0 0 0;
+    text-align: center;
+    box-sizing: border-box;
+    height: 1100px;
+  }
+  #intro_header .sub_title {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 300;
+  }
+  #intro_header .main_title {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    overflow: hidden;
+  }
+  #intro_header .logo_wrapper .svg_logo_paper,
+  #intro_header .logo_wrapper .svg_logo_pro {
+    display: block;
+    margin: 0 auto;
+  }
+  #intro_header .logo_wrapper .svg_logo_paper {
+    margin-top: 38px;
+    width: 320px;
+    height: 83px;
+  }
+  #intro_header .logo_wrapper .svg_logo_pro {
+    margin-top: 14px;
+    width: 140px;
+    height: 45px;
+  }
+  #intro_header .paper_pro_detail_button {
+    margin-top: 60px;
+  }
+  #intro_header .device {
+    margin-top: 95px;
+  }
+  #intro_header .device .device_wrapper {
+    width: 500px;
+    height: 600px;
+  }
+  #intro_header .device .device_wrapper .paper_on,
+  #intro_header .device .device_wrapper .paper_off {
+    width: 500px;
+    height: 600px;
+  }
+  #display_upgrade {
+    padding: 160px 0 0 0;
+  }
+  #display_upgrade .size_compare {
+    margin-top: 86px;
+    height: 400px;
+    position: relative;
+  }
+  #display_upgrade .size_compare .paper_image,
+  #display_upgrade .size_compare .paper_pro_image,
+  #display_upgrade .size_compare .book_image {
+    position: absolute;
+    left: 50%;
+  }
+  #display_upgrade .size_compare .paper_image {
+    width: 240px;
+    margin-left: -414px;
+    bottom: 26px;
+  }
+  #display_upgrade .size_compare .paper_pro_image {
+    width: 290px;
+    margin-left: -136px;
+    bottom: 0;
+  }
+  #display_upgrade .size_compare .book_image {
+    width: 530px;
+    margin-left: 176px;
+    bottom: -10px;
+  }
+  #display_upgrade .display_size_article {
+    margin-top: 100px;
+  }
+  #display_upgrade .display_size_article .article_title,
+  #display_upgrade .display_size_article .article_paragraph {
+    text-align: center;
+  }
+  #display_upgrade .display_size_article .article_paragraph {
+    margin: 36px auto 0 auto;
+    width: 430px;
+  }
+  #display_upgrade .landscape_mode {
+    margin-top: 50px;
+  }
+  #display_upgrade .landscape_mode .landscape_display_image,
+  #display_upgrade .landscape_mode .landscape_display_shadow_image {
+    display: block;
+    margin: 0 auto;
+  }
+  #display_upgrade .landscape_mode .landscape_display_image {
+    width: 725px;
+  }
+  #display_upgrade .landscape_mode .landscape_display_shadow_image {
+    width: 820px;
+    margin-top: -24px;
+  }
+  #display_upgrade .thickness_and_weight_wrapper {
+    display: table;
+    width: 780px;
+    table-layout: fixed;
+    margin: 120px auto 0 auto;
+  }
+  #display_upgrade .thickness_and_weight_wrapper .thickness,
+  #display_upgrade .thickness_and_weight_wrapper .weight {
+    display: table-cell;
+  }
+  #display_upgrade .thickness_and_weight_wrapper .thickness .article_title,
+  #display_upgrade .thickness_and_weight_wrapper .weight .article_title,
+  #display_upgrade .thickness_and_weight_wrapper .thickness .article_paragraph,
+  #display_upgrade .thickness_and_weight_wrapper .weight .article_paragraph {
+    padding: 0 70px;
+  }
+  #display_upgrade .thickness_and_weight_wrapper .thickness .article_paragraph,
+  #display_upgrade .thickness_and_weight_wrapper .weight .article_paragraph {
+    margin-top: 10px;
+  }
+  #display_upgrade .thickness_and_weight_wrapper .thickness .article_paragraph {
+    padding-right: 130px;
+  }
+  #display_upgrade .side_view {
+    margin-top: 86px;
+  }
+  #display_upgrade .side_view .side_view_image,
+  #display_upgrade .side_view .side_view_shadow_image {
+    display: block;
+    margin: 0 auto;
+  }
+  #display_upgrade .side_view .side_view_image {
+    width: 780px;
+  }
+  #display_upgrade .side_view .side_view_shadow_image {
+    width: 800px;
+    margin-top: 40px;
+  }
+  #display_upgrade .ppi_info_wrapper {
+    margin: 120px auto 0 auto;
+    display: table;
+    width: 720px;
+    table-layout: fixed;
+    height: 260px;
+  }
+  #display_upgrade .ppi_info_wrapper .ppi,
+  #display_upgrade .ppi_info_wrapper .high_resolution {
+    display: table-cell;
+  }
+  #display_upgrade .ppi_info_wrapper .ppi {
+    width: 240px;
+    padding-top: 6px;
+  }
+  #display_upgrade .ppi_info_wrapper .high_resolution {
+    position: relative;
+  }
+  #display_upgrade .ppi_info_wrapper .high_resolution .high_resolution_image {
+    height: 260px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  #light_upgrade {
+    padding: 120px 0 105px 0;
+  }
+  #light_upgrade .article_title,
+  #light_upgrade .article_paragraph {
+    text-align: center;
+  }
+  #light_upgrade .article_title {
+    margin-top: 75px;
+  }
+  #light_upgrade .article_paragraph {
+    width: 560px;
+    font-weight: 300;
+  }
+  #light_upgrade .color_temperature {
+    margin-top: 90px;
+  }
+  #light_upgrade .color_temperature .tmp {
+    width: 400px;
+    height: 553px;
+    margin: 0 auto;
+    position: relative;
+  }
+  #light_upgrade .color_temperature .tmp .tmp_low,
+  #light_upgrade .color_temperature .tmp .tmp_high {
+    width: 397px;
+    height: 548px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #light_upgrade .color_temperature .tmp .tmp_high {
+    opacity: 0;
+  }
+  #light_upgrade .color_temperature .tmp_controller {
+    width: 400px;
+    margin: 50px auto 17px auto;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui {
+    -webkit-appearance: none;
+    background: none;
+    width: 100%;
+    margin: 12px 0;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui:focus {
+    outline: none;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    box-shadow: none;
+    background: linear-gradient(left, #cedde9, #e2a44c);
+    border-radius: 10px;
+    border: 0;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-webkit-slider-thumb {
+    box-shadow: 0 0 6px black;
+    border: 0;
+    height: 34px;
+    width: 34px;
+    border-radius: 34px;
+    background: white;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -12px;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui:focus::-webkit-slider-runnable-track {
+    background: linear-gradient(left, #cedde9, #e2a44c);
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    box-shadow: none;
+    background: linear-gradient(left, #cedde9, #e2a44c);
+    border-radius: 0;
+    border: 0;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-moz-range-thumb {
+    box-shadow: 0 0 6px black;
+    border: 0;
+    height: 34px;
+    width: 34px;
+    border-radius: 34px;
+    background: white;
+    cursor: pointer;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background: linear-gradient(left, #cedde9, #e2a44c);
+    border-radius: 10px;
+    border-color: transparent;
+    color: transparent;
+    margin: 12px 0;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-fill-lower {
+    background: transparent;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-fill-upper {
+    background: transparent;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-thumb {
+    box-shadow: 0 0 6px black;
+    border: 0;
+    height: 34px;
+    width: 34px;
+    border-radius: 34px;
+    background: white;
+    cursor: pointer;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui::-ms-tooltip {
+    display: none;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui:focus::-ms-fill-lower {
+    background: transparent;
+  }
+  #light_upgrade .color_temperature .tmp_controller .range_ui:focus::-ms-fill-upper {
+    background: transparent;
+  }
+  #light_upgrade .lowest_brightness {
+    margin-top: 120px;
+  }
+  #light_upgrade .lowest_brightness .brightness_table {
+    width: 600px;
+    table-layout: fixed;
+    margin: 0 auto;
+  }
+  #light_upgrade .lowest_brightness .brightness_table td,
+  #light_upgrade .lowest_brightness .brightness_table th {
+    text-align: center;
+    width: 50%;
+    min-width: 140px;
+    vertical-align: bottom;
+    font-weight: 300;
+  }
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper {
+    width: 100%;
+    height: 378px;
+    position: relative;
+  }
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper .min_brightness,
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper .max_brightness {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+  }
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper .paper {
+    width: 231px;
+    margin-left: -115px;
+  }
+  #light_upgrade .lowest_brightness .brightness_table .device_image_wrapper .paper_pro {
+    width: 271px;
+    margin-left: -134px;
+  }
+  #light_upgrade .lowest_brightness .brightness_table th {
+    height: 48px;
+    font-size: 18px;
+  }
+  #ux_upgrade {
+    padding: 120px 0;
+  }
+  #ux_upgrade .one_hand_pagination {
+    margin-top: 90px;
+  }
+  #ux_upgrade .one_hand_pagination .pagination_wrapper {
+    position: relative;
+    width: 400px;
+    height: 559px;
+    margin: 0 auto;
+  }
+  #ux_upgrade .one_hand_pagination .pagination_wrapper .page_list {
+    position: absolute;
+    width: 400px;
+    left: 0;
+    top: 0;
+  }
+  #ux_upgrade .one_hand_pagination .pagination_wrapper .page_list .page {
+    width: 100%;
+  }
+  #ux_upgrade .one_hand_pagination .pagination_wrapper .pointer {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: #1f8ce6;
+    border: 4px solid white;
+    opacity: 0.5;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+    opacity: 0;
+  }
+  #ux_upgrade .prominent_button {
+    margin-top: 110px;
+    height: 149px;
+    position: relative;
+  }
+  #ux_upgrade .prominent_button .button_bg,
+  #ux_upgrade .prominent_button .button {
+    position: absolute;
+    left: 50%;
+  }
+  #ux_upgrade .prominent_button .button_bg {
+    width: 900px;
+    margin-left: -450px;
+  }
+  #ux_upgrade .prominent_button .button {
+    width: 274px;
+    top: 69px;
+    margin-left: -134px;
+    height: 11px;
+  }
+  #ux_upgrade .article_title,
+  #ux_upgrade .article_paragraph {
+    text-align: center;
+  }
+  #ux_upgrade .article_title {
+    margin-top: 30px;
+  }
+  #ux_upgrade .one_hand_article .article_paragraph {
+    width: 500px;
+  }
+  #hardware_upgrade {
+    padding: 120px 0 160px 0;
+  }
+  #hardware_upgrade .layer {
+    position: relative;
+  }
+  #hardware_upgrade .layer .layer_wrapper {
+    position: absolute;
+    left: 475px;
+    top: 55px;
+  }
+  #hardware_upgrade .layer .layer_image {
+    max-width: none;
+    position: absolute;
+    width: 525px;
+    left: 0;
+    top: 60px;
+  }
+  #hardware_upgrade .layer .layer_image.display {
+    margin-top: 10px;
+  }
+  #hardware_upgrade .article_paragraph {
+    font-weight: 300;
+  }
+  #hardware_upgrade .durability {
+    margin-top: 120px;
+    padding-left: 90px;
+    width: 300px;
+  }
+  #hardware_upgrade .battery {
+    margin-top: 90px;
+    padding-left: 90px;
+    width: 540px;
+  }
+  #hardware_upgrade .battery .article_paragraph {
+    width: 310px;
+    margin: 22px 0 0 0;
+  }
+  #hardware_upgrade .battery_compare_chart {
+    margin-top: 75px;
+    width: 100%;
+  }
+  #hardware_upgrade .battery_compare_chart .chart_title {
+    font-size: 24px;
+    font-weight: normal;
+  }
+  #hardware_upgrade .battery_compare_chart .bar {
+    height: 10px;
+    font-size: 0;
+    text-indent: -200px;
+    overflow: hidden;
+  }
+  #hardware_upgrade .battery_compare_chart .bar.paper_pro_battery_bar {
+    width: 100%;
+  }
+  #hardware_upgrade .battery_compare_chart .bar.paper_battery_bar {
+    width: 35%;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_pro_chart,
+  #hardware_upgrade .battery_compare_chart .paper_chart {
+    margin-top: 30px;
+  }
+  #hardware_upgrade .battery_compare_chart .device_title,
+  #hardware_upgrade .battery_compare_chart .description {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_pro_chart .description_wrapper {
+    margin-top: 14px;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_pro_chart .description_wrapper .device_title {
+    display: table-cell;
+    font-weight: 300;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_pro_chart .description_wrapper .description {
+    display: table-cell;
+    text-align: right;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_chart {
+    margin-top: 40px;
+  }
+  #hardware_upgrade .battery_compare_chart .paper_chart .device_title {
+    margin-top: 14px;
+  }
+  #paper_pro_simple_info {
+    padding: 120px 0 140px 0;
+    text-align: center;
+  }
+  #paper_pro_simple_info .section_title {
+    font-size: 50px;
+    text-align: center;
+    font-weight: 300;
+    color: #212121;
+  }
+  #paper_pro_simple_info .svg_logo_paper,
+  #paper_pro_simple_info .svg_logo_pro {
+    display: block;
+    margin: 0 auto;
+  }
+  #paper_pro_simple_info .svg_logo_paper {
+    width: 253px;
+    height: 66px;
+    margin-top: 32px;
+  }
+  #paper_pro_simple_info .svg_logo_pro {
+    width: 104px;
+    height: 34px;
+    margin-top: 12px;
+  }
+  #paper_pro_simple_info .devices {
+    height: 600px;
+    margin-top: 52px;
+  }
+  #paper_pro_simple_info .devices .device_back,
+  #paper_pro_simple_info .devices .device_front {
+    position: absolute;
+    left: 50%;
+  }
+  #paper_pro_simple_info .devices .device_back {
+    width: 400px;
+    height: 390px;
+    margin-left: -352px;
+    z-index: 100;
+  }
+  #paper_pro_simple_info .devices .device_front {
+    width: 430px;
+    height: 600px;
+    margin-left: -50px;
+    z-index: 200;
+  }
+  #paper_pro_simple_info .price {
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  #paper_pro_simple_info .paper_pro_detail_button {
+    margin-top: 50px;
+  }
+  #designed_by_ridi {
+    padding-top: 120px;
+  }
+  #designed_by_ridi .description_wrapper {
+    width: 500px;
+    margin: 0 auto;
+  }
+  #designed_by_ridi .description_wrapper .section_title .svg_logo_ridi {
+    width: 90px;
+    height: 36px;
+    fill: white;
+    margin-left: 15px;
+  }
+  #designed_by_ridi .description_wrapper .section_title,
+  #designed_by_ridi .description_wrapper .article_paragraph {
+    text-align: center;
+  }
+  #designed_by_ridi .device {
+    margin-top: 100px;
+    height: 385px;
+    text-align: center;
+  }
+  #designed_by_ridi .device .device_back {
+    height: 100%;
+  }
+  #spec_compare {
+    padding: 120px 0;
+  }
+  #spec_compare .table_section_title {
+    text-align: center;
+  }
+  #spec_compare .paper_pro_image {
+    width: 82px;
+  }
+  #spec_compare .paper_pro_image + .spec_title {
+    width: 82px;
+    text-align: center;
+  }
+  #spec_compare .paper_image {
+    width: 70px;
+  }
+  #spec_compare .paper_image + .spec_title {
+    width: 70px;
+    text-align: center;
+  }
+  #spec_compare #spec_compare_table {
+    width: 500px;
+  }
+  #spec_compare #spec_compare_table tbody tr:first-child th,
+  #spec_compare #spec_compare_table tbody tr:first-child td {
+    border-top: 1px solid black;
+  }
+  #spec_compare #spec_compare_table tbody th {
+    width: 100px;
+    padding-right: 28px;
+  }
+  #spec_compare #spec_compare_table tbody td {
+    padding-right: 40px;
+  }
+  #spec_compare #spec_compare_table tbody td:last-child {
+    width: 35%;
+    padding-right: 10px;
+  }
+  #spec_compare .spec_alert {
+    width: 450px;
+    margin: 35px auto 0 auto;
+    text-align: left;
+    line-height: 1.8em;
+    position: relative;
+    padding-left: 10px;
+    font-size: 13px;
+  }
+  #spec_compare .spec_alert .star {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #detail_spec {
+    padding: 120px 0;
+  }
+  #detail_spec .table_section_title {
+    text-align: center;
+  }
+  #detail_spec .image_wrapper {
+    margin-top: 50px;
+    text-align: center;
+  }
+  #detail_spec .paper_pro_front_and_back_image {
+    width: 360px;
+  }
+  #detail_spec #paper_pro_spec_table {
+    width: 560px;
+  }
+  #detail_spec #paper_pro_spec_table tbody th {
+    padding-right: 18px;
+  }
+}
