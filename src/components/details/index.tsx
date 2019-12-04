@@ -1,6 +1,9 @@
 import styled, { css } from 'astroturf';
 import React from 'react';
 
+import { graphql, useStaticQuery } from 'gatsby';
+import Img, { FluidObject } from 'gatsby-image';
+
 import Slider, { Settings as SliderSettings } from 'react-slick';
 
 import ArrowV from '../../svgs/arrow-v.inline.svg';
@@ -42,7 +45,6 @@ const StaticImg = styled.div`
   width: 300px;
   height: 300px;
   margin: 0 4px;
-  background-color: #f0f5fa;
 `;
 
 const SliderContainer = styled.div`
@@ -96,19 +98,47 @@ const ImgContainer = styled.div`
   padding: 0 4px;
 `;
 
-const Img = styled.div`
-  padding-top: 100%;
-  background-color: #f0f5fa;
-`;
-
 const styles = css`
   .slider {
     width: calc(100% - 120px);
     line-height: 0;
   }
+
+  .img {
+    background-color: #f0f5fa;
+  }
 `;
 
+interface QueryData {
+  details: {
+    edges: {
+      node: {
+        name: string;
+        childImageSharp: {
+          fluid: FluidObject;
+        };
+      };
+    }[];
+  };
+}
+
 export default function Details() {
+  const data = useStaticQuery<QueryData>(graphql`
+    {
+      details: allFile(filter: {relativeDirectory: {eq: "images/details"}}, sort: {fields: name}) {
+        edges {
+          node {
+            name
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
   const [showSlider, setShowSlider] = React.useState(false);
   const slickRef = React.useRef<Slider>(null);
 
@@ -152,11 +182,11 @@ export default function Details() {
           <ArrowV />
         </Arrow>
         <Slider {...sliderOptions} ref={slickRef}>
-          <ImgContainer><Img /></ImgContainer>
-          <ImgContainer><Img /></ImgContainer>
-          <ImgContainer><Img /></ImgContainer>
-          <ImgContainer><Img /></ImgContainer>
-          <ImgContainer><Img /></ImgContainer>
+          {data.details.edges.map(({ node }) => (
+            <ImgContainer key={node.name}>
+              <Img fluid={node.childImageSharp.fluid} className={styles.img} />
+            </ImgContainer>
+          ))}
         </Slider>
         <Arrow next onClick={handleNextClick}>
           <ArrowV />
@@ -171,11 +201,11 @@ export default function Details() {
       <StaticSlider hidden={showSlider}>
         <StaticSliderInner>
           <Spacer />
-          <StaticImg />
-          <StaticImg />
-          <StaticImg />
-          <StaticImg />
-          <StaticImg />
+          {data.details.edges.map(({ node }) => (
+            <StaticImg key={node.name}>
+              <Img fluid={node.childImageSharp.fluid} className={styles.img} />
+            </StaticImg>
+          ))}
           <Spacer />
         </StaticSliderInner>
       </StaticSlider>
