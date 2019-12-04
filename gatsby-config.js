@@ -62,6 +62,49 @@ module.exports = {
         generateMatchPathRewrites: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'RIDIPAPER',
+        short_name: 'PAPER',
+        icon: 'src/assets/images/meta/ridipaper/android-chrome-384x384.png',
+        icons: [
+          {
+            src: '/favicons/16.png',
+            sizes: '16x16',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/32.png',
+            sizes: '32x32',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/48.png',
+            sizes: '48x48',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/96.png',
+            sizes: '96x96',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/384.png',
+            sizes: '384x384',
+            type: 'image/png',
+          },
+        ],
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        display: 'browser',
+      },
+    },
     'gatsby-plugin-force-trailing-slashes',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
