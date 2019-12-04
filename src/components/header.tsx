@@ -152,7 +152,7 @@ export default function Header() {
             <Link to="/" className={styles.navButton} activeClassName={styles.active}>
               RIDIPAPER
             </Link>
-            <Link to="/pro/" className={styles.navButton} activeClassName={styles.active}>
+            <Link to="/pro.html" className={styles.navButton} activeClassName={styles.active}>
               PAPER PRO
             </Link>
             <Link to="/accessories/" className={styles.navButton} activeClassName={styles.active} partiallyActive>
