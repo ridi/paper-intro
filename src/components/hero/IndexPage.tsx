@@ -193,7 +193,7 @@ export default function IndexHero() {
             </Button>
           </li>
           <li>
-            <Button noOpacity className={styles.purchaseNaver} href="https://smartstore.naver.com/ridibooks">
+            <Button noOpacity className={styles.purchaseNaver} href="https://smartstore.naver.com/ridibooks/products/4730376771">
               <img src={NaverLogo} alt="네이버" /> 쇼핑 에서 구매
             </Button>
           </li>
