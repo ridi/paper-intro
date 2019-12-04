@@ -7,6 +7,11 @@ import Img from 'gatsby-image';
 import Screen from './Screen';
 
 const Container = styled<'div', { state: string }>('div')`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   opacity: 1;
   transition: opacity 0.3s;
 

@@ -7,6 +7,11 @@ import Img from 'gatsby-image';
 import TouchIndicator from './TouchIndicator';
 
 const Container = styled<'div', { state: string }>('div')`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   transition: opacity 0.3s;
 
