@@ -64,6 +64,18 @@ async function createPages({ graphql, actions, reporter }) {
     toPath: '/stockists/ridipaper/',
     redirectInBrowser: true,
   });
+  actions.createRedirect({
+    fromPath: "/pro.html",
+    toPath: "/pro/",
+    redirectInBrowser: true,
+    isPermanent: true,
+  });
+  actions.createRedirect({
+    fromPath: "/intro",
+    toPath: "/",
+    redirectInBrowser: true,
+    isPermanent: true,
+  });
 }
 
 module.exports = {
