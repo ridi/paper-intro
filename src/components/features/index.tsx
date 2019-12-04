@@ -4,15 +4,17 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
+import { Controller } from 'scrollmagic';
+
 import Icon6Inch from '../../svgs/features/6inch.svg';
 import IconRotate from '../../svgs/features/rotate.svg'
 import IconBluetooth from '../../svgs/features/bluetooth.svg';
 import IconFlipCover from '../../svgs/features/flipcover.svg';
 
 import FeatureItem from './FeatureItem';
-import { FeatureDescription } from './FeatureDescription';
+import FeatureDescription from './FeatureDescription';
 
-const Head = styled.div`
+const Head = styled<'div', { runAnimation?: boolean }>('div')`
   margin: 0 40px;
 
   @media (max-width: 600px) {
@@ -26,6 +28,33 @@ const Head = styled.div`
     @media (max-width: 800px) {
       width: 100%;
       text-align: left;
+    }
+  }
+
+  > h2,
+  > p {
+    opacity: 0;
+  }
+
+  &.runAnimation {
+    > h2,
+    > p {
+      animation: show 0.5s forwards;
+    }
+
+    > p {
+      animation-delay: 0.2s;
+    }
+  }
+
+  @keyframes show {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 `;
@@ -63,6 +92,7 @@ const styles = css`
   .image {
     border-radius: 10px;
     overflow: hidden;
+    opacity: 0;
 
     @media(max-width: 800px) {
       border-radius: 0;
@@ -71,12 +101,33 @@ const styles = css`
     > video {
       width: 100%;
     }
+
+    &.runAnimation {
+      animation: show 0.5s forwards;
+    }
+
+    @keyframes show {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 `;
 
 export default function Features() {
   const [ioAvailable, setIoAvailable] = React.useState(false);
+  const headRef = React.useRef<HTMLDivElement>(null);
+  const featureRefs = Array.from({ length: 4 }, () => ({
+    ref: React.useRef<HTMLDivElement>(null),
+    state: React.useState(false),
+  }));
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [headRunAnimation, setHeadRunAnimation] = React.useState(false);
 
   const query = useStaticQuery(graphql`
     fragment FeatureImage on File {
@@ -135,9 +186,56 @@ export default function Features() {
     io.observe(videoRef.current!);
   }, []);
 
+  React.useEffect(() => {
+    let controller: Controller;
+    let destroyed = false;
+    import('scrollmagic').then(({ Controller, Scene }) => {
+      if (destroyed) {
+        return;
+      }
+      controller = new Controller();
+
+      new Scene({
+        triggerElement: headRef.current!,
+        triggerHook: 'onEnter',
+        reverse: false,
+        offset: 40,
+      })
+        .on('enter', () => {
+          setHeadRunAnimation(true);
+        })
+        .addTo(controller);
+      for (const { ref, state: [, setRunAnimation] } of featureRefs) {
+        new Scene({
+          triggerElement: ref.current!,
+          triggerHook: 'onEnter',
+          reverse: false,
+          offset: 30,
+        })
+          .on('enter', () => {
+            setRunAnimation(true);
+          })
+          .addTo(controller);
+      }
+    });
+
+    return () => {
+      controller && controller.destroy();
+      destroyed = true;
+    };
+  }, []);
+
+  function combineAnimation(base: string, runAnimation?: boolean) {
+    const list = [base];
+    if (runAnimation) {
+      list.push(styles.runAnimation);
+    }
+    return list.join(' ');
+  }
+
   return (
     <section>
-      <Head>
+      <Head ref={headRef} runAnimation={headRunAnimation}>
         <h2>{'가볍게,\xa0컴팩트하게 어디서나 독서에 빠지다'}</h2>
         <Description>
           출근길 지하철, 여행 떠나는 비행기 안, 잠들기 전 침대 위 어디서든 책을
@@ -147,8 +245,12 @@ export default function Features() {
       </Head>
       <FeatureList>
         <FeatureItem>
-          <Img className={styles.image} fluid={query.one.childImageSharp.fluid} backgroundColor="#f7fafc" />
-          <FeatureDescription>
+          <Img
+            className={combineAnimation(styles.image, featureRefs[0].state[0])}
+            fluid={query.one.childImageSharp.fluid}
+            backgroundColor="#f7fafc"
+          />
+          <FeatureDescription innerRef={featureRefs[0].ref} runAnimation={featureRefs[0].state[0]}>
             <img src={Icon6Inch} alt="6인치 기기 아이콘" />
             <h3>{'천\xa0페이지가\xa0넘는 책도\xa0얇고\xa0가볍게'}</h3>
             <p>
@@ -159,7 +261,7 @@ export default function Features() {
           </FeatureDescription>
         </FeatureItem>
         <FeatureItem>
-          <div className={styles.image}>
+          <div className={combineAnimation(styles.image, featureRefs[1].state[0])}>
             <video
               autoPlay={!ioAvailable}
               loop
@@ -171,7 +273,7 @@ export default function Features() {
               <source src={query.twoMp4.publicURL} type="video/mp4" />
             </video>
           </div>
-          <FeatureDescription>
+          <FeatureDescription innerRef={featureRefs[1].ref} runAnimation={featureRefs[1].state[0]}>
             <img src={IconRotate} alt="왼손으로 기기를 잡은 모습 아이콘" />
             <h3>{'어느\xa0손이든 한\xa0손으로\xa0편하게'}</h3>
             <p>
@@ -181,8 +283,12 @@ export default function Features() {
           </FeatureDescription>
         </FeatureItem>
         <FeatureItem>
-          <Img className={styles.image} fluid={query.three.childImageSharp.fluid} backgroundColor="#f7fafc" />
-          <FeatureDescription>
+          <Img
+            className={combineAnimation(styles.image, featureRefs[2].state[0])}
+            fluid={query.three.childImageSharp.fluid}
+            backgroundColor="#f7fafc"
+          />
+          <FeatureDescription innerRef={featureRefs[2].ref} runAnimation={featureRefs[2].state[0]}>
             <img src={IconBluetooth} alt="Bluetooth 아이콘" />
             <h3>{'이제\xa0이야기를 들어보세요'}</h3>
             <p>
@@ -193,8 +299,12 @@ export default function Features() {
           </FeatureDescription>
         </FeatureItem>
         <FeatureItem>
-          <Img className={styles.image} fluid={query.four.childImageSharp.fluid} backgroundColor="#f7fafc" />
-          <FeatureDescription>
+          <Img
+            className={combineAnimation(styles.image, featureRefs[3].state[0])}
+            fluid={query.four.childImageSharp.fluid}
+            backgroundColor="#f7fafc"
+          />
+          <FeatureDescription innerRef={featureRefs[3].ref} runAnimation={featureRefs[3].state[0]}>
             <img src={IconFlipCover} alt="하드 플립 케이스 아이콘" />
             <h3>{'언제나\xa0책과 함께\xa0해야\xa0한다면'}</h3>
             <p>

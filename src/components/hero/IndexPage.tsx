@@ -37,6 +37,8 @@ const Background = styled.div`
   align-items: center;
   justify-content: center;
 
+  background-color: #1c53b7;
+
   & picture,
   & img {
     flex: 0 0 auto;
@@ -49,14 +51,20 @@ const Background = styled.div`
   }
 `;
 
-const HeroTitle = styled.div`
+const HeroTitle = styled<'div', { runAnimation?: boolean }>('div')`
   color: white;
+
+  > p,
+  > h1 {
+    opacity: 0;
+  }
 
   > p {
     color: white;
     font-size: 40px;
     line-height: 1.5em;
     font-weight: 300;
+    letter-spacing: -1px;
 
     @media (max-width: 800px) {
       font-size: 24px;
@@ -77,11 +85,34 @@ const HeroTitle = styled.div`
       overflow: hidden;
     }
   }
+
+  &.runAnimation {
+    > p,
+    > h1 {
+      animation: show 0.5s forwards;
+    }
+
+    > h1 {
+      animation-delay: 0.2s;
+    }
+  }
+
+  @keyframes show {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 
-const PurchaseLinks = styled.ul`
+const PurchaseLinks = styled<'ul', { runAnimation?: boolean }>('ul')`
   display: flex;
   margin-top: 100px;
+  opacity: 0;
 
   @media (max-width: 800px) {
     display: block;
@@ -105,6 +136,21 @@ const PurchaseLinks = styled.ul`
     font-size: 14px;
     line-height: 20px;
     font-weight: normal;
+  }
+
+  &.runAnimation {
+    animation: show 0.5s 0.4s forwards;
+  }
+
+  @keyframes show {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 
@@ -145,6 +191,7 @@ const styles = css`
 `;
 
 export default function IndexHero() {
+  const [runAnimation, setRunAnimation] = React.useState(false);
   const data = useStaticQuery(graphql`
     {
       desktop: file(relativePath: {eq: "images/bg-landing.jpg"}) {
@@ -180,7 +227,7 @@ export default function IndexHero() {
     });
   }, []);
 
-  function renderBackground(props: { className: string }) {
+  function renderBackground() {
     return (
       <Background>
         <picture>
@@ -188,7 +235,7 @@ export default function IndexHero() {
           <source srcSet={data.mobile.childImageSharp.fluid.srcSet} media="(max-width: 800px)" />
           <source srcSet={data.desktop.childImageSharp.fluid.srcSetWebp} type="image/webp" />
           <source srcSet={data.desktop.childImageSharp.fluid.srcSet} />
-          <img src={data.desktop.childImageSharp.fluid.src} sizes="(max-width: 800px) 800px, 1600px" />
+          <img src={data.desktop.childImageSharp.fluid.src} sizes="(max-width: 800px) 800px, 1600px" onLoad={() => setRunAnimation(true)} />
         </picture>
       </Background>
     );
@@ -197,14 +244,14 @@ export default function IndexHero() {
   return (
     <Hero bright renderBackground={renderBackground}>
       <HeroContainer>
-        <HeroTitle>
+        <HeroTitle runAnimation={runAnimation}>
           <p>세상이 나의 서재가 된다</p>
           <h1>
             <RidipaperLogo className={styles.logo} />
             <span>RIDIPAPER</span>
           </h1>
         </HeroTitle>
-        <PurchaseLinks>
+        <PurchaseLinks runAnimation={runAnimation}>
           <li>
             <Button noOpacity className={styles.purchase29cm} href="https://post.29cm.co.kr/8040" onClick={track29CM}>
               <img src={Logo29CM} alt="29CM" /> 에서 구매
