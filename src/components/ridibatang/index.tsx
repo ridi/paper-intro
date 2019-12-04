@@ -3,7 +3,6 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import PolyfillImg from 'gatsby-image/withIEPolyfill';
 
 import Button from '../Button';
 
@@ -16,29 +15,18 @@ css`
   }
 `;
 
-const SectionWithBg = styled.section`
-  position: relative;
-  overflow: hidden;
-  font-family: RIDIBatang, serif;
-`;
-
-const Background = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-`;
-
 const Title = styled.h2`
   font-weight: normal;
   color: #f2f6fc;
 `;
 
-const Content = styled.div`
+const SectionWithBg = styled.section`
   position: relative;
   padding: 120px 30px 0;
+  background: #212b3b url('./bg.jpg') center/contain;
+  font-family: RIDIBatang, serif;
   text-align: center;
+  overflow: hidden;
 
   > * {
     margin: 0 auto;
@@ -99,13 +87,6 @@ const styles = css`
 export default function Ridibatang() {
   const data = useStaticQuery(graphql`
     {
-      bg: file(relativePath: {eq: "images/ridibatang/bg.jpg"}) {
-        childImageSharp {
-          fluid(sizes: "100vw", quality: 80) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
       device: file(relativePath: {eq: "images/ridibatang/device.png"}) {
         childImageSharp {
           fluid(maxWidth: 830, sizes: "(max-width: 600px) 100vw, (max-width: 800px) 600px, 830px", quality: 90) {
@@ -117,24 +98,15 @@ export default function Ridibatang() {
   `);
   return (
     <SectionWithBg>
-      <Background>
-        <PolyfillImg
-          fluid={data.bg.childImageSharp.fluid}
-          backgroundColor="#212b3b"
-          className={styles.background}
-        />
-      </Background>
-      <Content>
-        <Title>리디페이퍼 전용서체, 리디바탕</Title>
-        <p>
-          전자잉크 디스플레이에서도 또렷하게.<br />더 선명하고, 긴 문장도 잘 읽을
-          수 있는<br />전자책 전용 글꼴 리디바탕
-        </p>
-        <Button href="https://www.ridicorp.com/branding/fonts/ridibatang/" color="blue">더 알아보기</Button>
-        <DeviceWrapper>
-          <Img fluid={data.device.childImageSharp.fluid} className={styles.device} />
-        </DeviceWrapper>
-      </Content>
+      <Title>리디페이퍼 전용서체, 리디바탕</Title>
+      <p>
+        전자잉크 디스플레이에서도 또렷하게.<br />더 선명하고, 긴 문장도 잘 읽을
+        수 있는<br />전자책 전용 글꼴 리디바탕
+      </p>
+      <Button href="https://www.ridicorp.com/branding/fonts/ridibatang/" color="blue">더 알아보기</Button>
+      <DeviceWrapper>
+        <Img fluid={data.device.childImageSharp.fluid} className={styles.device} />
+      </DeviceWrapper>
     </SectionWithBg>
   );
 }
