@@ -18,10 +18,6 @@ const Container = styled<'div', { state: string }>('div')`
 const ScreenContainer = styled<'div', { state: string }>('div')`
   > div {
     opacity: 0;
-
-    &:nth-child(1) {
-      opacity: 1;
-    }
   }
 
   &.state-current > div {
@@ -30,6 +26,7 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
 
     &:nth-child(1) {
       animation: none;
+      opacity: 1;
     }
     &:nth-child(2) {
       animation-delay: 1.8s;

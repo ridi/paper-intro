@@ -18,7 +18,6 @@ const Container = styled<'div', { state: string }>('div')`
 
 const ScreenContainer = styled<'div', { state: string }>('div')`
   > div {
-    opacity: 1;
     z-index: 1;
     transition: opacity 0.8s;
 
@@ -55,7 +54,6 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
 
   &.state-after > div {
     transition: none;
-    opacity: 1;
   }
 `;
 
