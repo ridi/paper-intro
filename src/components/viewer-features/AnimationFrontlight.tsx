@@ -46,10 +46,10 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
 
     &:nth-child(2) {
       animation:
-        active 0.5s 0.5s          forwards,
-        active 1.5s 1.5s reverse  forwards,
-        warm   1.5s 1.5s step-end forwards,
-        active 1.5s 3.5s          forwards;
+        active0  0.5s 0.5s          forwards,
+        deactive 1.5s 1.5s          forwards,
+        warm     1.5s 1.5s step-end forwards,
+        active1  1.5s 3.5s          forwards;
     }
   }
 
@@ -59,32 +59,41 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
     }
 
     &:nth-child(2) {
-      background-color: #f90;
+      background-color: #ec7a12;
       opacity: 0.4;
     }
   }
 
-  @keyframes appear {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes active {
+  @keyframes active0 {
     from {
       opacity: 0;
     }
     to {
       opacity: 0.4;
+    }
+  }
+
+  @keyframes active1 {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes deactive {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 0;
     }
   }
 
   @keyframes warm {
     to {
-      background-color: #f90;
+      background-color: #ec7a12;
     }
   }
 `;
@@ -109,16 +118,16 @@ const TouchIndicatorContainer = styled<'div', { state: string }>('div')`
   &.state-current > div {
     &:nth-child(2) {
       animation:
-        appear 0.5s 1s   ease-out forwards,
-        slide  1.5s 1.5s forwards,
-        appear 0.5s 3s   ease-in reverse forwards;
+        appear    0.5s 1s   ease-out forwards,
+        slide     1.5s 1.5s forwards,
+        disappear 0.5s 3s   ease-out forwards;
     }
     &:nth-child(1),
     &:nth-child(3) {
       animation:
-        appear 0.5s 3s   ease-out forwards,
-        slide  1.5s 3.5s forwards,
-        appear 0.5s 5s   ease-in reverse forwards;
+        appear    0.5s 3s   ease-out forwards,
+        slide     1.5s 3.5s forwards,
+        disappear 0.5s 5s   ease-out forwards;
     }
   }
 
@@ -134,6 +143,15 @@ const TouchIndicatorContainer = styled<'div', { state: string }>('div')`
     }
     to {
       opacity: 1;
+    }
+  }
+
+  @keyframes disappear {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 `;

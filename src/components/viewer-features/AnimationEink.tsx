@@ -8,7 +8,7 @@ import Screen from './Screen';
 
 const Container = styled<'div', { state: string }>('div')`
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
 
   &.state-after {
     opacity: 0;
@@ -20,7 +20,7 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
   > div {
     opacity: 1;
     z-index: 1;
-    transition: opacity 0.5s;
+    transition: opacity 0.8s;
 
     &:nth-child(1) {
       position: absolute;
@@ -33,8 +33,8 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
 
     &:nth-child(2) {
       position: absolute;
-      left: -12.45%;
-      top: -1.780%;
+      left: -10.95%;
+      top: -3.380%;
       width: 126.73%;
       height: 121.51%;
     }
@@ -49,7 +49,7 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
 
     &:nth-child(1),
     &:nth-child(3) {
-      transition-delay: 2s;
+      transition-delay: 1.8s;
     }
   }
 
@@ -84,9 +84,9 @@ export default function AnimationEink(props: Props) {
       <ScreenContainer state={props.state}>
         <div />
         <div>
-          <Img fluid={data.book.childImageSharp.fluid} />
+          <Img fluid={data.book.childImageSharp.fluid} critical />
         </div>
-        <Screen file={data.textTransparent} />
+        <Screen file={data.textTransparent} critical />
       </ScreenContainer>
     </Container>
   );

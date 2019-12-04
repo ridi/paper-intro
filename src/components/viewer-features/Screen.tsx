@@ -19,13 +19,14 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
       fluid: FluidObject;
     };
   };
+  critical?: boolean;
 }
 
 export default function Screen(props: Props) {
-  const { file, ...restProps } = props;
+  const { file, critical, ...restProps } = props;
   return (
     <Container {...restProps}>
-      <Img fluid={file.childImageSharp.fluid} />
+      <Img fluid={file.childImageSharp.fluid} critical={critical} />
     </Container>
   );
 }

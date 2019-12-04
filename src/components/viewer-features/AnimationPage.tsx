@@ -62,19 +62,19 @@ const TouchIndicatorContainer = styled<'div', { state: string }>('div')`
 
   &.state-current > div {
     animation:
-      appear 0.3s 1s   forwards,
-      touch  0.3s 1.5s ease-out,
-      touch  0.3s 1.8s ease-in reverse,
-      touch  0.3s 2.1s ease-out,
-      touch  0.3s 2.4s ease-in reverse,
-      touch  0.3s 2.7s ease-out,
-      touch  0.3s 3s   ease-in reverse,
-      touch  0.3s 3.3s ease-out,
-      touch  0.3s 3.6s ease-in reverse,
-      appear 0.3s 4.2s reverse forwards;
+      appear0a 0.3s 1s   forwards,
+      touch0a  0.3s 1.5s ease-out,
+      touch0b  0.3s 1.8s ease-out,
+      touch1a  0.3s 2.1s ease-out,
+      touch1b  0.3s 2.4s ease-out,
+      touch2a  0.3s 2.7s ease-out,
+      touch2b  0.3s 3s   ease-out,
+      touch3a  0.3s 3.3s ease-out,
+      touch3b  0.3s 3.6s ease-out,
+      appear0b 0.3s 4.2s forwards;
   }
 
-  @keyframes touch {
+  @keyframes touch0a {
     from {
       transform: scale(1);
     }
@@ -83,12 +83,84 @@ const TouchIndicatorContainer = styled<'div', { state: string }>('div')`
     }
   }
 
-  @keyframes appear {
+  @keyframes touch0b {
+    from {
+      transform: scale(0.83);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes touch1a {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0.83);
+    }
+  }
+
+  @keyframes touch1b {
+    from {
+      transform: scale(0.83);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes touch2a {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0.83);
+    }
+  }
+
+  @keyframes touch2b {
+    from {
+      transform: scale(0.83);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes touch3a {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0.83);
+    }
+  }
+
+  @keyframes touch3b {
+    from {
+      transform: scale(0.83);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes appear0a {
     from {
       opacity: 0;
     }
     to {
       opacity: 1;
+    }
+  }
+
+  @keyframes appear0b {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 `;

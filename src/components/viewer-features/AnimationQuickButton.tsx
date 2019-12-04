@@ -53,18 +53,27 @@ const TouchIndicatorContainer = styled<'div', { state: string }>('div')`
 
   &.state-current > div {
     animation:
-      appear 0.3s 1s   forwards,
-      touch  0.3s 1.5s ease-out,
-      touch  0.3s 1.8s ease-in reverse,
-      appear 0.3s 1.8s reverse forwards;
+      appear    0.3s 1s   forwards,
+      clickIn   0.3s 1.5s ease-out,
+      clickOut  0.3s 1.8s ease-out,
+      disappear 0.3s 1.8s forwards;
   }
 
-  @keyframes touch {
+  @keyframes clickIn {
     from {
       left: -87px;
     }
     to {
       left: -67px;
+    }
+  }
+
+  @keyframes clickOut {
+    from {
+      left: -67px;
+    }
+    to {
+      left: -87px;
     }
   }
 
@@ -74,6 +83,15 @@ const TouchIndicatorContainer = styled<'div', { state: string }>('div')`
     }
     to {
       opacity: 0.6;
+    }
+  }
+
+  @keyframes disappear {
+    from {
+      opacity: 0.6;
+    }
+    to {
+      opacity: 0;
     }
   }
 `;

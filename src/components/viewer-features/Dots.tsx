@@ -17,32 +17,16 @@ const Dot = styled<'div', { active?: boolean, dark?: boolean }>('div')`
   height: 14px;
   border-radius: 7px;
   background-color: #f0f5fa;
-  transition: background-color 0.5s;
+  transition: background-color 0.5s, opacity 0.5s;
   line-height: 0;
-  overflow: hidden;
+
+  &.dark {
+    opacity: 0.4;
+  }
 
   &.active {
     background-color: #ccd9e6;
-  }
-
-  &::after {
-    display: block;
-    content: '';
-    width: 100%;
-    height: 100%;
-
-    background-color: #70808f;
-    opacity: 0;
-    transition: opacity 0.5s;
-  }
-
-  &.dark::after {
     opacity: 1;
-    transition-delay: 0.5s;
-  }
-
-  &.dark.active::after {
-    opacity: 0;
   }
 `;
 
