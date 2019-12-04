@@ -32,7 +32,7 @@ const Arrow = styled.div`
     border-width: 12.5px 0;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 600px) {
     transform: scale(0.6);
     transform-origin: right;
   }

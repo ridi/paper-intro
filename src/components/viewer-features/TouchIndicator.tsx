@@ -34,7 +34,7 @@ const TouchIndicator = styled.div`
     background-color: rgba(31, 140, 230, 0.6);
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 600px) {
     transform: scale(0.6);
   }
 `;
