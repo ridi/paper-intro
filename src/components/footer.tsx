@@ -173,7 +173,7 @@ export default function Footer(props: Props) {
           <div>
             <a href="https://policy.ridi.com/legal/privacy"><strong>개인 정보 처리 방침</strong></a>
             <Divider />
-            <a href="http://ftc.go.kr/www/bizCommList.do?key=232">사업자 정보 확인</a>
+            <a href="http://ftc.go.kr/www/bizCommView.do?key=232&apv_perm_no=2009322012730202139">사업자 정보 확인</a>
           </div>
         </Links>
         <Copyright>© RIDI Corp.</Copyright>
