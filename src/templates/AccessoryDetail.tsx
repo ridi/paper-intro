@@ -20,6 +20,9 @@ interface AccessoryDetailQueryData {
     bg: {
       childImageSharp: {
         fluid: FluidObject;
+        banner: {
+          src: string;
+        };
       };
     };
     sections: Section[];
@@ -39,7 +42,10 @@ export default function AccessoryDetail(props: Props) {
 
   return (
     <Layout>
-      <SEO title={data.detail.name.full.replace(/\n/g, ' ')} />
+      <SEO
+        title={data.detail.name.full.replace(/\n/g, ' ')}
+        meta={[{ property: 'og:image', content: data.detail.bg.childImageSharp.banner.src }]}
+      />
       <Hero renderBackground={renderBackground}>
         <p>{data.detail.name.en}</p>
         <h1>
@@ -66,6 +72,9 @@ export const query = graphql`
         childImageSharp {
           fluid(maxHeight: 600, sizes: "1600px", quality: 80) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+          banner: resize(width: 1200, height: 630, quality: 90) {
+            src
           }
         }
       }

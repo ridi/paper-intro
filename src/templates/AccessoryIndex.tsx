@@ -27,6 +27,9 @@ interface QueryData {
   bg: {
     childImageSharp: {
       fluid: FluidObject;
+      banner: {
+        src: string;
+      };
     };
   };
   accessories: {
@@ -77,7 +80,10 @@ export default function AccessoryIndexPage(props: Props) {
 
   return (
     <Layout>
-      <SEO title="Accesories" />
+      <SEO
+        title="Accesory"
+        meta={[{ property: 'og:image', content: data.bg.childImageSharp.banner.src }]}
+      />
       <Hero renderBackground={renderBackground}>
         <h1>안심하고 책에만<br />집중하세요</h1>
         <p>견고한 전용 악세서리가<br />RIDIPAPER를 보호해드립니다.</p>
@@ -102,6 +108,9 @@ export const query = graphql`
       childImageSharp {
         fluid(maxHeight: 600, sizes: "1600px" quality: 80) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+        banner: resize(width: 1200, height: 630, quality: 90) {
+          src
         }
       }
     }

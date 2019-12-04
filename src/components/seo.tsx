@@ -6,7 +6,7 @@ interface Props {
   description: string;
   lang: string;
   meta: (JSX.IntrinsicElements['meta'])[];
-  title: string;
+  title?: string;
 }
 
 function SEO({ description, lang, meta, title }: Props) {
@@ -17,6 +17,7 @@ function SEO({ description, lang, meta, title }: Props) {
           siteMetadata {
             title
             description
+            keywords
             author
           }
         }
@@ -31,8 +32,8 @@ function SEO({ description, lang, meta, title }: Props) {
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={title || site.siteMetadata.title}
+      titleTemplate={title ? `%s | ${site.siteMetadata.title}` : undefined}
       meta={[
         {
           name: 'description',
@@ -65,6 +66,10 @@ function SEO({ description, lang, meta, title }: Props) {
         {
           name: 'twitter:description',
           content: metaDescription,
+        },
+        {
+          name: 'keywords',
+          content: site.siteMetadata.keywords.join(', '),
         },
         ...meta,
       ]}

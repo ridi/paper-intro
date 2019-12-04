@@ -1,6 +1,8 @@
 import { css } from 'astroturf';
 import React from 'react';
 
+import { graphql, useStaticQuery } from 'gatsby';
+
 import AccessoryBanner from '../components/AccessoryBanner';
 import Details from '../components/details';
 import Features from '../components/features';
@@ -36,9 +38,17 @@ const styles = css`
 `;
 
 const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    {
+      banner: file(relativePath: {eq: "images/meta/ridipaper/og.jpg"}) {
+        publicURL
+      }
+    }
+  `);
+
   return (
     <Layout className={styles.main}>
-      <SEO title="Home" />
+      <SEO meta={[{ property: 'og:image', content: data.banner.publicURL }]} />
       <Hero />
       <Features />
       <ViewerFeatures />
