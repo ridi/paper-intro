@@ -211,6 +211,10 @@ export default function IndexHero() {
     }
   `);
 
+  React.useEffect(() => {
+    setRunAnimation(true);
+  }, []);
+
   const track29CM = React.useCallback(() => {
     trackCustomEvent({
       category: 'home',
@@ -235,7 +239,7 @@ export default function IndexHero() {
           <source srcSet={data.mobile.childImageSharp.fluid.srcSet} media="(max-width: 800px)" />
           <source srcSet={data.desktop.childImageSharp.fluid.srcSetWebp} type="image/webp" />
           <source srcSet={data.desktop.childImageSharp.fluid.srcSet} />
-          <img src={data.desktop.childImageSharp.fluid.src} sizes="(max-width: 800px) 800px, 1600px" onLoad={() => setRunAnimation(true)} />
+          <img src={data.desktop.childImageSharp.fluid.src} sizes="(max-width: 800px) 800px, 1600px" />
         </picture>
       </Background>
     );
