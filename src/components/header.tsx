@@ -56,6 +56,10 @@ const Center = styled.div`
   @media (max-width: 600px) {
     padding: 0 20px;
   }
+
+  @media (max-width: 320px) {
+    padding: 0 10px;
+  }
 `;
 
 const Top = styled.div`

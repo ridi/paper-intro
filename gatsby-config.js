@@ -70,16 +70,6 @@ module.exports = {
         icon: 'src/assets/images/meta/ridipaper/android-chrome-384x384.png',
         icons: [
           {
-            src: '/favicons/16.png',
-            sizes: '16x16',
-            type: 'image/png',
-          },
-          {
-            src: '/favicons/32.png',
-            sizes: '32x32',
-            type: 'image/png',
-          },
-          {
             src: '/favicons/48.png',
             sizes: '48x48',
             type: 'image/png',

@@ -16,7 +16,7 @@ const styles = css`
     border-radius: 3px;
 
     font-size: 16px;
-    line-height: 1em;
+    line-height: 16px;
     font-weight: bold;
     letter-spacing: -0.3px;
     text-decoration: none;
@@ -37,6 +37,7 @@ const styles = css`
       padding: 0 10px;
       border-width: 1px;
       font-size: 13px;
+      line-height: 13px;
     }
 
     &.colorBlue {
