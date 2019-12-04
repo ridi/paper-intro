@@ -36,8 +36,8 @@ const Heading = styled<'h3', { bright?: boolean }>('h3')`
   }
 
   @media (max-width: 800px) {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 28px;
+    line-height: 38px;
   }
 `;
 
@@ -50,6 +50,11 @@ const Body = styled<'p', { bright?: boolean }>('p')`
 
   @media (max-width: 800px) {
     margin-top: 20px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 16px;
+    line-height: 24px;
   }
 `;
 

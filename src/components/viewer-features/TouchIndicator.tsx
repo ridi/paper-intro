@@ -33,6 +33,15 @@ const TouchIndicator = styled.div`
     border-radius: 15px;
     background-color: rgba(31, 140, 230, 0.6);
   }
+
+  @media (max-width: 800px) {
+    transform: scale(0.6);
+  }
 `;
 
-export default TouchIndicator;
+const TouchIndicatorWrapper = styled('div').attrs({
+  children: <TouchIndicator />,
+})`
+`;
+
+export default TouchIndicatorWrapper;

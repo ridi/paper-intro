@@ -17,6 +17,15 @@ const Container = styled.div`
   }
 `;
 
+const GNBFiller = styled.div`
+  display: none;
+  height: 50px;
+
+  @media (max-width: 800px) {
+    display: block;
+  }
+`;
+
 const FlexSpacer = styled.div`
   flex: 0 0 auto;
   width: calc(50% - 594px);
@@ -51,6 +60,7 @@ export default function FeatureView(props: Props) {
 
   return (
     <Container>
+      <GNBFiller />
       <FlexSpacer />
       <PaperContainer>{children}</PaperContainer>
       <FlexSpacer />

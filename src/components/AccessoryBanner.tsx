@@ -86,7 +86,7 @@ const ContentTitle = styled<'h2', { small?: boolean }>('h2')`
 
   &.small {
     display: none;
-    font-size: 36px;
+    font-size: 32px;
     line-height: 48px;
 
     @media (max-width: 800px) {

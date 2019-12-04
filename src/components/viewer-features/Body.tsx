@@ -54,7 +54,12 @@ const FeatureTextContainer = styled.div`
   @media (max-width: 800px) {
     width: 100%;
     height: 184px;
-    margin-top: 50px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  @media (max-width: 360px) {
+    height: 192px;
   }
 `;
 

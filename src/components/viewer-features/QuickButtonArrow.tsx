@@ -31,6 +31,16 @@ const Arrow = styled.div`
     border: 12.5px solid white;
     border-width: 12.5px 0;
   }
+
+  @media (max-width: 800px) {
+    transform: scale(0.6);
+    transform-origin: right;
+  }
 `;
 
-export default Arrow;
+const ArrowWrapper = styled('div').attrs({
+  children: <Arrow />,
+})`
+`;
+
+export default ArrowWrapper;

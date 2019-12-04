@@ -11,7 +11,7 @@ const Container = styled.div`
   overflow: visible;
 
   @media (max-width: 800px) {
-    width: 100%;
+    width: calc(100% - 40px);
     margin: 0 auto;
   }
 `;
