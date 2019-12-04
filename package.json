@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^5.0.14",
+    "gatsby-plugin-force-trailing-slashes": "^1.0.4",
     "prettier": "^1.18.2"
   },
   "scripts": {
