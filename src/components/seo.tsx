@@ -10,7 +10,7 @@ interface Props {
 }
 
 function SEO({ description, lang, meta, title }: Props) {
-  const { site } = useStaticQuery(
+  const data = useStaticQuery(
     graphql`
       query {
         site {
@@ -21,9 +21,19 @@ function SEO({ description, lang, meta, title }: Props) {
             author
           }
         }
+        appleTouchIcon: file(relativePath: {eq: "images/meta/ridipaper/apple-touch-icon.png"}) {
+          url: publicURL
+        }
+        favicon32: file(relativePath: {eq: "images/meta/ridipaper/favicon-32x32.png"}) {
+          url: publicURL
+        }
+        favicon16: file(relativePath: {eq: "images/meta/ridipaper/favicon-16x16.png"}) {
+          url: publicURL
+        }
       }
     `,
   );
+  const { site } = data;
 
   const metaDescription = description || site.siteMetadata.description;
 
@@ -72,6 +82,25 @@ function SEO({ description, lang, meta, title }: Props) {
           content: site.siteMetadata.keywords.join(', '),
         },
         ...meta,
+      ]}
+      link={[
+        {
+          rel: 'apple-touch-icon',
+          href: data.appleTouchIcon.url,
+          sizes: '180x180',
+        },
+        {
+          rel: 'icon',
+          href: data.favicon32.url,
+          sizes: '32x32',
+          type: 'image/png',
+        },
+        {
+          rel: 'icon',
+          href: data.favicon16.url,
+          sizes: '32x32',
+          type: 'image/png',
+        },
       ]}
     />
   );
