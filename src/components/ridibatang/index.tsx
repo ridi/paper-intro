@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 import Button from '../Button';
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 css`
   @font-face {
@@ -95,6 +96,15 @@ export default function Ridibatang() {
       }
     }
   `);
+
+  const trackRidibatang = React.useCallback(() => {
+    trackCustomEvent({
+      category: 'home',
+      action: 'click',
+      label: 'ridibatang',
+    });
+  }, []);
+
   return (
     <SectionWithBg>
       <Title>리디페이퍼 전용서체, 리디바탕</Title>
@@ -102,7 +112,9 @@ export default function Ridibatang() {
         전자잉크 디스플레이에서도 또렷하게.<br />더 선명하고, 긴 문장도 잘 읽을
         수 있는<br />전자책 전용 글꼴 리디바탕
       </p>
-      <Button href="https://www.ridicorp.com/branding/fonts/ridibatang/" color="blue">더 알아보기</Button>
+      <Button href="https://www.ridicorp.com/branding/fonts/ridibatang/" color="blue" onClick={trackRidibatang}>
+        더 알아보기
+      </Button>
       <DeviceWrapper>
         <Img fluid={data.device.childImageSharp.fluid} className={styles.device} />
       </DeviceWrapper>

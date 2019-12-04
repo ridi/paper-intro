@@ -105,6 +105,12 @@ module.exports = {
         display: 'browser',
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-10567409-11',
+      },
+    },
     'gatsby-plugin-force-trailing-slashes',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',

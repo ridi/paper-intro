@@ -6,6 +6,7 @@ import { FixedObject } from 'gatsby-image';
 
 import Button from '../Button';
 import SpecSection, { SpecItem } from './SpecSection';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 
 const Container = styled.section`
   max-width: 1080px;
@@ -154,6 +155,14 @@ export default function Specs() {
     }
   `);
 
+  const trackGuide = React.useCallback(() => {
+    trackCustomEvent({
+      category: 'home',
+      action: 'click',
+      label: 'guide',
+    });
+  }, []);
+
   return (
     <Container>
       <Title>상세 스펙</Title>
@@ -193,7 +202,9 @@ export default function Specs() {
         RIDIPAPER의 자세한 사용 방법은 사용자 가이드를 참조해주세요.
       </UserGuideParagraph>
       <UserGuideButtonWrapper>
-        <Button color="blue" href="https://paper.ridibooks.com/guide">사용자 가이드 확인하기</Button>
+        <Button color="blue" href="https://paper.ridibooks.com/guide" onClick={trackGuide}>
+          사용자 가이드 확인하기
+        </Button>
       </UserGuideButtonWrapper>
     </Container>
   );
