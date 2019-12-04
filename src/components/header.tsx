@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 import RidipaperLogo from '../svgs/ridipaper.svg';
 
-import Button from './Button';
+import { LinkButton } from './Button';
 
 const Container = styled.header`
   position: absolute;
@@ -80,7 +80,7 @@ const Header = () => (
     <Center>
       <Top>
         <img src={RidipaperLogo} className={styles.ridipaperLogo} alt="RIDIPAPER" />
-        <Button size="small" color="white" className={styles.buy}>구매하기</Button>
+        <LinkButton to="/stockists/" size="small" color="white" className={styles.buy}>구매하기</LinkButton>
       </Top>
       <Bottom>
         <Link to="/" className={styles.navButton} activeClassName={styles.active}>

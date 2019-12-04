@@ -10,6 +10,8 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Tabs, { Tab } from '../components/Tabs';
 
+import Outlink from '../svgs/outlink.inline.svg';
+
 const StockistsTabWrapper = styled.nav`
   width: 100%;
   max-width: 1200px;
@@ -19,6 +21,55 @@ const StockistsTabWrapper = styled.nav`
   @media (max-width: 600px) {
     margin: 0;
     padding: 0;
+  }
+`;
+
+const StockistsWrapper = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 100px 0;
+
+  display: flex;
+
+  @media (max-width: 800px) {
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    padding: 20px;
+  }
+`;
+
+const StockistsColumn = styled.div`
+  flex: 1;
+`;
+
+const Spacer = styled.div`
+  width: 100px;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+`;
+
+const StockistItem = styled.a`
+  display: block;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d1d5d9;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #40474d;
+
+  > svg {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    fill: #9ea7ad;
   }
 `;
 
@@ -59,6 +110,17 @@ export default function Stockists(props: Props) {
     return <PolyfillImg className={props.className} fluid={data.bg.childImageSharp.fluid} />;
   }
 
+  const items = props.data.stockists.items.map(({ name, url }) => (
+    <StockistItem key={url} href={url}>
+      {name}
+      <Outlink />
+    </StockistItem>
+  ));
+
+  const leftCount = Math.floor((items.length + 1) / 2);
+  const left = items.slice(0, leftCount);
+  const right = items.slice(leftCount);
+
   return (
     <Layout>
       <SEO title="온라인 스토어" />
@@ -75,6 +137,11 @@ export default function Stockists(props: Props) {
           ))}
         </Tabs>
       </StockistsTabWrapper>
+      <StockistsWrapper>
+        <StockistsColumn>{left}</StockistsColumn>
+        <Spacer />
+        <StockistsColumn>{right}</StockistsColumn>
+      </StockistsWrapper>
     </Layout>
   );
 }

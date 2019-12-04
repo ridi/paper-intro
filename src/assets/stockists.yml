@@ -1,22 +1,12 @@
 - slug: ridipaper
   items:
-  - name: 네이버 쇼핑
-    url: ''
   - name: 29CM
     url: ''
-  - name: G market
-    url: ''
-  - name: 11번가
-    url: ''
-  - name: 텐바이텐
-    url: ''
-  - name: 신라면세점
-    url: ''
-  - name: 영풍문고
+  - name: 네이버 쇼핑
     url: ''
 - slug: paper-pro
   items:
-  - name: 네이버 쇼핑
-    url: ''
   - name: 29CM
+    url: ''
+  - name: 네이버 쇼핑
     url: ''
