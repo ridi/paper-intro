@@ -28,6 +28,25 @@ const HeroContainer = styled.div`
   }
 `;
 
+const Background = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+
+  & picture,
+  & img {
+    flex: 0 0 auto;
+    width: 1600px;
+
+    @media (max-width: 800px) {
+      width: 800px;
+    }
+  }
+`;
+
 const HeroTitle = styled.div`
   color: white;
 
@@ -126,14 +145,16 @@ const styles = css`
 export default function IndexHero() {
   const data = useStaticQuery(graphql`
     {
-      bg: file(relativePath: {eq: "images/bg-landing.jpg"}) {
+      desktop: file(relativePath: {eq: "images/bg-landing.jpg"}) {
         childImageSharp {
-          fluid(
-            maxWidth: 1600
-            sizes: "(max-width: 800px) 1244px, 1600px"
-            srcSetBreakpoints: [1244, 1600, 1866, 2400, 2488, 3200, 3110, 3732, 4000, 4354, 4800]
-            quality: 80
-          ) {
+          fluid(maxWidth: 1600, quality: 80) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+        }
+      }
+      mobile: file(relativePath: {eq: "images/bg-landing-mobile.jpg"}) {
+        childImageSharp {
+          fluid(maxWidth: 800, quality: 80) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -142,7 +163,17 @@ export default function IndexHero() {
   `);
 
   function renderBackground(props: { className: string }) {
-    return <PolyfillImg className={props.className} fluid={data.bg.childImageSharp.fluid} />;
+    return (
+      <Background>
+        <picture>
+          <source srcSet={data.mobile.childImageSharp.fluid.srcSetWebp} media="(max-width: 800px)" type="image/webp" />
+          <source srcSet={data.mobile.childImageSharp.fluid.srcSet} media="(max-width: 800px)" />
+          <source srcSet={data.desktop.childImageSharp.fluid.srcSetWebp} type="image/webp" />
+          <source srcSet={data.desktop.childImageSharp.fluid.srcSet} />
+          <img src={data.desktop.childImageSharp.fluid.src} sizes="(max-width: 800px) 800px, 1600px" />
+        </picture>
+      </Background>
+    );
   }
 
   return (
