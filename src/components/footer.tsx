@@ -6,13 +6,17 @@ import RidiselectLogo from '../svgs/ridiselect.svg';
 import InstagramIcon from '../svgs/ig.inline.svg';
 import FacebookIcon from '../svgs/fb.inline.svg';
 
-const Container = styled.div`
+const Container = styled<'div', { noMarginTop?: boolean }>('div')`
   margin-top: 100px;
   background-color: #f7fafc;
   color: #70808f;
 
   @media (max-width: 800px) {
     margin-top: 80px;
+  }
+
+  &.noMarginTop {
+    margin-top: 0;
   }
 `;
 
@@ -123,9 +127,13 @@ const styles = css`
   }
 `;
 
-export default function Footer() {
+interface Props {
+  noMarginTop?: boolean;
+}
+
+export default function Footer(props: Props) {
   return (
-    <Container>
+    <Container noMarginTop={props.noMarginTop}>
       <FooterWrapper>
         <Links className={styles.spaceBetween}>
           <div>

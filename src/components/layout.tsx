@@ -9,14 +9,15 @@ import './layout.css';
 interface Props {
   children?: React.ReactNode;
   className?: string;
+  noFooterMargin?: boolean;
 }
 
-const Layout = ({ children, className }: Props) => {
+const Layout = ({ children, className, noFooterMargin }: Props) => {
   return (
     <>
       <Header />
       <main className={className}>{children}</main>
-      <Footer />
+      <Footer noMarginTop={noFooterMargin} />
     </>
   );
 };
