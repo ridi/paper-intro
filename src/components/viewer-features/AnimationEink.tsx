@@ -34,9 +34,9 @@ const ScreenContainer = styled<'div', { state: string }>('div')`
     &:nth-child(2) {
       position: absolute;
       left: -12.45%;
-      top: -8.902%;
-      width: 126.12%;
-      height: 122.85%;
+      top: -1.780%;
+      width: 126.73%;
+      height: 121.51%;
     }
   }
 
