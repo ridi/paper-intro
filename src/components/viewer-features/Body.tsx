@@ -49,6 +49,7 @@ const FeatureTextContainer = styled.div`
   position: relative;
   width: 50%;
   height: 214px;
+  z-index: 3;
 
   @media (max-width: 800px) {
     width: 100%;
