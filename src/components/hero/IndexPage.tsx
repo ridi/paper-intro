@@ -2,7 +2,6 @@ import styled, { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import PolyfillImg from 'gatsby-image/withIEPolyfill';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 import Button from '../Button';
@@ -35,15 +34,17 @@ const Background = styled.div`
   overflow: hidden;
 
   display: flex;
+  align-items: center;
   justify-content: center;
 
   & picture,
   & img {
     flex: 0 0 auto;
-    width: 1600px;
+    width: 100%;
+    min-width: 1600px;
 
     @media (max-width: 800px) {
-      width: 800px;
+      min-width: 800px;
     }
   }
 `;
