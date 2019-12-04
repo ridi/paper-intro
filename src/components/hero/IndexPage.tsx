@@ -7,7 +7,7 @@ import PolyfillImg from 'gatsby-image/withIEPolyfill';
 import Button from '../Button';
 import Hero from './index';
 
-import RidipaperLogo from '../../svgs/ridipaper.svg';
+import RidipaperLogo from '../../svgs/ridipaper.inline.svg';
 import NaverLogo from '../../svgs/naver.svg';
 import Logo29CM from './29cm.png';
 
@@ -91,6 +91,7 @@ const styles = css`
   .logo {
     width: 398.39px;
     height: 60px;
+    fill: white;
 
     @media (max-width: 800px) {
       width: 265.58px;
@@ -150,7 +151,7 @@ export default function IndexHero() {
         <HeroTitle>
           <p>세상이 나의 서재가 된다</p>
           <h1>
-            <img src={RidipaperLogo} className={styles.logo} />
+            <RidipaperLogo className={styles.logo} />
             <span>RIDIPAPER</span>
           </h1>
         </HeroTitle>

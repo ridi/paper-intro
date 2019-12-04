@@ -35,6 +35,11 @@ const styles = css`
       border-color: white;
       color: white;
     }
+
+    &.colorGray {
+      border-color: #d1d5d9;
+      color: #808991;
+    }
   }
 `;
 
@@ -56,6 +61,9 @@ function createClassesFromProps(props: Props) {
   }
   if (color === 'white') {
     classes.push(styles.colorWhite);
+  }
+  if (color === 'gray') {
+    classes.push(styles.colorGray);
   }
   className && classes.push(className);
   return classes.join(' ');

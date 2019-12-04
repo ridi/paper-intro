@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
-import RidipaperLogo from '../svgs/ridipaper.svg';
+import RidipaperLogo from '../svgs/ridipaper.inline.svg';
 
 import { LinkButton } from './Button';
 
@@ -15,6 +15,32 @@ const Container = styled.header`
   width: 100%;
   height: 100px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+`;
+
+const FixedHeader = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 50px;
+  z-index: 4;
+  background-color: white;
+  box-shadow: 0px 1px 5px rgba(48, 53, 56, 0.15);
+`;
+
+const FixedHeaderInner = styled.div`
+  height: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
 `;
 
 const Center = styled.div`
@@ -68,33 +94,81 @@ const styles = css`
     }
   }
 
-  .ridipaperLogo {
+  .ridipaperLogo, .ridipaperLogoDark {
     width: 106.36px;
     height: 16px;
+  }
+
+  .ridipaperLogo {
     fill: white;
+  }
+
+  .ridipaperLogoDark {
+    fill: #303538;
   }
 `;
 
-const Header = () => (
-  <Container>
-    <Center>
-      <Top>
-        <img src={RidipaperLogo} className={styles.ridipaperLogo} alt="RIDIPAPER" />
-        <LinkButton to="/stockists/" size="small" color="white" className={styles.buy}>구매하기</LinkButton>
-      </Top>
-      <Bottom>
-        <Link to="/" className={styles.navButton} activeClassName={styles.active}>
-          RIDIPAPER
-        </Link>
-        <Link to="/pro/" className={styles.navButton} activeClassName={styles.active}>
-          PAPER PRO
-        </Link>
-        <Link to="/accessories/" className={styles.navButton} activeClassName={styles.active} partiallyActive>
-          Accessory
-        </Link>
-      </Bottom>
-    </Center>
-  </Container>
-);
+export default function Header() {
+  const headerRef = React.useRef<HTMLElement>(null);
+  const [showFixedHeader, setShowFixedHeader] = React.useState(false);
+  React.useEffect(() => {
+    if (window.IntersectionObserver == null) {
+      // Fallback: use scroll event
+      function checkScroll() {
+        setShowFixedHeader(window.scrollY >= headerRef.current!.clientHeight);
+      }
 
-export default Header;
+      checkScroll();
+      window.addEventListener('scroll', checkScroll);
+      return () => {
+        window.removeEventListener('scroll', checkScroll);
+      };
+    }
+
+    const io = new window.IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.target === headerRef.current) {
+            setShowFixedHeader(entry.intersectionRatio <= 0);
+          }
+        });
+      },
+      {
+        threshold: [0, 0.05],
+      },
+    );
+    io.observe(headerRef.current!);
+  }, []);
+
+  return (
+    <>
+      <Container ref={headerRef}>
+        <Center>
+          <Top>
+            <RidipaperLogo className={styles.ridipaperLogo} />
+            <LinkButton to="/stockists/" size="small" color="white" className={styles.buy}>구매하기</LinkButton>
+          </Top>
+          <Bottom>
+            <Link to="/" className={styles.navButton} activeClassName={styles.active}>
+              RIDIPAPER
+            </Link>
+            <Link to="/pro/" className={styles.navButton} activeClassName={styles.active}>
+              PAPER PRO
+            </Link>
+            <Link to="/accessories/" className={styles.navButton} activeClassName={styles.active} partiallyActive>
+              Accessory
+            </Link>
+          </Bottom>
+        </Center>
+      </Container>
+      {showFixedHeader && (
+        <FixedHeader>
+          <FixedHeaderInner>
+            <RidipaperLogo className={styles.ridipaperLogoDark} />
+            <LinkButton to="/stockists/" size="small" color="gray" className={styles.buy}>구매하기</LinkButton>
+          </FixedHeaderInner>
+        </FixedHeader>
+      )}
+    </>
+  );
+}
