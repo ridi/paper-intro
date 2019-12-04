@@ -1,25 +1,3 @@
-html {
-  font-family: 'RidiSans', sans-serif;
-  letter-spacing: -0.03em;
-}
-ul, ol {
-  list-style: none;
-}
-table {
-  border-collapse: collapse;
-  box-sizing: initial;
-}
-.indent_hidden {
-  width: 0;
-  height: 0;
-  text-indent: -9999px;
-  font-size: 0;
-  visibility: hidden;
-}
-.dummy {
-  background: none;
-}
-
 #ridi_shop {
   position: relative;
   cursor: default;
@@ -104,30 +82,30 @@ table {
 #shop_header .header_bottom_wrapper.fixed .header_mymenu li.event_button_wrapper {
   display: inline-block;
 }
-.provider_button {
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
-  text-decoration: none;
-  box-sizing: border-box;
-  border-radius: 4px;
-  font-weight: 700;
-  display: inline-block;
-  text-align: center;
-  cursor: pointer;
-  line-height: 1em;
-  vertical-align: baseline;
-  color: #fff;
-  background: #1f8ce6;
-  border: 2px solid #0077d9;
-  box-shadow: 0 1px 1px 0 rgba(31, 140, 230, 0.3);
-  font-size: 16px;
-  padding: 16px 34px;
-}
 #page_intro {
   background: #171717;
+  font-family: 'RidiSans', sans-serif;
+  letter-spacing: -0.03em;
+}
+#page_intro ul, #page_intro ol {
+  list-style: none;
+}
+#page_intro table {
+  border-collapse: collapse;
+  box-sizing: initial;
+}
+#page_intro table, #page_intro table th, #page_intro table td {
+  border: none;
+}
+#page_intro .indent_hidden {
+  width: 0;
+  height: 0;
+  text-indent: -9999px;
+  font-size: 0;
+  visibility: hidden;
+}
+#page_intro .dummy {
+  background: none;
 }
 #page_intro .white_tone {
   color: #212121;
@@ -167,6 +145,28 @@ table {
 }
 #page_intro .spec_alert {
   color: #999;
+}
+#page_intro .provider_button {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  line-height: 1em;
+  vertical-align: baseline;
+  color: #fff;
+  background: #1f8ce6;
+  border: 2px solid #0077d9;
+  box-shadow: 0 1px 1px 0 rgba(31, 140, 230, 0.3);
+  font-size: 16px;
+  padding: 16px 34px;
 }
 #page_intro .paper_pro_detail_button {
   color: white;
