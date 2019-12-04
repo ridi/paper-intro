@@ -62,9 +62,14 @@ const FeatureList = styled.div`
 const styles = css`
   .image {
     border-radius: 10px;
+    overflow: hidden;
 
     @media(max-width: 800px) {
       border-radius: 0;
+    }
+
+    > video {
+      width: 100%;
     }
   }
 `;
@@ -154,17 +159,18 @@ export default function Features() {
           </FeatureDescription>
         </FeatureItem>
         <FeatureItem>
-          <video
-            autoPlay={!ioAvailable}
-            loop
-            muted
-            poster={query.twoPoster.publicURL}
-            className={styles.image}
-            ref={videoRef}
-          >
-            <source src={query.twoWebm.publicURL} type="video/webm" />
-            <source src={query.twoMp4.publicURL} type="video/mp4" />
-          </video>
+          <div className={styles.image}>
+            <video
+              autoPlay={!ioAvailable}
+              loop
+              muted
+              poster={query.twoPoster.publicURL}
+              ref={videoRef}
+            >
+              <source src={query.twoWebm.publicURL} type="video/webm" />
+              <source src={query.twoMp4.publicURL} type="video/mp4" />
+            </video>
+          </div>
           <FeatureDescription>
             <img src={IconRotate} alt="왼손으로 기기를 잡은 모습 아이콘" />
             <h3>{'어느\xa0손이든 한\xa0손으로\xa0편하게'}</h3>
