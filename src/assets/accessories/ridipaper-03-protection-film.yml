@@ -8,7 +8,7 @@ name:
     리디페이퍼
     보호 필름
 description: |-
-  나소 소재 코팅 기술로
+  나노 소재 코팅 기술로
   스크래치로부터 안전하게
 thumbnail: ../images/accessories/ridipaper-protection-film/thumbnail.png
 bg: ../images/accessories/ridipaper-protection-film/bg.jpg
@@ -70,4 +70,4 @@ sections:
   - name: 제조사
     desc: 리디 주식회사
   - name: 제조국
-    desc: 대한민국(㈜폰트리)
+    desc: 대한민국

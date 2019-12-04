@@ -3,7 +3,7 @@ for: ridipaper
 order: 2
 name:
   short: 헤비츠 가죽 케이스
-  en: RIDIPAPER HEVITZ Leather Case
+  en: RIDIPAPER hevitz Leather Case
   full: |-
     리디페이퍼
     헤비츠 가죽케이스
@@ -29,7 +29,7 @@ sections:
   image: ../images/accessories/ridipaper-hevitz-leather-case/2.jpg
 - type: detail
   name: Detail 03
-  title: Collaboration with HEVITZ
+  title: Collaboration with hevitz
   description: |-
     헤비츠는 가죽을 좋아하는 사람들이 모여 오래도록 마음에 두고 사용할 수 있는 가죽 제품을 생산하는 가죽공방입니다.
     시간이 지날수록 가치를 더하는 가죽처럼 RIDIPAPER와 함께하는 일상의 가치도 올라갑니다.
@@ -47,5 +47,5 @@ sections:
   - name: 제조사
     desc: 리디 주식회사
   - name: 제조국
-    desc: 대한민국(헤비츠)
+    desc: 대한민국
   disclaimer: '* 제품 색상은 디스플레이 설정에 따라 실제 색상과 차이가 있을 수 있습니다.'

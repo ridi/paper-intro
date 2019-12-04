@@ -166,7 +166,7 @@ export default function Footer(props: Props) {
             <Divider className={styles.hideOnMobile} />
           </div>
           <div>
-            <a><strong>개인 정보 취급 방침</strong></a>
+            <a><strong>개인 정보 처리 방침</strong></a>
             <Divider />
             <a>사업자 정보 확인</a>
           </div>
