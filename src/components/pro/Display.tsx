@@ -25,7 +25,7 @@ export default () => (
         <article>
             <h3 className="js_trigger article_title">
                 <strong>
-                    색 온도 조절 가능한
+                    색 온도 조절 가능한{' '}
     <span className="mobile_br"></span>
                     프론트라이트 프로
                 </strong>

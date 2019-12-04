@@ -22,13 +22,13 @@ export default () => (
         <article className="display_size_article">
             <h3 className="article_title">
                 <strong>
-                    처음 만나는 7.8인치
+                    처음 만나는 7.8인치{' '}
   <span className="mobile_br"></span>
-                    전자 잉크 디스플레이
+                    전자잉크 디스플레이
                 </strong>
             </h3>
             <p className="article_paragraph">
-                국내 최초로 선보이는 7.8인치 전자 잉크 디스플레이는
+                국내 최초로 선보이는 7.8인치 전자잉크 디스플레이는
   6인치 디스플레이에 비해 69% 더 큰 화면을 제공합니다.<br />가로모드도 지원하여 더 쾌적한 화면을 경험할 수 있습니다.
             </p>
         </article>
@@ -65,7 +65,7 @@ export default () => (
                     <br />해상도 300PPI
                 </h3>
                 <p className="article_paragraph">
-                    7.8인치 전자 잉크 디스플레이에서<br />현존하는 최고 해상도입니다.
+                    7.8인치 전자잉크<br />디스플레이에서<br />현존하는 최고 해상도입니다.
                 </p>
             </article>
             <div className="js_trigger high_resolution">
