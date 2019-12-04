@@ -2,7 +2,7 @@ import styled from 'astroturf';
 import React from 'react';
 
 const Container = styled.div`
-  margin-top: 150px;
+  margin-top: 200px;
   display: flex;
 
   &:nth-child(2n) {

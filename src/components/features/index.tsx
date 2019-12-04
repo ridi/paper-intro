@@ -80,7 +80,7 @@ const FeatureList = styled.div`
   margin: 0 auto;
 
   > * + * {
-    margin-top: 150px;
+    margin-top: 200px;
 
     @media(max-width: 800px) {
       margin-top: 100px;
