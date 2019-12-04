@@ -12,8 +12,4 @@ thumbnail: ../images/accessories/paper-pro-flip-cover-case/thumbnail.png
 bg: ../images/accessories/paper-pro-flip-cover-case/bg.jpg
 sections:
 - type: image
-  width: 900
-  image: ../images/accessories/paper-pro-flip-cover-case/1.jpg
-- type: image
-  width: 780
-  image: ../images/accessories/paper-pro-flip-cover-case/2.jpg
+  image: ../images/accessories/paper-pro-flip-cover-case/desc.jpg

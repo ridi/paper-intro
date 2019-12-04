@@ -1,10 +1,10 @@
+import { css } from 'astroturf';
 import React from 'react';
 
-import { FluidObject } from 'gatsby-image';
+import Img, { FluidObject } from 'gatsby-image';
 
 export interface ImageSection {
   type: 'image';
-  width: number;
   image: {
     childImageSharp: {
       fluid: FluidObject;
@@ -12,10 +12,18 @@ export interface ImageSection {
   };
 }
 
+const styles = css`
+  .image {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+`;
+
 interface Props {
   data: ImageSection;
 }
 
 export default function AccessoryImageSection(props: Props) {
-  return null;
+  return <Img fluid={props.data.image.childImageSharp.fluid} className={styles.image} />;
 }

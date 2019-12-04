@@ -12,8 +12,4 @@ thumbnail: ../images/accessories/paper-pro-protection-film/thumbnail.png
 bg: ../images/accessories/paper-pro-protection-film/bg.jpg
 sections:
 - type: image
-  width: 900
-  image: ../images/accessories/paper-pro-protection-film/1.jpg
-- type: image
-  width: 780
-  image: ../images/accessories/paper-pro-protection-film/2.jpg
+  image: ../images/accessories/paper-pro-protection-film/desc.jpg
