@@ -2,7 +2,7 @@ import styled from 'astroturf';
 import React from 'react';
 
 import { graphql, Link } from 'gatsby';
-import { FixedObject, FluidObject } from 'gatsby-image';
+import { FluidObject } from 'gatsby-image';
 import PolyfillImg from 'gatsby-image/withIEPolyfill';
 
 import AccessoryTabPage from '../components/accessories/AccessoryTabPage';
@@ -36,7 +36,7 @@ interface QueryData {
         name: { short: string };
         thumbnail: {
           childImageSharp: {
-            fixed: FixedObject;
+            fluid: FluidObject;
           };
         };
       };
@@ -72,7 +72,7 @@ export default function AccessoryIndexPage(props: Props) {
   const accessories = data.accessories.edges.map(({ node }) => ({
     slug: node.slug,
     name: node.name.short,
-    fixed: node.thumbnail.childImageSharp.fixed,
+    fluid: node.thumbnail.childImageSharp.fluid,
   }));
 
   return (
@@ -114,8 +114,8 @@ export const query = graphql`
           }
           thumbnail {
             childImageSharp {
-              fixed(width: 310, height: 310, quality: 90) {
-                ...GatsbyImageSharpFixed_withWebp_noBase64
+              fluid(maxWidth: 310, quality: 90) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }

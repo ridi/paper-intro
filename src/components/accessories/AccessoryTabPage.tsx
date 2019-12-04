@@ -1,8 +1,8 @@
-import styled, { css } from 'astroturf';
+import styled from 'astroturf';
 import React from 'react';
 
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Img, { FixedObject } from 'gatsby-image';
+import Img, { FluidObject } from 'gatsby-image';
 
 const Container = styled.ul`
   width: 100%;
@@ -51,7 +51,6 @@ const ThumbnailWrapper = styled.div`
   line-height: 0;
 
   @media (max-width: 600px) {
-    width: 280px;
     max-width: 280px;
     padding: 30px 0 20px;
   }
@@ -62,29 +61,22 @@ const Name = styled.p`
   line-height: 1em;
 `;
 
-const styles = css`
-  .thumbnail {
-    width: 100%;
-    padding-top: 100%;
-  }
-`;
-
 interface Props {
   items: {
     slug: string;
     name: string;
-    fixed: FixedObject;
+    fluid: FluidObject;
   }[];
 }
 
 export default function AccessoryTabPage(props: Props) {
   return (
     <Container>
-      {props.items.map(({ slug, name, fixed }) => (
+      {props.items.map(({ slug, name, fluid }) => (
         <li key={slug}>
           <Link to={`/accessories/${slug}/`}>
             <ThumbnailWrapper>
-              <Img fixed={fixed} className={styles.thumbnail} />
+              <Img fluid={fluid} />
             </ThumbnailWrapper>
             <Name>{name}</Name>
           </Link>
