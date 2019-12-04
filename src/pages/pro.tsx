@@ -18,11 +18,11 @@ import '../components/pro/animation.css'
 const ProPage = () => {
   React.useEffect(() => {
     import('../components/pro/animation.js').then(({ play }) => play());
-  })
+  }, []);
 
   return (
     <div id="ridi_shop">
-      <Layout noFooterMargin={true}>
+      <Layout noFooterMargin>
         <SEO title="PAPER PRO" />
         <section id="shop_contents">
           <div className="js_trigger" id="page_intro">
