@@ -70,7 +70,7 @@ export default function Stockists(props: Props) {
         <Tabs>
           {tabs.map(({ id, name }) => (
             <Tab key={id} active={id === pageContext.slug}>
-            <Link to={`/stockists/${id}/`}>{name}</Link>
+              <Link to={`/stockists/${id}/`}>{name}</Link>
             </Tab>
           ))}
         </Tabs>

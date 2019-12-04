@@ -2,6 +2,7 @@ const path = require('path');
 
 async function createPages({ graphql, actions, reporter }) {
   const accessoryTemplate = path.resolve(__dirname, 'src/templates/AccessoryDetail.tsx');
+  const accessoryIndexTemplate = path.resolve(__dirname, 'src/templates/AccessoryIndex.tsx');
   const stockistTemplate = path.resolve(__dirname, 'src/templates/Stockists.tsx');
   const result = await graphql(`
     {
@@ -34,6 +35,20 @@ async function createPages({ graphql, actions, reporter }) {
       },
     });
   }
+  for (const forTab of ['ridipaper', 'paper-pro']) {
+    actions.createPage({
+      path: `/accessories/${forTab}/`,
+      component: accessoryIndexTemplate,
+      context: {
+        forTab,
+      },
+    });
+  }
+  actions.createRedirect({
+    fromPath: '/accessories/',
+    toPath: '/accessories/ridipaper/',
+    redirectInBrowser: true,
+  });
   const stockistSlugs = result.data.stockists.edges.map(({ node }) => node.slug);
   for (const slug of stockistSlugs) {
     actions.createPage({
@@ -47,6 +62,7 @@ async function createPages({ graphql, actions, reporter }) {
   actions.createRedirect({
     fromPath: '/stockists/',
     toPath: '/stockists/ridipaper/',
+    redirectInBrowser: true,
   });
 }
 

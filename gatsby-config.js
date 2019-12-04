@@ -7,6 +7,7 @@ module.exports = {
     author: 'RIDI',
   },
   plugins: [
+    'gatsby-plugin-netlify',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     'gatsby-plugin-astroturf',
