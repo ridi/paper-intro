@@ -6,6 +6,7 @@ import { Link, GatsbyLinkProps } from 'gatsby';
 const styles = css`
   .button {
     height: 50px;
+    padding: 0 40px;
 
     display: inline-flex;
     align-items: center;
@@ -14,14 +15,26 @@ const styles = css`
     border: 2px solid transparent;
     border-radius: 3px;
 
-    font-size: 19px;
+    font-size: 16px;
     line-height: 1em;
     font-weight: bold;
     letter-spacing: -0.3px;
     text-decoration: none;
 
+    transition: opacity 0.3s;
+
+    &:hover,
+    &:active {
+      opacity: 0.7;
+
+      &.noOpacity {
+        opacity: 1;
+      }
+    }
+
     &.sizeSmall {
       height: 30px;
+      padding: 0 10px;
       border-width: 1px;
       font-size: 13px;
     }
@@ -46,12 +59,13 @@ const styles = css`
 interface Props {
   size?: string;
   color?: string;
+  noOpacity?: boolean;
   className?: string;
   children?: React.ReactNode;
 }
 
 function createClassesFromProps(props: Props) {
-  const { size, color, className } = props;
+  const { size, color, noOpacity, className } = props;
   const classes = [styles.button];
   if (size === 'small') {
     classes.push(styles.sizeSmall);
@@ -64,6 +78,9 @@ function createClassesFromProps(props: Props) {
   }
   if (color === 'gray') {
     classes.push(styles.colorGray);
+  }
+  if (noOpacity) {
+    classes.push(styles.noOpacity);
   }
   className && classes.push(className);
   return classes.join(' ');

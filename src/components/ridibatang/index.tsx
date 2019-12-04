@@ -46,7 +46,6 @@ const SectionWithBg = styled.section`
   }
 
   > a {
-    width: 166px;
     margin-top: 60px;
     font-family: 'Noto Sans KR', sans-serif;
 

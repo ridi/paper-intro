@@ -87,6 +87,13 @@ const styles = css`
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
 
+    transition: color 0.2s;
+
+    &:hover,
+    &:active {
+      color: white;
+    }
+
     &.active {
       border-bottom-color: white;
       font-weight: bold;
@@ -105,6 +112,16 @@ const styles = css`
 
   .ridipaperLogoDark {
     fill: #303538;
+  }
+
+  .logoLink {
+    line-height: 0;
+    transition: opacity 0.2s;
+
+    &:hover,
+    &:active {
+      opacity: 0.7;
+    }
   }
 `;
 
@@ -145,7 +162,9 @@ export default function Header() {
       <Container ref={headerRef}>
         <Center>
           <Top>
-            <RidipaperLogo className={styles.ridipaperLogo} />
+            <Link to="/" className={styles.logoLink}>
+              <RidipaperLogo className={styles.ridipaperLogo} />
+            </Link>
             <LinkButton to="/stockists/" size="small" color="white" className={styles.buy}>구매하기</LinkButton>
           </Top>
           <Bottom>
@@ -164,7 +183,9 @@ export default function Header() {
       {showFixedHeader && (
         <FixedHeader>
           <FixedHeaderInner>
-            <RidipaperLogo className={styles.ridipaperLogoDark} />
+            <Link to="/" className={styles.logoLink}>
+              <RidipaperLogo className={styles.ridipaperLogoDark} />
+            </Link>
             <LinkButton to="/stockists/" size="small" color="gray" className={styles.buy}>구매하기</LinkButton>
           </FixedHeaderInner>
         </FixedHeader>

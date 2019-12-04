@@ -188,12 +188,12 @@ export default function IndexHero() {
         </HeroTitle>
         <PurchaseLinks>
           <li>
-            <Button className={styles.purchase29cm} href="https://post.29cm.co.kr/8040">
+            <Button noOpacity className={styles.purchase29cm} href="https://post.29cm.co.kr/8040">
               <img src={Logo29CM} alt="29CM" /> 에서 구매
             </Button>
           </li>
           <li>
-            <Button className={styles.purchaseNaver} href="https://smartstore.naver.com/ridibooks">
+            <Button noOpacity className={styles.purchaseNaver} href="https://smartstore.naver.com/ridibooks">
               <img src={NaverLogo} alt="네이버" /> 쇼핑 에서 구매
             </Button>
           </li>

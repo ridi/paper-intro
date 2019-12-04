@@ -97,10 +97,6 @@ const ContentTitle = styled<'h2', { small?: boolean }>('h2')`
 
 const LinkWrapper = styled.div`
   margin-top: 50px;
-
-  > a {
-    width: 150px;
-  }
 `;
 
 interface AccessoryBannerData {

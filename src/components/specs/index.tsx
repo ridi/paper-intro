@@ -2,7 +2,7 @@ import styled, { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import Img, { FixedObject } from 'gatsby-image';
+import { FixedObject } from 'gatsby-image';
 
 import Button from '../Button';
 import SpecSection, { SpecItem } from './SpecSection';
@@ -42,16 +42,6 @@ const DeviceImages = styled.div`
   }
 `;
 
-const Dummy = styled.div`
-  display: inline-block;
-  width: 290px;
-  background-color: gray;
-
-  @media (max-width: 800px) {
-    width: 137.5px;
-  }
-`;
-
 const SpecsList = styled.div`
   width: 100%;
   margin: 80px auto 0;
@@ -78,14 +68,6 @@ const UserGuideParagraph = styled.p`
 const UserGuideButtonWrapper = styled.div`
   margin-top: 30px;
   text-align: center;
-
-  > a {
-    width: 251px;
-
-    @media (max-width: 800px) {
-      width: 246px;
-    }
-  }
 `;
 
 const styles = css`
