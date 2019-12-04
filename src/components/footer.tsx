@@ -18,6 +18,11 @@ const Container = styled<'div', { noMarginTop?: boolean }>('div')`
   &.noMarginTop {
     margin-top: 0;
   }
+
+  a {
+    text-decoration: none;
+    color: #70808f;
+  }
 `;
 
 const FooterWrapper = styled.footer`
@@ -137,20 +142,20 @@ export default function Footer(props: Props) {
       <FooterWrapper>
         <Links className={styles.spaceBetween}>
           <div>
-            <LogoLink>
+            <LogoLink href="https://ridibooks.com/">
               <img src={RidibooksLogo} className={styles.ridibooks} alt="리디북스로 이동" />
             </LogoLink>
             <Divider />
-            <LogoLink>
+            <LogoLink href="https://select.ridibooks.com/home">
               <img src={RidiselectLogo} className={styles.ridiselect} alt="리디셀렉트로 이동" />
             </LogoLink>
           </div>
           <div>
-            <SocialLink>
+            <SocialLink href="https://www.instagram.com/ridipaper/?hl=en">
               <InstagramIcon className={styles.icon} />
               <span>인스타그램</span>
             </SocialLink>
-            <SocialLink>
+            <SocialLink href="https://www.facebook.com/ridibooks">
               <FacebookIcon className={styles.icon} />
               <span>페이스북</span>
             </SocialLink>
@@ -158,17 +163,17 @@ export default function Footer(props: Props) {
         </Links>
         <Links narrow>
           <div>
-            <a>고객센터</a>
+            <a href="https://help.ridibooks.com/hc/ko">고객센터</a>
             <Divider />
-            <a>페이퍼 대량 구매 안내</a>
+            <a href="https://help.ridibooks.com/hc/ko/articles/360026484174">페이퍼 대량 구매 안내</a>
             <Divider />
-            <a>이용약관</a>
+            <a href="https://ridibooks.com/legal/terms">이용약관</a>
             <Divider className={styles.hideOnMobile} />
           </div>
           <div>
-            <a><strong>개인 정보 처리 방침</strong></a>
+            <a href="https://policy.ridi.com/legal/privacy"><strong>개인 정보 처리 방침</strong></a>
             <Divider />
-            <a>사업자 정보 확인</a>
+            <a href="http://ftc.go.kr/www/bizCommList.do?key=232">사업자 정보 확인</a>
           </div>
         </Links>
         <Copyright>© RIDI Corp.</Copyright>

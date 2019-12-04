@@ -1,12 +1,14 @@
 - slug: ridipaper
   items:
   - name: 29CM
-    url: ''
+    url: 'https://post.29cm.co.kr/8040'
   - name: 네이버 쇼핑
-    url: ''
+    url: 'https://smartstore.naver.com/ridibooks'
 - slug: paper-pro
   items:
   - name: 29CM
-    url: ''
+    url: 'https://www.29cm.co.kr/shop/brand/4034'
   - name: 네이버 쇼핑
-    url: ''
+    url: 'https://smartstore.naver.com/ridibooks'
+  - name: G market
+    url: 'http://minishop.gmarket.co.kr/ridibooks'

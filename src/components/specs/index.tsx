@@ -211,7 +211,7 @@ export default function Specs() {
         RIDIPAPER의 자세한 사용 방법은 사용자 가이드를 참조해주세요.
       </UserGuideParagraph>
       <UserGuideButtonWrapper>
-        <Button color="blue">사용자 가이드 확인하기</Button>
+        <Button color="blue" href="https://paper.ridibooks.com/guide">사용자 가이드 확인하기</Button>
       </UserGuideButtonWrapper>
     </Container>
   );

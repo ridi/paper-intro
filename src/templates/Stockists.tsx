@@ -67,8 +67,8 @@ const StockistItem = styled.a`
   color: #40474d;
 
   > svg {
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     margin-left: 10px;
     fill: #9ea7ad;
   }
