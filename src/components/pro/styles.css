@@ -1,3 +1,32 @@
+@font-face {
+  font-family: 'RidiSans';
+  font-style: normal;
+  font-weight: 100;
+  src: url('./fonts/ridisans-thin.eot');
+  src: url('./fonts/ridisans-thin.woff2') format('woff2'),
+  url('./fonts/ridisans-thin.woff') format('woff'),
+  url('./fonts/ridisans-thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'RidiSans';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/ridisans-regular.eot');
+  src: url('./fonts/ridisans-regular.woff2') format('woff2'),
+  url('./fonts/ridisans-regular.woff') format('woff'),
+  url('./fonts/ridisans-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RidiSans';
+  font-style: normal;
+  font-weight: bold;
+  src: url('./fonts/ridisans-bold.eot');
+  src: url('./fonts/ridisans-bold.woff2') format('woff2'),
+  url('./fonts/ridisans-bold.woff') format('woff'),
+  url('./fonts/ridisans-bold.ttf') format('truetype');
+}
+
 #ridi_shop {
   position: relative;
   cursor: default;
