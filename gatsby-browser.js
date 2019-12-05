@@ -1,9 +1,7 @@
 function getLocationType(location) {
-  if (location.pathname.startsWith('/accessories/ridipaper') || location.pathname.startsWith('/accessories/paper-pro')) {
-    return 'accessory-index';
-  }
-  if (location.pathname.startsWith('/stockists/ridipaper') || location.pathname.startsWith('/stockists/paper-pro')) {
-    return 'stockists-index';
+  const match = /^\/(accessories|stockists)\/(?:ridipaper|paper-pro)\/?$/.exec(location.pathname);
+  if (match != null) {
+    return match[1];
   }
   return '';
 }
