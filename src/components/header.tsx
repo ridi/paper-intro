@@ -106,7 +106,7 @@ const styles = css`
   }
 
   .ridipaperLogo, .ridipaperLogoDark {
-    width: 106.36px;
+    width: 107px;
     height: 16px;
   }
 
