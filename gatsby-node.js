@@ -76,6 +76,12 @@ async function createPages({ graphql, actions, reporter }) {
     redirectInBrowser: true,
     isPermanent: true,
   });
+  actions.createRedirect({
+    fromPath: "/Intro",
+    toPath: "/",
+    redirectInBrowser: true,
+    isPermanent: true,
+  });
 }
 
 module.exports = {
