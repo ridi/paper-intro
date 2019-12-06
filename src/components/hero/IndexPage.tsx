@@ -257,7 +257,7 @@ export default function IndexHero() {
         </HeroTitle>
         <PurchaseLinks runAnimation={runAnimation}>
           <li>
-            <Button noOpacity className={styles.purchase29cm} href="https://post.29cm.co.kr/8040" onClick={track29CM}>
+            <Button noOpacity className={styles.purchase29cm} href="https://www.29cm.co.kr/product/515565" onClick={track29CM}>
               <img src={Logo29CM} alt="29CM" /> 에서 구매
             </Button>
           </li>
