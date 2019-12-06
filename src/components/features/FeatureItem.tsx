@@ -1,7 +1,7 @@
 import styled from 'astroturf';
 import React from 'react';
 
-const Container = styled.div`
+const FeatureItem = styled<'div', { runAnimation?: boolean }>('div')`
   margin-top: 200px;
   display: flex;
 
@@ -9,30 +9,41 @@ const Container = styled.div`
     flex-direction: row-reverse;
   }
 
+  @media(max-width: 800px) {
+    display: block;
+    margin-top: 80px;
+  }
+
   > * {
     /* Chrome flexbox bug: can't use flex: 1 */
     width: 50%;
+    opacity: 0;
+
+    @media (max-width: 800px) {
+      width: 100%;
+    }
   }
 
-  @media(max-width: 800px) {
-    margin-top: 80px;
-    display: block;
+  &.runAnimation {
+    > :nth-child(1) {
+      animation: show 0.5s forwards;
+    }
 
-    > * {
-      width: 100%;
+    > :nth-child(2) {
+      animation: show 0.5s 0.2s forwards;
+    }
+  }
+
+  @keyframes show {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 `;
 
-interface Props {
-  children?: React.ReactNode;
-}
-
-export default function FeatureItem(props: Props) {
-  const { children } = props;
-  return (
-    <Container>
-      {children}
-    </Container>
-  );
-}
+export default FeatureItem;

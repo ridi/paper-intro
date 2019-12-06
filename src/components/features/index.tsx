@@ -92,7 +92,6 @@ const styles = css`
   .image {
     border-radius: 10px;
     overflow: hidden;
-    opacity: 0;
 
     @media(max-width: 800px) {
       border-radius: 0;
@@ -100,21 +99,6 @@ const styles = css`
 
     > video {
       width: 100%;
-    }
-
-    &.runAnimation {
-      animation: show 0.5s forwards;
-    }
-
-    @keyframes show {
-      from {
-        opacity: 0;
-        transform: translateY(60px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   }
 `;
@@ -210,7 +194,7 @@ export default function Features() {
           triggerElement: ref.current!,
           triggerHook: 'onEnter',
           reverse: false,
-          offset: 30,
+          offset: 130,
         })
           .on('enter', () => {
             setRunAnimation(true);
@@ -225,14 +209,6 @@ export default function Features() {
     };
   }, []);
 
-  function combineAnimation(base: string, runAnimation?: boolean) {
-    const list = [base];
-    if (runAnimation) {
-      list.push(styles.runAnimation);
-    }
-    return list.join(' ');
-  }
-
   return (
     <section>
       <Head ref={headRef} runAnimation={headRunAnimation}>
@@ -244,13 +220,13 @@ export default function Features() {
         </Description>
       </Head>
       <FeatureList>
-        <FeatureItem>
+        <FeatureItem ref={featureRefs[0].ref} runAnimation={featureRefs[0].state[0]}>
           <Img
-            className={combineAnimation(styles.image, featureRefs[0].state[0])}
+            className={styles.image}
             fluid={query.one.childImageSharp.fluid}
             backgroundColor="#f7fafc"
           />
-          <FeatureDescription innerRef={featureRefs[0].ref} runAnimation={featureRefs[0].state[0]}>
+          <FeatureDescription>
             <img src={Icon6Inch} alt="6인치 기기 아이콘" />
             <h3>{'천\xa0페이지가\xa0넘는 책도\xa0얇고\xa0가볍게'}</h3>
             <p>
@@ -260,8 +236,8 @@ export default function Features() {
             </p>
           </FeatureDescription>
         </FeatureItem>
-        <FeatureItem>
-          <div className={combineAnimation(styles.image, featureRefs[1].state[0])}>
+        <FeatureItem ref={featureRefs[1].ref} runAnimation={featureRefs[1].state[0]}>
+          <div className={styles.image}>
             <video
               autoPlay={!ioAvailable}
               loop
@@ -273,7 +249,7 @@ export default function Features() {
               <source src={query.twoMp4.publicURL} type="video/mp4" />
             </video>
           </div>
-          <FeatureDescription innerRef={featureRefs[1].ref} runAnimation={featureRefs[1].state[0]}>
+          <FeatureDescription>
             <img src={IconRotate} alt="왼손으로 기기를 잡은 모습 아이콘" />
             <h3>{'어느\xa0손이든 한\xa0손으로\xa0편하게'}</h3>
             <p>
@@ -282,13 +258,13 @@ export default function Features() {
             </p>
           </FeatureDescription>
         </FeatureItem>
-        <FeatureItem>
+        <FeatureItem ref={featureRefs[2].ref} runAnimation={featureRefs[2].state[0]}>
           <Img
-            className={combineAnimation(styles.image, featureRefs[2].state[0])}
+            className={styles.image}
             fluid={query.three.childImageSharp.fluid}
             backgroundColor="#f7fafc"
           />
-          <FeatureDescription innerRef={featureRefs[2].ref} runAnimation={featureRefs[2].state[0]}>
+          <FeatureDescription>
             <img src={IconBluetooth} alt="Bluetooth 아이콘" />
             <h3>{'이제\xa0이야기를 들어보세요'}</h3>
             <p>
@@ -298,13 +274,13 @@ export default function Features() {
             </p>
           </FeatureDescription>
         </FeatureItem>
-        <FeatureItem>
+        <FeatureItem ref={featureRefs[3].ref} runAnimation={featureRefs[3].state[0]}>
           <Img
-            className={combineAnimation(styles.image, featureRefs[3].state[0])}
+            className={styles.image}
             fluid={query.four.childImageSharp.fluid}
             backgroundColor="#f7fafc"
           />
-          <FeatureDescription innerRef={featureRefs[3].ref} runAnimation={featureRefs[3].state[0]}>
+          <FeatureDescription>
             <img src={IconFlipCover} alt="하드 플립 케이스 아이콘" />
             <h3>{'언제나\xa0책과 함께\xa0해야\xa0한다면'}</h3>
             <p>

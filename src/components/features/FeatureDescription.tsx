@@ -10,9 +10,8 @@ const FeatureDescriptionWrapper = styled.div`
   }
 `;
 
-const FeatureDescriptionInner = styled<'div', { runAnimation?: boolean }>('div')`
+const FeatureDescriptionInner = styled.div`
   padding: 0 100px;
-  opacity: 0;
 
   @media(max-width: 1200px) {
     padding: 0 40px;
@@ -44,34 +43,17 @@ const FeatureDescriptionInner = styled<'div', { runAnimation?: boolean }>('div')
   > * + * {
     margin-top: 30px;
   }
-
-  &.runAnimation {
-    animation: show 0.5s 0.2s forwards;
-  }
-
-  @keyframes show {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 `;
 
 interface Props {
   children?: React.ReactNode;
-  innerRef?: React.RefObject<HTMLDivElement>;
-  runAnimation?: boolean;
 }
 
 export default function FeatureDescription(props: Props) {
-  const { children, innerRef, runAnimation } = props;
+  const { children } = props;
   return (
     <FeatureDescriptionWrapper>
-      <FeatureDescriptionInner ref={innerRef} runAnimation={runAnimation}>
+      <FeatureDescriptionInner>
         {children}
       </FeatureDescriptionInner>
     </FeatureDescriptionWrapper>
