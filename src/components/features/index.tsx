@@ -91,6 +91,7 @@ const FeatureList = styled.div`
 const styles = css`
   .image {
     border-radius: 10px;
+    line-height: 0;
     overflow: hidden;
 
     @media(max-width: 800px) {
