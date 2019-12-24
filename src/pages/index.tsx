@@ -8,6 +8,7 @@ import Details from '../components/details';
 import Features from '../components/features';
 import Hero from '../components/hero/IndexPage';
 import Layout from '../components/layout';
+import Panel from '../components/panel';
 import Ridibatang from '../components/ridibatang';
 import SEO from '../components/seo';
 import Specs from '../components/specs';
@@ -52,6 +53,7 @@ const IndexPage = () => {
       <Hero />
       <Features />
       <ViewerFeatures />
+      <Panel />
       <Details />
       <Ridibatang />
       <AccessoryBanner />
