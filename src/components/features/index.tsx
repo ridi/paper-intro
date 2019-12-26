@@ -229,6 +229,7 @@ export default function Features() {
               autoPlay={!ioAvailable}
               loop
               muted
+              playsInline
               poster={query.twoPoster.publicURL}
               ref={videoRef}
             >
