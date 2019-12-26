@@ -25,19 +25,45 @@ const Container = styled.div`
       margin-top: 30px;
     }
   }
+`;
 
-  section + section {
-    margin-top: 120px;
+const Description = styled<'div', { runAnimation?: boolean }>('div')`
+  > section {
+    transform: translateY(60px);
+    opacity: 0;
+
+    transition: transform 0.5s, opacity 0.5s;
+
+    & + section {
+      margin-top: 120px;
+    }
+
+    &:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+  }
+
+  &.runAnimation > section {
+    transform: translateY(0);
+    opacity: 1;
   }
 `;
 
 export default function Panel() {
+  const [runAnimation, setRunAnimation] = React.useState(false);
+
+  React.useEffect(() => {
+    window.setTimeout(() => {
+      setRunAnimation(true);
+    }, 1000);
+  }, []);
+
   return (
     <section>
       <h2>완벽한 독서 경험</h2>
       <Container>
-        <PanelAnimation />
-        <div>
+        <PanelAnimation runAnimation={runAnimation} />
+        <Description runAnimation={runAnimation}>
           <section>
             <h3>{'보다\xa0더\xa0선명한 화면을\xa0구현하다'}</h3>
             <p>
@@ -56,7 +82,7 @@ export default function Panel() {
               하지만 더 단단하게 보호해줍니다.
             </p>
           </section>
-        </div>
+        </Description>
       </Container>
     </section>
   );

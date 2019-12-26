@@ -157,7 +157,11 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
   }
 `;
 
-export default function PanelAnimation() {
+interface Props {
+  runAnimation?: boolean;
+}
+
+export default function PanelAnimation(props: Props) {
   const query = useStaticQuery(graphql`
     fragment PanelImage on File {
       childImageSharp {
@@ -192,16 +196,8 @@ export default function PanelAnimation() {
     }
   `);
 
-  const [runAnimation, setRunAnimation] = React.useState(false);
-
-  React.useEffect(() => {
-    window.setTimeout(() => {
-      setRunAnimation(true);
-    }, 100);
-  }, []);
-
   return (
-    <Container runAnimation={runAnimation}>
+    <Container runAnimation={props.runAnimation}>
       <div>
         <Img fluid={query._6.childImageSharp.fluid} loading="eager" />
       </div>
