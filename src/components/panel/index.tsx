@@ -45,6 +45,7 @@ const Container = styled.div`
       margin-top: 30px;
 
       @media (max-width: 1000px) {
+        margin-top: 20px;
         font-size: 18px;
       }
     }
@@ -52,10 +53,16 @@ const Container = styled.div`
 `;
 
 const PanelPadding = styled.div`
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 30px;
+  width: calc(100vw - 480px);
+  max-width: 670px;
+  padding-right: 30px;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
 
   @media (max-width: 360px) {
     max-width: 640px;
@@ -77,6 +84,10 @@ const Description = styled<'div', { runAnimation?: boolean }>('div')`
 
     & + section {
       margin-top: 120px;
+
+      @media (max-width: 1000px) {
+        margin-top: 50px;
+      }
     }
 
     &:nth-child(2) {
@@ -116,7 +127,7 @@ export default function Panel() {
         </PanelPadding>
         <Description runAnimation={runAnimation}>
           <section>
-            <h3>{'보다\xa0더\xa0선명한 화면을\xa0구현하다'}</h3>
+            <h3>보다 더 선명한<br />화면을 구현하다</h3>
             <p>
               빛 투과율이 극대화된{' '}
               <strong>{'글래스\xa0터치\xa0패널'}</strong>,<br />
@@ -126,7 +137,7 @@ export default function Panel() {
             </p>
           </section>
           <section>
-            <h3>{'얇지만\xa0더\xa0견고해진 메탈\xa0프레임'}</h3>
+            <h3>얇지만 더 견고해진<br />메탈 프레임</h3>
             <p>
               원형 펀치홀 <strong>{'메탈\xa0프레임'}</strong>이<br />
               리디페이퍼를 더 가볍게<br />
