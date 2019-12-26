@@ -1,8 +1,9 @@
 import styled from 'astroturf';
 import React from 'react';
-import { Controller } from 'scrollmagic';
 
 import { graphql, useStaticQuery } from 'gatsby';
+
+import { useScrollmagicEffect } from '../ScrollmagicContext';
 
 import AnimationEink from './AnimationEink';
 import AnimationFrontlight from './AnimationFrontlight';
@@ -113,44 +114,30 @@ export default function Body() {
   const triggerRef = React.useRef<HTMLDivElement>(null);
   const [phase, setPhase] = React.useState(-1);
 
-  React.useEffect(() => {
-    let controller: Controller;
-    let destroyed = false;
-    import('scrollmagic').then(({ Controller, Scene }) => {
-      if (destroyed) {
-        return;
-      }
-      controller = new Controller();
+  useScrollmagicEffect((controller, Scene) => {
+    // IE only
+    const pinStyle = window.getComputedStyle(pinRef.current!);
+    if (pinStyle.position !== 'sticky') {
+      new Scene({
+        triggerElement: triggerRef.current!,
+        triggerHook: 'onLeave',
+        duration: SCENE_DURATION * SCENE_COUNT,
+      })
+        .setPin(pinRef.current!, {pushFollowers: false})
+        .addTo(controller);
+    }
 
-      // IE only
-      const pinStyle = window.getComputedStyle(pinRef.current!);
-      if (pinStyle.position !== 'sticky') {
-        new Scene({
-          triggerElement: triggerRef.current!,
-          triggerHook: 'onLeave',
-          duration: SCENE_DURATION * SCENE_COUNT,
-        })
-          .setPin(pinRef.current!, {pushFollowers: false})
-          .addTo(controller);
-      }
-
-      Array.from({ length: SCENE_COUNT }).forEach((_, idx) => {
-        new Scene({
-          triggerElement: triggerRef.current!,
-          triggerHook: 'onLeave',
-          offset: idx * SCENE_DURATION,
-        })
-          .on('enter', () => setPhase(phase => phase + 1))
-          .on('leave', () => setPhase(phase => phase - 1))
-          .addTo(controller);
-      });
+    Array.from({ length: SCENE_COUNT }).forEach((_, idx) => {
+      new Scene({
+        triggerElement: triggerRef.current!,
+        triggerHook: 'onLeave',
+        offset: idx * SCENE_DURATION,
+      })
+        .on('enter', () => setPhase(phase => phase + 1))
+        .on('leave', () => setPhase(phase => phase - 1))
+        .addTo(controller);
     });
-
-    return () => {
-      controller && controller.destroy();
-      destroyed = true;
-    };
-  }, []);
+  });
 
   return (
     <Container>
