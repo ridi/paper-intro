@@ -5,6 +5,13 @@ import { useScrollmagicEffect } from '../ScrollmagicContext';
 
 import PanelAnimation from './PanelAnimation';
 
+const Title = styled.h2`
+  @media (max-width: 1000px) {
+    font-size: 32px;
+    line-height: 48px;
+  }
+`;
+
 const Container = styled.div`
   max-width: 1200px;
   margin: 150px auto 0;
@@ -17,19 +24,51 @@ const Container = styled.div`
 
   @media (max-width: 1000px) {
     display: block;
+    margin-top: 50px;
+    padding: 0 60px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 0 30px;
   }
 
   h3 {
     font-size: 40px;
     line-height: 50px;
 
+    @media (max-width: 1000px) {
+      font-size: 28px;
+      line-height: 38px;
+    }
+
     & + p {
       margin-top: 30px;
+
+      @media (max-width: 1000px) {
+        font-size: 18px;
+      }
     }
   }
 `;
 
+const PanelPadding = styled.div`
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  @media (max-width: 360px) {
+    max-width: 640px;
+    padding: 0;
+  }
+`;
+
 const Description = styled<'div', { runAnimation?: boolean }>('div')`
+  @media (max-width: 1000px) {
+    margin-top: 80px;
+    text-align: center;
+  }
+
   > section {
     transform: translateY(60px);
     opacity: 0;
@@ -70,9 +109,11 @@ export default function Panel() {
 
   return (
     <section>
-      <h2>완벽한 독서 경험</h2>
+      <Title>완벽한 독서 경험</Title>
       <Container>
-        <PanelAnimation runAnimation={runAnimation} innerRef={panelRef} />
+        <PanelPadding>
+          <PanelAnimation runAnimation={runAnimation} innerRef={panelRef} />
+        </PanelPadding>
         <Description runAnimation={runAnimation}>
           <section>
             <h3>{'보다\xa0더\xa0선명한 화면을\xa0구현하다'}</h3>

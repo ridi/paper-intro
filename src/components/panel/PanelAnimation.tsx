@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 
 const Container = styled<'div', { runAnimation?: boolean }>('div')`
   position: relative;
-  width: 640px;
+  width: 100%;
 
   &::before {
     content: '';
