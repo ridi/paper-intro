@@ -38,67 +38,67 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
   &.runAnimation > div {
     &:nth-child(7) {
       animation:
-        dim 0.2s 2s linear forwards;
+        dim 0.3s 2s linear forwards;
     }
     &:nth-child(6) {
       padding-top: 11.40625%;
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        zoom-in 0.2s 2s linear forwards,
-        zoom-out 0.2s 2.5s linear forwards,
-        dim 0.2s 2.5s linear forwards,
-        zoom-in-2 0.2s 3s linear forwards,
-        dim-revert 0.2s 3s linear forwards;
+        zoom-in 0.3s 2s linear forwards,
+        zoom-out 0.3s 3s linear forwards,
+        dim 0.3s 3s linear forwards,
+        zoom-in-2 0.3s 4s linear forwards,
+        dim-revert 0.3s 4s linear forwards;
     }
     &:nth-child(5) {
       padding-top: 19.375%;
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        zoom-in 0.2s 2s linear forwards,
-        zoom-out 0.2s 2.5s linear forwards,
-        dim 0.2s 2.5s linear forwards,
-        zoom-in-2 0.2s 3s linear forwards,
-        dim-revert 0.2s 3s linear forwards;
+        zoom-in 0.3s 2s linear forwards,
+        zoom-out 0.3s 3s linear forwards,
+        dim 0.3s 3s linear forwards,
+        zoom-in-2 0.3s 4s linear forwards,
+        dim-revert 0.3s 4s linear forwards;
     }
     &:nth-child(4) {
       padding-top: 29.0625%;
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        zoom-in 0.2s 2s linear forwards,
-        zoom-out 0.2s 2.5s linear forwards,
-        dim 0.2s 2.5s linear forwards,
-        zoom-in-2 0.2s 3s linear forwards,
-        dim-revert 0.2s 3s linear forwards;
+        zoom-in 0.3s 2s linear forwards,
+        zoom-out 0.3s 3s linear forwards,
+        dim 0.3s 3s linear forwards,
+        zoom-in-2 0.3s 4s linear forwards,
+        dim-revert 0.3s 4s linear forwards;
     }
     &:nth-child(3) {
       padding-top: 29.0625%;
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        zoom-in 0.2s 2s linear forwards,
-        zoom-out 0.2s 2.5s linear forwards,
-        dim 0.2s 2.5s linear forwards,
-        zoom-in-2 0.2s 3s linear forwards,
-        dim-revert 0.2s 3s linear forwards;
+        zoom-in 0.3s 2s linear forwards,
+        zoom-out 0.3s 3s linear forwards,
+        dim 0.3s 3s linear forwards,
+        zoom-in-2 0.3s 4s linear forwards,
+        dim-revert 0.3s 4s linear forwards;
     }
     &:nth-child(2) {
       padding-top: 36.40625%;
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        dim 0.2s 2s linear forwards,
-        zoom-in 0.2s 2.5s linear forwards,
-        dim-revert 0.2s 2.5s linear forwards;
+        dim 0.3s 2s linear forwards,
+        zoom-in 0.3s 3s linear forwards,
+        dim-revert 0.3s 3s linear forwards;
     }
     &:nth-child(1) {
       padding-top: 49.84375%;
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        dim 0.2s 2s linear forwards;
+        dim 0.3s 2s linear forwards;
     }
   }
 

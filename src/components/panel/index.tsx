@@ -55,7 +55,7 @@ export default function Panel() {
   React.useEffect(() => {
     window.setTimeout(() => {
       setRunAnimation(true);
-    }, 1000);
+    }, 500);
   }, []);
 
   return (
