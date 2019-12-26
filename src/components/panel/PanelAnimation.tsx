@@ -159,6 +159,7 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
 
 interface Props {
   runAnimation?: boolean;
+  innerRef?: React.Ref<HTMLDivElement>;
 }
 
 export default function PanelAnimation(props: Props) {
@@ -197,7 +198,7 @@ export default function PanelAnimation(props: Props) {
   `);
 
   return (
-    <Container runAnimation={props.runAnimation}>
+    <Container runAnimation={props.runAnimation} ref={props.innerRef}>
       <div>
         <Img fluid={query._6.childImageSharp.fluid} loading="eager" />
       </div>

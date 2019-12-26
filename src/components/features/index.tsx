@@ -4,7 +4,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
-import { Controller } from 'scrollmagic';
+import { useScrollmagicEffect } from '../ScrollmagicContext';
 
 import Icon6Inch from '../../svgs/features/6inch.svg';
 import IconRotate from '../../svgs/features/rotate.svg'
@@ -171,44 +171,30 @@ export default function Features() {
     io.observe(videoRef.current!);
   }, []);
 
-  React.useEffect(() => {
-    let controller: Controller;
-    let destroyed = false;
-    import('scrollmagic').then(({ Controller, Scene }) => {
-      if (destroyed) {
-        return;
-      }
-      controller = new Controller();
-
+  useScrollmagicEffect((controller, Scene) => {
+    new Scene({
+      triggerElement: headRef.current!,
+      triggerHook: 'onEnter',
+      reverse: false,
+      offset: 40,
+    })
+      .on('enter', () => {
+        setHeadRunAnimation(true);
+      })
+      .addTo(controller);
+    for (const { ref, state: [, setRunAnimation] } of featureRefs) {
       new Scene({
-        triggerElement: headRef.current!,
+        triggerElement: ref.current!,
         triggerHook: 'onEnter',
         reverse: false,
-        offset: 40,
+        offset: 130,
       })
         .on('enter', () => {
-          setHeadRunAnimation(true);
+          setRunAnimation(true);
         })
         .addTo(controller);
-      for (const { ref, state: [, setRunAnimation] } of featureRefs) {
-        new Scene({
-          triggerElement: ref.current!,
-          triggerHook: 'onEnter',
-          reverse: false,
-          offset: 130,
-        })
-          .on('enter', () => {
-            setRunAnimation(true);
-          })
-          .addTo(controller);
-      }
-    });
-
-    return () => {
-      controller && controller.destroy();
-      destroyed = true;
-    };
-  }, []);
+    }
+  });
 
   return (
     <section>

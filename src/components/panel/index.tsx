@@ -1,6 +1,8 @@
 import styled from 'astroturf';
 import React from 'react';
 
+import { useScrollmagicEffect } from '../ScrollmagicContext';
+
 import PanelAnimation from './PanelAnimation';
 
 const Container = styled.div`
@@ -51,18 +53,26 @@ const Description = styled<'div', { runAnimation?: boolean }>('div')`
 
 export default function Panel() {
   const [runAnimation, setRunAnimation] = React.useState(false);
+  const panelRef = React.useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
-    window.setTimeout(() => {
-      setRunAnimation(true);
-    }, 500);
-  }, []);
+  useScrollmagicEffect((controller, Scene) => {
+    new Scene({
+      triggerElement: panelRef.current!,
+      triggerHook: 'onEnter',
+      reverse: false,
+      offset: 150,
+    })
+      .on('enter', () => {
+        setRunAnimation(true);
+      })
+      .addTo(controller);
+  });
 
   return (
     <section>
       <h2>완벽한 독서 경험</h2>
       <Container>
-        <PanelAnimation runAnimation={runAnimation} />
+        <PanelAnimation runAnimation={runAnimation} innerRef={panelRef} />
         <Description runAnimation={runAnimation}>
           <section>
             <h3>{'보다\xa0더\xa0선명한 화면을\xa0구현하다'}</h3>
