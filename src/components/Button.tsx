@@ -21,7 +21,7 @@ const styles = css`
     letter-spacing: -0.3px;
     text-decoration: none;
 
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, background-color 0.3s;
 
     &:hover,
     &:active {
@@ -29,6 +29,10 @@ const styles = css`
 
       &.noOpacity {
         opacity: 1;
+      }
+
+      &.colorBlueBg {
+        background-color: #0077d9;
       }
     }
 
@@ -54,6 +58,11 @@ const styles = css`
       border-color: #d1d5d9;
       color: #808991;
     }
+
+    &.colorBlueBg {
+      background-color: #1f8ce6;
+      color: white;
+    }
   }
 `;
 
@@ -73,6 +82,9 @@ function createClassesFromProps(props: Props) {
   }
   if (color === 'blue') {
     classes.push(styles.colorBlue);
+  }
+  if (color === 'blue-bg') {
+    classes.push(styles.colorBlueBg);
   }
   if (color === 'white') {
     classes.push(styles.colorWhite);

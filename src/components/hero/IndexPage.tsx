@@ -2,14 +2,11 @@ import styled, { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
-import Button from '../Button';
+import { LinkButton } from '../Button';
 import Hero from './index';
 
 import RidipaperLogo from '../../svgs/ridipaper.inline.svg';
-import NaverLogo from '../../svgs/naver.svg';
-import Logo29CM from './29cm.png';
 
 const HeroContainer = styled.div`
   width: 100%;
@@ -19,7 +16,7 @@ const HeroContainer = styled.div`
   padding: 230px 100px 100px;
 
   @media (max-width: 800px) {
-    padding: 130px 0 100px;
+    padding: 130px 0 180px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -109,34 +106,9 @@ const HeroTitle = styled<'div', { runAnimation?: boolean }>('div')`
   }
 `;
 
-const PurchaseLinks = styled<'ul', { runAnimation?: boolean }>('ul')`
-  display: flex;
+const LinkWrapper = styled<'div', { runAnimation?: boolean }>('div')`
   margin-top: 100px;
   opacity: 0;
-
-  @media (max-width: 800px) {
-    display: block;
-  }
-
-  > li {
-    list-style: none;
-
-    & + li {
-      margin-left: 8px;
-
-      @media (max-width: 800px) {
-        margin-left: 0;
-        margin-top: 10px;
-      }
-    }
-  }
-
-  a {
-    width: 200px;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: normal;
-  }
 
   &.runAnimation {
     animation: show 0.5s 0.4s forwards;
@@ -166,27 +138,8 @@ const styles = css`
     }
   }
 
-  .purchase29cm {
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    background-color: black;
-    color: white;
-
-    > img {
-      height: 20px;
-      margin-right: 2px;
-    }
-  }
-
-  .purchaseNaver {
-    border: 0;
-    background-color: #1ec800;
-    color: white;
-
-    > img {
-      width: 20px;
-      height: 20px;
-      margin-right: 4px;
-    }
+  .purchase {
+    width: 200px;
   }
 `;
 
@@ -215,22 +168,6 @@ export default function IndexHero() {
     setRunAnimation(true);
   }, []);
 
-  const track29CM = React.useCallback(() => {
-    trackCustomEvent({
-      category: 'home',
-      action: 'click',
-      label: '29cm',
-    });
-  }, []);
-
-  const trackNaver = React.useCallback(() => {
-    trackCustomEvent({
-      category: 'home',
-      action: 'click',
-      label: 'naver',
-    });
-  }, []);
-
   function renderBackground() {
     return (
       <Background>
@@ -255,18 +192,11 @@ export default function IndexHero() {
             <span>RIDIPAPER</span>
           </h1>
         </HeroTitle>
-        <PurchaseLinks runAnimation={runAnimation}>
-          <li>
-            <Button noOpacity className={styles.purchase29cm} href="https://www.29cm.co.kr/product/515565" onClick={track29CM}>
-              <img src={Logo29CM} alt="29CM" /> 에서 구매
-            </Button>
-          </li>
-          <li>
-            <Button noOpacity className={styles.purchaseNaver} href="https://smartstore.naver.com/ridibooks/products/4730376771" onClick={trackNaver}>
-              <img src={NaverLogo} alt="네이버" /> 쇼핑 에서 구매
-            </Button>
-          </li>
-        </PurchaseLinks>
+        <LinkWrapper runAnimation={runAnimation}>
+          <LinkButton noOpacity color="blue-bg" to="/stockists/" className={styles.purchase}>
+            구매하기
+          </LinkButton>
+        </LinkWrapper>
       </HeroContainer>
     </Hero>
   );
