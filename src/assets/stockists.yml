@@ -4,11 +4,19 @@
     url: 'https://www.29cm.co.kr/product/515565'
   - name: 네이버 쇼핑
     url: 'https://smartstore.naver.com/ridibooks/products/4730376771'
+  - name: 11번가
+    url: 'http://www.11st.co.kr/product/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=2668358228'
+  - name: 쿠팡
+    url: 'https://www.coupang.com/vp/products/1119906325?vendorItemId=70084651300'
+  - name: G마켓
+    url: 'http://item.gmarket.co.kr/Item?goodscode=1725642110'
+  - name: 옥션
+    url: 'http://itempage3.auction.co.kr/DetailView.aspx?ItemNo=B785056835&frm3=V2'
 - slug: paper-pro
   items:
   - name: 29CM
     url: 'https://www.29cm.co.kr/shop/brand/4034'
   - name: 네이버 쇼핑
     url: 'https://smartstore.naver.com/ridibooks'
-  - name: G market
+  - name: G마켓
     url: 'http://minishop.gmarket.co.kr/ridibooks'
