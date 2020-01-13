@@ -2,10 +2,6 @@
   items:
   - name: 네이버 스마트스토어
     url: 'https://smartstore.naver.com/ridibooks/products/4730376771'
-  - name: G마켓
-    url: 'http://item.gmarket.co.kr/Item?goodscode=1725642110'
-  - name: 옥션
-    url: 'http://itempage3.auction.co.kr/DetailView.aspx?ItemNo=B785056835&frm3=V2'
   - name: 11번가
     url: 'http://www.11st.co.kr/product/SellerProductDetail.tmall?method=getSellerProductDetail&prdNo=2668358228'
   - name: 쿠팡
