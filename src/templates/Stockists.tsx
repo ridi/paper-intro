@@ -1,4 +1,4 @@
-import styled from 'astroturf';
+import styled, { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, Link } from 'gatsby';
@@ -10,6 +10,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Tabs, { Tab } from '../components/Tabs';
 
+import Flag from '../svgs/flag.inline.svg';
 import Outlink from '../svgs/outlink.inline.svg';
 
 const StockistsTabWrapper = styled.nav`
@@ -28,7 +29,7 @@ const StockistsWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 100px 0;
+  padding: 20px 100px 0;
 
   display: flex;
 
@@ -71,6 +72,40 @@ const StockistItem = styled.a`
     height: 12px;
     margin-left: 10px;
     fill: #9ea7ad;
+  }
+`;
+
+const NoticeBoxContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 100px 0;
+
+  @media (max-width: 600px) {
+    padding: 20px 20px 0;
+  }
+`;
+
+const NoticeBox = styled.p`
+  padding: 10px 12px;
+
+  display: flex;
+
+  border-radius: 4px;
+  background-color: #f2f4f5;
+
+  font-size: 13px;
+  line-height: 20px;
+
+  > span {
+    flex: 1;
+    margin: 2px 0;
+  }
+`;
+
+const styles = css`
+  .flag {
+    flex: 0 0 auto;
+    margin-right: 4px;
   }
 `;
 
@@ -138,6 +173,17 @@ export default function Stockists(props: Props) {
           ))}
         </Tabs>
       </StockistsTabWrapper>
+      <NoticeBoxContainer>
+        {pageContext.slug === 'ridipaper' && (
+          <NoticeBox>
+            <Flag className={styles.flag} />
+            <span>
+              리디페이퍼는 <strong>2020년 1월 29일 수요일 낮 12시</strong>부터
+              판매됩니다.
+            </span>
+          </NoticeBox>
+        )}
+      </NoticeBoxContainer>
       <StockistsWrapper>
         <StockistsColumn>{left}</StockistsColumn>
         <Spacer />
