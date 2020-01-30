@@ -56,11 +56,16 @@ module.exports = {
     author: 'RIDI',
   },
   plugins: [
-    'gatsby-plugin-netlify-cache',
     {
       resolve: 'gatsby-plugin-netlify',
       options: {
         generateMatchPathRewrites: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-netlify-cache',
+      options: {
+        cachePublic: false,
       },
     },
     {
