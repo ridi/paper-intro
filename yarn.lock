@@ -6181,6 +6181,13 @@ gatsby-plugin-sharp@^2.3.4:
     svgo "1.3.2"
     uuid "^3.3.3"
 
+gatsby-plugin-tidy@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-tidy/-/gatsby-plugin-tidy-1.0.1.tgz#2f174491e4b9f77f271c52b1dce2fe16a9c46476"
+  integrity sha512-XIQt+vEA2FVL0lAMd6aG3Wf7q56gf3cQwVGoKK+RkwV7MBmy9sXrBBHlNihmu+mKvStBNTCV/AY/wCNUbTch7Q==
+  dependencies:
+    rimraf "^2.6.3"
+
 gatsby-plugin-typescript@^2.1.15:
   version "2.1.15"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.1.15.tgz#4754bb2ae7f5ee86b6daea52d7d9582287788d2c"
