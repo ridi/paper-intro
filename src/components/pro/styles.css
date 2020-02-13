@@ -200,25 +200,11 @@
 #page_intro .paper_pro_detail_button {
   color: white;
   padding: 16px 0;
+  border: none;
   box-shadow: none;
-}
-#page_intro .paper_pro_detail_button.naver {
-  background: #1ec800;
-  border: 0 none;
-}
-#page_intro .paper_pro_detail_button._29cm {
-  background: #000;
-  border: 1px solid #e6e8eb;
-  box-sizing: border-box;
-}
-#page_intro .paper_pro_detail_button.gmarket {
-  background: #fff;
-  border: 1px solid #e6e8eb;
-  box-sizing: border-box;
-  color: #636c73;
-}
-#page_intro .paper_pro_detail_button.papershop .link_text {
-  font-weight: 700;
+  background: #1f8ce6;
+  font-weight: bold;
+  font-size: 17px;
 }
 #page_intro #intro_header .sub_title {
   color: white;
@@ -401,19 +387,6 @@
     height: 50px;
     display: block;
     margin: 0 auto;
-  }
-  #page_intro .paper_pro_detail_button .providers {
-    margin-right: -2px;
-    height: 20px;
-    vertical-align: middle;
-    transform: translateY(-2px);
-  }
-  #page_intro .paper_pro_detail_button .link_text {
-    font-size: 14px;
-    font-weight: normal;
-  }
-  #page_intro .paper_pro_detail_button.papershop .link_text {
-    font-size: 16px;
   }
   #intro_header {
     padding: 160px 0 0 0;
@@ -1103,24 +1076,11 @@
     font-size: 15px;
   }
   #page_intro .paper_pro_detail_button {
-    width: 250px;
+    width: 200px;
     height: 50px;
     box-sizing: border-box;
     display: inline-block;
     margin: 0 5px;
-  }
-  #page_intro .paper_pro_detail_button .providers {
-    margin-right: -2px;
-    height: 20px;
-    vertical-align: middle;
-    transform: translateY(-2px);
-  }
-  #page_intro .paper_pro_detail_button .link_text {
-    font-size: 14px;
-    font-weight: normal;
-  }
-  #page_intro .paper_pro_detail_button.papershop .link_text {
-    font-size: 16px;
   }
   #intro_header {
     padding: 200px 0 0 0;
