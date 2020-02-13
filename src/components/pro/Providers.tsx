@@ -1,31 +1,13 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import front from '../../assets/images/pro/providers/front.png';
 import back from '../../assets/images/pro/providers/back.png';
-import logo_naver from '../../assets/images/pro/providers/naver.png';
-import logo_29cm from '../../assets/images/pro/providers/29cm.png';
-import logo_gmarket from '../../assets/images/pro/providers/gmarket.png';
 
 export const Links = () => (
-    <>
-    <a className="provider_button paper_pro_detail_button naver" href="https://smartstore.naver.com/ridibooks">
-        <img className="providers" src={logo_naver} alt="네이버 쇼핑" />
-        {' '}
-        <span className="link_text">에서 구매</span>
-    </a>
-    
-    <a className="provider_button paper_pro_detail_button _29cm" href="https://www.29cm.co.kr/shop/brand/4034">
-        <img className="providers" src={logo_29cm} alt="29CM" />
-        {' '}
-        <span className="link_text">에서 구매</span>
-    </a>
-    
-    <a className="provider_button paper_pro_detail_button gmarket" href="http://minishop.gmarket.co.kr/ridibooks">
-        <img className="providers" src={logo_gmarket} alt="지마켓" />
-        {' '}
-        <span className="link_text">에서 구매</span>
-    </a>
-    </>
+  <Link className="provider_button paper_pro_detail_button" to="/stockists/paper-pro/">
+    구매하기
+  </Link>
 );
 
 export default () => (
@@ -43,7 +25,6 @@ export default () => (
               <img className="device_front" src={front} alt="PAPER PRO 앞면" />
           </div>
           <p className="price">249,000원</p>
-          <Links />
       </div>
   </section>
 );
