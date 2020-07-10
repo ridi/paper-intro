@@ -105,6 +105,6 @@ export default function Button(props: Props & React.AnchorHTMLAttributes<HTMLAnc
 }
 
 export function LinkButton(props: Props & GatsbyLinkProps<any>) {
-  const { size, color, className, children, ref, ...linkProps } = props;
+  const { size, color, className, children, ref, noOpacity, ...linkProps } = props;
   return <Link {...linkProps} className={createClassesFromProps(props)}>{children}</Link>;
 }
