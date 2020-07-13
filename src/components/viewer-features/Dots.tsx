@@ -39,7 +39,7 @@ interface Props {
 export default function Dots(props: Props) {
   return (
     <Container>
-      {Array.from({ length: props.max }, (_, idx) => <Dot active={idx === props.value} dark={props.dark} />)}
+      {Array.from({ length: props.max }, (_, idx) => <Dot active={idx === props.value} dark={props.dark} key={idx}/>)}
     </Container>
   );
 }

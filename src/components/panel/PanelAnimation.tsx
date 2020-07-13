@@ -45,44 +45,32 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        zoom-in 0.3s 2s linear forwards,
-        zoom-out 0.3s 3s linear forwards,
-        dim 0.3s 3s linear forwards,
-        zoom-in-2 0.3s 4s linear forwards,
-        dim-revert 0.3s 4s linear forwards;
+        scale-up 0.3s 2s linear forwards,
+        zoom-out 0.65s 3s linear 2 alternate forwards;
     }
     &:nth-child(5) {
       padding-top: 19.375%;
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        zoom-in 0.3s 2s linear forwards,
-        zoom-out 0.3s 3s linear forwards,
-        dim 0.3s 3s linear forwards,
-        zoom-in-2 0.3s 4s linear forwards,
-        dim-revert 0.3s 4s linear forwards;
+        scale-up 0.3s 2s linear forwards,
+        zoom-out 0.65s 3s linear 2 alternate forwards;
     }
     &:nth-child(4) {
       padding-top: 29.0625%;
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        zoom-in 0.3s 2s linear forwards,
-        zoom-out 0.3s 3s linear forwards,
-        dim 0.3s 3s linear forwards,
-        zoom-in-2 0.3s 4s linear forwards,
-        dim-revert 0.3s 4s linear forwards;
+        scale-up 0.3s 2s linear forwards,
+        zoom-out 0.65s 3s linear 2 alternate forwards;
     }
     &:nth-child(3) {
       padding-top: 29.0625%;
 
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
-        zoom-in 0.3s 2s linear forwards,
-        zoom-out 0.3s 3s linear forwards,
-        dim 0.3s 3s linear forwards,
-        zoom-in-2 0.3s 4s linear forwards,
-        dim-revert 0.3s 4s linear forwards;
+        scale-up 0.3s 2s linear forwards,
+        zoom-out 0.65s 3s linear 2 alternate forwards;
     }
     &:nth-child(2) {
       padding-top: 36.40625%;
@@ -90,8 +78,7 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
         dim 0.3s 2s linear forwards,
-        zoom-in 0.3s 3s linear forwards,
-        dim-revert 0.3s 3s linear forwards;
+        zoom-out 0.65s 2.65s linear reverse forwards;
     }
     &:nth-child(1) {
       padding-top: 49.84375%;
@@ -120,25 +107,7 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
     }
   }
 
-  @keyframes dim-revert {
-    from {
-      opacity: 0.1;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes zoom-in {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.0625);
-    }
-  }
-
-  @keyframes zoom-in-2 {
+  @keyframes scale-up {
     from {
       transform: scale(1);
     }
@@ -148,11 +117,17 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
   }
 
   @keyframes zoom-out {
-    from {
+    0% {
       transform: scale(1.0625);
+      opacity: 1;
     }
-    to {
+    46% {
       transform: scale(1);
+      opacity: 0.1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.1;
     }
   }
 `;

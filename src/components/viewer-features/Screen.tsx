@@ -2,7 +2,7 @@ import styled from 'astroturf';
 import React from 'react';
 
 import { graphql } from 'gatsby';
-import Img, { FluidObject } from 'gatsby-image';
+import Img, { FluidObject, GatsbyImageProps } from 'gatsby-image';
 
 const Container = styled.div`
   position: absolute;
@@ -19,14 +19,15 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
       fluid: FluidObject;
     };
   };
-  critical?: boolean;
+  loading?: GatsbyImageProps["loading"];
 }
 
 export default function Screen(props: Props) {
-  const { file, critical, ...restProps } = props;
+  const { file, loading, ...restProps } = props;
+  const imgProps = { loading };
   return (
     <Container {...restProps}>
-      <Img fluid={file.childImageSharp.fluid} critical={critical} />
+      <Img fluid={file.childImageSharp.fluid} {...imgProps} />
     </Container>
   );
 }

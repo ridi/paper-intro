@@ -87,9 +87,9 @@ export default function AnimationEink(props: Props) {
       <ScreenContainer state={props.state}>
         <div />
         <div>
-          <Img fluid={data.book.childImageSharp.fluid} critical />
+          <Img fluid={data.book.childImageSharp.fluid} loading="eager" />
         </div>
-        <Screen file={data.textTransparent} critical />
+        <Screen file={data.textTransparent} loading="eager" />
       </ScreenContainer>
     </Container>
   );
