@@ -46,8 +46,7 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
         scale-up 0.3s 2s linear forwards,
-        zoom-in 0.3s 3s linear reverse forwards,
-        zoom-in 0.3s 4s linear forwards;
+        zoom-out 0.65s 3s linear 2 alternate forwards;
     }
     &:nth-child(5) {
       padding-top: 19.375%;
@@ -55,8 +54,7 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
         scale-up 0.3s 2s linear forwards,
-        zoom-in 0.3s 3s linear reverse forwards,
-        zoom-in 0.3s 4s linear forwards;
+        zoom-out 0.65s 3s linear 2 alternate forwards;
     }
     &:nth-child(4) {
       padding-top: 29.0625%;
@@ -64,8 +62,7 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
         scale-up 0.3s 2s linear forwards,
-        zoom-in 0.3s 3s linear reverse forwards,
-        zoom-in 0.3s 4s linear forwards;
+        zoom-out 0.65s 3s linear 2 alternate forwards;
     }
     &:nth-child(3) {
       padding-top: 29.0625%;
@@ -73,8 +70,7 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
         scale-up 0.3s 2s linear forwards,
-        zoom-in 0.3s 3s linear reverse forwards,
-        zoom-in 0.3s 4s linear forwards;
+        zoom-out 0.65s 3s linear 2 alternate forwards;
     }
     &:nth-child(2) {
       padding-top: 36.40625%;
@@ -82,7 +78,7 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
       animation:
         fadein 1s 0.5s cubic-bezier(0.25, 0, 0, 1) forwards,
         dim 0.3s 2s linear forwards,
-        zoom-in 0.3s 3s linear forwards;
+        zoom-out 0.65s 2.65s linear reverse forwards;
     }
     &:nth-child(1) {
       padding-top: 49.84375%;
@@ -120,14 +116,18 @@ const Container = styled<'div', { runAnimation?: boolean }>('div')`
     }
   }
 
-  @keyframes zoom-in {
-    from {
+  @keyframes zoom-out {
+    0% {
+      transform: scale(1.0625);
+      opacity: 1;
+    }
+    46% {
       transform: scale(1);
       opacity: 0.1;
     }
-    to {
-      transform: scale(1.0625);
-      opacity: 1;
+    100% {
+      transform: scale(1);
+      opacity: 0.1;
     }
   }
 `;
