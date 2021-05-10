@@ -35,7 +35,7 @@ async function createPages({ graphql, actions, reporter }) {
       },
     });
   }
-  for (const forTab of ['ridipaper', 'paper-pro']) {
+  for (const forTab of ['ridipaper']) {
     actions.createPage({
       path: `/accessories/${forTab}/`,
       component: accessoryIndexTemplate,
@@ -44,6 +44,12 @@ async function createPages({ graphql, actions, reporter }) {
       },
     });
   }
+  actions.createRedirect({
+    fromPath: '/accessories/paper-pro/',
+    toPath: '/accessories/ridipaper/',
+    redirectInBrowser: true,
+    isPermanent: true,
+  });
   actions.createRedirect({
     fromPath: '/accessories/',
     toPath: '/accessories/ridipaper/',
@@ -66,7 +72,19 @@ async function createPages({ graphql, actions, reporter }) {
   });
   actions.createRedirect({
     fromPath: "/pro.html",
-    toPath: "/pro/",
+    toPath: "/",
+    redirectInBrowser: true,
+    isPermanent: true,
+  });
+  actions.createRedirect({
+    fromPath: "/pro/",
+    toPath: "/",
+    redirectInBrowser: true,
+    isPermanent: true,
+  });
+  actions.createRedirect({
+    fromPath: "/stockists/paper-pro/",
+    toPath: "/stockists/ridipaper/",
     redirectInBrowser: true,
     isPermanent: true,
   });

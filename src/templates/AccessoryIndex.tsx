@@ -52,10 +52,6 @@ const tabs = [
     id: 'ridipaper',
     name: 'RIDIPAPER',
   },
-  {
-    id: 'paper-pro',
-    name: 'PAPER PRO',
-  },
 ];
 
 interface Props {
