@@ -105,7 +105,8 @@ const styles = css`
     }
   }
 
-  .ridipaperLogo, .ridipaperLogoDark {
+  .ridipaperLogo,
+  .ridipaperLogoDark {
     width: 107px;
     height: 16px;
   }
@@ -169,13 +170,29 @@ export default function Header() {
             <Link to="/" className={styles.logoLink}>
               <RidipaperLogo className={styles.ridipaperLogo} />
             </Link>
-            <LinkButton to="/stockists/" size="small" color="white" className={styles.buy}>구매하기</LinkButton>
+            <LinkButton
+              to="/stockists/"
+              size="small"
+              color="white"
+              className={styles.buy}
+            >
+              구매하기
+            </LinkButton>
           </Top>
           <Bottom>
-            <Link to="/" className={styles.navButton} activeClassName={styles.active}>
+            <Link
+              to="/ridipaper/"
+              className={styles.navButton}
+              activeClassName={styles.active}
+            >
               RIDIPAPER
             </Link>
-            <Link to="/accessories/" className={styles.navButton} activeClassName={styles.active} partiallyActive>
+            <Link
+              to="/accessories/"
+              className={styles.navButton}
+              activeClassName={styles.active}
+              partiallyActive
+            >
               Accessory
             </Link>
           </Bottom>
@@ -187,7 +204,14 @@ export default function Header() {
             <Link to="/" className={styles.logoLink}>
               <RidipaperLogo className={styles.ridipaperLogoDark} />
             </Link>
-            <LinkButton to="/stockists/" size="small" color="gray" className={styles.buy}>구매하기</LinkButton>
+            <LinkButton
+              to="/stockists/"
+              size="small"
+              color="gray"
+              className={styles.buy}
+            >
+              구매하기
+            </LinkButton>
           </FixedHeaderInner>
         </FixedHeader>
       )}
