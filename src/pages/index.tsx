@@ -1,21 +1,51 @@
+import { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-
 import { Controller } from 'scrollmagic';
 
 import { ScrollmagicProvider } from '../components/ScrollmagicContext';
 
-import BlankLayout from '../components/teaserLayout';
+import AccessoryBanner from '../components/AccessoryBanner';
+import Details from '../components/details';
+import Features from '../components/features';
+import Hero from '../components/hero/IndexPage';
+import Layout from '../components/layout';
+import Panel from '../components/panel';
+import Ridibatang from '../components/ridibatang';
 import SEO from '../components/seo';
-import Body from '../components/teaser/Body';
-import MobileBody from '../components/teaser/MobileBody';
+import Specs from '../components/specs';
+import ViewerFeatures from '../components/viewer-features';
 
-const IndexPage = () => {
+const styles = css`
+  .main {
+    > section {
+      display: block;
+
+      &:first-of-type {
+        margin-top: 200px;
+
+        @media (max-width: 800px) {
+          margin-top: 80px;
+        }
+      }
+
+      & + section {
+        margin-top: 200px;
+
+        @media (max-width: 800px) {
+          margin-top: 120px;
+        }
+      }
+    }
+  }
+`;
+
+const RidiPaperPage = () => {
   const [controller, setController] = React.useState<Controller>();
   const data = useStaticQuery(graphql`
     {
-      banner: file(relativePath: { eq: "images/meta/paper4/og.png" }) {
+      banner: file(relativePath: { eq: "images/meta/ridipaper/og.jpg" }) {
         publicURL
       }
     }
@@ -39,17 +69,22 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <BlankLayout
-      desktop={
-        <ScrollmagicProvider value={controller}>
-          <Body />
-        </ScrollmagicProvider>
-      }
-      mobile={<MobileBody />}
-    >
-      <SEO meta={[{ property: 'og:image', content: data.banner.publicURL }]} />
-    </BlankLayout>
+    <Layout className={styles.main}>
+      <ScrollmagicProvider value={controller}>
+        <SEO
+          meta={[{ property: 'og:image', content: data.banner.publicURL }]}
+        />
+        <Hero />
+        <Features />
+        <ViewerFeatures />
+        <Panel />
+        <Details />
+        <Ridibatang />
+        <AccessoryBanner />
+        <Specs />
+      </ScrollmagicProvider>
+    </Layout>
   );
 };
 
-export default IndexPage;
+export default RidiPaperPage;

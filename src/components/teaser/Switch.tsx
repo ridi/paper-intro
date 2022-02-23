@@ -63,12 +63,12 @@ const styles = css`
   }
 
   input:checked + .slider:before {
-    transform: translateX(77px);
+    transform: translateX(78px);
     background-color: #ffffff;
   }
 
   .slider:before {
-    border-radius: 8px;
+    border-radius: 7px;
   }
 
   .black,

@@ -21,6 +21,10 @@ const Container = styled<'header', { state: string }>('header')`
   &.state-current {
     opacity: 1;
   }
+
+  @media (max-width: 600px) {
+    padding: 26px 15px;
+  }
 `;
 
 const Button = styled<typeof Link, { black?: boolean }>(Link)`

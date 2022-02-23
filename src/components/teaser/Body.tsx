@@ -146,6 +146,7 @@ const styles = css`
     bottom: 0;
     right: 0;
     margin: auto;
+    max-width: 80%;
   }
 
   .title {
