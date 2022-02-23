@@ -1,51 +1,21 @@
-import { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
+
 import { Controller } from 'scrollmagic';
 
 import { ScrollmagicProvider } from '../components/ScrollmagicContext';
 
-import AccessoryBanner from '../components/AccessoryBanner';
-import Details from '../components/details';
-import Features from '../components/features';
-import Hero from '../components/hero/IndexPage';
-import Layout from '../components/layout';
-import Panel from '../components/panel';
-import Ridibatang from '../components/ridibatang';
+import BlankLayout from '../components/teaserLayout';
 import SEO from '../components/seo';
-import Specs from '../components/specs';
-import ViewerFeatures from '../components/viewer-features';
+import Body from '../components/teaser/Body';
+import MobileBody from '../components/teaser/MobileBody';
 
-const styles = css`
-  .main {
-    > section {
-      display: block;
-
-      &:first-of-type {
-        margin-top: 200px;
-
-        @media (max-width: 800px) {
-          margin-top: 80px;
-        }
-      }
-
-      & + section {
-        margin-top: 200px;
-
-        @media (max-width: 800px) {
-          margin-top: 120px;
-        }
-      }
-    }
-  }
-`;
-
-const RidiPaperPage = () => {
+const IndexPage = () => {
   const [controller, setController] = React.useState<Controller>();
   const data = useStaticQuery(graphql`
     {
-      banner: file(relativePath: { eq: "images/meta/ridipaper/og.jpg" }) {
+      banner: file(relativePath: { eq: "images/meta/paper4/og.png" }) {
         publicURL
       }
     }
@@ -69,22 +39,17 @@ const RidiPaperPage = () => {
   }, []);
 
   return (
-    <Layout className={styles.main}>
-      <ScrollmagicProvider value={controller}>
-        <SEO
-          meta={[{ property: 'og:image', content: data.banner.publicURL }]}
-        />
-        <Hero />
-        <Features />
-        <ViewerFeatures />
-        <Panel />
-        <Details />
-        <Ridibatang />
-        <AccessoryBanner />
-        <Specs />
-      </ScrollmagicProvider>
-    </Layout>
+    <BlankLayout
+      desktop={
+        <ScrollmagicProvider value={controller}>
+          <Body />
+        </ScrollmagicProvider>
+      }
+      mobile={<MobileBody />}
+    >
+      <SEO meta={[{ property: 'og:image', content: data.banner.publicURL }]} />
+    </BlankLayout>
   );
 };
 
-export default RidiPaperPage;
+export default IndexPage;

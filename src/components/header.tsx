@@ -181,7 +181,7 @@ export default function Header() {
           </Top>
           <Bottom>
             <Link
-              to="/"
+              to="/ridipaper"
               className={styles.navButton}
               activeClassName={styles.active}
             >
