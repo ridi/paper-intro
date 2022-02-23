@@ -62,6 +62,9 @@ const TeaserLayout = ({ desktop, mobile, children }: Props) => {
     window.addEventListener('scroll', onScroll, { passive: false });
     return () => {
       window.removeEventListener('scroll', onScroll);
+      if (body) {
+        body.classList.remove(styles.black);
+      }
     };
   });
   return (
