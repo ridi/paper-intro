@@ -177,10 +177,11 @@ interface BodyProps {
 const scenes: SceneItem[] = [
   {
     animation: function BodyComponent(props: BodyProps) {
+      const state = props.state === 'before' ? 'current' : props.state;
       return (
-        <SceneBody state={props.state} background="black">
-          <Header state={props.state} type="black" />
-          <ScreenContainer state={props.state}>
+        <SceneBody state={state} background="black">
+          <Header state={state} type="black" />
+          <ScreenContainer state={state}>
             <img
               src={productDesktopBlack}
               alt="페이퍼4세대 블랙"
@@ -245,8 +246,28 @@ export default function Body(props: Props) {
         triggerHook: 'onLeave',
         offset: idx * SCENE_DURATION,
       })
-        .on('enter', () => setPhase(phase => phase + 1))
-        .on('leave', () => setPhase(phase => phase - 1))
+        .on('enter', () =>
+          setPhase(phase => {
+            if (phase === -1) {
+              return 0;
+            } else if (phase === 0) {
+              return 1;
+            } else {
+              return 2;
+            }
+          }),
+        )
+        .on('leave', () =>
+          setPhase(phase => {
+            if (phase === 2) {
+              return 1;
+            } else if (phase === 1) {
+              return 0;
+            } else {
+              return -1;
+            }
+          }),
+        )
         .addTo(controller);
     });
   });

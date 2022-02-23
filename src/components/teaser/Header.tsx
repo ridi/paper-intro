@@ -11,6 +11,7 @@ const Container = styled<'header', { state: string }>('header')`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  top: 0px;
 
   width: 100%;
   padding: 36px;

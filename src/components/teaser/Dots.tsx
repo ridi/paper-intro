@@ -50,13 +50,13 @@ export default function Dots(props: Props) {
     <Container>
       {props.type === 'black' ? (
         <>
-          <DotBlackTop className={styles.dot} onClick={onClickTop} />
-          <DotBlackBottom className={styles.dot} onClick={onClickBottom} />
+          <DotBlackTop className={styles.dot} onClick={onClickBottom} />
+          <DotBlackBottom className={styles.dot} onClick={onClickTop} />
         </>
       ) : (
         <>
-          <DotWhiteTop className={styles.dot} onClick={onClickTop} />
-          <DotWhiteBottom className={styles.dot} onClick={onClickBottom} />
+          <DotWhiteTop className={styles.dot} onClick={onClickBottom} />
+          <DotWhiteBottom className={styles.dot} onClick={onClickTop} />
         </>
       )}
     </Container>

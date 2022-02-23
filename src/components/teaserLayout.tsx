@@ -5,8 +5,8 @@ import 'normalize.css';
 import './layout.css';
 
 const Container = styled.div`
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -14,6 +14,15 @@ const Container = styled.div`
 `;
 
 const styles = css`
+  html,
+  body {
+    overscroll-behavior: none;
+  }
+
+  .black {
+    background: #000000;
+  }
+
   .desktop {
     display: none;
     @media (min-width: 601px) {
@@ -36,6 +45,25 @@ interface Props {
 }
 
 const TeaserLayout = ({ desktop, mobile, children }: Props) => {
+  React.useEffect(() => {
+    const body = document.querySelector('body');
+    if (body) {
+      body.classList.add(styles.black);
+    }
+
+    const onScroll = () => {
+      if (body && window.scrollY <= 0) {
+        body.classList.add(styles.black);
+      } else if (body) {
+        body.classList.remove(styles.black);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: false });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  });
   return (
     <Container>
       <main className={styles.desktop}>{desktop}</main>

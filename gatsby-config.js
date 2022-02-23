@@ -67,7 +67,7 @@ module.exports = {
       options: {
         name: 'RIDIPAPER',
         short_name: 'PAPER',
-        icon: 'src/assets/images/meta/ridipaper/android-chrome-384x384.png',
+        icon: 'src/assets/images/meta/paper4/android-icon-192x192.png',
         icons: [
           {
             src: '/favicons/48.png',
