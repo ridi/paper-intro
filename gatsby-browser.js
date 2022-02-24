@@ -1,5 +1,7 @@
 function getLocationType(location) {
-  const match = /^\/(accessories|stockists)\/(?:ridipaper|paper-pro)\/?$/.exec(location.pathname);
+  const match = /^\/(accessories|stockists)\/(?:ridipaper|paper-pro)\/?$/.exec(
+    location.pathname,
+  );
   if (match != null) {
     return match[1];
   }
@@ -7,6 +9,9 @@ function getLocationType(location) {
 }
 
 function shouldUpdateScroll({ prevRouterProps, routerProps }) {
+  if (!prevRouterProps || !routerProps) {
+    return true;
+  }
   const prevLocationType = getLocationType(prevRouterProps.location);
   const currLocationType = getLocationType(routerProps.location);
   if (prevLocationType === '') {

@@ -2,8 +2,8 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'RIDIPAPER - 리디북스 전자책 단말기, 리디페이퍼',
-    description: '리디북스 전용 전자책 단말기 리디페이퍼. 최고의 전자책 서비스 리디셀렉트와 리디북스를 이용할 수 있는 외출 필수품.',
+    title: 'Simple Reading, Simple Living',
+    description: '리디의 새로운 이북리더기 RIDIPAPER4 3월 24일부터 예약 판매',
     keywords: [
       '페이퍼',
       '페이퍼 프로',
@@ -67,7 +67,7 @@ module.exports = {
       options: {
         name: 'RIDIPAPER',
         short_name: 'PAPER',
-        icon: 'src/assets/images/meta/ridipaper/android-chrome-384x384.png',
+        icon: 'src/assets/images/meta/paper4/android-icon-192x192.png',
         icons: [
           {
             src: '/favicons/48.png',
@@ -130,7 +130,7 @@ module.exports = {
         },
         custom: {
           families: ['RIDIBatang'],
-        }
+        },
       },
     },
     'gatsby-transformer-sharp',
