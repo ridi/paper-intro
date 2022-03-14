@@ -6,42 +6,17 @@ import { Controller } from 'scrollmagic';
 
 import Layout from '@/components/common/Layout';
 import SEO from '@/components/common/SEO';
+import { Hero } from '@/components/ridipaper4/Hero';
 import { ScrollmagicProvider } from '@/components/common/ScrollMagicContext';
-
-import AccessoryBanner from '@/components/ridipaper/AccessoryBanner';
-import Details from '@/components/ridipaper/Details';
-import Features from '@/components/ridipaper/Features';
-import Hero from '@/components/ridipaper/RidiPaperHero';
-import Panel from '@/components/ridipaper/Panel';
-import Ridibatang from '@/components/ridipaper/Ridibatang';
-import Specs from '@/components/ridipaper/Specs';
-import ViewerFeatures from '@/components/ridipaper/ViewerFeatures';
+import { Specs } from '@/components/ridipaper4/Specs';
 
 const styles = css`
   .main {
-    > section {
-      display: block;
-
-      &:first-of-type {
-        margin-top: 200px;
-
-        @media (max-width: 800px) {
-          margin-top: 80px;
-        }
-      }
-
-      & + section {
-        margin-top: 200px;
-
-        @media (max-width: 800px) {
-          margin-top: 120px;
-        }
-      }
-    }
+    font-family: 'Pretendard', sans-serif;
   }
 `;
 
-const RidiPaperPage = () => {
+const RidiPaper4Page = () => {
   const [controller, setController] = React.useState<Controller>();
   const data = useStaticQuery(graphql`
     {
@@ -75,16 +50,10 @@ const RidiPaperPage = () => {
           meta={[{ property: 'og:image', content: data.banner.publicURL }]}
         />
         <Hero />
-        <Features />
-        <ViewerFeatures />
-        <Panel />
-        <Details />
-        <Ridibatang />
-        <AccessoryBanner />
         <Specs />
       </ScrollmagicProvider>
     </Layout>
   );
 };
 
-export default RidiPaperPage;
+export default RidiPaper4Page;
