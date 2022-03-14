@@ -1,7 +1,7 @@
 import styled from 'astroturf';
 import React from 'react';
 
-import Hero from './index';
+import Hero from '@/components/common/Hero';
 
 const HeroContainer = styled.div`
   width: 100%;
@@ -56,7 +56,7 @@ interface Props {
   renderBackground?(props: { className: string }): React.ReactNode;
 }
 
-export default function IndexHero(props: Props) {
+export default function AccessoryHero(props: Props) {
   return (
     <Hero short renderBackground={props.renderBackground}>
       <HeroContainer>{props.children}</HeroContainer>

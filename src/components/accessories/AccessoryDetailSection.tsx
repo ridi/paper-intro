@@ -5,7 +5,7 @@ import { FluidObject } from 'gatsby-image';
 import Img from 'gatsby-image';
 
 import AccessoryTableSection from './AccessoryTableSection';
-import LineBreakText from '../LineBreakText';
+import LineBreakText from '@/components/common/LineBreakText';
 
 export interface DetailSection {
   type: 'detail';

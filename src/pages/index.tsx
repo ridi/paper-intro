@@ -4,18 +4,18 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Controller } from 'scrollmagic';
 
-import { ScrollmagicProvider } from '../components/ScrollmagicContext';
+import Layout from '@/components/common/Layout';
+import SEO from '@/components/common/SEO';
+import { ScrollmagicProvider } from '@/components/common/ScrollMagicContext';
 
-import AccessoryBanner from '../components/ridipaper/AccessoryBanner';
-import Details from '../components/ridipaper/details';
-import Features from '../components/ridipaper/features';
-import Hero from '../components/ridipaper/Hero';
-import Layout from '../components/layout';
-import Panel from '../components/ridipaper/panel';
-import Ridibatang from '../components/ridipaper/ridibatang';
-import SEO from '../components/seo';
-import Specs from '../components/ridipaper/specs';
-import ViewerFeatures from '../components/ridipaper/viewer-features';
+import AccessoryBanner from '@/components/ridipaper/AccessoryBanner';
+import Details from '@/components/ridipaper/Details';
+import Features from '@/components/ridipaper/Features';
+import Hero from '@/components/ridipaper/RidiPaperHero';
+import Panel from '@/components/ridipaper/Panel';
+import Ridibatang from '@/components/ridipaper/Ridibatang';
+import Specs from '@/components/ridipaper/Specs';
+import ViewerFeatures from '@/components/ridipaper/ViewerFeatures';
 
 const styles = css`
   .main {

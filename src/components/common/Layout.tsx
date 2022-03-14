@@ -1,11 +1,11 @@
 import styled from 'astroturf';
 import React from 'react';
 
-import Footer from  './footer';
-import Header from './header';
+import Footer from  './Footer';
+import Header from './Header';
 
 import 'normalize.css';
-import './layout.css';
+import './Layout.css';
 
 const Container = styled.div`
   width: 100vw;

@@ -4,7 +4,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
-import { useScrollmagicEffect } from '@/components/ScrollmagicContext';
+import { useScrollmagicEffect } from '@/components/common/ScrollMagicContext';
 
 import Icon6Inch from '@/svgs/ridipaper/features/6inch.svg';
 import IconRotate from '@/svgs/ridipaper/features/rotate.svg'

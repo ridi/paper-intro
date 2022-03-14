@@ -3,7 +3,7 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { useScrollmagicEffect } from '@/components/ScrollmagicContext';
+import { useScrollmagicEffect } from '@/components/common/ScrollMagicContext';
 
 import AnimationEink from './AnimationEink';
 import AnimationFrontlight from './AnimationFrontlight';

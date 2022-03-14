@@ -3,7 +3,7 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import Button from '@/components/Button';
+import Button from '@/components/common/Button';
 import SpecSection, { SpecItem } from './SpecSection';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 

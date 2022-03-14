@@ -3,10 +3,10 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { LinkButton } from '@/components/Button';
-import Hero from '@/components/Hero';
+import { LinkButton } from '@/components/common/Button';
+import Hero from '@/components/common/Hero';
 
-import RidipaperLogo from '@/svgs/ridipaper/ridipaper.inline.svg';
+import RidipaperLogo from '@/svgs/ridipaper.inline.svg';
 
 const HeroContainer = styled.div`
   width: 100%;

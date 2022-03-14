@@ -1,7 +1,7 @@
 import styled from 'astroturf';
 import React from 'react';
 
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 
 const Container = styled.ul`

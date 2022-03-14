@@ -4,7 +4,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
-import Button from '@/components/Button';
+import Button from '@/components/common/Button';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 css`
