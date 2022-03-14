@@ -136,5 +136,11 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-tidy',
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        '@': path.join(__dirname, 'src'),
+      },
+    },
   ],
 };

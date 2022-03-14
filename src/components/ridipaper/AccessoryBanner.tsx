@@ -4,7 +4,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img, { FixedObject } from 'gatsby-image';
 
-import { LinkButton } from './Button';
+import { LinkButton } from '@/components/Button';
 
 const Container = styled.section`
   position: relative;

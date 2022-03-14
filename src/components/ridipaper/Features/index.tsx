@@ -4,12 +4,12 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
-import { useScrollmagicEffect } from '../ScrollmagicContext';
+import { useScrollmagicEffect } from '@/components/ScrollmagicContext';
 
-import Icon6Inch from '../../svgs/features/6inch.svg';
-import IconRotate from '../../svgs/features/rotate.svg'
-import IconBluetooth from '../../svgs/features/bluetooth.svg';
-import IconFlipCover from '../../svgs/features/flipcover.svg';
+import Icon6Inch from '@/svgs/ridipaper/features/6inch.svg';
+import IconRotate from '@/svgs/ridipaper/features/rotate.svg'
+import IconBluetooth from '@/svgs/ridipaper/features/bluetooth.svg';
+import IconFlipCover from '@/svgs/ridipaper/features/flipcover.svg';
 
 import FeatureItem from './FeatureItem';
 import FeatureDescription from './FeatureDescription';
@@ -124,22 +124,22 @@ export default function Features() {
     }
 
     {
-      one: file(relativePath: { eq: "images/features/1.jpg" }) {
+      one: file(relativePath: { eq: "images/ridipaper/features/1.jpg" }) {
         ...FeatureImage
       }
-      twoPoster: file(relativePath: { eq: "images/features/2.jpg" }) {
+      twoPoster: file(relativePath: { eq: "images/ridipaper/features/2.jpg" }) {
         publicURL
       }
-      twoWebm: file(relativePath: { eq: "images/features/2.webm" }) {
+      twoWebm: file(relativePath: { eq: "images/ridipaper/features/2.webm" }) {
         publicURL
       }
-      twoMp4: file(relativePath: { eq: "images/features/2.mp4" }) {
+      twoMp4: file(relativePath: { eq: "images/ridipaper/features/2.mp4" }) {
         publicURL
       }
-      three: file(relativePath: { eq: "images/features/3.jpg" }) {
+      three: file(relativePath: { eq: "images/ridipaper/features/3.jpg" }) {
         ...FeatureImage
       }
-      four: file(relativePath: { eq: "images/features/4.jpg" }) {
+      four: file(relativePath: { eq: "images/ridipaper/features/4.jpg" }) {
         ...FeatureImage
       }
     }

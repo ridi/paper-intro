@@ -148,25 +148,25 @@ export default function PanelAnimation(props: Props) {
     }
 
     {
-      _1: file(relativePath: { eq: "images/panel/1.png" }) {
+      _1: file(relativePath: { eq: "images/ridipaper/panel/1.png" }) {
         ...PanelImage
       }
-      _2: file(relativePath: { eq: "images/panel/2.png" }) {
+      _2: file(relativePath: { eq: "images/ridipaper/panel/2.png" }) {
         ...PanelImage
       }
-      _3: file(relativePath: { eq: "images/panel/3.png" }) {
+      _3: file(relativePath: { eq: "images/ridipaper/panel/3.png" }) {
         ...PanelImage
       }
-      _4a: file(relativePath: { eq: "images/panel/4-1.png" }) {
+      _4a: file(relativePath: { eq: "images/ridipaper/panel/4-1.png" }) {
         ...PanelImage
       }
-      _4b: file(relativePath: { eq: "images/panel/4-2.png" }) {
+      _4b: file(relativePath: { eq: "images/ridipaper/panel/4-2.png" }) {
         ...PanelImage
       }
-      _5: file(relativePath: { eq: "images/panel/5.png" }) {
+      _5: file(relativePath: { eq: "images/ridipaper/panel/5.png" }) {
         ...PanelImage
       }
-      _6: file(relativePath: { eq: "images/panel/6.png" }) {
+      _6: file(relativePath: { eq: "images/ridipaper/panel/6.png" }) {
         ...PanelImage
       }
     }

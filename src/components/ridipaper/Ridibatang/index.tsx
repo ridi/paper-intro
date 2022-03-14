@@ -4,7 +4,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
-import Button from '../Button';
+import Button from '@/components/Button';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 css`
@@ -87,7 +87,7 @@ const styles = css`
 export default function Ridibatang() {
   const data = useStaticQuery(graphql`
     {
-      device: file(relativePath: {eq: "images/ridibatang/device.png"}) {
+      device: file(relativePath: {eq: "images/ridipaper/ridibatang/device.png"}) {
         childImageSharp {
           fluid(maxWidth: 830, sizes: "(max-width: 600px) 100vw, (max-width: 800px) 600px, 830px", quality: 90) {
             ...GatsbyImageSharpFluid_withWebp_noBase64

@@ -108,7 +108,7 @@ interface Props {
 export default function AnimationQuickButton(props: Props) {
   const data = useStaticQuery(graphql`
     {
-      quickButton: file(relativePath: {eq: "images/viewer-features/quick-button.png"}) {
+      quickButton: file(relativePath: {eq: "images/ridipaper/viewer-features/quick-button.png"}) {
         ...ScreenImage
       }
     }

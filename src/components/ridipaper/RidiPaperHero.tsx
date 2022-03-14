@@ -3,10 +3,10 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { LinkButton } from '../Button';
-import Hero from './index';
+import { LinkButton } from '@/components/Button';
+import Hero from '@/components/Hero';
 
-import RidipaperLogo from '../../svgs/ridipaper.inline.svg';
+import RidipaperLogo from '@/svgs/ridipaper/ridipaper.inline.svg';
 
 const HeroContainer = styled.div`
   width: 100%;
@@ -143,7 +143,7 @@ const styles = css`
   }
 `;
 
-export default function IndexHero() {
+export default function RidiPaperHero() {
   const [runAnimation, setRunAnimation] = React.useState(false);
   const data = useStaticQuery(graphql`
     {
