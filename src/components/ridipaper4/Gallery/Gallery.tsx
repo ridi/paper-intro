@@ -1,15 +1,13 @@
 import styled from 'astroturf';
 import { useGalleryImages } from './hooks';
-import * as constants from './constants';
-
-import { BreakPoint } from '@/styles/media';
+import React from 'react';
 import { GalleryController } from './GalleryController';
 
 const GalleryContainer = styled('section')`
-  height: ${constants.DESKTOP_HEIGHT}px;
+  height: 456px;
   
-  @media (max-width: ${BreakPoint.MobileMax}px) {
-    height: ${constants.MOBILE_HEIGHT}px;
+  @media (max-width: 600px) {
+    height: 128px;
   }
 `;
 

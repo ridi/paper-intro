@@ -3,17 +3,15 @@ import { FluidObject } from 'gatsby-image';
 import { GalleryImage } from '../types';
 
 type GalleryImagesQueryResponse = {
-  data: {
-    images: {
-      edges: {
-        node: {
-          name: string;
-          childImageSharp: {
-            fluid: FluidObject
-          }
+  images: {
+    edges: {
+      node: {
+        name: string;
+        childImageSharp: {
+          fluid: FluidObject
         }
-      }[]
-    }
+      }
+    }[]
   }
 };
 
@@ -35,7 +33,7 @@ const galleryImagesQuery = graphql`
 `;
 
 export const useGalleryImages = () => {
-  const { data } = useStaticQuery<GalleryImagesQueryResponse>(galleryImagesQuery);
+  const data = useStaticQuery<GalleryImagesQueryResponse>(galleryImagesQuery);
   return data
     .images
     .edges

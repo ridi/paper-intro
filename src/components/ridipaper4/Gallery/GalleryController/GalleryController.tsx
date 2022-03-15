@@ -1,6 +1,6 @@
 import styled from 'astroturf';
 import { useCallback, useEffect, useState } from 'react';
-import { BreakPoint } from '@/styles/media';
+import React from 'react';
 import { GalleryController as GalleryControllerType } from '../types';
 import { GalleryFlowController } from './GalleryFlowController';
 import { GalleryScrollController } from './GalleryScrollController';
@@ -8,13 +8,15 @@ import { PointerEvent } from 'react';
 
 const GalleryControllerContainer = styled('div')`
   display: flex;
+  height: 100%;
+  margin: 0 auto;
 `;
 
 export const GalleryController: GalleryControllerType = ({ images }): JSX.Element => {
   const [status, setStatus] = useState<'mobile' | 'desktop' | null>(null);
   useEffect(() => {
     const onResize = () => {
-      setStatus(window.innerWidth < BreakPoint.DesktopMin ? 'mobile' : 'desktop');
+      setStatus(window.innerWidth <= 600 ? 'mobile' : 'desktop');
     };
     onResize();
     

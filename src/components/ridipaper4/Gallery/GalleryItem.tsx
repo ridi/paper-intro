@@ -1,14 +1,15 @@
 import styled from 'astroturf';
 import { forwardRef } from 'react';
-import * as constants from './constants';
-
 import Img from 'gatsby-image';
+import React from 'react';
 import { GalleryImage } from './types';
 
 const GalleryItemContainer = styled('li')`
-  width: ${constants.DESKTOP_WIDTH}px;
+  width: 100%;
   height: 100%;
-  padding: 0 14px;
+  border-radius: 8px;
+  overflow: hidden;
+  list-style-type: none;
 `;
 
 type GalleryItemProps = {
