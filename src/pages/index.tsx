@@ -34,6 +34,7 @@ const RidiPaper4Page = () => {
           meta={[{ property: 'og:image', content: data.banner.publicURL }]}
         />
         <Hero />
+        <Features />
         <Gallery />
         <Specs />
         <Manual />
