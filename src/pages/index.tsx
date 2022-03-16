@@ -5,9 +5,7 @@ import React from 'react';
 
 import Layout from '@/components/common/Layout';
 import SEO from '@/components/common/SEO';
-
-import { Controller } from 'scrollmagic';
-import { ScrollmagicProvider } from '@/components/common/ScrollMagicContext';
+import { ScrollmagicProvider } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 
 import { Gallery } from '@/components/ridipaper4/Gallery';
 import { Hero } from '@/components/ridipaper4/Hero';
@@ -21,7 +19,6 @@ const styles = css`
 `;
 
 const RidiPaper4Page = () => {
-  const [controller, setController] = React.useState<Controller>();
   const data = useStaticQuery(graphql`
     {
       banner: file(relativePath: { eq: "images/meta/ridipaper/og.jpg" }) {
@@ -30,26 +27,9 @@ const RidiPaper4Page = () => {
     }
   `);
 
-  React.useEffect(() => {
-    let controller: Controller;
-    let destroyed = false;
-    import('scrollmagic').then(({ Controller }) => {
-      if (destroyed) {
-        return;
-      }
-      controller = new Controller();
-      setController(controller);
-    });
-
-    return () => {
-      controller && controller.destroy();
-      destroyed = true;
-    };
-  }, []);
-
   return (
     <Layout className={styles.main}>
-      <ScrollmagicProvider value={controller}>
+      <ScrollmagicProvider>
         <SEO
           meta={[{ property: 'og:image', content: data.banner.publicURL }]}
         />
