@@ -64,6 +64,14 @@ const PurchaseButton = styled(LinkButton)`
   font-weight: 700;
   line-height: 60px;
   
+  @media (max-width: 800px) {
+    min-width: 200px;
+    min-height: 60px;
+    padding: 4 28px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+  
   @media (max-width: 600px) {
     position: static;
     top: unset;

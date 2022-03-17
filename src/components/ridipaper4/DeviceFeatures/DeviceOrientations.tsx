@@ -41,6 +41,13 @@ const DeviceOrientationsStage = styled('div')`
     width: 100%;
     padding-bottom: 100%;
   }
+  
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+  }
 `;
 
 const RidiPaperContainer = styled('div')`
@@ -111,6 +118,21 @@ const TextContainer = styled('div')`
   left: 30%;
   transform: translate(0, -50%);
   opacity: 0;
+  
+  @media (max-width: 600px) {
+    top: 20%;
+    left: 10%;
+  }
+`;
+
+const OverflowBlock = styled('div')`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const BASE_WIDTH = 700;
@@ -152,35 +174,37 @@ export const DeviceOrientations = (): JSX.Element => {
   return (
     <DeviceOrientationsContainer ref={triggerRef} style={{ height: `calc(${DURATION}px + 100vh)`}}>
       <PinnedItem duration={DURATION}>
-        <DeviceOrientationsStage>
-          <RidiPaperContainer ref={ridipaperRef}>
-            <RidiPaperImage fluid={ridipaper.childImageSharp.fluid} />
-            
-            <PreviewTextContainer ref={previewTextRef}>
-              { LINES.map((line, index) => (
-                <PreviewTextSvg
-                  key={index}
-                  viewBox={`0 0 ${BASE_WIDTH} ${FONT_SIZE * LINE_HEIGHT}`}
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <text x="0" y={FONT_SIZE * (LINE_HEIGHT / 2)}>{ line }</text>
-                </PreviewTextSvg>
-              )) }
-            </PreviewTextContainer>
-            
-            <PreviewTextContainerReverse ref={previewTextReverseRef}>
-              { LINES.map((line, index) => (
-                <PreviewTextSvg
-                  key={index}
-                  viewBox={`0 0 ${BASE_WIDTH} ${FONT_SIZE * LINE_HEIGHT}`}
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <text x="0" y={FONT_SIZE * (LINE_HEIGHT / 2)}>{ line }</text>
-                </PreviewTextSvg>
-              )) }
-            </PreviewTextContainerReverse>
-          </RidiPaperContainer>
-        </DeviceOrientationsStage>
+        <OverflowBlock>
+          <DeviceOrientationsStage>
+            <RidiPaperContainer ref={ridipaperRef}>
+              <RidiPaperImage fluid={ridipaper.childImageSharp.fluid} />
+              
+              <PreviewTextContainer ref={previewTextRef}>
+                { LINES.map((line, index) => (
+                  <PreviewTextSvg
+                    key={index}
+                    viewBox={`0 0 ${BASE_WIDTH} ${FONT_SIZE * LINE_HEIGHT}`}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <text x="0" y={FONT_SIZE * (LINE_HEIGHT / 2)}>{ line }</text>
+                  </PreviewTextSvg>
+                )) }
+              </PreviewTextContainer>
+              
+              <PreviewTextContainerReverse ref={previewTextReverseRef}>
+                { LINES.map((line, index) => (
+                  <PreviewTextSvg
+                    key={index}
+                    viewBox={`0 0 ${BASE_WIDTH} ${FONT_SIZE * LINE_HEIGHT}`}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <text x="0" y={FONT_SIZE * (LINE_HEIGHT / 2)}>{ line }</text>
+                  </PreviewTextSvg>
+                )) }
+              </PreviewTextContainerReverse>
+            </RidiPaperContainer>
+          </DeviceOrientationsStage>
+        </OverflowBlock>
         
         <TextContainer ref={floatRef}>
           <SubTitle>누구나 쉽게 편하게</SubTitle>

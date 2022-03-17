@@ -36,6 +36,7 @@ const SpecsHeaderItem = styled('button')`
   height: 38px;
   margin: 10px ${ITEM_MARGIN}px;
   padding: 0 10px;
+  flex: 0 0 auto;
   
   cursor: pointer;
   color: #121212;

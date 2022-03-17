@@ -7,10 +7,16 @@ import Layout from '@/components/common/Layout';
 import SEO from '@/components/common/SEO';
 import { ScrollmagicProvider } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 
+import { Design } from '@/components/ridipaper4/Design';
+import { DeviceFeatures } from '@/components/ridipaper4/DeviceFeatures';
+import { Features } from '@/components/ridipaper4/Features';
 import { Gallery } from '@/components/ridipaper4/Gallery';
 import { Hero } from '@/components/ridipaper4/Hero';
 import { Manual } from '@/components/ridipaper4/Manual';
+import { PurchaseBanner } from '@/components/ridipaper4/PurchaseBanner';
+import { QuickButton } from '@/components/ridipaper4/QuickButton';
 import { Specs } from '@/components/ridipaper4/Specs';
+import { Video } from '@/components/ridipaper4/Video';
 
 const styles = css`
   .main {
@@ -34,8 +40,13 @@ const RidiPaper4Page = () => {
           meta={[{ property: 'og:image', content: data.banner.publicURL }]}
         />
         <Hero />
+        <Design />
+        <DeviceFeatures />
         <Features />
+        <QuickButton />
+        <Video />
         <Gallery />
+        <PurchaseBanner />
         <Specs />
         <Manual />
       </ScrollmagicProvider>

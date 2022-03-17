@@ -11,13 +11,19 @@ import QuickMenuSwitchIcon from '@/svgs/ridipaper4/quickmenu-switch.inline.svg';
 import QuickMenuTouchlockIcon from '@/svgs/ridipaper4/quickmenu-touchlock.inline.svg';
 import QuickMenuWifiIcon from '@/svgs/ridipaper4/quickmenu-wifi.inline.svg';
 import React from 'react';
-import { PinnedItem } from '@/components/ridipaper4/PinnedItem';
+import { LineBreakOnDesktop } from '@/components/ridipaper4/LineBreak';
 
 const MenuContainer = styled('div')`
   position: relative;
   display: flex;
   flex-direction: column;
   margin-right: 30%;
+  
+  @media (max-width: 600px) {
+    margin-right: 0;
+    width: 80%;
+    max-width: 300px;
+  }
 `;
 
 const MenuTitle = styled('h2')`
@@ -26,6 +32,11 @@ const MenuTitle = styled('h2')`
   font-weight: 700;
   line-height: 48px;
   text-align: start;
+  
+  @media (max-width: 600px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
 `;
 
 const MenuDescription = styled('p')`
@@ -35,6 +46,12 @@ const MenuDescription = styled('p')`
   font-weight: 700;
   line-height: 25px;
   opacity: .6;
+  
+  @media (max-width: 600px) {
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 20px;
+  }
 `;
 
 const MenuRows = styled('div')`
@@ -44,26 +61,46 @@ const MenuRows = styled('div')`
 
 const MenuRow = styled('div')`
   display: flex;
+  justify-content: space-between;
   margin-top: 40px;
+  
+  @media (max-width: 600px) {
+    margin-top: 12px;
+  }
 `;
 
 const ItemContainer = styled('div')`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex: 1;
   color: #000000;
-  opacity: .8;
+  min-width: 70px;
+  
+  @media (max-width: 600px) {
+    min-width: 60px;
+  }
 `;
 
 const ItemIconContainer = styled('i')`
   font-size: 60px;
   margin-bottom: 4px;
+  
+  @media (max-width: 600px) {
+    font-size: 40px;
+  }
 `;
 
 const ItemTitle = styled('span')`
   font-size: 12px;
   line-height: 36px;
+  white-space: nowrap;
+  text-align: center;
+  opacity: .6;
+  
+  @media (max-width: 600px) {
+    font-size: 9px;
+  }
 `;
 
 const icons = [
@@ -89,8 +126,8 @@ const QuickButtonMenu = (): JSX.Element => (
       퀵 버튼 하나로 간단하게
     </MenuTitle>
     <MenuDescription>
-      퀵버튼을 통해 더 손쉽게
-      <br />
+      퀵버튼을 통해 더 손쉽게{' '}
+      <LineBreakOnDesktop />
       조절해보세요.
     </MenuDescription>
     
@@ -124,7 +161,7 @@ const videoQuery = graphql`
 `;
 
 const QuickButtonContainer = styled('section')`
-  background: #c8c8c8;
+  background: #c1c1c1;
   height: 100vh;
 `;
 
@@ -137,6 +174,11 @@ const QuickButtonStage = styled('div')`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  
+  @media (max-width: 600px) {
+    align-items: flex-start;
+    padding-top: 78px;
+  }
 `;
 
 const QuickButtonVideo = styled('video')`
@@ -145,7 +187,7 @@ const QuickButtonVideo = styled('video')`
   left: 50%;
   width: 100%;
   height: auto;
-  background: #c8c8c8;
+  background: #c1c1c1;
   transform: translate(-50%, 0);
   
   @supports (object-fit: contain) {
@@ -153,6 +195,11 @@ const QuickButtonVideo = styled('video')`
     height: 100%;
     object-fit: contain;
     object-position: center bottom;
+  }
+  
+  @media (max-width: 600px) {
+    left: 7%;
+    width: 200%;
   }
 `;
 

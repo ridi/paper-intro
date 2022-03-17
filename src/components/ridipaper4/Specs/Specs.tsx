@@ -6,8 +6,26 @@ import { SpecsTable } from './SpecsTable';
 
 const SpecsContainer = styled('section')`
   max-width: 1004px;
-  padding-top: 215px;
+  padding-top: 80px;
   margin: 0 auto;
+  
+  @media (max-width: 600px) {
+    padding-top: 48px;
+  }
+`;
+
+const SpecsScroller = styled('div')`
+  @media (max-width: 520px) {
+    overflow: auto;
+  }
+`;
+
+const SpecsScrollerInnerSmall = styled('div')`
+  min-width: 430px;
+`;
+
+const SpecsScrollerInnerLarge = styled('div')`
+  min-width: 520px;
 `;
 
 const SpecsTitle = styled('h2')`
@@ -77,19 +95,27 @@ const EXTRA_CONTENT = [
 ];
 
 const SpecsBasic = () => (
-  <SpecsTable rows={BASIC_CONTENT} />
+  <SpecsScrollerInnerSmall>
+    <SpecsTable rows={BASIC_CONTENT} />
+  </SpecsScrollerInnerSmall>
 );
 
 const SpecsTechInfo = () => (
-  <SpecsTable rows={TECHINFO_CONTENT} />
+  <SpecsScrollerInnerSmall>
+    <SpecsTable rows={TECHINFO_CONTENT} />
+  </SpecsScrollerInnerSmall>
 );
 
 const SpecsDisplay = () => (
-  <SpecsTable rows={DISPLAY_CONTENT} />
+  <SpecsScrollerInnerLarge>
+    <SpecsTable rows={DISPLAY_CONTENT} />
+  </SpecsScrollerInnerLarge>
 );
 
 const SpecsExtra = () => (
-  <SpecsTable rows={EXTRA_CONTENT} />
+  <SpecsScrollerInnerLarge>
+    <SpecsTable rows={EXTRA_CONTENT} />
+  </SpecsScrollerInnerLarge>
 );
 
 const SPECS_ITEMS = [
@@ -110,19 +136,24 @@ export const Specs = (): JSX.Element => {
         <br />
         상세 스펙
       </SpecsTitle>
+        
+      <SpecsScroller>
+        <SpecsHeader items={items} selectedItemKey={selectedItemKey} setSelectedItemKey={setSelectedItemKey} />
+      </SpecsScroller>
       
-      <SpecsHeader items={items} selectedItemKey={selectedItemKey} setSelectedItemKey={setSelectedItemKey} />
-      { items.map(({ key, panelId, component: SpecsPanel }) => (
-        <SpecsPanelContainer
-          id={panelId}
-          key={key}
-          role="tabpanel"
-          aria-selected={key === selectedItemKey}
-          data-is-selected={key === selectedItemKey}
-        >
-          <SpecsPanel />
-        </SpecsPanelContainer>
-      ))}
+      <SpecsScroller>
+        { items.map(({ key, panelId, component: SpecsPanel }) => (
+          <SpecsPanelContainer
+            id={panelId}
+            key={key}
+            role="tabpanel"
+            aria-selected={key === selectedItemKey}
+            data-is-selected={key === selectedItemKey}
+          >
+            <SpecsPanel />
+          </SpecsPanelContainer>
+        ))}
+      </SpecsScroller>
     </SpecsContainer>
   );
 };

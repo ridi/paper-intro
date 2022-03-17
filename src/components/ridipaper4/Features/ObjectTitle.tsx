@@ -5,15 +5,23 @@ import { TimelineContext } from './TimelineContext';
 
 const ObjectTitleText = styled('div')`
   position: absolute;
-  top: 5%;
+  top: 15%;
   left: 50%;
   width: 100%;
   transform: translate(-50%, -50%);
   font-size: 24px;
   font-weight: 700;
-  line-height: 1.8em;
+  line-height: 1.5em;
   text-align: center;
   white-space: pre-line;
+  
+  
+  @media (max-width: 600px) {
+    top: unset;
+    bottom: 10%;
+    height: 1.8em;
+    transform-origin: bottom;
+  }
 `;
 
 export const ObjectTitle = (): JSX.Element => {

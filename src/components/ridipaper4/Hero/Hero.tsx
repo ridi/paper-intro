@@ -38,9 +38,9 @@ const HeroContainer = styled('div')`
 
   @media (max-width: 600px) {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
     
     padding: 54px 18px;
     padding-top: 0;
@@ -64,6 +64,10 @@ const HeroHeader = styled('div')`
   }
 `;
 
+const HeroLogo = styled(Ridipaper4Logo)`
+  width: 100%;
+`;
+
 const HeroPhrase = styled('p')`
   font-weight: 400;
   font-size: 18px;
@@ -74,9 +78,11 @@ const HeroPhrase = styled('p')`
 `;
 
 const HeroTitle = styled('h1')`
-  width: 355px;
+  width: 90%;
+  max-width: 355px;
   height: 41px;
   color: #000000;
+  margin: 0 auto;
 `;
 
 const HeroLinkWrapper = styled<'div', { runAnimation?: boolean }>('div')`
@@ -106,6 +112,10 @@ const HeroLinkButton = styled(LinkButton)`
   font-weight: 700;
   font-size: 14px;
   line-height: 24px;
+  
+  @media (max-width: 600px) {
+    min-width: 40vw;
+  }
 `;
 
 const images = graphql`
@@ -228,7 +238,7 @@ export const Hero = (): JSX.Element => {
         <HeroHeader data-is-animated={isAnimated}>
           <HeroPhrase>Simple Reading, Simple Living</HeroPhrase>
           <HeroTitle>
-            <Ridipaper4Logo aria-label="RIDI PAPER 4" />
+            <HeroLogo aria-label="RIDI PAPER 4" />
           </HeroTitle>
         </HeroHeader>
         <HeroLinkWrapper data-is-animated={isAnimated}>
