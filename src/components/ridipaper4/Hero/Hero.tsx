@@ -1,34 +1,30 @@
 import styled from 'astroturf';
 import { graphql, useStaticQuery } from 'gatsby';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import HeroBase from '@/components/common/Hero';
+import Img from 'gatsby-image';
 import React from 'react';
 import Ridipaper4Logo from '@/svgs/ridipaper4/ridipaper4.inline.svg';
+import { ComponentType } from 'react';
+import { FluidObject } from 'gatsby-image';
 import { LinkButton } from '@/components/common/Button';
 
+const TRANSITION = 1000;
 const Background = styled('div')`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: #1c53b7;
-
-  & picture,
-  & img {
-    flex: 0 0 auto;
-    width: 100%;
-    min-width: 1600px;
-
-    @media (max-width: 600px) {
-      min-width: 600px;
-    }
-  }
+  transition: opacity ${TRANSITION}ms ease;
 `;
+
+const BackgroundImage = styled(Img)`
+  width: 100%;
+  height: 100%;
+` as ComponentType<{ fluid: FluidObject }>;
 
 const HeroContainer = styled('div')`
   width: 100%;
@@ -112,6 +108,37 @@ const HeroLinkButton = styled(LinkButton)`
   line-height: 24px;
 `;
 
+const images = graphql`
+  query Images {
+    desktopImages: allFile(filter: { relativePath: {glob: "images/ridipaper4/hero/*"} }) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 1920, quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
+            }
+          }
+        }  
+      }
+    }
+    
+    mobileImages: allFile(filter: { relativePath: {glob: "images/ridipaper4/hero/mobile/*"} }) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 600, quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
+            }
+          }
+        }  
+      }
+    }
+  }
+`;
+
+const CHANGE_INTERVAL = 5000;
 export const Hero = (): JSX.Element => {
   const [isAnimated, setIsAnimated] = useState(false);
   
@@ -120,38 +147,80 @@ export const Hero = (): JSX.Element => {
     return () => clearTimeout(timeoutId);
   }, []);
   
-  const data = useStaticQuery(graphql`
-    {
-      desktop: file(relativePath: {eq: "images/bg-landing.jpg"}) {
-        childImageSharp {
-          fluid(maxWidth: 1600, quality: 80) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-      mobile: file(relativePath: {eq: "images/bg-landing-mobile.jpg"}) {
-        childImageSharp {
-          fluid(maxWidth: 800, quality: 80) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
+  const [isDesktop, setIsDesktop] = useState(true);
+  useEffect(() => {
+    const onResize = () => {
+      setIsDesktop(window.innerWidth <= 600);
+    };
 
-  function renderBackground() {
-    return (
-      <Background>
-        <picture>
-          <source srcSet={data.mobile.childImageSharp.fluid.srcSetWebp} media="(max-width: 800px)" type="image/webp" />
-          <source srcSet={data.mobile.childImageSharp.fluid.srcSet} media="(max-width: 800px)" />
-          <source srcSet={data.desktop.childImageSharp.fluid.srcSetWebp} type="image/webp" />
-          <source srcSet={data.desktop.childImageSharp.fluid.srcSet} />
-          <img src={data.desktop.childImageSharp.fluid.src} sizes="(max-width: 800px) 800px, 1600px" />
-        </picture>
-      </Background>
-    );
-  }
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  
+  const { mobileImages, desktopImages } = useStaticQuery<{
+    mobileImages: { edges: { node: { name: string, childImageSharp: { fluid: FluidObject } } }[] },
+    desktopImages: { edges: { node: { name: string, childImageSharp: { fluid: FluidObject } } }[] },
+  }>(images);
+  
+  const usingImages = useMemo(() => 
+    (isDesktop ? desktopImages : mobileImages)
+      .edges
+      .map(({ node }) => ({ key: node.name, fluid: node.childImageSharp.fluid })),
+      
+    [isDesktop, desktopImages, mobileImages]
+  );
+  
+  const [currentImage, setCurrentImage] = useState(0);
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    
+    const onChange = () => {
+      setCurrentImage(currentImage => (currentImage + 1) % usingImages.length);
+      timeoutId = setTimeout(() => onChange(), CHANGE_INTERVAL);
+    };
+    
+    onChange();
+    return () => clearTimeout(timeoutId);
+  }, [usingImages]);
+
+  const activeImage = useRef<HTMLDivElement>(null);
+  const alternativeImage = useRef<HTMLDivElement>(null);
+  const [flushedImage, setFlushedImage] = useState(0);
+  const nextImage = (flushedImage + 1) % usingImages.length;
+  
+  useEffect(() => {
+    if (!activeImage.current || !alternativeImage.current) {
+      return;
+    }
+    
+    activeImage.current.style.opacity = '0';
+    alternativeImage.current.style.opacity = '1';
+    
+    const timeoutId = setTimeout(() => setFlushedImage(currentImage), TRANSITION);
+    return () => clearTimeout(timeoutId);
+  }, [currentImage]);
+  
+  const renderBackground = useCallback(() => (
+    <>
+      { usingImages.map((image, index) => {
+        let ref = undefined;
+        let opacity = 0;
+        if (index === flushedImage) {
+          ref = activeImage;
+          opacity = 1;
+        } else if (index === nextImage) {
+          ref = alternativeImage;
+        }
+        
+        return (
+          <Background key={image.key} ref={ ref } style={{ opacity }}>
+            <BackgroundImage fluid={image.fluid} />
+          </Background>
+        );
+      }) }
+    </>
+  ), [usingImages, flushedImage]);
 
   return (
     <HeroBase bright renderBackground={renderBackground}>
