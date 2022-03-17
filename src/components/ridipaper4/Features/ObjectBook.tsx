@@ -1,9 +1,10 @@
 import styled from 'astroturf';
 import { graphql, useStaticQuery } from 'gatsby';
-import { forwardRef, useContext, useEffect, useMemo, useRef } from 'react';
-import { mergeRefs } from '@/utils/mergeRefs';
+import { useContext, useEffect, useRef } from 'react';
 import Img from 'gatsby-image';
 import React from 'react';
+import { ComponentType } from 'react';
+import { FluidObject } from 'gatsby-image';
 import { ImageQueryResponse } from './types';
 import { TimelineContext } from './TimelineContext';
 
@@ -24,11 +25,17 @@ const ObjectBookContainer = styled('div')`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  width: 76%;
+  height: 76%;
+  opacity: 0;
 `;
 
-export const ObjectBook = forwardRef<HTMLDivElement>((_props, ref): JSX.Element => {
+const ObjectBookImage = styled(Img)`
+  width: 100%;
+  height: 100%;
+` as ComponentType<{ fluid: FluidObject }>;
+
+export const ObjectBook = (): JSX.Element => {
   const objectBookImage = useStaticQuery<ImageQueryResponse>(objectBookImageQuery);
   const timeline = useContext(TimelineContext);
   const bookRef = useRef<HTMLDivElement | null>(null);
@@ -40,10 +47,9 @@ export const ObjectBook = forwardRef<HTMLDivElement>((_props, ref): JSX.Element 
     return () => timeline.unsubscribe('Book/Opacity');
   }, []);
   
-  const mergedRef = useMemo(() => mergeRefs([ ref, bookRef ]), []);
   return (
-    <ObjectBookContainer ref={mergedRef}>
-      <Img fluid={objectBookImage.image.childImageSharp.fluid} />
+    <ObjectBookContainer ref={bookRef}>
+      <ObjectBookImage fluid={objectBookImage.image.childImageSharp.fluid} />
     </ObjectBookContainer>
   );
-});
+};

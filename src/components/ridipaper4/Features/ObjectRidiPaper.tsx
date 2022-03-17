@@ -1,10 +1,10 @@
 import styled from 'astroturf';
 import { graphql, useStaticQuery } from 'gatsby';
-import { forwardRef, useContext, useEffect, useMemo, useRef } from 'react';
-import { mergeRefs } from '@/utils/mergeRefs';
+import { useContext, useEffect, useRef } from 'react';
 import Img from 'gatsby-image';
 import React from 'react';
 import { ImageQueryResponse } from './types';
+import { ReactNode } from 'react';
 import { TimelineContext } from './TimelineContext';
 
 const objectRidiPaperImageQuery = graphql`
@@ -26,9 +26,10 @@ const ObjectRidiPaperContainer = styled('div')`
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
+  opacity: 0;
 `;
 
-export const ObjectRidiPaper = forwardRef<HTMLDivElement>((_props, ref): JSX.Element => {
+export const ObjectRidiPaper = ({ children }: { children?: ReactNode }): JSX.Element => {
   const objectRidiPaperImage = useStaticQuery<ImageQueryResponse>(objectRidiPaperImageQuery);
   const timeline = useContext(TimelineContext);
   const paperRef = useRef<HTMLDivElement | null>(null);
@@ -38,7 +39,7 @@ export const ObjectRidiPaper = forwardRef<HTMLDivElement>((_props, ref): JSX.Ele
     });
     
     timeline.subscribe('RidiPaper/Rotation', (value) => {
-      paperRef.current!.style.transform = `rotate(${value.toFixed(2)}deg)`;
+      paperRef.current!.style.transform = `translate(-50%, -50%) rotate(${value.toFixed(2)}deg)`;
     });
     
     return () => {
@@ -47,10 +48,10 @@ export const ObjectRidiPaper = forwardRef<HTMLDivElement>((_props, ref): JSX.Ele
     };
   }, []);
   
-  const mergedRef = useMemo(() => mergeRefs([ ref, paperRef ]), []);
   return (
-    <ObjectRidiPaperContainer ref={mergedRef}>
+    <ObjectRidiPaperContainer ref={paperRef}>
       <Img fluid={objectRidiPaperImage.image.childImageSharp.fluid} />
+      { children }
     </ObjectRidiPaperContainer>
   );
-});
+};

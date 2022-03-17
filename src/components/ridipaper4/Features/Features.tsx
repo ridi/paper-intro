@@ -3,39 +3,35 @@ import { createTimeline } from '@/utils/animation';
 import { useMemo, useRef } from 'react';
 import { useScrollmagicEffect } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 import React from 'react';
-import { AnimationBrightness, AnimationEInk } from './animations';
 import { ObjectBook } from './ObjectBook';
 import { ObjectRidiPaper } from './ObjectRidiPaper';
+import { ObjectSizeUI } from './ObjectSizeUI';
+import { ObjectText } from './ObjectText';
+import { ObjectTextBackground } from './ObjectTextBackground';
+import { ObjectTextLandscape } from './ObjectTextLandscape';
+import { ObjectTitle } from './ObjectTitle';
+import { ObjectTouch } from './ObjectTouch';
+import { PinnedItem } from '@/components/ridipaper4/PinnedItem';
 import { TimelineContextProvider } from './TimelineContext';
+
+import {
+  AnimationBrightness,
+  AnimationEInk,
+  AnimationInit,
+  AnimationScale,
+  AnimationTemperature,
+  AnimationTransition,
+  AnimationVertical
+} from './animations';
 
 export const FeaturesContainer = styled('section')`
   position: relative;
 `;
 
-const FeaturesTrigger = styled('div')`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-`;
-
-const FeaturesPinTarget = styled('div')`
-  position: sticky;
-  top: 0;
-  width: 100% !important;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
 const FeaturesStage = styled('div')`
   position: relative;
-  width: 80vh;
-  width: 80vmin;
-  max-width: 1024px;
+  width: 100vw;
+  max-width: 100vh;
   
   &::after {
     content: '';
@@ -43,31 +39,32 @@ const FeaturesStage = styled('div')`
     width: 100%;
     padding-bottom: 100%;
   }
+  
+  @media (min-width: 601px) {
+    width: 70vw;
+    max-width: 90vh;
+    margin-top: 5vh;
+  }
 `;
 
 const animations = [
-  AnimationBrightness,
+  AnimationInit('어느 방향이든 쾌적하게'),
+  AnimationVertical,
+  AnimationTransition('종이책을 보던 느낌 그대로\n전자잉크 디스플레이'),
   AnimationEInk,
+  AnimationTransition('한 손가락으로는 밝기조절'),
+  AnimationBrightness,
+  AnimationTransition('두 손가락으로는 색온도조절'),
+  AnimationTemperature,
+  AnimationTransition('마음대로 디자인하는 페이지'),
+  AnimationScale,
 ];
 
-const DURATION = 4500;
+const DURATION = 10000;
 export const Features = (): JSX.Element => {
-  const pinRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const timeline = useMemo(() => createTimeline(animations), []);
   useScrollmagicEffect((controller, Scene) => {
-    // IE Only
-    const pinStyle = window.getComputedStyle(pinRef.current!);
-    if (pinStyle.position !== 'sticky') {
-      new Scene({
-        triggerElement: triggerRef.current!,
-        triggerHook: 'onLeave',
-        duration: DURATION,
-      })
-        .setPin(pinRef.current!, {pushFollowers: false})
-        .addTo(controller);
-    }
-    
     new Scene({
       triggerElement: triggerRef.current!,
       duration: DURATION,
@@ -78,14 +75,20 @@ export const Features = (): JSX.Element => {
   
   return (
     <TimelineContextProvider value={timeline}>
-      <FeaturesContainer style={{ height: `calc(${DURATION}px + 100vh)` }}>
-        <FeaturesTrigger ref={triggerRef} />
-        <FeaturesPinTarget ref={pinRef}>
-          <FeaturesStage>
+      <FeaturesContainer style={{ height: `calc(${DURATION}px + 100vh)` }} ref={triggerRef}>
+        <PinnedItem duration={DURATION}>
+          <FeaturesStage aria-hidden="true">
             <ObjectBook/>
-            <ObjectRidiPaper />
+            <ObjectRidiPaper>
+              <ObjectTextBackground />
+              <ObjectTextLandscape />
+            </ObjectRidiPaper>
+            <ObjectText />
+            <ObjectSizeUI />
+            <ObjectTouch />
+            <ObjectTitle />
           </FeaturesStage>
-        </FeaturesPinTarget>
+        </PinnedItem>
       </FeaturesContainer>
     </TimelineContextProvider>
   );

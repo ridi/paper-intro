@@ -3,30 +3,50 @@ import { Animation, DiscreteKeyframe, Keyframe, Timeline } from './types';
 const isDiscreteKeyframe = (keyframe: Keyframe<string, string>): keyframe is DiscreteKeyframe<string> =>
   typeof keyframe.value === 'string';
 
-const binarySearchKeyframe = <T>(haystack: [number, T][], needle: number):
-  [[number, T] | undefined, [number, T] | undefined] =>
+const findNextKeyframe = <T>(haystack: [number, T][], needle: number, previousIndex: number = 0):
+  { index: number, range: [[number, T] | undefined, [number, T] | undefined] } =>
 {
-  let start = 0;
-  let end = haystack.length - 1;
-  while (start <= end) {
-    const middle = start + Math.floor((end - start) / 2);
-    if (haystack[middle][0] < needle) {
-      start = middle + 1;
+  let index = previousIndex;
+  while (0 <= index && index < haystack.length) {
+    const currentKeyframe = haystack[index];
+    const nextKeyframe = haystack[index + 1];
+    
+    if (!currentKeyframe) {
+      // Has no keyframes
+      return { index: 0, range: [ undefined, undefined ] };
+    }
+    
+    if (!nextKeyframe) {
+      if (currentKeyframe[0] <= needle) {
+        // Last keyframe
+        index = haystack.length;
+        break;
+      }
+      
+      index--;
       continue;
     }
     
-    if (haystack[middle][0] === needle) {
-      return [haystack[middle], haystack[middle + 1]];
+    if (needle < currentKeyframe[0]) {
+      index--;
+      continue;
     }
     
-    end = middle - 1;
+    if (needle >= nextKeyframe[0]) {
+      index++;
+      continue;
+    }
+    
+    return { index, range: [ currentKeyframe, nextKeyframe ] };
   }
   
-  if (end < 0) {
-    return [haystack[0], haystack[1]];
+  if (index < 0) {
+    // Before first keyframe
+    return { index: 0, range: [ haystack[0], undefined ] };
   }
   
-  return [haystack[end], haystack[start]];
+  // After last keyframe
+  return { index: haystack.length - 1, range: [ haystack[haystack.length - 1], undefined ] };
 };
 
 export const createTimeline = <
@@ -45,7 +65,7 @@ export const createTimeline = <
     animation.keyframes
       .sort(([scrollStampA], [scrollStampB]) => scrollStampA - scrollStampB)
       .forEach(([scrollStamp, keyframe]) => {
-        const position = (currentScroll + scrollStamp) / totalScroll;
+        const position = (currentScroll + scrollStamp * animation.duration) / totalScroll;
         
         if (isDiscreteKeyframe(keyframe)) {
           if (!discreteTimeline[keyframe.name]) {
@@ -59,6 +79,7 @@ export const createTimeline = <
         if (!continuousTimeline[keyframe.name]) {
           continuousTimeline[keyframe.name] = [];
         }
+        
         continuousTimeline[keyframe.name].push([position, keyframe.value]);
       });
     
@@ -79,10 +100,16 @@ export const createTimeline = <
     },
     
     update(value) {
-      console.log(value);
       subscribedMap.forEach((onUpdate, key) => {
         if (key in discreteTimeline) {
-          const [start] = binarySearchKeyframe(discreteTimeline[key as DiscreteKeyframeNames], value);
+          const { index: nextIndex, range: [ start ] } = findNextKeyframe(
+            discreteTimeline[key as DiscreteKeyframeNames],
+            value,
+            lastIndex.get(key) ?? 0
+          );
+          
+          lastIndex.set(key, nextIndex);
+          
           if (!start) {
             // Has no keyframes
             return;
@@ -90,7 +117,14 @@ export const createTimeline = <
           
           onUpdate(start[1]);
         } else if (key in continuousTimeline) {
-          const [start, end] = binarySearchKeyframe(continuousTimeline[key as ContinuousKeyframeNames], value);
+          const { index: nextIndex, range: [ start, end ] } = findNextKeyframe(
+            continuousTimeline[key as ContinuousKeyframeNames],
+            value,
+            lastIndex.get(key) ?? 0
+          );
+          
+          lastIndex.set(key, nextIndex);
+          
           if (!start) {
             // Has no keyframes
             return;
@@ -109,8 +143,8 @@ export const createTimeline = <
             return;
           }
           
-          const t = (value - start[0]) / length;
-          onUpdate(t * start[1] + (1 - t) * end[1]);
+          const t = Math.max(0, Math.min((value - start[0]) / length, 1));
+          onUpdate((1 - t) * start[1] + t * end[1]);
         }
       });
     }
