@@ -9,13 +9,20 @@ const GalleryScrollContainer = styled('ul')`
   overflow: auto;
   
   display: flex;
-  margin: 0 -5px;
 `;
 
 const GalleryScrollItem = styled(GalleryItem)`
   width: 128px;
   flex: 0 0 auto;
   margin: 0 5px;
+  
+  &:first-of-type {
+    margin-left: 0;
+  }
+  
+  &:last-of-type {
+    margin-right: 0;
+  }
 `;
 
 export const GalleryScrollController: GalleryController = ({ images }) => (
