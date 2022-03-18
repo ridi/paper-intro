@@ -265,7 +265,7 @@ export default function Header() {
                   activeClassName={styles.active}
                   partiallyActive
                 >
-                  악세서리
+                  액세서리
                 </Link>
               </>
             ) : (
@@ -283,7 +283,7 @@ export default function Header() {
                   activeClassName={styles.active}
                   partiallyActive
                 >
-                  악세서리
+                  액세서리
                 </Link>
 
                 <Link
