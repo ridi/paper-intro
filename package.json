@@ -39,6 +39,7 @@
     "typescript": "^3.7.2"
   },
   "devDependencies": {
+    "@types/react-dom": "^17.0.13",
     "@types/react-helmet": "^5.0.14",
     "gatsby-plugin-force-trailing-slashes": "^1.0.4",
     "gatsby-plugin-root-import": "^2.0.8",

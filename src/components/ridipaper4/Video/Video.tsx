@@ -1,11 +1,14 @@
 import styled from 'astroturf';
 import { graphql, useStaticQuery } from 'gatsby';
-import React from 'react';
+
 import IconVideoPlayback from '@/svgs/ridipaper4/video-playback.inline.svg';
 import Img from 'gatsby-image';
+import React from 'react';
 import { ComponentType } from 'react';
 import { FluidObject } from 'gatsby-image';
 import { LineBreakOnDesktop, LineBreakOnMobile } from '@/components/ridipaper4/LineBreak';
+import { Link } from 'gatsby';
+import { VideoLightbox } from './VideoLightbox';
 
 const VideoContainer = styled('section')`
   padding: 135px 0;
@@ -42,7 +45,8 @@ const Description = styled('p')`
   }
 `;
 
-const VideoThumbnailContainer = styled('div')`
+const VideoThumbnailContainer = styled(Link)`
+  display: block;
   cursor: pointer;
   position: relative;
   width: 80vw;
@@ -114,10 +118,11 @@ export const Video = (): JSX.Element => {
         <LineBreakOnMobile />
         내가 있는 모든 곳이 독서하기 가장 좋은 곳이 됩니다.
       </Description>
-      <VideoThumbnailContainer>
+      <VideoThumbnailContainer to="#video">
         <VideoThumbnailImage fluid={stillCut.childImageSharp.fluid} />
         <VideoThumbnailIcon />
       </VideoThumbnailContainer>
+      <VideoLightbox />
     </VideoContainer>
   );
 };

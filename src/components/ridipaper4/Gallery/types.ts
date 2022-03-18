@@ -3,6 +3,7 @@ import { FluidObject } from 'gatsby-image';
 export type GalleryImage = {
   key: string;
   fluid: FluidObject;
+  index: number;
 };
 
 export type GalleryControllerProps = {
