@@ -31,7 +31,7 @@ type GalleryItemProps = {
 export const GalleryItem = forwardRef<HTMLLIElement, GalleryItemProps>(({ image, className }, ref) => {
   return (
     <GalleryItemContainer className={className} ref={ref}>
-      <GalleryItemLink to={`#gallery-${image.index}`}>
+      <GalleryItemLink to={`#gallery-${image.key}`}>
         <GalleryItemImage fluid={image.fluid} />
       </GalleryItemLink>
     </GalleryItemContainer>
