@@ -29,6 +29,7 @@ const styles = css`
   }
 `;
 
+const IS_PURCHASE_ENABLED = true;
 const RidiPaper4Page = () => {
   const data = useStaticQuery(graphql`
     {
@@ -55,7 +56,7 @@ const RidiPaper4Page = () => {
           <QuickButton />
           <Video />
           <Gallery />
-          <PurchaseBanner />
+          { IS_PURCHASE_ENABLED && <PurchaseBanner /> }
           <Specs />
           <Manual />
         </ScrollmagicProvider>
