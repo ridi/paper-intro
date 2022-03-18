@@ -176,9 +176,6 @@ export const query = graphql`
           fluid(maxHeight: 600, sizes: "1600px", quality: 80) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
-          banner: resize(width: 1200, height: 630, quality: 90) {
-            src
-          }
         }
       }
       titleImage {
