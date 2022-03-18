@@ -17,9 +17,10 @@ const TEXT_SIZE_MAP: Record<string, number> = {
 
 const ObjectTextContainer = styled('div')`
   position: absolute; 
-  top: 49%;
+  top: 50%;
   left: 47.4%;
   transform: translate(-50%, -50%);
+  transform-origin: 56% 49%;
   width: 44%;
   height: 59%;
   overflow: hidden;

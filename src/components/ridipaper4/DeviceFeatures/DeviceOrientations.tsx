@@ -42,6 +42,11 @@ const DeviceOrientationsStage = styled('div')`
     padding-bottom: 100%;
   }
   
+  @media (max-width: 800px) {
+    width: 60vw;
+    right: 0%;
+  }
+  
   @media (max-width: 600px) {
     width: 100%;
     margin-top: 50%;
@@ -59,6 +64,10 @@ const RidiPaperContainer = styled('div')`
   width: 100%;
   height: 100%;
   opacity: 1;
+  
+  @media (max-width: 800px) {
+    transform-origin: 50% 50%;
+  }
 `;
 
 const RidiPaperImage = styled(Img)`
@@ -119,6 +128,10 @@ const TextContainer = styled('div')`
   transform: translate(0, -50%);
   opacity: 0;
   
+  @media (max-width: 800px) {
+    left: 15%;
+  }
+  
   @media (max-width: 600px) {
     top: 20%;
     left: 10%;
@@ -163,10 +176,13 @@ export const DeviceOrientations = (): JSX.Element => {
       offset: DURATION * 0.2,
     })
       .on('progress', (e: { progress: number }) => {
-        const transition = Math.min(e.progress / 0.75, 1);
-        ridipaperRef.current!.style.transform = `translate(-50%, -50%) rotate(${(180 * transition).toFixed(2)}deg)`;
-        previewTextRef.current!.style.opacity = (1 - transition).toFixed(2);
-        previewTextReverseRef.current!.style.opacity = transition.toFixed(2);
+        const transition = Math.min(e.progress / 0.9, 1);
+        const rotationTransition = Math.min(transition / 0.45, 1);
+        const textTransition = Math.max(0, Math.min((transition - 0.45) / 0.3, 1));
+        ridipaperRef.current!.style.transform =
+          `translate(-50%, -50%) rotate(${(180 * rotationTransition).toFixed(2)}deg)`;
+        previewTextRef.current!.style.opacity = (1 - textTransition).toFixed(2);
+        previewTextReverseRef.current!.style.opacity = textTransition.toFixed(2);
       })
       .addTo(controller);
   });
