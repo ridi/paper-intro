@@ -82,7 +82,10 @@ const HeroTitle = styled('h1')`
   max-width: 355px;
   height: 41px;
   color: #000000;
-  margin: 0 auto;
+  
+  @media (max-width: 600px) {
+    margin: 0 auto;
+  }
 `;
 
 const HeroLinkWrapper = styled<'div', { runAnimation?: boolean }>('div')`
@@ -160,7 +163,7 @@ export const Hero = (): JSX.Element => {
   const [isDesktop, setIsDesktop] = useState(true);
   useEffect(() => {
     const onResize = () => {
-      setIsDesktop(window.innerWidth <= 600);
+      setIsDesktop(window.innerWidth > 600);
     };
 
     onResize();
@@ -190,7 +193,7 @@ export const Hero = (): JSX.Element => {
       timeoutId = setTimeout(() => onChange(), CHANGE_INTERVAL);
     };
     
-    onChange();
+    timeoutId = setTimeout(() => onChange(), CHANGE_INTERVAL);
     return () => clearTimeout(timeoutId);
   }, [usingImages]);
 
