@@ -16,6 +16,16 @@ titleImage:
   width: 315
   height: 273
 sections:
+  - type: detail
+    name:
+    title: 제품 소개
+    description: |-
+      당신의 미니멀한 취향에도 때때로 소소한 변화는 필요하기에, 
+      감각을 리셋하기 위한 다양한 커버가 준비돼 있습니다. 
+      커버가 바뀌면 기분까지 달라지잖아요. 
+
+      평소에는 단단한 글라스 파이버 소재로 RIDIPAPER 4를 보호하며
+      커버를 펼치는 순간 바로 독서를 즐기실 수 있습니다.
   - type: image
     image: ../images/accessories/ridipaper4-flip-cover-case/1.jpg
   - type: spec
