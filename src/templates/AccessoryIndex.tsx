@@ -177,7 +177,7 @@ export default function AccessoryIndexPage(props: Props) {
               집중하세요
             </h1>
             <p>
-              견고한 전용 악세서리가
+              견고한 전용 액세서리가
               <br />
               RIDIPAPER를 보호해드립니다.
             </p>

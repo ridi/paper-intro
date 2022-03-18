@@ -110,7 +110,7 @@ interface AccessoryBannerData {
 export default function AccessoryBanner() {
   const data = useStaticQuery<AccessoryBannerData>(graphql`
     {
-      bg: file(relativePath: {eq: "images/accessories/banner/800.png"}) {
+      bg: file(relativePath: { eq: "images/accessories/banner/800.png" }) {
         childImageSharp {
           fixed(width: 800, height: 522, quality: 80) {
             ...GatsbyImageSharpFixed_withWebp_noBase64
@@ -130,9 +130,11 @@ export default function AccessoryBanner() {
       <Content>
         <ContentTitle>안심하고 책에만 집중하세요</ContentTitle>
         <ContentTitle small>안심하고 책에만{'\xa0'}집중하세요</ContentTitle>
-        <p>{'견고한\xa0전용\xa0악세서리가 RIDIPAPER를\xa0보호해드립니다.'}</p>
+        <p>{'견고한\xa0전용\xa0액세서리가 RIDIPAPER를\xa0보호해드립니다.'}</p>
         <LinkWrapper>
-          <LinkButton to="/accessories/" color="blue">전체보기</LinkButton>
+          <LinkButton to="/accessories/" color="blue">
+            전체보기
+          </LinkButton>
         </LinkWrapper>
       </Content>
     </Container>

@@ -21,7 +21,7 @@ sections:
     title: 제품 소개
     description: |-
       리디페이퍼4 작가 콜라보 하드 케이스는,
-      간편함과 심플함을 넘어 자신만의 개성을 담길 바라는 사용자를 위한 악세서리입니다. 
+      간편함과 심플함을 넘어 자신만의 개성을 담길 바라는 사용자를 위한 액세서리입니다. 
       각기 다른 개성의 일러스트를 통해 나만의 감각을 표현해 보세요.
   - type: image
     image: ../images/accessories/ridipaper4-milim-collaborated-hard-case/1.jpg
@@ -30,7 +30,7 @@ sections:
       - name: 크기
         desc: 가로 149.7mm x 세로 163.1mm x 두께 11mm
       - name: 무게
-        desc: 53.5g(블랙/인디핑크/캑터스그린) / 60g(화이트)
+        desc: 56g
       - name: 소재
         desc: 폴리카보네이트(PC)
       - name: 구성품
