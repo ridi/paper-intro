@@ -50,15 +50,15 @@ const SpecsPanelContainer = styled('div')`
 `;
 
 const BASIC_CONTENT = [
-  { key: 'name', name: '정식명칭', value: '리디페이퍼 4' },
-  { key: 'display-size', name: '화면크기', value: '6인치 (152.4mm)' },
-  { key: 'resolution', name: '해상도', value: '300PPI (1072x1448화소)' },
-  { key: 'weight', name: '무게', value: '173g' },
-  { key: 'size', name: '크기', value: '가로 114.08mm x 세로 156.96mm x 두께 7.94mm' },
-  { key: 'storage', name: '저장공간', value: '기본 8GB (시스템 용량 제외 약 5.72GB 사용 가능)' },
+  { key: 'name', name: '정식명칭', value: 'RIDIPAPER 4' },
+  { key: 'display-size', name: '화면크기', value: '7인치 (177.7mm)' },
+  { key: 'resolution', name: '해상도', value: '300PPI (1264 x 1680 화소)' },
+  { key: 'weight', name: '무게', value: '227g' },
+  { key: 'size', name: '크기', value: '가로 147.5mm x 세로 161.1mm x 두께 8.0mm' },
+  { key: 'storage', name: '저장공간', value: '기본 32GB (시스템 용량 제외 약 26.6GB 사용 가능)' },
   { key: 'external-storage', name: '확장 메모리', value: '마이크로 SD 최대 32GB 추가 가능' },
-  { key: 'battery', name: '배터리 용량', value: '1,500mAh' },
-  { key: 'charge-time', name: '충전 완료 시간', value: '약 2시간 40분 (5V 1A 충전기 기준)' },
+  { key: 'battery', name: '배터리 용량', value: '2,500mAh' },
+  { key: 'charge-time', name: '충전 완료 시간', value: '약 2시간 20분 (5V 2A 충전기 기준)' },
 ];
 
 const TECHINFO_CONTENT = [
