@@ -24,7 +24,7 @@ const Background = styled('div')`
 const BackgroundImage = styled(Img)`
   width: 100%;
   height: 100%;
-` as ComponentType<{ fluid: FluidObject, objectFit: 'cover' | 'contain' }>;
+` as ComponentType<{ fluid: FluidObject; objectFit: 'cover' | 'contain' }>;
 
 const HeroContainer = styled('div')`
   width: 100%;
@@ -33,7 +33,7 @@ const HeroContainer = styled('div')`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  
+
   padding: 0 108px;
 
   @media (max-width: 600px) {
@@ -41,7 +41,7 @@ const HeroContainer = styled('div')`
     justify-content: flex-end;
     align-items: center;
     text-align: center;
-    
+
     padding: 54px 18px;
     padding-top: 0;
   }
@@ -52,13 +52,13 @@ const HeroHeader = styled('div')`
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.5s ease;
-    
+
     &:nth-child(2) {
       transition-delay: 0.2s;
     }
   }
-  
-  &[data-is-animated="true"] > * {
+
+  &[data-is-animated='true'] > * {
     opacity: 1;
     transform: translateY(0);
   }
@@ -73,7 +73,7 @@ const HeroPhrase = styled('p')`
   font-size: 18px;
   line-height: 20px;
   color: #000000;
-  
+
   padding-bottom: 22px;
 `;
 
@@ -82,7 +82,7 @@ const HeroTitle = styled('h1')`
   max-width: 355px;
   height: 41px;
   color: #000000;
-  
+
   @media (max-width: 600px) {
     margin: 0 auto;
   }
@@ -90,13 +90,13 @@ const HeroTitle = styled('h1')`
 
 const HeroLinkWrapper = styled<'div', { runAnimation?: boolean }>('div')`
   padding-top: 52px;
-  
+
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.5s ease;
   transition-delay: 0.4s;
-  
-  &[data-is-animated="true"] {
+
+  &[data-is-animated='true'] {
     opacity: 1;
     transform: translateY(0);
   }
@@ -107,15 +107,15 @@ const HeroLinkButton = styled(LinkButton)`
   min-height: 40px;
   height: initial;
   padding: 10px;
-  
+
   color: #000000;
   border: 1px solid #000000;
   border-radius: 20px;
-  
+
   font-weight: 700;
   font-size: 14px;
   line-height: 24px;
-  
+
   @media (max-width: 600px) {
     min-width: 40vw;
   }
@@ -123,7 +123,9 @@ const HeroLinkButton = styled(LinkButton)`
 
 const images = graphql`
   query Images {
-    desktopImages: allFile(filter: { relativePath: {glob: "images/ridipaper4/hero/*"} }) {
+    desktopImages: allFile(
+      filter: { relativePath: { glob: "images/ridipaper4/hero/*" } }
+    ) {
       edges {
         node {
           name
@@ -132,11 +134,13 @@ const images = graphql`
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
-        }  
+        }
       }
     }
-    
-    mobileImages: allFile(filter: { relativePath: {glob: "images/ridipaper4/hero/mobile/*"} }) {
+
+    mobileImages: allFile(
+      filter: { relativePath: { glob: "images/ridipaper4/hero/mobile/*" } }
+    ) {
       edges {
         node {
           name
@@ -145,7 +149,7 @@ const images = graphql`
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
-        }  
+        }
       }
     }
   }
@@ -154,12 +158,12 @@ const images = graphql`
 const CHANGE_INTERVAL = 5000;
 export const Hero = (): JSX.Element => {
   const [isAnimated, setIsAnimated] = useState(false);
-  
+
   useEffect(() => {
     const timeoutId = setTimeout(() => setIsAnimated(true), 300);
     return () => clearTimeout(timeoutId);
   }, []);
-  
+
   const [isDesktop, setIsDesktop] = useState(true);
   useEffect(() => {
     const onResize = () => {
@@ -170,29 +174,39 @@ export const Hero = (): JSX.Element => {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
-  
+
   const { mobileImages, desktopImages } = useStaticQuery<{
-    mobileImages: { edges: { node: { name: string, childImageSharp: { fluid: FluidObject } } }[] },
-    desktopImages: { edges: { node: { name: string, childImageSharp: { fluid: FluidObject } } }[] },
+    mobileImages: {
+      edges: {
+        node: { name: string; childImageSharp: { fluid: FluidObject } };
+      }[];
+    };
+    desktopImages: {
+      edges: {
+        node: { name: string; childImageSharp: { fluid: FluidObject } };
+      }[];
+    };
   }>(images);
-  
-  const usingImages = useMemo(() => 
-    (isDesktop ? desktopImages : mobileImages)
-      .edges
-      .map(({ node }) => ({ key: node.name, fluid: node.childImageSharp.fluid })),
-      
-    [isDesktop, desktopImages, mobileImages]
+
+  const usingImages = useMemo(
+    () =>
+      (isDesktop ? desktopImages : mobileImages).edges.map(({ node }) => ({
+        key: node.name,
+        fluid: node.childImageSharp.fluid,
+      })),
+
+    [isDesktop, desktopImages, mobileImages],
   );
-  
+
   const [currentImage, setCurrentImage] = useState(0);
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
-    
+
     const onChange = () => {
       setCurrentImage(currentImage => (currentImage + 1) % usingImages.length);
       timeoutId = setTimeout(() => onChange(), CHANGE_INTERVAL);
     };
-    
+
     timeoutId = setTimeout(() => onChange(), CHANGE_INTERVAL);
     return () => clearTimeout(timeoutId);
   }, [usingImages]);
@@ -201,42 +215,48 @@ export const Hero = (): JSX.Element => {
   const alternativeImage = useRef<HTMLDivElement>(null);
   const [flushedImage, setFlushedImage] = useState(0);
   const nextImage = (flushedImage + 1) % usingImages.length;
-  
+
   useEffect(() => {
     if (!activeImage.current || !alternativeImage.current) {
       return;
     }
-    
+
     activeImage.current.style.opacity = '0';
     alternativeImage.current.style.opacity = '1';
-    
-    const timeoutId = setTimeout(() => setFlushedImage(currentImage), TRANSITION);
+
+    const timeoutId = setTimeout(
+      () => setFlushedImage(currentImage),
+      TRANSITION,
+    );
     return () => clearTimeout(timeoutId);
   }, [currentImage]);
-  
-  const renderBackground = useCallback(() => (
-    <>
-      { usingImages.map((image, index) => {
-        let ref = undefined;
-        let opacity = 0;
-        if (index === flushedImage) {
-          ref = activeImage;
-          opacity = 1;
-        } else if (index === nextImage) {
-          ref = alternativeImage;
-        }
-        
-        return (
-          <Background key={image.key} ref={ ref } style={{ opacity }}>
-            <BackgroundImage fluid={image.fluid} objectFit="cover" />
-          </Background>
-        );
-      }) }
-    </>
-  ), [usingImages, flushedImage]);
+
+  const renderBackground = useCallback(
+    () => (
+      <>
+        {usingImages.map((image, index) => {
+          let ref = undefined;
+          let opacity = 0;
+          if (index === flushedImage) {
+            ref = activeImage;
+            opacity = 1;
+          } else if (index === nextImage) {
+            ref = alternativeImage;
+          }
+
+          return (
+            <Background key={image.key} ref={ref} style={{ opacity }}>
+              <BackgroundImage fluid={image.fluid} objectFit="cover" />
+            </Background>
+          );
+        })}
+      </>
+    ),
+    [usingImages, flushedImage],
+  );
 
   return (
-    <HeroBase bright renderBackground={renderBackground}>
+    <HeroBase bright renderBackground={renderBackground} noOverlay>
       <HeroContainer>
         <HeroHeader data-is-animated={isAnimated}>
           <HeroPhrase>Simple Reading, Simple Living</HeroPhrase>
