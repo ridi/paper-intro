@@ -241,7 +241,7 @@ export const Hero = (): JSX.Element => {
         <HeroHeader data-is-animated={isAnimated}>
           <HeroPhrase>Simple Reading, Simple Living</HeroPhrase>
           <HeroTitle>
-            <HeroLogo aria-label="RIDI PAPER 4" />
+            <HeroLogo aria-label="RIDIPAPER 4" />
           </HeroTitle>
         </HeroHeader>
         <HeroLinkWrapper data-is-animated={isAnimated}>

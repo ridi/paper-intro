@@ -132,7 +132,7 @@ export const Specs = (): JSX.Element => {
   return (
     <SpecsContainer id="ridipaper4-specs">
       <SpecsTitle>
-        RIDI PAPER 4
+        RIDIPAPER 4
         <br />
         상세 스펙
       </SpecsTitle>
