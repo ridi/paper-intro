@@ -125,6 +125,7 @@ const images = graphql`
   query Images {
     desktopImages: allFile(
       filter: { relativePath: { glob: "images/ridipaper4/hero/*" } }
+      sort: { fields: name }
     ) {
       edges {
         node {
@@ -140,6 +141,7 @@ const images = graphql`
 
     mobileImages: allFile(
       filter: { relativePath: { glob: "images/ridipaper4/hero/mobile/*" } }
+      sort: { fields: name }
     ) {
       edges {
         node {
