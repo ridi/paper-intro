@@ -21,6 +21,8 @@ import { QuickButton } from '@/components/ridipaper4/QuickButton';
 import { Specs } from '@/components/ridipaper4/Specs';
 import { Video } from '@/components/ridipaper4/Video';
 
+import '@/fonts/Pretendard';
+
 const styles = css`
   .main {
     font-family: 'Pretendard', sans-serif;

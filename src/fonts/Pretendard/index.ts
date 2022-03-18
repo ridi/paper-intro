@@ -1,0 +1,1 @@
+import './pretendard-subset.css';
