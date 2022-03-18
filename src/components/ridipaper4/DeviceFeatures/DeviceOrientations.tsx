@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import { useScrollmagicEffect } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 import * as constants from './constants';
 
-import Img from 'gatsby-image';
+import Img from 'gatsby-image/withIEPolyfill';
 import React from 'react';
 import { ComponentType } from 'react';
 import { FluidObject } from 'gatsby-image';
@@ -64,7 +64,7 @@ const RidiPaperContainer = styled('div')`
 const RidiPaperImage = styled(Img)`
   width: 100%;
   height: 100%;
-` as ComponentType<{ fluid: FluidObject }>;
+` as ComponentType<{ fluid: FluidObject, objectFit: 'cover' | 'contain' }>;
 
 const PreviewTextContainer = styled('div')`
   position: absolute; 
@@ -177,7 +177,7 @@ export const DeviceOrientations = (): JSX.Element => {
         <OverflowBlock>
           <DeviceOrientationsStage>
             <RidiPaperContainer ref={ridipaperRef}>
-              <RidiPaperImage fluid={ridipaper.childImageSharp.fluid} />
+              <RidiPaperImage fluid={ridipaper.childImageSharp.fluid} objectFit="cover" />
               
               <PreviewTextContainer ref={previewTextRef}>
                 { LINES.map((line, index) => (

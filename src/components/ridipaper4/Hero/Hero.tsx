@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import HeroBase from '@/components/common/Hero';
-import Img from 'gatsby-image';
+import Img from 'gatsby-image/withIEPolyfill';
 import React from 'react';
 import Ridipaper4Logo from '@/svgs/ridipaper4/ridipaper4.inline.svg';
 import { ComponentType } from 'react';
@@ -24,7 +24,7 @@ const Background = styled('div')`
 const BackgroundImage = styled(Img)`
   width: 100%;
   height: 100%;
-` as ComponentType<{ fluid: FluidObject }>;
+` as ComponentType<{ fluid: FluidObject, objectFit: 'cover' | 'contain' }>;
 
 const HeroContainer = styled('div')`
   width: 100%;
@@ -225,7 +225,7 @@ export const Hero = (): JSX.Element => {
         
         return (
           <Background key={image.key} ref={ ref } style={{ opacity }}>
-            <BackgroundImage fluid={image.fluid} />
+            <BackgroundImage fluid={image.fluid} objectFit="cover" />
           </Background>
         );
       }) }
