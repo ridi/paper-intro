@@ -241,13 +241,15 @@ export default function Header() {
       <Container open={isOpen}>
         <Center>
           <Left>
-            <Link to="/" className={styles.logoLink}>
-              {isRidiPaper4 ? (
+            {isRidiPaper4 ? (
+              <Link to="/" className={styles.logoLink}>
                 <Ridipaper4Logo className={styles.ridipaper4Logo} />
-              ) : (
+              </Link>
+            ) : (
+              <Link to="/ridipaper" className={styles.logoLink}>
                 <RidipaperLogo className={styles.ridipaperLogoDark} />
-              )}
-            </Link>
+              </Link>
+            )}
           </Left>
           <Right open={isOpen}>
             {isRidiPaper4 ? (
