@@ -1,0 +1,67 @@
+slug: ridipaper4-tempered-glass-protection-film
+for: ridipaper4
+order: 6
+name:
+  short: 강화 유리 보호 필름
+  en: RIDIPAPER 4 TEMPERED GLASS PROTECTION FILM
+  full: |-
+    리디페이퍼 4
+    강화 유리 보호 필름
+description: |-
+thumbnail: ../images/accessories/ridipaper4-tempered-glass-protection-film/thumbnail.png
+bg: ../images/accessories/ridipaper4-tempered-glass-protection-film/bg.jpg
+bgMobile: ../images/accessories/ridipaper4-tempered-glass-protection-film/bg-mobile.jpg
+titleImage:
+  src: ../images/accessories/ridipaper4-tempered-glass-protection-film/titleImage.png
+  width: 361
+  height: 207
+sections:
+  - type: image
+    image: ../images/accessories/ridipaper4-tempered-glass-protection-film/1.jpg
+  - type: image
+    image: ../images/accessories/ridipaper4-tempered-glass-protection-film/2.jpg
+  - type: detail
+    name:
+    title:
+    description: ''
+    image:
+    tableRows:
+      - head: 기능
+        items:
+          - 강화유리
+      - head: 표면 강도
+        items:
+          - '5'
+      - head: 투과율 / 선명도
+        items:
+          - '5'
+      - head: 지문 방지력
+        items:
+          - '3'
+      - head: 빛 반사율
+        items:
+          - '4'
+      - head: 두께
+        items:
+          - '5'
+      - head: 특징
+        items:
+          - 강한 스크래치 내구성 (9H), 선명하고 터치감 우수
+  - type: spec
+    items:
+      - name: 크기
+        desc: 가로 104.8 x 140.5mm
+      - name: 구성품
+        desc: 강화유리 1장, 습식융 1장, 먼지제거스티커, 밀개
+      - name: 제조사
+        desc: 리디 주식회사
+      - name: 제조국
+        desc: 중국
+
+기능: 강화유리
+표면 강도: ●●●●●
+투과율 / 선명도: ●●●●●
+지문 방지력: ●●●
+빛 반사율: ●●●●
+두께: ●●●●●
+특징: 강한 스크래치 내구성 (9H), 선명하고 터치감 우수

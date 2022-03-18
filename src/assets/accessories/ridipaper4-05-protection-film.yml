@@ -1,0 +1,36 @@
+slug: ridipaper4-protection-film
+for: ridipaper4
+order: 4
+name:
+  short: 보호 필름
+  en: RIDIPAPER 4 PROTECTION FILM
+  full: |-
+    리디페이퍼 4
+    보호 필름
+description: |-
+thumbnail: ../images/accessories/ridipaper4-protection-film/thumbnail.png
+bg: ../images/accessories/ridipaper4-protection-film/bg.jpg
+bgMobile: ../images/accessories/ridipaper4-protection-film/bg-mobile.jpg
+titleImage:
+  src: ../images/accessories/ridipaper4-protection-film/titleImage.png
+  width: 249
+  height: 229
+sections:
+  - type: image
+    image: ../images/accessories/ridipaper4-protection-film/1.jpg
+  - type: image
+    image: ../images/accessories/ridipaper4-protection-film/2.jpg
+  - type: image
+    image: ../images/accessories/ridipaper4-protection-film/3.jpg
+  - type: image
+    image: ../images/accessories/ridipaper4-protection-film/4.jpg
+  - type: spec
+    items:
+      - name: 크기
+        desc: 104.8 x 140.5mm
+      - name: 구성품
+        desc: 필름 2장, 습식융 2장, 먼지제거스티커, 밀개
+      - name: 제조사
+        desc: 리디 주식회사
+      - name: 제조국
+        desc: 대한민국

@@ -19,7 +19,7 @@ const Container = styled<'header', { long?: boolean }>('header')`
   }
 `;
 
-const HeroBackground = styled<'div', { bright?: boolean }>('div')`
+const HeroBackground = styled<'div', { bright?: boolean, noOverlay?: boolean }>('div')`
   position: absolute;
   top: 0;
   left: 0;
@@ -39,12 +39,16 @@ const HeroBackground = styled<'div', { bright?: boolean }>('div')`
   &.bright::after {
     background-color: rgba(0, 0, 0, 0.3);
   }
+
+  &.noOverlay::after {
+    background-color: rgba(0, 0, 0, 0);
+  }
 `;
 
 const HeroOverlay = styled.div`
   position: relative;
   height: 100%;
-  padding-top: 100px;
+  padding-top: 60px;
 `;
 
 const styles = css`
@@ -59,14 +63,15 @@ interface Props {
   className?: string;
   short?: boolean;
   bright?: boolean;
+  noOverlay?: boolean;
   renderBackground?(props: { className: string }): React.ReactNode;
 }
 
-export default function Hero({ children, className, short, bright, renderBackground }: Props) {
+export default function Hero({ children, className, short, bright, renderBackground, noOverlay = false }: Props) {
   const background = renderBackground?.({ className: styles.bg });
   return (
     <Container long={!short} className={className}>
-      <HeroBackground bright={bright}>
+      <HeroBackground bright={bright} noOverlay={noOverlay}>
         {background}
       </HeroBackground>
       <HeroOverlay>{children}</HeroOverlay>

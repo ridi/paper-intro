@@ -1,0 +1,35 @@
+slug: ridipaper4-hard-case
+for: ridipaper4
+order: 2
+name:
+  short: 하드 케이스
+  en: RIDIPAPER 4 HARD CASE
+  full: |-
+    리디페이퍼 4
+    하드 케이스
+description: |-
+thumbnail: ../images/accessories/ridipaper4-hard-case/thumbnail.png
+bg: ../images/accessories/ridipaper4-hard-case/bg.jpg
+bgMobile: ../images/accessories/ridipaper4-hard-case/bg-mobile.jpg
+titleImage:
+  src: ../images/accessories/ridipaper4-hard-case/titleImage.png
+  width: 249
+  height: 273
+sections:
+  - type: image
+    image: ../images/accessories/ridipaper4-hard-case/1.jpg
+  - type: spec
+    items:
+      - name: 크기
+        desc: 가로 149.7mm x 세로 163.1mm x 두께 11mm
+      - name: 무게
+        desc: 53.5g(블랙/인디핑크/캑터스그린) / 60g(화이트)
+      - name: 소재
+        desc: 폴리카보네이트(PC)
+      - name: 구성품
+        desc: 하드케이스
+      - name: 제조사
+        desc: 리디 주식회사
+      - name: 제조국
+        desc: 중국
+    disclaimer: '* 제품 색상은 디스플레이 설정에 따라 실제 색상과 차이가 있을 수 있습니다.'

@@ -1,0 +1,64 @@
+slug: ridipaper4-external-protection-film
+for: ridipaper4
+order: 6
+name:
+  short: 외부 보호 필름
+  en: RIDIPAPER 4 EXTERNAL PROTECTION FILM
+  full: |-
+    리디페이퍼 4
+    외부 보호 필름
+description:
+thumbnail: ../images/accessories/ridipaper4-external-protection-film/thumbnail.png
+bg: ../images/accessories/ridipaper4-external-protection-film/bg.jpg
+bgMobile: ../images/accessories/ridipaper4-external-protection-film/bg-mobile.jpg
+titleImage:
+  src: ../images/accessories/ridipaper4-external-protection-film/titleImage.png
+  width: 301
+  height: 207
+sections:
+  - type: image
+    image: ../images/accessories/ridipaper4-external-protection-film/1.jpg
+  - type: image
+    image: ../images/accessories/ridipaper4-external-protection-film/2.jpg
+  - type: detail
+    name:
+    title:
+    description: ''
+    image:
+    tableRows:
+      - head: 기능
+        items:
+          - 지문 방지와 저반사
+          - 지문 방지와 고선명
+      - head: 표면 강도
+        items:
+          - '4'
+          - '4'
+      - head: 투과율 / 선명도
+        items:
+          - '3'
+          - '4'
+      - head: 지문 방지력
+        items:
+          - '5'
+          - '3.5'
+      - head: 빛 반사율
+        items:
+          - '1'
+          - '4'
+      - head: 두께
+        items:
+          - '4'
+          - '4'
+      - head: 특징
+        items:
+          - 아웃도어 활동 및 손에 유분기가 많은 사용자에게 적합한 저반사 무광 필름
+          - 가장 일반적인 지문 방지 및 이지클린 (올레포빅) 기능의 베이직형 필름
+  - type: spec
+    items:
+      - name: 구성품
+        desc: 전면(분할/전체) 필름 각 1장, 후면 필름 1장, 페이지 넘김 버튼 필름 (상/하) 각 1장, 습식융 2장, 먼지제거스티커, 밀개
+      - name: 제조사
+        desc: 리디 주식회사
+      - name: 제조국
+        desc: 대한민국

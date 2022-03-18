@@ -1,0 +1,35 @@
+slug: ridipaper4-ohio-collaborated-hard-case
+for: ridipaper4
+order: 4
+name:
+  short: 하드 케이스 X 오하이오
+  en: RIDIPAPER 4 COLLABORATED HARD CASE
+  full: |-
+    리디페이퍼 4
+    하드 케이스 X 오하이오
+description: |-
+thumbnail: ../images/accessories/ridipaper4-ohio-collaborated-hard-case/thumbnail.png
+bg: ../images/accessories/ridipaper4-ohio-collaborated-hard-case/bg.jpg
+bgMobile: ../images/accessories/ridipaper4-ohio-collaborated-hard-case/bg-mobile.jpg
+titleImage:
+  src: ../images/accessories/ridipaper4-ohio-collaborated-hard-case/titleImage.png
+  width: 446
+  height: 265
+sections:
+  - type: image
+    image: ../images/accessories/ridipaper4-ohio-collaborated-hard-case/1.jpg
+  - type: spec
+    items:
+      - name: 크기
+        desc: 가로 149.7mm x 세로 163.1mm x 두께 11mm
+      - name: 무게
+        desc: 53.5g
+      - name: 소재
+        desc: 폴리카보네이트(PC)
+      - name: 구성품
+        desc: 하드케이스
+      - name: 제조사
+        desc: 리디 주식회사
+      - name: 제조국
+        desc: 중국
+    disclaimer: '* 제품 색상은 디스플레이 설정에 따라 실제 색상과 차이가 있을 수 있습니다.'
