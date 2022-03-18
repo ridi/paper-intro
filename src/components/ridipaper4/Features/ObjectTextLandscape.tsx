@@ -24,6 +24,7 @@ const ObjectTextLandscapeContainer = styled('div')`
 const ObjectTextLandscapeColumn = styled('div')`
   display: flex;
   flex-direction: column;
+  flex: 1;
   justify-content: flex-start;
 `;
 
