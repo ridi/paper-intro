@@ -7,20 +7,23 @@ type GalleryImagesQueryEdges = {
     node: {
       name: string;
       childImageSharp: {
-        fluid: FluidObject
-      }
-    }
-  }[]
+        fluid: FluidObject;
+      };
+    };
+  }[];
 };
 
 type GalleryImagesQueryResponse = {
-  images: GalleryImagesQueryEdges,
-  fullImages: GalleryImagesQueryEdges,
+  images: GalleryImagesQueryEdges;
+  fullImages: GalleryImagesQueryEdges;
 };
 
 const galleryImagesQuery = graphql`
   query GalleryImages {
-    images: allFile(filter: { relativePath: {glob: "images/ridipaper4/gallery/*"} }) {
+    images: allFile(
+      filter: { relativePath: { glob: "images/ridipaper4/gallery/*" } }
+      sort: { fields: name }
+    ) {
       edges {
         node {
           name
@@ -29,11 +32,14 @@ const galleryImagesQuery = graphql`
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
-        }  
+        }
       }
     }
-    
-    fullImages: allFile(filter: { relativePath: {glob: "images/ridipaper4/gallery/full/*"} }) {
+
+    fullImages: allFile(
+      filter: { relativePath: { glob: "images/ridipaper4/gallery/full/*" } }
+      sort: { fields: name }
+    ) {
       edges {
         node {
           name
@@ -42,18 +48,19 @@ const galleryImagesQuery = graphql`
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
-        }  
+        }
       }
     }
   }
 `;
 
-
 export const useGalleryImages = (isFull = false) => {
   const data = useStaticQuery<GalleryImagesQueryResponse>(galleryImagesQuery);
   const images = isFull ? data.fullImages : data.images;
-  
-  return images
-    .edges
-    .map<GalleryImage>(({ node }, index) => ({ key: node.name, index, fluid: node.childImageSharp.fluid }));
+
+  return images.edges.map<GalleryImage>(({ node }, index) => ({
+    key: node.name,
+    index,
+    fluid: node.childImageSharp.fluid,
+  }));
 };
