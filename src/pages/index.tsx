@@ -33,7 +33,7 @@ const IS_PURCHASE_ENABLED = true;
 const RidiPaper4Page = () => {
   const data = useStaticQuery(graphql`
     {
-      banner: file(relativePath: { eq: "images/meta/paper4/og.jpg" }) {
+      banner: file(relativePath: { eq: "images/meta/paper4/og.png" }) {
         publicURL
       }
     }
