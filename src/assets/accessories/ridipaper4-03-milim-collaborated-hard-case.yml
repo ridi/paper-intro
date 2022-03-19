@@ -18,11 +18,12 @@ titleImage:
 sections:
   - type: detail
     name:
-    title: 제품 소개
+    title: 작가 소개
     description: |-
-      리디페이퍼4 작가 콜라보 하드 케이스는,
-      간편함과 심플함을 넘어 자신만의 개성을 담길 바라는 사용자를 위한 액세서리입니다. 
-      각기 다른 개성의 일러스트를 통해 나만의 감각을 표현해 보세요.
+      순수하게 있는 그대로 즐길 수 있는 작업을 하는 밀림(MilliM)입니다. 
+      접근하기 쉽지만 개성 있는 그림을 그리고 싶은 바람과, 
+      예술에게 바라는 가장 근본적인 ‘보는 즐거움’을 채워 줄 수 있도록 
+      ‘나’와 ‘당신’ 모두를 만족 시키는 한 장을 만들기 위해 즐거운 마음으로 작업을 이어가고 있습니다.
   - type: image
     image: ../images/accessories/ridipaper4-milim-collaborated-hard-case/1.jpg
   - type: spec
