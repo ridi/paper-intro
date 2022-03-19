@@ -33,12 +33,12 @@ const IS_PURCHASE_ENABLED = true;
 const RidiPaper4Page = () => {
   const data = useStaticQuery(graphql`
     {
-      banner: file(relativePath: { eq: "images/meta/ridipaper/og.jpg" }) {
+      banner: file(relativePath: { eq: "images/meta/paper4/og.jpg" }) {
         publicURL
       }
     }
   `);
-  
+
   const ref = useRef<HTMLDivElement>(null);
 
   return (
@@ -56,12 +56,12 @@ const RidiPaper4Page = () => {
           <QuickButton />
           <Video />
           <Gallery />
-          { IS_PURCHASE_ENABLED && <PurchaseBanner /> }
+          {IS_PURCHASE_ENABLED && <PurchaseBanner />}
           <Specs />
           <Manual />
         </ScrollmagicProvider>
       </LightboxContextProvider>
-      
+
       <div ref={ref} />
     </Layout>
   );

@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: 'Simple Reading, Simple Living',
-    description: '리디의 새로운 이북리더기 RIDIPAPER4 3월 24일부터 예약 판매',
+    description:
+      '미니멀 디자인의 RIDIPAPER 4는 시간, 공간, 그리고 당신의 감각까지 그대로 반영합니다.',
     keywords: [
       '페이퍼',
       '페이퍼 프로',
