@@ -86,7 +86,7 @@ const TECHINFO_CONTENT = [
   {
     key: 'waterproof',
     name: '방수',
-    value: '방수 IPX8 (최대 수심 2m, 최대 60분) ',
+    value: 'IPX8 (최대 수심 2m, 최대 60분) ',
   },
   { key: 'suported-file', name: '지원 파일', value: 'EPUB, TXT, PDF, ZIP' },
 ];
