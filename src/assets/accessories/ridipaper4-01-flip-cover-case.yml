@@ -12,7 +12,7 @@ thumbnail: ../images/accessories/ridipaper4-flip-cover-case/thumbnail.png
 bg: ../images/accessories/ridipaper4-flip-cover-case/bg.jpg
 bgMobile: ../images/accessories/ridipaper4-flip-cover-case/bg-mobile.jpg
 titleImage:
-  src: ../images/accessories/ridipaper4-flip-cover-case/title.png
+  src: ../images/accessories/ridipaper4-flip-cover-case/titleImage.png
   width: 315
   height: 273
 sections:
