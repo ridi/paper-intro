@@ -6,6 +6,8 @@ import { Link } from 'gatsby';
 
 import RidipaperLogo from '@/svgs/ridipaper.inline.svg';
 import Ridipaper4Logo from '@/svgs/paper4-title.black.inline.svg';
+import ArrowDown from '@/svgs/arrow-down.inline.svg';
+import CloseIcon from '@/svgs/close.inline.svg';
 
 const Container = styled.header<{ open: boolean }>`
   position: fixed;
@@ -46,6 +48,8 @@ const Left = styled.div`
 
 const Right = styled.div<{ open: boolean }>`
   display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 600px) {
     position: absolute;
@@ -66,10 +70,25 @@ const Right = styled.div<{ open: boolean }>`
     transition: height 0.2s ease-in-out;
 
     &.open {
-      height: 88px;
+      height: 100px;
       background: rgba(255, 255, 255, 1);
+      align-items: flex-start;
     }
   }
+`;
+
+const MobileRight = styled.div`
+  display: none;
+
+  @media (max-width: 600px) {
+    display: flex;
+  }
+`;
+
+const Icon = styled.div`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 `;
 
 const styles = css`
@@ -137,80 +156,14 @@ const styles = css`
     }
   }
 
-  .hamburgerButton {
-    position: relative;
-    padding: 0;
+  .menuButton {
     display: none;
-    border: none;
-    background: none;
     align-items: center;
-    justify-content: center;
-    width: 58px;
-    height: 30px;
-    right: -20px;
+    text-decoration: none;
+    padding: 0 0 0 20px;
 
     @media (max-width: 600px) {
       display: flex;
-    }
-  }
-
-  .hamburger {
-    width: 18px;
-    height: 14px;
-    position: relative;
-    transform: rotate(0deg);
-    transition: 0.2s ease-in-out;
-
-    &:hover,
-    &:active {
-      opacity: 0.7;
-    }
-
-    & span {
-      display: block;
-      position: absolute;
-      height: 2px;
-      width: 100%;
-      background: #303538;
-      opacity: 1;
-      left: 0;
-      transform: rotate(0deg);
-      transition: 0.25s ease-in-out;
-    }
-
-    & span:nth-child(1) {
-      top: 0px;
-    }
-
-    & span:nth-child(2),
-    & span:nth-child(3) {
-      top: 6px;
-    }
-
-    & span:nth-child(4) {
-      top: 12px;
-    }
-  }
-
-  .hamburgerOpen {
-    span:nth-child(1) {
-      top: 6px;
-      width: 0%;
-      left: 50%;
-    }
-
-    span:nth-child(2) {
-      transform: rotate(45deg);
-    }
-
-    span:nth-child(3) {
-      transform: rotate(-45deg);
-    }
-
-    span:nth-child(4) {
-      top: 6px;
-      width: 0%;
-      left: 50%;
     }
   }
 
@@ -228,6 +181,10 @@ const styles = css`
     display: flex;
     align-items: center;
     text-decoration: none;
+
+    @media (max-width: 600px) {
+      margin-left: 10px;
+    }
   }
 `;
 
@@ -236,6 +193,17 @@ export default function Header() {
   const location = useLocation();
   const isRidiPaper4 =
     location.pathname.includes('ridipaper4') || location.pathname === '/';
+
+  React.useEffect(() => {
+    const resetOpen = () => {
+      setIsOpen(false);
+    };
+
+    window.addEventListener('resize', resetOpen);
+    return () => {
+      window.removeEventListener('resize', resetOpen);
+    };
+  }, []);
   return (
     <>
       <Container open={isOpen}>
@@ -287,35 +255,40 @@ export default function Header() {
                 >
                   액세서리
                 </Link>
-
-                <Link
-                  to="/stockists"
-                  className={styles.purchasButton}
-                  activeClassName={styles.active}
-                  partiallyActive
-                >
-                  구매하기
-                </Link>
+                {!isOpen && (
+                  <Link
+                    to="/stockists"
+                    className={styles.purchasButton}
+                    activeClassName={styles.active}
+                    partiallyActive
+                  >
+                    구매하기
+                  </Link>
+                )}
               </>
             )}
           </Right>
 
-          <button
-            className={styles.hamburgerButton}
-            type="button"
-            onClick={() => setIsOpen(o => !o)}
-          >
-            <div
-              className={`${styles.hamburger} ${
-                isOpen ? `${styles.hamburgerOpen}` : ''
-              }`}
+          <MobileRight>
+            <button
+              className={styles.menuButton}
+              type="button"
+              onClick={() => setIsOpen(o => !o)}
             >
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </button>
+              <Icon>{isOpen ? <CloseIcon /> : <ArrowDown />}</Icon>
+            </button>
+
+            {!isOpen && !isRidiPaper4 && (
+              <Link
+                to="/stockists"
+                className={styles.purchasButton}
+                activeClassName={styles.active}
+                partiallyActive
+              >
+                구매하기
+              </Link>
+            )}
+          </MobileRight>
         </Center>
       </Container>
     </>
