@@ -51,7 +51,7 @@ const DeviceOrientationsStage = styled('div')`
 
   @media (max-width: 600px) {
     width: 100%;
-    margin-top: 50%;
+    margin-top: 30%;
     left: 50%;
     transform: translate(-50%);
   }
