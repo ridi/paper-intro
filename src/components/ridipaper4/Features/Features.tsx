@@ -84,7 +84,7 @@ export const Features = (): JSX.Element => {
     setTimeline(snappedTimeline);
     
     return () => snappedTimeline.destroy();
-  }, [timeline]);
+  }, []);
   
   const inScroll = useRef(false);
   useScrollmagicEffect((controller, Scene) => {
