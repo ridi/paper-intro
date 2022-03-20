@@ -23,12 +23,13 @@ const Spacer = styled.div`
 interface Props {
   children?: React.ReactNode;
   className?: string;
+  containerClassName?: string;
   noFooterMargin?: boolean;
 }
 
-const Layout = ({ children, className, noFooterMargin }: Props) => {
+const Layout = ({ children, containerClassName, className, noFooterMargin }: Props) => {
   return (
-    <Container>
+    <Container className={containerClassName}>
       <Header />
       <main className={className}>{children}</main>
       <Spacer />

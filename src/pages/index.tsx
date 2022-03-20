@@ -27,6 +27,10 @@ const styles = css`
   .main {
     font-family: 'Pretendard', sans-serif;
   }
+
+  .container {
+    width: 100%;
+  }
 `;
 
 const IS_PURCHASE_ENABLED = true;
@@ -42,7 +46,7 @@ const RidiPaper4Page = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <Layout className={styles.main}>
+    <Layout className={styles.main} containerClassName={styles.container}>
       <LightboxContextProvider value={ref}>
         <ScrollmagicProvider>
           <SEO
