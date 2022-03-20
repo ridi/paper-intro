@@ -20,10 +20,12 @@ export type Timeline<
   DiscreteKeyframeNames extends string,
   ContinuousKeyframeNames extends string
 > = {
+  getScrollStamps: (key: DiscreteKeyframeNames | ContinuousKeyframeNames) => number[];
   subscribe: <K extends DiscreteKeyframeNames | ContinuousKeyframeNames>(
     key: K,
     onUpdate: (value: K extends DiscreteKeyframeNames ? string : number) => void
   ) => void;
   unsubscribe: (key: DiscreteKeyframeNames | ContinuousKeyframeNames) => void;
-  update: (duration: number) => void
+  update: (duration: number) => void,
+  destroy: () => void,
 };

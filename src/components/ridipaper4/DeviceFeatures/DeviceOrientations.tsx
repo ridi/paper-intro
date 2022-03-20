@@ -70,6 +70,7 @@ const RidiPaperContainer = styled('div')`
   @media (max-width: 800px) {
     transform-origin: 50% 50%;
   }
+  transition: transform .4s ease;
 `;
 
 const RidiPaperImage = styled(Img)`
@@ -90,6 +91,7 @@ const PreviewTextContainer = styled('div')`
   flex-direction: column;
   justify-content: center;
   opacity: 1;
+  transition: opacity .4s ease .4s;
 `;
 
 const PreviewTextContainerReverse = styled(PreviewTextContainer)`
@@ -183,7 +185,9 @@ export const DeviceOrientations = (): JSX.Element => {
       offset: DURATION * 0.2,
     })
       .on('progress', (e: { progress: number }) => {
-        const transition = Math.min(e.progress / 0.9, 1);
+        // const transition = Math.min(e.progress / 0.9, 1);
+        const transition = e.progress < 0.45 ? 0 : 1;
+        
         const rotationTransition = Math.min(transition / 0.45, 1);
         const textTransition = Math.max(
           0,

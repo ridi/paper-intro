@@ -12,6 +12,7 @@ export const AnimationTemperature: Animation<FeatureKeyframes> = {
     [0, { name: 'TextBackground/Temperature', value: 0 }],
     [0.2, { name: 'Touch/Touch', value: 'true' }],
     [0.2, { name: 'Touch/Opacity', value: 1 }],
+    [0.2, { name: 'Snap', value: 0 }],
     [0.7, { name: 'Touch/Y', value: 60 }],
     [0.7, { name: 'Touch/Opacity', value: 1 }],
     [0.7, { name: 'TextBackground/Brightness', value: 88 }],
@@ -20,6 +21,7 @@ export const AnimationTemperature: Animation<FeatureKeyframes> = {
     [0.9, { name: 'Touch/Touch', value: 'false' }],
     [0.9, { name: 'TextBackground/Temperature', value: 60 }],
     [0.9, { name: 'TextBackground/Brightness', value: 88 }],
+    [0.9, { name: 'Snap', value: 1 }],
     [1, { name: 'TextBackground/Temperature', value: 0 }],
     [1, { name: 'TextBackground/Brightness', value: 98 }],
   ]

@@ -91,6 +91,14 @@ export const createTimeline = <
   const lastIndex: Map<ContinuousKeyframeNames | DiscreteKeyframeNames, number> = new Map();
   
   return {
+    getScrollStamps(key) {
+      if (key in discreteTimeline) {
+        return discreteTimeline[key as DiscreteKeyframeNames].map(_ => _[0]);
+      }
+      
+      return continuousTimeline[key as ContinuousKeyframeNames].map(_ => _[0]);
+    },
+    
     subscribe(key, fn) {
       subscribedMap.set(key, fn as SubscribeFn);
     },
@@ -147,6 +155,7 @@ export const createTimeline = <
           onUpdate((1 - t) * start[1] + t * end[1]);
         }
       });
-    }
+    },
+    destroy: () => {},
   };
 };

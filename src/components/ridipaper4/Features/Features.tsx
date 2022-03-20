@@ -1,6 +1,6 @@
 import styled from 'astroturf';
-import { createTimeline } from '@/utils/animation';
-import { useMemo, useRef } from 'react';
+import { createSnappedTimeline } from '@/utils/animation';
+import { useEffect, useMemo, useRef } from 'react';
 import { useScrollmagicEffect } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 import React from 'react';
 import { ObjectBook } from './ObjectBook';
@@ -73,15 +73,24 @@ const animations = [
   AnimationScale,
 ];
 
-const DURATION = 10000;
+const DURATION = 12000;
 export const Features = (): JSX.Element => {
   const triggerRef = useRef<HTMLDivElement>(null);
-  const timeline = useMemo(() => createTimeline(animations), []);
+  const timeline = useMemo(() => createSnappedTimeline(animations), []);
+  useEffect(() => {
+    return () => {
+      timeline.destroy();
+    };
+  }, [timeline]);
+  
+  const inScroll = useRef(false);
   useScrollmagicEffect((controller, Scene) => {
     new Scene({
       triggerElement: triggerRef.current!,
       duration: DURATION,
     })
+      .on('enter', () => { inScroll.current = true; })
+      .on('leave', () => { inScroll.current = false; })
       .on('progress', (e: { progress: number }) => timeline.update(e.progress))
       .addTo(controller);
   }, [timeline]);
