@@ -21,7 +21,7 @@ const objectSizeUIImageQuery = graphql`
 const ObjectSizeUIContainer = styled('div')`
   position: absolute;
   bottom: 22%;
-  left: 47%;
+  left: 46.3%;
   transform: translate(-50%, 0);
   width: 38%;
   opacity: 0;
