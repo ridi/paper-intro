@@ -103,6 +103,7 @@ const SubTitle = styled('span')`
   font-size: 14px;
   font-weight: 700;
   line-height: 21px;
+  margin-left: 4px;
 `;
 
 const Title = styled('h2')`
