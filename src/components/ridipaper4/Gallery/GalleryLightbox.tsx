@@ -77,7 +77,7 @@ export const GalleryLightbox = () => {
   const [galleryIndex, setGalleryIndex] = useState(0);
   useEffect(() => {
     const galleryIndexFromURL = galleryImages.findIndex(({ key }) => key === galleryKeyFromURL);
-    if (galleryIndexFromURL > 0) {
+    if (galleryIndexFromURL >= 0) {
       setGalleryIndex(galleryIndexFromURL);
     }
   }, [galleryKeyFromURL]);
