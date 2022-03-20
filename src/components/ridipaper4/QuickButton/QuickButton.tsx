@@ -173,6 +173,11 @@ const videoQuery = graphql`
 const QuickButtonContainer = styled('section')`
   background: #c1c1c1;
   height: 100vh;
+
+  @media (max-width: 600px) {
+    height: auto;
+    min-height: 100vh;
+  }
 `;
 
 const QuickButtonStage = styled('div')`
@@ -213,6 +218,35 @@ const QuickButtonVideo = styled('video')`
   }
 `;
 
+const LineWrapper = styled('div')`
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #c1c1c1;
+
+  user-select: none;
+  pointer-events: none;
+
+  margin-bottom: calc(100vw * 0.5625 - 20px);
+
+  @media (max-width: 600px) {
+    margin-bottom: calc(100vw * 1.1);
+  }
+`;
+
+const DummyArea = styled('div')`
+  display: none;
+  width: 1px;
+  height: 150vw;
+
+  @media (max-width: 600px) {
+    display: inline-block;
+  }
+`;
+
 export const QuickButton = (): JSX.Element => {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -235,10 +269,12 @@ export const QuickButton = (): JSX.Element => {
   return (
     <QuickButtonContainer ref={containerRef}>
       <QuickButtonStage>
+        <DummyArea />
         <QuickButtonVideo ref={videoRef} playsInline muted>
           <source src={quickButtonWebm.publicURL} type="video/webm" />
           <source src={quickButtonMp4.publicURL} type="video/mp4" />
         </QuickButtonVideo>
+        <LineWrapper />
         <QuickButtonMenu />
       </QuickButtonStage>
     </QuickButtonContainer>
