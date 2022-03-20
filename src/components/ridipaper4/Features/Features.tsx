@@ -61,10 +61,10 @@ const FeaturesStage = styled('div')`
 `;
 
 const animations = [
-  AnimationInit('어느 방향이든 쾌적하게'),
-  AnimationVertical,
-  AnimationTransition('종이책을 보던 느낌 그대로\n전자잉크 디스플레이'),
+  AnimationInit('종이책을 보던 느낌 그대로\n전자잉크 디스플레이'),
   AnimationEInk,
+  AnimationTransition('어느 방향이든 쾌적하게'),
+  AnimationVertical,
   AnimationTransition('한 손가락으로는 밝기조절'),
   AnimationBrightness,
   AnimationTransition('두 손가락으로는 색온도조절'),
