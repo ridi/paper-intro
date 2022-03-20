@@ -33,7 +33,7 @@ const styles = css`
   }
 `;
 
-const IS_PURCHASE_ENABLED = true;
+const IS_PURCHASE_ENABLED = false;
 const RidiPaper4Page = () => {
   const data = useStaticQuery(graphql`
     {

@@ -241,6 +241,7 @@ const DummyArea = styled('div')`
   display: none;
   width: 1px;
   height: 150vw;
+  min-height: 100vh;
 
   @media (max-width: 600px) {
     display: inline-block;
