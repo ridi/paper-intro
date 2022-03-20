@@ -10,14 +10,14 @@ import { TimelineContext } from './TimelineContext';
 
 const ObjectTextLandscapeContainer = styled('div')`
   position: absolute;
-  top: 49%;
-  left: 46.4%;
+  top: 47.4%;
+  left: 51.4%;
   width: 59%;
   height: 44%;
   overflow: hidden;
 
   display: flex;
-  transform: translate(-50%, -50%) rotate(-90deg);
+  transform: translate(-50%, -50%);
   opacity: 0;
 `;
 

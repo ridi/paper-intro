@@ -107,8 +107,8 @@ export const Features = (): JSX.Element => {
               <ObjectBook/>
               <ObjectRidiPaper>
                 <ObjectTextBackground aria-hidden="true" />
-                <ObjectTextLandscape aria-hidden="true" />
               </ObjectRidiPaper>
+              <ObjectTextLandscape aria-hidden="true" />
               <ObjectText aria-hidden="true" />
               <ObjectSizeUI />
               <ObjectTouch />
