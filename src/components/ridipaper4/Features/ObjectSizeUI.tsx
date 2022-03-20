@@ -60,7 +60,7 @@ export const ObjectSizeUI = (): JSX.Element => {
       timeline.unsubscribe('SizeUI/Opacity');
       timeline.unsubscribe('SizeUI/Size');
     };
-  }, []);
+  }, [timeline]);
 
   return (
     <ObjectSizeUIContainer ref={imageRef}>

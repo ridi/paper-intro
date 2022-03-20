@@ -36,7 +36,7 @@ export const ObjectTextBackground = (): JSX.Element => {
       timeline.unsubscribe('TextBackground/Brightness');
       timeline.unsubscribe('TextBackground/Temperature');
     };
-  }, []);
+  }, [timeline]);
 
   return <ObjectTextBackgroundContainer ref={backgroundRef} />;
 };

@@ -63,7 +63,7 @@ export const ObjectTextLandscape = (): JSX.Element => {
     return () => {
       timeline.unsubscribe('TextLandscape/Opacity');
     };
-  }, []);
+  }, [timeline]);
 
   return (
     <ObjectTextLandscapeContainer ref={textRef}>

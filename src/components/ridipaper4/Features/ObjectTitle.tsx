@@ -43,7 +43,7 @@ export const ObjectTitle = (): JSX.Element => {
       timeline.unsubscribe('Title/Transition');
       timeline.unsubscribe('Title/Text');
     };
-  }, []);
+  }, [timeline]);
   
   return (
     <ObjectTitleText ref={titleRef}>

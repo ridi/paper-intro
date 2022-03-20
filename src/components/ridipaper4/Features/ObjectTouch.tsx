@@ -71,7 +71,8 @@ export const ObjectTouch = (): JSX.Element => {
       timeline.unsubscribe('Touch/Touch');
       timeline.unsubscribe('Touch/Mode');
     };
-  }, []);
+  }, [timeline]);
+
   return (
     <ObjectTouchContainer ref={touchRef}>
       <ObjectTouchIndicator

@@ -61,7 +61,7 @@ export const ObjectText = (): JSX.Element => {
       timeline.unsubscribe('Text/Size');
       timeline.unsubscribe('Text/Rotation');
     };
-  }, []);
+  }, [timeline]);
 
   const fontSize = TEXT_SIZE_MAP[textSize];
   const lines = useMemo(() => {
