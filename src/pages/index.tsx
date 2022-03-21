@@ -24,7 +24,9 @@ import { Video } from '@/components/ridipaper4/Video';
 import smoothscroll from 'smoothscroll-polyfill';
 import '@/fonts/Pretendard';
 
-smoothscroll.polyfill();
+if (typeof window !== 'undefined') {
+  smoothscroll.polyfill();
+}
 
 const styles = css`
   .main {
