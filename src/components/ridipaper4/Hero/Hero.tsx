@@ -266,11 +266,11 @@ export const Hero = (): JSX.Element => {
             <HeroLogo aria-label="RIDIPAPER 4" />
           </HeroTitle>
         </HeroHeader>
-        <HeroLinkWrapper data-is-animated={isAnimated}>
+        { /* <HeroLinkWrapper data-is-animated={isAnimated}>
           <HeroLinkButton noOpacity to="/stockists/">
             구매하기
           </HeroLinkButton>
-        </HeroLinkWrapper>
+        </HeroLinkWrapper> */ }
       </HeroContainer>
     </HeroBase>
   );
