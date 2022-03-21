@@ -1,10 +1,9 @@
 import styled from 'astroturf';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 import { GalleryController as GalleryControllerType } from '../types';
 import { GalleryFlowController } from './GalleryFlowController';
 import { GalleryScrollController } from './GalleryScrollController';
-import { PointerEvent } from 'react';
 
 const GalleryControllerContainer = styled('div')`
   display: flex;
@@ -24,16 +23,16 @@ export const GalleryController: GalleryControllerType = ({ images }): JSX.Elemen
     return () => window.removeEventListener('resize', onResize);
   }, []);
   
-  const onPointerEvent = useCallback((event: PointerEvent) => {
+  /* const onPointerEvent = useCallback((event: PointerEvent) => {
     setStatus(event.pointerType === 'touch' ? 'mobile' : 'desktop');
-  }, []);
+  }, []); */
   
   const GalleryControllerInner = status === 'mobile'
     ? GalleryScrollController
     : GalleryFlowController;
   
   return (
-    <GalleryControllerContainer onPointerDown={onPointerEvent}>
+    <GalleryControllerContainer>
       <GalleryControllerInner images={images} />
     </GalleryControllerContainer>
   );
