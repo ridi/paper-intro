@@ -121,6 +121,10 @@ const ButtonDetailsImageContainer = styled('div')`
   max-width: 1000px;
   margin: -16% auto;
   z-index: -1;
+  
+  @media (min-width: 1001px) {
+    margin: -160px auto;
+  }
 `;
 
 const ButtonLifestyleCutImageContainer = styled('div')`
