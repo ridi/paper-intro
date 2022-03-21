@@ -1,6 +1,6 @@
 import styled from 'astroturf';
 import { forwardRef } from 'react';
-import Img from 'gatsby-image';
+import Img from 'gatsby-image/withIEPolyfill';
 import React from 'react';
 import { ComponentType } from 'react';
 import { FluidObject } from 'gatsby-image';
@@ -21,7 +21,7 @@ const GalleryItemImage = styled(Img)`
   height: 100%;
   border-radius: 8px;
   overflow: hidden;
-` as ComponentType<{ fluid: FluidObject }>;
+` as ComponentType<{ fluid: FluidObject, objectFit: 'contain' | 'cover' }>;
 
 type GalleryItemProps = {
   image: GalleryImage;
@@ -32,7 +32,7 @@ export const GalleryItem = forwardRef<HTMLLIElement, GalleryItemProps>(({ image,
   return (
     <GalleryItemContainer className={className} ref={ref}>
       <GalleryItemLink to={`#gallery-${image.key}`}>
-        <GalleryItemImage fluid={image.fluid} />
+        <GalleryItemImage fluid={image.fluid} objectFit="cover" />
       </GalleryItemLink>
     </GalleryItemContainer>
   );

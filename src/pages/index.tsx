@@ -21,7 +21,10 @@ import { QuickButton } from '@/components/ridipaper4/QuickButton';
 import { Specs } from '@/components/ridipaper4/Specs';
 import { Video } from '@/components/ridipaper4/Video';
 
+import smoothscroll from 'smoothscroll-polyfill';
 import '@/fonts/Pretendard';
+
+smoothscroll.polyfill();
 
 const styles = css`
   .main {
