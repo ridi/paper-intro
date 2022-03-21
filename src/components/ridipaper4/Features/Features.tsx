@@ -40,8 +40,8 @@ const OverflowBlock = styled('div')`
 
 const FeaturesStage = styled('div')`
   position: absolute;
-  width: 140vw;
-  max-width: 100vh;
+  width: 127vw;
+  max-width: 90vh;
   margin-bottom: 15vh;
   
   &::after {
