@@ -204,14 +204,7 @@ const QuickButtonVideo = styled('video')`
   height: auto;
   background: #c1c1c1;
   transform: translate(-50%, 0);
-
-  @supports (object-fit: contain) {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center bottom;
-  }
-
+  
   @media (max-width: 600px) {
     left: 7%;
     width: 200%;
@@ -230,10 +223,10 @@ const LineWrapper = styled('div')`
   user-select: none;
   pointer-events: none;
 
-  margin-bottom: calc(100vw * 0.5625 - 20px);
+  margin-bottom: calc(56.25vw - 20px);
 
   @media (max-width: 600px) {
-    margin-bottom: calc(100vw * 1.1);
+    margin-bottom: 105vw;
   }
 `;
 
