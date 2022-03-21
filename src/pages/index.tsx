@@ -1,13 +1,17 @@
 import { css } from 'astroturf';
-import React from 'react';
-
 import { graphql, useStaticQuery } from 'gatsby';
-import { Controller } from 'scrollmagic';
+
+import React from 'react';
 
 import Layout from '@/components/common/Layout';
 import SEO from '@/components/common/SEO';
-import { Hero } from '@/components/ridipaper4/Hero';
+
+import { Controller } from 'scrollmagic';
 import { ScrollmagicProvider } from '@/components/common/ScrollMagicContext';
+
+import { Gallery } from '@/components/ridipaper4/Gallery';
+import { Hero } from '@/components/ridipaper4/Hero';
+import { Manual } from '@/components/ridipaper4/Manual';
 import { Specs } from '@/components/ridipaper4/Specs';
 
 const styles = css`
@@ -50,7 +54,9 @@ const RidiPaper4Page = () => {
           meta={[{ property: 'og:image', content: data.banner.publicURL }]}
         />
         <Hero />
+        <Gallery />
         <Specs />
+        <Manual />
       </ScrollmagicProvider>
     </Layout>
   );

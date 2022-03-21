@@ -3,9 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useEffect, useState } from 'react';
 
 import HeroBase from '@/components/common/Hero';
-import Ridipaper4Logo from '@/svgs/ridipaper4/ridipaper4.inline.svg';
 import React from 'react';
-import { BreakPoint } from '@/styles/media';
+import Ridipaper4Logo from '@/svgs/ridipaper4/ridipaper4.inline.svg';
 import { LinkButton } from '@/components/common/Button';
 
 const Background = styled('div')`
@@ -25,8 +24,8 @@ const Background = styled('div')`
     width: 100%;
     min-width: 1600px;
 
-    @media (max-width: ${BreakPoint.MobileMax}px) {
-      min-width: ${BreakPoint.MobileMax}px;
+    @media (max-width: 600px) {
+      min-width: 600px;
     }
   }
 `;
@@ -41,7 +40,7 @@ const HeroContainer = styled('div')`
   
   padding: 0 108px;
 
-  @media (max-width: ${BreakPoint.MobileMax}px) {
+  @media (max-width: 600px) {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -73,7 +72,7 @@ const HeroPhrase = styled('p')`
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
-  color: black;
+  color: #000000;
   
   padding-bottom: 22px;
 `;
@@ -81,7 +80,7 @@ const HeroPhrase = styled('p')`
 const HeroTitle = styled('h1')`
   width: 355px;
   height: 41px;
-  color: black;
+  color: #000000;
 `;
 
 const HeroLinkWrapper = styled<'div', { runAnimation?: boolean }>('div')`
@@ -104,8 +103,8 @@ const HeroLinkButton = styled(LinkButton)`
   height: initial;
   padding: 10px;
   
-  color: black;
-  border: 1px solid black;
+  color: #000000;
+  border: 1px solid #000000;
   border-radius: 20px;
   
   font-weight: 700;

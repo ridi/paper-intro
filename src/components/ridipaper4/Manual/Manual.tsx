@@ -26,8 +26,8 @@ const ManualButton = styled(Button)`
   padding: 10px;
   margin-top: 40px;
   
-  color: black;
-  border: 1px solid black;
+  color: #000000;
+  border: 1px solid #000000;
   border-radius: 30px;
   
   font-weight: 700;

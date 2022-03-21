@@ -38,15 +38,16 @@ const SpecsHeaderItem = styled('button')`
   padding: 0 10px;
   
   cursor: pointer;
-  color: #bdbdbd;
+  color: #121212;
+  opacity: 0.28;
   font-size: 14px;
   line-height: 39px;
   font-weight: 700;
   text-align: center;
-  transition: color .5s ease;
+  transition: opacity .5s ease;
   
   &[data-is-selected="true"] {
-    color: #121212;
+    opacity: 1;
   }
 `;
 
