@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 import { ComponentType } from 'react';
 import { FluidObject } from 'gatsby-image';
-import { LineBreakOnDesktop, LineBreakOnMobile } from '@/components/ridipaper4/LineBreak';
+import { LineBreakOnMobile } from '@/components/ridipaper4/LineBreak';
 import { Link } from 'gatsby';
 import { VideoLightbox } from './VideoLightbox';
 
@@ -27,21 +27,6 @@ const Title = styled('h2')`
   @media (max-width: 600px) {
     font-size: 24px;
     line-height: 31px;
-  }
-`;
-
-const Description = styled('p')`
-  margin-top: 15px;
-  color: #000000;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 21px;
-  opacity: .6;
-  text-align: center;
-  
-  @media (max-width: 600px) {
-    font-size: 10px;
-    line-height: 16px;
   }
 `;
 
@@ -105,19 +90,10 @@ export const Video = (): JSX.Element => {
   return (
     <VideoContainer>
       <Title>
-        Simple living with{' '}
+        Simple Living with{' '}
         <LineBreakOnMobile />
         RIDIPAPER 4
       </Title>
-      <Description>
-        출근길 지하철, 여행 떠나는 비행기 안, 잠들기 전 침대 위{' '}
-        <LineBreakOnMobile />
-        어디서든 책을 읽고 싶은 순간{' '}
-        <LineBreakOnDesktop />
-        RIDIPAPER를 꺼내보세요.{' '}
-        <LineBreakOnMobile />
-        내가 있는 모든 곳이 독서하기 가장 좋은 곳이 됩니다.
-      </Description>
       <VideoThumbnailContainer to="#video">
         <VideoThumbnailImage fluid={stillCut.childImageSharp.fluid} />
         <VideoThumbnailIcon />

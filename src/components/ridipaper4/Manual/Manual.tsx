@@ -52,8 +52,8 @@ const ManualButton = styled('a')`
 
 export const Manual = (): JSX.Element => (
     <ManualContainer id="ridipaper4-manual">
-      <ManualTitle>RIDI PAPER 4 사용방법</ManualTitle>
-      <ManualButton href="https://www.notion.so/ridi/498562a80c8c45e88bab7f7caa49deaa">
+      <ManualTitle>RIDIPAPER 4 사용방법</ManualTitle>
+      <ManualButton href="/guide">
         사용자 가이드 확인하기
       </ManualButton>
     </ManualContainer>

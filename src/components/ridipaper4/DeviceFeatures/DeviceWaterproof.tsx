@@ -4,7 +4,7 @@ import { useFloatText } from '@/components/ridipaper4/hooks/useFloatText';
 import { useMemo, useRef } from 'react';
 import * as constants from './constants';
 
-import Img from 'gatsby-image';
+import Img from 'gatsby-image/withIEPolyfill';
 import React from 'react';
 import { ComponentType } from 'react';
 import { FluidObject } from 'gatsby-image';
@@ -38,14 +38,14 @@ const Background = styled('div')`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 `;
 
 const BackgroundImage = styled(Img)`
   width: 100%;
   height: 100%;
-` as ComponentType<{ fluid: FluidObject[] }>;
+` as ComponentType<{ fluid: FluidObject[], objectFit: 'cover' | 'contain' }>;
 
 const SubTitle = styled('span')`
   color: #000000;
@@ -118,7 +118,7 @@ export const DeviceWaterproof = (): JSX.Element => {
   return (
     <DeviceWaterproofContainer ref={triggerRef}>
       <Background>
-        <BackgroundImage fluid={sources} />
+        <BackgroundImage fluid={sources} objectFit="cover" />
       </Background>
       
       <TextContainer ref={floatRef}>

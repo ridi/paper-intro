@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import HeroBase from '@/components/common/Hero';
-import Img from 'gatsby-image';
+import Img from 'gatsby-image/withIEPolyfill';
 import React from 'react';
 import Ridipaper4Logo from '@/svgs/ridipaper4/ridipaper4.inline.svg';
 import { ComponentType } from 'react';
@@ -24,7 +24,7 @@ const Background = styled('div')`
 const BackgroundImage = styled(Img)`
   width: 100%;
   height: 100%;
-` as ComponentType<{ fluid: FluidObject }>;
+` as ComponentType<{ fluid: FluidObject, objectFit: 'cover' | 'contain' }>;
 
 const HeroContainer = styled('div')`
   width: 100%;
@@ -82,7 +82,10 @@ const HeroTitle = styled('h1')`
   max-width: 355px;
   height: 41px;
   color: #000000;
-  margin: 0 auto;
+  
+  @media (max-width: 600px) {
+    margin: 0 auto;
+  }
 `;
 
 const HeroLinkWrapper = styled<'div', { runAnimation?: boolean }>('div')`
@@ -160,7 +163,7 @@ export const Hero = (): JSX.Element => {
   const [isDesktop, setIsDesktop] = useState(true);
   useEffect(() => {
     const onResize = () => {
-      setIsDesktop(window.innerWidth <= 600);
+      setIsDesktop(window.innerWidth > 600);
     };
 
     onResize();
@@ -190,7 +193,7 @@ export const Hero = (): JSX.Element => {
       timeoutId = setTimeout(() => onChange(), CHANGE_INTERVAL);
     };
     
-    onChange();
+    timeoutId = setTimeout(() => onChange(), CHANGE_INTERVAL);
     return () => clearTimeout(timeoutId);
   }, [usingImages]);
 
@@ -225,7 +228,7 @@ export const Hero = (): JSX.Element => {
         
         return (
           <Background key={image.key} ref={ ref } style={{ opacity }}>
-            <BackgroundImage fluid={image.fluid} />
+            <BackgroundImage fluid={image.fluid} objectFit="cover" />
           </Background>
         );
       }) }
@@ -238,7 +241,7 @@ export const Hero = (): JSX.Element => {
         <HeroHeader data-is-animated={isAnimated}>
           <HeroPhrase>Simple Reading, Simple Living</HeroPhrase>
           <HeroTitle>
-            <HeroLogo aria-label="RIDI PAPER 4" />
+            <HeroLogo aria-label="RIDIPAPER 4" />
           </HeroTitle>
         </HeroHeader>
         <HeroLinkWrapper data-is-animated={isAnimated}>

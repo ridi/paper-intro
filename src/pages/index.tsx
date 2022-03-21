@@ -21,12 +21,15 @@ import { QuickButton } from '@/components/ridipaper4/QuickButton';
 import { Specs } from '@/components/ridipaper4/Specs';
 import { Video } from '@/components/ridipaper4/Video';
 
+import '@/fonts/Pretendard';
+
 const styles = css`
   .main {
     font-family: 'Pretendard', sans-serif;
   }
 `;
 
+const IS_PURCHASE_ENABLED = true;
 const RidiPaper4Page = () => {
   const data = useStaticQuery(graphql`
     {
@@ -53,7 +56,7 @@ const RidiPaper4Page = () => {
           <QuickButton />
           <Video />
           <Gallery />
-          <PurchaseBanner />
+          { IS_PURCHASE_ENABLED && <PurchaseBanner /> }
           <Specs />
           <Manual />
         </ScrollmagicProvider>

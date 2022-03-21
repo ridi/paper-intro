@@ -35,6 +35,7 @@ const PopupTitle = styled('h2')`
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+  text-align: start;
 `;
 
 const PopupContent = styled('p')`
@@ -52,6 +53,7 @@ const DoNotShowToday = styled('button')`
   text-decoration: underline;
   margin-top: 52px;
   margin-left: auto;
+  display: block;
 `;
 
 type PopupProps = {

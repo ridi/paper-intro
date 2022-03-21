@@ -5,7 +5,7 @@ import { useMemo, useRef } from 'react';
 import { useScrollmagicEffect } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 import * as constants from './constants';
 
-import Img from 'gatsby-image';
+import Img from 'gatsby-image/withIEPolyfill';
 import React from 'react';
 import { ComponentType } from 'react';
 import { FluidObject } from 'gatsby-image';
@@ -55,14 +55,14 @@ const Background = styled('div')`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 `;
 
 const BackgroundImage = styled(Img)`
   width: 100%;
   height: 100%;
-` as ComponentType<{ fluid: FluidObject[] }>;
+` as ComponentType<{ fluid: FluidObject[], objectFit: 'cover' | 'contain' }>;
 
 const TextContainer = styled('div')`
   position: absolute;
@@ -197,10 +197,10 @@ export const DeviceColors = (): JSX.Element => {
     <DeviceColorsContainer ref={containerRef} style={{ height: `calc(${DURATION}px + 100vh)` }}>
       <PinnedItem duration={DURATION}>
         <Background ref={whiteRef}>
-          <BackgroundImage fluid={whiteSources} />
+          <BackgroundImage fluid={whiteSources} objectFit="cover" />
         </Background>
         <Background ref={blackRef}>
-          <BackgroundImage fluid={blackSources} />
+          <BackgroundImage fluid={blackSources} objectFit="cover" />
         </Background>
         
         <TextContainer ref={floatRef}>

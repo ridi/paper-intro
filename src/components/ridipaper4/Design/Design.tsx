@@ -166,7 +166,7 @@ export const Design = (): JSX.Element => {
         <PrimaryDescription>
           시간과 공간을 간결하게 채우는 당신,{' '}
           <LineBreakOnMobile />
-          일상을 만드는 가장 당신다운 삶의 방식이니까
+          그것이 일상을 만드는 가장 당신다운 삶의 방식이니까
           <br />
           미니멀 디자인의 RIDIPAPER 4는 시간, 공간,{' '}
           <LineBreakOnMobile />

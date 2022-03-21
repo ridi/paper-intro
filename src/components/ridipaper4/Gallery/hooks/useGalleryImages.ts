@@ -38,7 +38,7 @@ const galleryImagesQuery = graphql`
         node {
           name
           childImageSharp {
-            fluid(sizes: "(max-width: 601px) 1920px, 600px", quality: 90) {
+            fluid(sizes: "(max-width: 601px) 1500px, 600px", quality: 90) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }

@@ -5,12 +5,13 @@ import { TimelineContext } from './TimelineContext';
 
 const ObjectTextBackgroundContainer = styled('div')`
   position: absolute;
-  top: 49%;
-  left: 46.4%;
+  top: 49.7%;
+  left: 46.24%;
   transform: translate(-50%, -50%);
-  width: 46%;
-  height: 62.9%;
+  width: 46.15%;
+  height: 61.4%;
   background: #c8cccd;
+  border-radius: 0.5%;
 `;
 
 export const ObjectTextBackground = (): JSX.Element => {

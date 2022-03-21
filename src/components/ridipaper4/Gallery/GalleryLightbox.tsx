@@ -17,7 +17,21 @@ const GalleryImageContainer = styled('div')`
 const GalleryImage = styled(Img)`
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  
+  & img {
+    @supports (object-fit: contain) {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      width: auto !important;
+      height: auto !important;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transform: translate(-50%, -50%);
+      border-radius: 8px;
+    }
+  }
 ` as ComponentType<{ fluid: FluidObject, objectFit: 'cover' | 'contain' }>;
 
 const ArrowLeftButton = styled('button')`
@@ -25,6 +39,11 @@ const ArrowLeftButton = styled('button')`
   left: -40px;
   top: 50%;
   transform: translate(0, -50%);
+  transition: opacity .4s ease;
+  
+  &[disabled] {
+    opacity: .3;
+  }
 `;
 
 const ArrowRightButton = styled(ArrowLeftButton)`
@@ -47,36 +66,43 @@ const ArrowRightIcon = styled(ArrowLeftIcon)`
 
 export const GalleryLightbox = () => {
   const location = useLocation();
-  const hashMatch = location.hash.match(/^#gallery-(\d+)/);
+  const hashMatch = location.hash.match(/^#gallery-(.*)$/);
   const isOpened = !!hashMatch;
   
   const navigate = useNavigate();
   const onClose = useCallback(() => navigate(-1), [navigate]);
-  const galleryIndexStrFromURL = hashMatch?.[1];
-  const galleryIndexFromURL = typeof galleryIndexStrFromURL === 'string' && parseInt(galleryIndexStrFromURL, 10);
-  
-  const [galleryIndex, setGalleryIndex] = useState(0);
-  useEffect(() => {
-    if (typeof galleryIndexFromURL === 'number' && isFinite(galleryIndexFromURL)) {
-      setGalleryIndex(galleryIndexFromURL);
-    }
-  }, [galleryIndexFromURL]);
+  const galleryKeyFromURL = hashMatch?.[1];
   
   const galleryImages = useGalleryImages(true);
+  const [galleryIndex, setGalleryIndex] = useState(0);
+  useEffect(() => {
+    const galleryIndexFromURL = galleryImages.findIndex(({ key }) => key === galleryKeyFromURL);
+    if (galleryIndexFromURL > 0) {
+      setGalleryIndex(galleryIndexFromURL);
+    }
+  }, [galleryKeyFromURL]);
+  
   const onClick = (direction = 1 | -1) => (event: MouseEvent) => {
     event.stopPropagation();
-    setGalleryIndex((galleryIndex + direction) % galleryImages.length);
+    setGalleryIndex(Math.max(0, Math.min(galleryIndex + direction, galleryImages.length - 1)));
   };
+  
+  const isStart = galleryIndex === 0;
+  const isEnd = galleryIndex === galleryImages.length - 1;
   
   return (
     <Lightbox isOpened={isOpened} onClose={onClose}>
-      <GalleryImageContainer>
-        <GalleryImage fluid={galleryImages[galleryIndex].fluid} objectFit="contain" />
+      <GalleryImageContainer onClick={onClose}>
+      { galleryImages.map((image, index) => (
+          index === galleryIndex && (
+            <GalleryImage key={image.key} fluid={galleryImages[galleryIndex].fluid} objectFit="contain" />
+          )
+        )) }
       </GalleryImageContainer>
-      <ArrowLeftButton type="button" onClick={onClick(-1)}>
+      <ArrowLeftButton type="button" onClick={onClick(-1)} disabled={isStart}>
         <ArrowLeftIcon />
       </ArrowLeftButton>
-      <ArrowRightButton type="button" onClick={onClick(1)}>
+      <ArrowRightButton type="button" onClick={onClick(1)} disabled={isEnd}>
         <ArrowRightIcon />
       </ArrowRightButton>
     </Lightbox>

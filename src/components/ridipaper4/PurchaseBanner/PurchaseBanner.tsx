@@ -40,6 +40,16 @@ const PurchaseBannerLogo = styled(Ridipaper4Logo)`
   margin: 0 auto;
   margin-bottom: 25px;
   
+  @media (min-width: 601px) {
+    display: flex;
+    position: absolute;
+    top: 27%;
+    width: 29.2%;
+    height: 20%;
+    left: 25%;
+    color: #252525;
+  }
+  
   @media (max-width: 600px) {
     display: flex;
   }
