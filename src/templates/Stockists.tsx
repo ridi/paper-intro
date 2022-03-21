@@ -5,12 +5,13 @@ import { graphql, Link } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 import PolyfillImg from 'gatsby-image/withIEPolyfill';
 
-import Hero from '../components/hero/Accessory';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Tabs, { Tab } from '../components/Tabs';
+import Layout from '@/components/common/Layout';
+import SEO from '@/components/common/SEO';
+import Tabs, { Tab } from '@/components/common/Tabs';
 
-import Outlink from '../svgs/outlink.inline.svg';
+import AccessoryHero from '@/components/accessories/AccessoryHero';
+
+import Outlink from '@/svgs/outlink.inline.svg';
 
 const StockistsTabWrapper = styled.nav`
   width: 100%;
@@ -121,10 +122,10 @@ export default function Stockists(props: Props) {
   return (
     <Layout>
       <SEO title="온라인 스토어" />
-      <Hero renderBackground={renderBackground}>
+      <AccessoryHero renderBackground={renderBackground}>
         <h1>리디페이퍼<br />온라인 스토어</h1>
         <p>추천 쇼핑몰에서 리디페이퍼와<br />액세서리를 구매하세요.</p>
-      </Hero>
+      </AccessoryHero>
       <StockistsTabWrapper>
         <Tabs>
           {tabs.map(({ id, name }) => (

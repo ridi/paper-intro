@@ -2,20 +2,20 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Hero from '../components/pro/Hero';
-import Feature from '../components/pro/Feature';
-import Display from '../components/pro/Display';
-import Detail from '../components/pro/Detail';
-import Hardware from '../components/pro/Hardware';
-import Providers from '../components/pro/Providers';
-import DesignedBy from '../components/pro/DesignedBy';
-import Compare from '../components/pro/Compare';
-import Spec from '../components/pro/Spec';
+import Layout from '@/components/common/Layout';
+import SEO from '@/components/common/SEO';
+import Hero from '@/components/pro/Hero';
+import Feature from '@/components/pro/Feature';
+import Display from '@/components/pro/Display';
+import Detail from '@/components/pro/Detail';
+import Hardware from '@/components/pro/Hardware';
+import Providers from '@/components/pro/Providers';
+import DesignedBy from '@/components/pro/DesignedBy';
+import Compare from '@/components/pro/Compare';
+import Spec from '@/components/pro/Spec';
 
-import '../components/pro/styles.css'
-import '../components/pro/animation.css'
+import '@/components/pro/styles.css'
+import '@/components/pro/animation.css'
 
 const ProPage = () => {
   const data = useStaticQuery(graphql`
@@ -27,7 +27,7 @@ const ProPage = () => {
   `);
 
   React.useEffect(() => {
-    import('../components/pro/animation.js').then(({ play }) => play());
+    import('@/components/pro/animation.js').then(({ play }) => play());
   }, []);
 
   return (

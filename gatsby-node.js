@@ -1,9 +1,18 @@
 const path = require('path');
 
 async function createPages({ graphql, actions, reporter }) {
-  const accessoryTemplate = path.resolve(__dirname, 'src/templates/AccessoryDetail.tsx');
-  const accessoryIndexTemplate = path.resolve(__dirname, 'src/templates/AccessoryIndex.tsx');
-  const stockistTemplate = path.resolve(__dirname, 'src/templates/Stockists.tsx');
+  const accessoryTemplate = path.resolve(
+    __dirname,
+    'src/templates/AccessoryDetail.tsx',
+  );
+  const accessoryIndexTemplate = path.resolve(
+    __dirname,
+    'src/templates/AccessoryIndex.tsx',
+  );
+  const stockistTemplate = path.resolve(
+    __dirname,
+    'src/templates/Stockists.tsx',
+  );
   const result = await graphql(`
     {
       accessories: allAccessoriesYaml {
@@ -25,7 +34,9 @@ async function createPages({ graphql, actions, reporter }) {
   if (result.errors) {
     reporter.panicOnBuild('Error while running GraphQL query.');
   }
-  const accessorySlugs = result.data.accessories.edges.map(({ node }) => node.slug);
+  const accessorySlugs = result.data.accessories.edges.map(
+    ({ node }) => node.slug,
+  );
   for (const slug of accessorySlugs) {
     actions.createPage({
       path: `/accessories/${slug}/`,
@@ -35,7 +46,8 @@ async function createPages({ graphql, actions, reporter }) {
       },
     });
   }
-  for (const forTab of ['ridipaper']) {
+
+  for (const forTab of ['ridipaper4', 'ridipaper']) {
     actions.createPage({
       path: `/accessories/${forTab}/`,
       component: accessoryIndexTemplate,
@@ -55,7 +67,9 @@ async function createPages({ graphql, actions, reporter }) {
     toPath: '/accessories/ridipaper/',
     redirectInBrowser: true,
   });
-  const stockistSlugs = result.data.stockists.edges.map(({ node }) => node.slug);
+  const stockistSlugs = result.data.stockists.edges.map(
+    ({ node }) => node.slug,
+  );
   for (const slug of stockistSlugs) {
     actions.createPage({
       path: `/stockists/${slug}/`,
@@ -71,32 +85,32 @@ async function createPages({ graphql, actions, reporter }) {
     redirectInBrowser: true,
   });
   actions.createRedirect({
-    fromPath: "/pro.html",
-    toPath: "/",
+    fromPath: '/pro.html',
+    toPath: '/',
     redirectInBrowser: true,
     isPermanent: true,
   });
   actions.createRedirect({
-    fromPath: "/pro/",
-    toPath: "/",
+    fromPath: '/pro/',
+    toPath: '/',
     redirectInBrowser: true,
     isPermanent: true,
   });
   actions.createRedirect({
-    fromPath: "/stockists/paper-pro/",
-    toPath: "/stockists/ridipaper/",
+    fromPath: '/stockists/paper-pro/',
+    toPath: '/stockists/ridipaper/',
     redirectInBrowser: true,
     isPermanent: true,
   });
   actions.createRedirect({
-    fromPath: "/intro",
-    toPath: "/",
+    fromPath: '/intro',
+    toPath: '/',
     redirectInBrowser: true,
     isPermanent: true,
   });
   actions.createRedirect({
-    fromPath: "/Intro",
-    toPath: "/",
+    fromPath: '/Intro',
+    toPath: '/',
     redirectInBrowser: true,
     isPermanent: true,
   });

@@ -2,20 +2,19 @@ import { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import { Controller } from 'scrollmagic';
 
-import { ScrollmagicProvider } from '../components/ScrollmagicContext';
+import { ScrollmagicProvider } from '@/components/ridipaper/RidiPaperScrollmagicContext';
+import Layout from '@/components/common/Layout';
+import SEO from '@/components/common/SEO';
 
-import AccessoryBanner from '../components/AccessoryBanner';
-import Details from '../components/details';
-import Features from '../components/features';
-import Hero from '../components/hero/IndexPage';
-import Layout from '../components/layout';
-import Panel from '../components/panel';
-import Ridibatang from '../components/ridibatang';
-import SEO from '../components/seo';
-import Specs from '../components/specs';
-import ViewerFeatures from '../components/viewer-features';
+import AccessoryBanner from '@/components/ridipaper/AccessoryBanner';
+import Details from '@/components/ridipaper/Details';
+import Features from '@/components/ridipaper/Features';
+import Panel from '@/components/ridipaper/Panel';
+import Ridibatang from '@/components/ridipaper/Ridibatang';
+import RidiPaperHero from '@/components/ridipaper/RidiPaperHero';
+import Specs from '@/components/ridipaper/Specs';
+import ViewerFeatures from '@/components/ridipaper/ViewerFeatures';
 
 const styles = css`
   .main {
@@ -42,7 +41,6 @@ const styles = css`
 `;
 
 const RidiPaperPage = () => {
-  const [controller, setController] = React.useState<Controller>();
   const data = useStaticQuery(graphql`
     {
       banner: file(relativePath: { eq: "images/meta/ridipaper/og.jpg" }) {
@@ -51,30 +49,13 @@ const RidiPaperPage = () => {
     }
   `);
 
-  React.useEffect(() => {
-    let controller: Controller;
-    let destroyed = false;
-    import('scrollmagic').then(({ Controller }) => {
-      if (destroyed) {
-        return;
-      }
-      controller = new Controller();
-      setController(controller);
-    });
-
-    return () => {
-      controller && controller.destroy();
-      destroyed = true;
-    };
-  }, []);
-
   return (
     <Layout className={styles.main}>
-      <ScrollmagicProvider value={controller}>
+      <ScrollmagicProvider>
         <SEO
           meta={[{ property: 'og:image', content: data.banner.publicURL }]}
         />
-        <Hero />
+        <RidiPaperHero />
         <Features />
         <ViewerFeatures />
         <Panel />

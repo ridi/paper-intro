@@ -1,0 +1,45 @@
+slug: ridipaper4-flip-cover-case
+for: ridipaper4
+order: 1
+name:
+  short: 플립 커버 케이스
+  en: RIDIPAPER 4 Flip Cover Case
+  full: |-
+    리디페이퍼 4
+    플립 커버 케이스
+description: |-
+thumbnail: ../images/accessories/ridipaper4-flip-cover-case/thumbnail.png
+bg: ../images/accessories/ridipaper4-flip-cover-case/bg.jpg
+bgMobile: ../images/accessories/ridipaper4-flip-cover-case/bg-mobile.jpg
+titleImage:
+  src: ../images/accessories/ridipaper4-flip-cover-case/titleImage.png
+  width: 315
+  height: 273
+sections:
+  - type: detail
+    name:
+    title: 제품 소개
+    description: |-
+      당신의 미니멀한 취향에도 때때로 소소한 변화는 필요하기에, 
+      감각을 리셋하기 위한 다양한 커버가 준비돼 있습니다. 
+      커버가 바뀌면 기분까지 달라지잖아요. 
+
+      평소에는 단단한 글라스 파이버 소재로 RIDIPAPER 4를 보호하며
+      커버를 펼치는 순간 바로 독서를 즐기실 수 있습니다.
+  - type: image
+    image: ../images/accessories/ridipaper4-flip-cover-case/1.jpg
+  - type: spec
+    items:
+      - name: 크기
+        desc: 가로 149.3mm x 세로 162.8mm x 두께 12.5mm
+      - name: 무게
+        desc: 106.5g(블랙/인디핑크/캑터스그린) / 112.5g(화이트)
+      - name: 소재
+        desc: 합성피혁, 폴리카보네이트 (PC)
+      - name: 구성품
+        desc: 플립커버케이스
+      - name: 제조사
+        desc: 리디 주식회사
+      - name: 제조국
+        desc: 중국
+    disclaimer: '* 제품 색상은 디스플레이 설정에 따라 실제 색상과 차이가 있을 수 있습니다.'
