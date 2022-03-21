@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 
 const PinTarget = styled('div')`
   position: sticky;
-  top: 0;
+  top: 0.5px;
   width: 100% !important;
   height: 100vh;
   display: flex;

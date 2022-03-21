@@ -48,6 +48,12 @@ const ManualButton = styled('a')`
   font-size: 14px;
   line-height: 24px;
   text-decoration: none;
+  
+  @media (max-width: 600px) {
+    min-width: unset;
+    width: 276px;
+    max-width: 100%;
+  }
 `;
 
 export const Manual = (): JSX.Element => (

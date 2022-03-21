@@ -8,7 +8,7 @@ const SpecsContainer = styled('section')`
   max-width: 1004px;
   padding-top: 80px;
   margin: 0 auto;
-  
+
   @media (max-width: 600px) {
     padding-top: 48px;
   }
@@ -43,8 +43,8 @@ const SpecsPanelContainer = styled('div')`
   margin: 0 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   width: 100%;
-  
-  &[data-is-selected="true"] {
+
+  &[data-is-selected='true'] {
     display: flex;
   }
 `;
@@ -54,11 +54,22 @@ const BASIC_CONTENT = [
   { key: 'display-size', name: '화면크기', value: '7인치 (177.7mm)' },
   { key: 'resolution', name: '해상도', value: '300PPI (1264 x 1680 화소)' },
   { key: 'weight', name: '무게', value: '227g' },
-  { key: 'size', name: '크기', value: '가로 147.5mm x 세로 161.1mm x 두께 8.0mm' },
-  { key: 'storage', name: '저장공간', value: '기본 32GB (시스템 용량 제외 약 26.6GB 사용 가능)' },
-  { key: 'external-storage', name: '확장 메모리', value: '마이크로 SD 최대 32GB 추가 가능' },
+  {
+    key: 'size',
+    name: '크기',
+    value: '가로 147.5mm x 세로 161.1mm x 두께 8.0mm',
+  },
+  {
+    key: 'storage',
+    name: '저장공간',
+    value: '기본 32GB (시스템 용량 제외 약 26.6GB 사용 가능)',
+  },
   { key: 'battery', name: '배터리 용량', value: '2,500mAh' },
-  { key: 'charge-time', name: '충전 완료 시간', value: '약 2시간 20분 (5V 2A 충전기 기준)' },
+  {
+    key: 'charge-time',
+    name: '충전 완료 시간',
+    value: '약 2시간 20분 (5V 2A 충전기 기준)',
+  },
 ];
 
 const TECHINFO_CONTENT = [
@@ -66,15 +77,36 @@ const TECHINFO_CONTENT = [
   { key: 'ram', name: 'RAM', value: 'LPDDR4X 3GB' },
   { key: 'os', name: 'OS', value: '안드로이드 10' },
   { key: 'wifi', name: '와이파이', value: '802.11a/b/g/n/ac, 2.4GHz / 5GHz' },
-  { key: 'bluetooth', name: '블루투스', value: '5.0 (Profile : A2DP, AVRCP, HID)' },
+  {
+    key: 'bluetooth',
+    name: '블루투스',
+    value: '5.0 (Profile : A2DP, AVRCP, HID)',
+  },
   { key: 'safe-temperature', name: '정상 작동 온도', value: '0~40℃' },
+  {
+    key: 'waterproof',
+    name: '방수',
+    value: 'IPX8 (최대 수심 2m, 최대 60분) ',
+  },
   { key: 'suported-file', name: '지원 파일', value: 'EPUB, TXT, PDF, ZIP' },
 ];
 
 const DISPLAY_CONTENT = [
-  { key: 'type', name: '스크린 형태', value: '7" Carta 1200 E-Ink Display (논플랫 스크린)' },
-  { key: 'page', name: '페이지 넘김', value: '정전식 터치스크린 + 페이지 넘김 버튼 (2개)' },
-  { key: 'light', name: '화면 조명', value: '프론트라이트 프로 (밝기 조절 및 색 온도 조절 가능)' },
+  {
+    key: 'type',
+    name: '스크린 형태',
+    value: '7" Carta 1200 E-Ink Display (논플랫 스크린)',
+  },
+  {
+    key: 'page',
+    name: '페이지 넘김',
+    value: '정전식 터치스크린 + 페이지 넘김 버튼 (2개)',
+  },
+  {
+    key: 'light',
+    name: '화면 조명',
+    value: '프론트라이트 프로 (밝기 조절 및 색 온도 조절 가능)',
+  },
 ];
 
 const EXTRA_CONTENT = [
@@ -89,9 +121,9 @@ const EXTRA_CONTENT = [
       'TTS (Text to Speech) 기능',
       '사용자 파일 추가 (지원 파일 형식에 한함)',
       '글자 크기, 줄 간격, 문단 간격, 문단 너비, 문단 정렬 조절',
-      '기본 글꼴 6가지 제공 (사용자 글꼴 추가 가능)'
-    ].join('\n')
-  }
+      '기본 글꼴 6가지 제공 (사용자 글꼴 추가 가능)',
+    ].join('\n'),
+  },
 ];
 
 const SpecsBasic = () => (
@@ -119,16 +151,36 @@ const SpecsExtra = () => (
 );
 
 const SPECS_ITEMS = [
-  { key: 'basic', text: '기본사양', panelId: 'ridipaper4-specs-basic', component: SpecsBasic },
-  { key: 'techinfo', text: '기술정보', panelId: 'ridipaper4-specs-techinfo', component: SpecsTechInfo },
-  { key: 'display', text: '디스플레이', panelId: 'ridipaper4-specs-display', component: SpecsDisplay },
-  { key: 'extra', text: '부가기능', panelId: 'ridipaper4-specs-extra', component: SpecsExtra },
+  {
+    key: 'basic',
+    text: '기본사양',
+    panelId: 'ridipaper4-specs-basic',
+    component: SpecsBasic,
+  },
+  {
+    key: 'techinfo',
+    text: '기술정보',
+    panelId: 'ridipaper4-specs-techinfo',
+    component: SpecsTechInfo,
+  },
+  {
+    key: 'display',
+    text: '디스플레이',
+    panelId: 'ridipaper4-specs-display',
+    component: SpecsDisplay,
+  },
+  {
+    key: 'extra',
+    text: '부가기능',
+    panelId: 'ridipaper4-specs-extra',
+    component: SpecsExtra,
+  },
 ];
 
 export const Specs = (): JSX.Element => {
   const items = SPECS_ITEMS;
   const [selectedItemKey, setSelectedItemKey] = useState(items[0].key);
-  
+
   return (
     <SpecsContainer id="ridipaper4-specs">
       <SpecsTitle>
@@ -136,13 +188,17 @@ export const Specs = (): JSX.Element => {
         <br />
         상세 스펙
       </SpecsTitle>
-        
+
       <SpecsScroller>
-        <SpecsHeader items={items} selectedItemKey={selectedItemKey} setSelectedItemKey={setSelectedItemKey} />
+        <SpecsHeader
+          items={items}
+          selectedItemKey={selectedItemKey}
+          setSelectedItemKey={setSelectedItemKey}
+        />
       </SpecsScroller>
-      
+
       <SpecsScroller>
-        { items.map(({ key, panelId, component: SpecsPanel }) => (
+        {items.map(({ key, panelId, component: SpecsPanel }) => (
           <SpecsPanelContainer
             id={panelId}
             key={key}

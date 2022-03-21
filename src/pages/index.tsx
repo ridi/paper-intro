@@ -21,47 +21,54 @@ import { QuickButton } from '@/components/ridipaper4/QuickButton';
 import { Specs } from '@/components/ridipaper4/Specs';
 import { Video } from '@/components/ridipaper4/Video';
 
+import smoothscroll from 'smoothscroll-polyfill';
 import '@/fonts/Pretendard';
+
+smoothscroll.polyfill();
 
 const styles = css`
   .main {
     font-family: 'Pretendard', sans-serif;
   }
+
+  .container {
+    width: 100%;
+  }
 `;
 
-const IS_PURCHASE_ENABLED = true;
+const IS_PURCHASE_ENABLED = false;
 const RidiPaper4Page = () => {
   const data = useStaticQuery(graphql`
     {
-      banner: file(relativePath: { eq: "images/meta/ridipaper/og.jpg" }) {
+      banner: file(relativePath: { eq: "images/meta/paper4/og.png" }) {
         publicURL
       }
     }
   `);
-  
+
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <Layout className={styles.main}>
+    <Layout className={styles.main} containerClassName={styles.container}>
       <LightboxContextProvider value={ref}>
         <ScrollmagicProvider>
           <SEO
             meta={[{ property: 'og:image', content: data.banner.publicURL }]}
           />
           <DelayPopup />
-          <Hero />
+          <Hero showPurchase={IS_PURCHASE_ENABLED} />
           <Design />
           <DeviceFeatures />
           <Features />
           <QuickButton />
           <Video />
           <Gallery />
-          { IS_PURCHASE_ENABLED && <PurchaseBanner /> }
+          {IS_PURCHASE_ENABLED && <PurchaseBanner />}
           <Specs />
           <Manual />
         </ScrollmagicProvider>
       </LightboxContextProvider>
-      
+
       <div ref={ref} />
     </Layout>
   );

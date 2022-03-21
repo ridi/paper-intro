@@ -20,7 +20,8 @@ export type FeatureContinuousKeyframeNames =
   | 'Touch/Y'
   | 'Touch/Opacity'
   | 'SizeUI/Opacity'
-  | 'Title/Transition';
+  | 'Title/Transition'
+  | 'Snap';
 
 export type FeatureKeyframes = Keyframe<FeaturesDiscreteKeyframeNames, FeatureContinuousKeyframeNames>;
 

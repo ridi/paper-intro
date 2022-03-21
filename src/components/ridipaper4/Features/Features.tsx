@@ -1,6 +1,6 @@
 import styled from 'astroturf';
-import { createTimeline } from '@/utils/animation';
-import { useMemo, useRef } from 'react';
+import { createSnappedTimeline, createTimeline } from '@/utils/animation';
+import { useEffect, useRef, useState } from 'react';
 import { useScrollmagicEffect } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 import React from 'react';
 import { ObjectBook } from './ObjectBook';
@@ -40,8 +40,8 @@ const OverflowBlock = styled('div')`
 
 const FeaturesStage = styled('div')`
   position: absolute;
-  width: 140vw;
-  max-width: 100vh;
+  width: 127vw;
+  max-width: 90vh;
   margin-bottom: 15vh;
   
   &::after {
@@ -61,10 +61,10 @@ const FeaturesStage = styled('div')`
 `;
 
 const animations = [
-  AnimationInit('어느 방향이든 쾌적하게'),
-  AnimationVertical,
-  AnimationTransition('종이책을 보던 느낌 그대로\n전자잉크 디스플레이'),
+  AnimationInit('종이책을 보던 느낌 그대로\n전자잉크 디스플레이'),
   AnimationEInk,
+  AnimationTransition('어느 방향이든 쾌적하게'),
+  AnimationVertical,
   AnimationTransition('한 손가락으로는 밝기조절'),
   AnimationBrightness,
   AnimationTransition('두 손가락으로는 색온도조절'),
@@ -73,15 +73,27 @@ const animations = [
   AnimationScale,
 ];
 
-const DURATION = 10000;
+const DURATION = 12000;
+const baseTimeline = createTimeline(animations);
+
 export const Features = (): JSX.Element => {
   const triggerRef = useRef<HTMLDivElement>(null);
-  const timeline = useMemo(() => createTimeline(animations), []);
+  const [timeline, setTimeline] = useState(baseTimeline);
+  useEffect(() => {
+    const snappedTimeline = createSnappedTimeline(animations);
+    setTimeline(snappedTimeline);
+    
+    return () => snappedTimeline.destroy();
+  }, []);
+  
+  const inScroll = useRef(false);
   useScrollmagicEffect((controller, Scene) => {
     new Scene({
       triggerElement: triggerRef.current!,
       duration: DURATION,
     })
+      .on('enter', () => { inScroll.current = true; })
+      .on('leave', () => { inScroll.current = false; })
       .on('progress', (e: { progress: number }) => timeline.update(e.progress))
       .addTo(controller);
   }, [timeline]);

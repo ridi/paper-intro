@@ -46,7 +46,7 @@ export const ObjectRidiPaper = ({ children }: { children?: ReactNode }): JSX.Ele
       timeline.unsubscribe('RidiPaper/Opacity');
       timeline.unsubscribe('RidiPaper/Rotation');
     };
-  }, []);
+  }, [timeline]);
   
   return (
     <ObjectRidiPaperContainer ref={paperRef}>

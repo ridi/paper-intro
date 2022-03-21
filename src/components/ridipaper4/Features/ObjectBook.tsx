@@ -45,7 +45,7 @@ export const ObjectBook = (): JSX.Element => {
     });
     
     return () => timeline.unsubscribe('Book/Opacity');
-  }, []);
+  }, [timeline]);
   
   return (
     <ObjectBookContainer ref={bookRef}>

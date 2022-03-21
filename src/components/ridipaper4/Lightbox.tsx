@@ -90,6 +90,7 @@ export const Lightbox = ({ isOpened, onClose, className, closeClassName, childre
   }
   
   if (!portal?.current) {
+    onClose();
     return <></>;
   }
 
