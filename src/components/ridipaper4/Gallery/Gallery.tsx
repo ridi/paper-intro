@@ -4,9 +4,12 @@ import React from 'react';
 import { GalleryController } from './GalleryController';
 
 const GalleryContainer = styled('section')`
+  box-sizing: content-box;
+  padding: 135px 0;
   height: 456px;
   
   @media (max-width: 600px) {
+    padding: 37px 0;
     height: 128px;
   }
 `;

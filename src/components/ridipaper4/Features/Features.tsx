@@ -28,10 +28,21 @@ export const FeaturesContainer = styled('section')`
   position: relative;
 `;
 
-const FeaturesStage = styled('div')`
+const OverflowBlock = styled('div')`
+  width: 100%;
+  height: 100%;
   position: relative;
-  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const FeaturesStage = styled('div')`
+  position: absolute;
+  width: 140vw;
   max-width: 100vh;
+  margin-bottom: 15vh;
   
   &::after {
     content: '';
@@ -41,9 +52,11 @@ const FeaturesStage = styled('div')`
   }
   
   @media (min-width: 601px) {
-    width: 70vw;
+    position: relative;
+    width: 90vw;
     max-width: 90vh;
-    margin-top: 5vh;
+    margin-top: 15vh;
+    margin-bottom: 0;
   }
 `;
 
@@ -77,17 +90,20 @@ export const Features = (): JSX.Element => {
     <TimelineContextProvider value={timeline}>
       <FeaturesContainer style={{ height: `calc(${DURATION}px + 100vh)` }} ref={triggerRef}>
         <PinnedItem duration={DURATION}>
-          <FeaturesStage aria-hidden="true">
-            <ObjectBook/>
-            <ObjectRidiPaper>
-              <ObjectTextBackground />
-              <ObjectTextLandscape />
-            </ObjectRidiPaper>
-            <ObjectText />
-            <ObjectSizeUI />
-            <ObjectTouch />
+          <OverflowBlock>
+            <FeaturesStage>
+              <ObjectBook/>
+              <ObjectRidiPaper>
+                <ObjectTextBackground aria-hidden="true" />
+                <ObjectTextLandscape aria-hidden="true" />
+              </ObjectRidiPaper>
+              <ObjectText aria-hidden="true" />
+              <ObjectSizeUI />
+              <ObjectTouch />
+            </FeaturesStage>
+            
             <ObjectTitle />
-          </FeaturesStage>
+          </OverflowBlock>
         </PinnedItem>
       </FeaturesContainer>
     </TimelineContextProvider>

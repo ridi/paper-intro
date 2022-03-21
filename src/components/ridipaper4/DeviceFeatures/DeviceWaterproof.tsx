@@ -1,7 +1,7 @@
 import styled from 'astroturf';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useFloatText } from '@/components/ridipaper4/hooks/useFloatText';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import * as constants from './constants';
 
 import Img from 'gatsby-image';
@@ -14,6 +14,14 @@ const deviceWaterproofImageQuery = graphql`
     waterproof: file(relativePath: {eq: "images/ridipaper4/device-features/waterproof.png"}) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 90) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    
+    waterproofMobile: file(relativePath: {eq: "images/ridipaper4/device-features/waterproof-mobile.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 600, quality: 90) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
@@ -37,12 +45,12 @@ const Background = styled('div')`
 const BackgroundImage = styled(Img)`
   width: 100%;
   height: 100%;
-` as ComponentType<{ fluid: FluidObject }>;
+` as ComponentType<{ fluid: FluidObject[] }>;
 
 const SubTitle = styled('span')`
   color: #000000;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 20px;
   text-transform: uppercase;
 `;
@@ -54,6 +62,10 @@ const Title = styled('h2')`
   font-weight: 700;
   text-align: start;
   line-height: 38px;
+  
+  @media (max-width: 600px) {
+    text-align: center;
+  }
 `;
 
 const Description = styled('p')`
@@ -62,6 +74,10 @@ const Description = styled('p')`
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+  
+  @media (max-width: 600px) {
+    text-align: center;
+  }
 `;
 
 const TextContainer = styled('div')`
@@ -70,14 +86,29 @@ const TextContainer = styled('div')`
   left: 60%;
   transform: translate(0, -50%);
   opacity: 0;
+  
+  @media (max-width: 600px) {
+    left: 5%;
+    width: 90%;
+    text-align: center;
+  }
 `;
 
 export const DeviceWaterproof = (): JSX.Element => {
   const triggerRef = useRef<HTMLDivElement>(null);
   
-  const { waterproof } = useStaticQuery<{
+  const { waterproof, waterproofMobile } = useStaticQuery<{
     waterproof: { childImageSharp: { fluid: FluidObject } }
+    waterproofMobile: { childImageSharp: { fluid: FluidObject } }
   }>(deviceWaterproofImageQuery);
+  
+  const sources = useMemo(() => [
+    waterproof.childImageSharp.fluid,
+    {
+      ...waterproofMobile.childImageSharp.fluid,
+      media: '(max-width: 600px)',
+    },
+  ], [waterproof, waterproofMobile]);
   
   const floatRef = useFloatText<HTMLDivElement>(
     triggerRef,
@@ -87,7 +118,7 @@ export const DeviceWaterproof = (): JSX.Element => {
   return (
     <DeviceWaterproofContainer ref={triggerRef}>
       <Background>
-        <BackgroundImage fluid={waterproof.childImageSharp.fluid} />
+        <BackgroundImage fluid={sources} />
       </Background>
       
       <TextContainer ref={floatRef}>

@@ -1,7 +1,7 @@
 import styled from 'astroturf';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useFloatText } from '@/components/ridipaper4/hooks/useFloatText';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { useScrollmagicEffect } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 import * as constants from './constants';
 
@@ -21,9 +21,25 @@ const deviceColorsImageQuery = graphql`
       }
     }
     
+    blackMobile: file(relativePath: {eq: "images/ridipaper4/device-features/black-background-mobile.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 600, quality: 90) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    
     white: file(relativePath: {eq: "images/ridipaper4/device-features/white-background.png"}) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 90) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    
+    whiteMobile: file(relativePath: {eq: "images/ridipaper4/device-features/white-background-mobile.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 600, quality: 90) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
@@ -46,13 +62,23 @@ const Background = styled('div')`
 const BackgroundImage = styled(Img)`
   width: 100%;
   height: 100%;
-` as ComponentType<{ fluid: FluidObject }>;
+` as ComponentType<{ fluid: FluidObject[] }>;
 
 const TextContainer = styled('div')`
   position: absolute;
   top: 50%;
   left: 55%;
   transform: translate(0, -50%);
+  
+  @media (max-width: 600px) {
+    width: 90%;
+    top: 80%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const WhiteTextContainer = styled('div')`
@@ -63,6 +89,10 @@ const WhiteTextContainer = styled('div')`
   flex-direction: column;
   color: #000000;
   white-space: nowrap;
+  
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const BlackTextContainer = styled(WhiteTextContainer)`
@@ -111,10 +141,22 @@ export const DeviceColors = (): JSX.Element => {
     { ...constants.TEXT_FLOAT_OPTIONS, additionalTransform: 'translate(0, -50%)' }
   );
   
-  const { black, white } = useStaticQuery<{
-    black: { childImageSharp: { fluid: FluidObject } }
-    white: { childImageSharp: { fluid: FluidObject } }
+  const { black, blackMobile, white, whiteMobile } = useStaticQuery<{
+    black: { childImageSharp: { fluid: FluidObject } },
+    blackMobile: { childImageSharp: { fluid: FluidObject } },
+    white: { childImageSharp: { fluid: FluidObject } },
+    whiteMobile: { childImageSharp: { fluid: FluidObject } }
   }>(deviceColorsImageQuery);
+  
+  const blackSources = useMemo(() => [
+    black.childImageSharp.fluid,
+    { ...blackMobile.childImageSharp.fluid, media: '(max-width: 600px)' },
+  ], [black, blackMobile]);
+  
+  const whiteSources = useMemo(() => [
+    white.childImageSharp.fluid,
+    { ...whiteMobile.childImageSharp.fluid, media: '(max-width: 600px)' },
+  ], [white, whiteMobile]);
   
   useScrollmagicEffect((controller, Scene) => {
     new Scene({
@@ -155,10 +197,10 @@ export const DeviceColors = (): JSX.Element => {
     <DeviceColorsContainer ref={containerRef} style={{ height: `calc(${DURATION}px + 100vh)` }}>
       <PinnedItem duration={DURATION}>
         <Background ref={whiteRef}>
-          <BackgroundImage fluid={white.childImageSharp.fluid} />
+          <BackgroundImage fluid={whiteSources} />
         </Background>
         <Background ref={blackRef}>
-          <BackgroundImage fluid={black.childImageSharp.fluid} />
+          <BackgroundImage fluid={blackSources} />
         </Background>
         
         <TextContainer ref={floatRef}>

@@ -17,7 +17,7 @@ type GalleryImagesQueryResponse = {
 
 const galleryImagesQuery = graphql`
   query GalleryImages {
-    images: allFile(filter: { relativePath: {glob: "images/ridipaper/details/*"} }) {
+    images: allFile(filter: { relativePath: {glob: "images/ridipaper4/gallery/*"} }) {
       edges {
         node {
           name
