@@ -53,7 +53,7 @@ const RidiPaper4Page = () => {
             meta={[{ property: 'og:image', content: data.banner.publicURL }]}
           />
           <DelayPopup />
-          <Hero />
+          <Hero showPurchase={IS_PURCHASE_ENABLED} />
           <Design />
           <DeviceFeatures />
           <Features />

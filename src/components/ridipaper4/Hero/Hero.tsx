@@ -158,7 +158,7 @@ const images = graphql`
 `;
 
 const CHANGE_INTERVAL = 5000;
-export const Hero = (): JSX.Element => {
+export const Hero = ({ showPurchase = false }): JSX.Element => {
   const [isAnimated, setIsAnimated] = useState(false);
 
   useEffect(() => {
@@ -266,11 +266,13 @@ export const Hero = (): JSX.Element => {
             <HeroLogo aria-label="RIDIPAPER 4" />
           </HeroTitle>
         </HeroHeader>
-        { /* <HeroLinkWrapper data-is-animated={isAnimated}>
-          <HeroLinkButton noOpacity to="/stockists/">
-            구매하기
-          </HeroLinkButton>
-        </HeroLinkWrapper> */ }
+        { showPurchase && (
+          <HeroLinkWrapper data-is-animated={isAnimated}>
+            <HeroLinkButton noOpacity to="/stockists/">
+              구매하기
+            </HeroLinkButton>
+          </HeroLinkWrapper>
+        ) }
       </HeroContainer>
     </HeroBase>
   );
