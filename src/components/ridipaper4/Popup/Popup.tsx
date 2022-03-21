@@ -20,6 +20,7 @@ const PopupContainer = styled('div')`
   padding: 0 45px;
   padding-top: 60px;
   padding-bottom: 20px;
+  max-width: 500px;
   max-height: 90vh;
   overflow: auto;
   border-radius: 14px;
