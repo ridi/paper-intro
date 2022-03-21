@@ -2,6 +2,7 @@ import styled from 'astroturf';
 import { useGalleryImages } from './hooks';
 import React from 'react';
 import { GalleryController } from './GalleryController';
+import { GalleryLightbox } from './GalleryLightbox';
 
 const GalleryContainer = styled('section')`
   box-sizing: content-box;
@@ -20,6 +21,7 @@ export const Gallery = (): JSX.Element => {
   return (
     <GalleryContainer>
       <GalleryController images={images} />
+      <GalleryLightbox />
     </GalleryContainer>
   );
 };

@@ -2,17 +2,20 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 import { GalleryImage } from '../types';
 
-type GalleryImagesQueryResponse = {
-  images: {
-    edges: {
-      node: {
-        name: string;
-        childImageSharp: {
-          fluid: FluidObject
-        }
+type GalleryImagesQueryEdges = {
+  edges: {
+    node: {
+      name: string;
+      childImageSharp: {
+        fluid: FluidObject
       }
-    }[]
-  }
+    }
+  }[]
+};
+
+type GalleryImagesQueryResponse = {
+  images: GalleryImagesQueryEdges,
+  fullImages: GalleryImagesQueryEdges,
 };
 
 const galleryImagesQuery = graphql`
@@ -22,7 +25,20 @@ const galleryImagesQuery = graphql`
         node {
           name
           childImageSharp {
-            fluid(sizes: "(max-width: 600px) 128px, 271px", quality: 90) {
+            fluid(sizes: "(max-width: 601px) 128px, 271px", quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
+            }
+          }
+        }  
+      }
+    }
+    
+    fullImages: allFile(filter: { relativePath: {glob: "images/ridipaper4/gallery/full/*"} }) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(sizes: "(max-width: 601px) 1920px, 600px", quality: 90) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
@@ -32,10 +48,12 @@ const galleryImagesQuery = graphql`
   }
 `;
 
-export const useGalleryImages = () => {
+
+export const useGalleryImages = (isFull = false) => {
   const data = useStaticQuery<GalleryImagesQueryResponse>(galleryImagesQuery);
-  return data
-    .images
+  const images = isFull ? data.fullImages : data.images;
+  
+  return images
     .edges
-    .map<GalleryImage>(({ node }) => ({ key: node.name, fluid: node.childImageSharp.fluid }));
+    .map<GalleryImage>(({ node }, index) => ({ key: node.name, index, fluid: node.childImageSharp.fluid }));
 };

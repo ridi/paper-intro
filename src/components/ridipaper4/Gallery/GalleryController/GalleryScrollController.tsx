@@ -5,6 +5,7 @@ import { GalleryItem } from '../GalleryItem';
 
 const GalleryScrollContainer = styled('ul')`
   max-width: 100%;
+  padding: 0 10vw;
   overflow: auto;
   
   display: flex;
