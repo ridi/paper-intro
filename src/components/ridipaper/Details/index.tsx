@@ -6,7 +6,7 @@ import Img, { FluidObject } from 'gatsby-image';
 
 import Slider, { Settings as SliderSettings } from 'react-slick';
 
-import ArrowV from '../../svgs/arrow-v.inline.svg';
+import ArrowV from '@/svgs/ridipaper/arrow-v.inline.svg';
 
 import './slick.css';
 
@@ -125,7 +125,7 @@ interface QueryData {
 export default function Details() {
   const data = useStaticQuery<QueryData>(graphql`
     {
-      details: allFile(filter: {relativeDirectory: {eq: "images/details"}}, sort: {fields: name}) {
+      details: allFile(filter: {relativeDirectory: {eq: "images/ridipaper/details"}}, sort: {fields: name}) {
         edges {
           node {
             name

@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
-import RidipaperLogo from '../svgs/ridipaper.inline.svg';
+import RidipaperLogo from '@/svgs/ridipaper.inline.svg';
 
 import { LinkButton } from './Button';
 

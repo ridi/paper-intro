@@ -1,7 +1,7 @@
 import styled from 'astroturf';
 import React from 'react';
 
-import { useScrollmagicEffect } from '../ScrollmagicContext';
+import { useScrollmagicEffect } from '@/components/common/ScrollMagicContext';
 
 import PanelAnimation from './PanelAnimation';
 

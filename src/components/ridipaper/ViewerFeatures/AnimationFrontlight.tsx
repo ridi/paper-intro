@@ -168,7 +168,7 @@ interface Props {
 export default function AnimationFrontlight(props: Props) {
   const data = useStaticQuery(graphql`
     {
-      dark: file(relativePath: {eq: "images/viewer-features/device-dark.png"}) {
+      dark: file(relativePath: {eq: "images/ridipaper/viewer-features/device-dark.png"}) {
         childImageSharp {
           fluid(maxWidth: 490, quality: 90) {
             ...GatsbyImageSharpFluid_withWebp_noBase64

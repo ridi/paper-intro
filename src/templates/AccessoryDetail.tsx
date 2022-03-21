@@ -4,11 +4,12 @@ import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 import PolyfillImg from 'gatsby-image/withIEPolyfill';
 
-import AccessorySection, { Section } from '../components/accessories/AccessorySection';
-import Hero from '../components/hero/Accessory';
-import Layout from '../components/layout';
-import LineBreakText from '../components/LineBreakText';
-import SEO from '../components/seo';
+import Layout from '@/components/common/Layout';
+import LineBreakText from '@/components/common/LineBreakText';
+import SEO from '@/components/common/SEO';
+
+import AccessoryHero from '@/components/accessories/AccessoryHero';
+import AccessorySection, { Section } from '@/components/accessories/AccessorySection';
 
 interface AccessoryDetailQueryData {
   detail: {
@@ -46,7 +47,7 @@ export default function AccessoryDetail(props: Props) {
         title={data.detail.name.full.replace(/\n/g, ' ')}
         meta={[{ property: 'og:image', content: data.detail.bg.childImageSharp.banner.src }]}
       />
-      <Hero renderBackground={renderBackground}>
+      <AccessoryHero renderBackground={renderBackground}>
         <p>{data.detail.name.en}</p>
         <h1>
           <LineBreakText text={data.detail.name.full} />
@@ -54,7 +55,7 @@ export default function AccessoryDetail(props: Props) {
         <p>
           <LineBreakText text={data.detail.description} />
         </p>
-      </Hero>
+      </AccessoryHero>
       {data.detail.sections.map((section, idx) => <AccessorySection key={idx} data={section} />)}
     </Layout>
   );

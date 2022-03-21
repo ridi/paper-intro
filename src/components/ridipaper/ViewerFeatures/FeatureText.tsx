@@ -1,7 +1,7 @@
 import styled from 'astroturf';
 import React from 'react';
 
-import LineBreakText from '../LineBreakText';
+import LineBreakText from '@/components/common/LineBreakText';
 
 const Container = styled<'div', { state?: string }>('div')`
   position: absolute;

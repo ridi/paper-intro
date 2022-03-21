@@ -2,9 +2,8 @@ import styled, { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
 
-import Button from '../Button';
+import Button from '@/components/common/Button';
 import SpecSection, { SpecItem } from './SpecSection';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 
@@ -115,10 +114,10 @@ interface SpecQueryData {
 export default function Specs() {
   const data = useStaticQuery<SpecQueryData>(graphql`
     {
-      front: file(relativePath: {eq: "images/specs/front.png"}) {
+      front: file(relativePath: {eq: "images/ridipaper/specs/front.png"}) {
         publicURL
       }
-      back: file(relativePath: {eq: "images/specs/back.png"}) {
+      back: file(relativePath: {eq: "images/ridipaper/specs/back.png"}) {
         publicURL
       }
       specs: allSpecsYaml {

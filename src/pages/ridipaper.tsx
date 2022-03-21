@@ -4,18 +4,18 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Controller } from 'scrollmagic';
 
-import { ScrollmagicProvider } from '../components/ScrollmagicContext';
+import { ScrollmagicProvider } from '@/components/common/ScrollMagicContext';
+import Layout from '@/components/common/Layout';
+import SEO from '@/components/common/SEO';
 
-import AccessoryBanner from '../components/AccessoryBanner';
-import Details from '../components/details';
-import Features from '../components/features';
-import Hero from '../components/hero/IndexPage';
-import Layout from '../components/layout';
-import Panel from '../components/panel';
-import Ridibatang from '../components/ridibatang';
-import SEO from '../components/seo';
-import Specs from '../components/specs';
-import ViewerFeatures from '../components/viewer-features';
+import AccessoryBanner from '@/components/ridipaper/AccessoryBanner';
+import Details from '@/components/ridipaper/Details';
+import Features from '@/components/ridipaper/Features';
+import Panel from '@/components/ridipaper/Panel';
+import Ridibatang from '@/components/ridipaper/Ridibatang';
+import RidiPaperHero from '@/components/ridipaper/RidiPaperHero';
+import Specs from '@/components/ridipaper/Specs';
+import ViewerFeatures from '@/components/ridipaper/ViewerFeatures';
 
 const styles = css`
   .main {
@@ -74,7 +74,7 @@ const RidiPaperPage = () => {
         <SEO
           meta={[{ property: 'og:image', content: data.banner.publicURL }]}
         />
-        <Hero />
+        <RidiPaperHero />
         <Features />
         <ViewerFeatures />
         <Panel />

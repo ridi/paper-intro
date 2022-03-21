@@ -5,11 +5,12 @@ import { graphql, Link } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 import PolyfillImg from 'gatsby-image/withIEPolyfill';
 
-import AccessoryTabPage from '../components/accessories/AccessoryTabPage';
-import Hero from '../components/hero/Accessory';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Tabs, { Tab } from '../components/Tabs';
+import Layout from '@/components/common/Layout';
+import SEO from '@/components/common/SEO';
+import Tabs, { Tab } from '@/components/common/Tabs';
+
+import AccessoryTabPage from '@/components/accessories/AccessoryTabPage';
+import AccessoryHero from '@/components/accessories/AccessoryHero';
 
 const AccessoryTabWrapper = styled.nav`
   width: 100%;
@@ -80,10 +81,10 @@ export default function AccessoryIndexPage(props: Props) {
         title="Accesory"
         meta={[{ property: 'og:image', content: data.bg.childImageSharp.banner.src }]}
       />
-      <Hero renderBackground={renderBackground}>
+      <AccessoryHero renderBackground={renderBackground}>
         <h1>안심하고 책에만<br />집중하세요</h1>
         <p>견고한 전용 악세서리가<br />RIDIPAPER를 보호해드립니다.</p>
-      </Hero>
+      </AccessoryHero>
       <AccessoryTabWrapper>
         <Tabs>
           {tabs.map(({ id, name }) => (

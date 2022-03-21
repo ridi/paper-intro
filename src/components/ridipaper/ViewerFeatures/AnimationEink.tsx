@@ -69,14 +69,14 @@ interface Props {
 export default function AnimationEink(props: Props) {
   const data = useStaticQuery(graphql`
     {
-      book: file(relativePath: {eq: "images/viewer-features/book.png"}) {
+      book: file(relativePath: {eq: "images/ridipaper/viewer-features/book.png"}) {
         childImageSharp {
           fluid(maxWidth: 618, quality: 90) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
-      textTransparent: file(relativePath: {eq: "images/viewer-features/text-transparent.png"}) {
+      textTransparent: file(relativePath: {eq: "images/ridipaper/viewer-features/text-transparent.png"}) {
         ...ScreenImage
       }
     }

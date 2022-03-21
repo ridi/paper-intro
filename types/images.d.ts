@@ -9,6 +9,11 @@ declare module '*.png' {
   export = url;
 }
 
+declare module '*.jpg' {
+  const url: string;
+  export = url;
+}
+
 declare module '*.svg' {
   const url: string;
   export = url;

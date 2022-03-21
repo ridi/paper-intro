@@ -30,7 +30,7 @@ interface Props {
 export default function PaperDeviceContainer(props: Props) {
   const data = useStaticQuery(graphql`
     {
-      bright: file(relativePath: {eq: "images/viewer-features/device-bright.png"}) {
+      bright: file(relativePath: {eq: "images/ridipaper/viewer-features/device-bright.png"}) {
         childImageSharp {
           fluid(maxWidth: 490, quality: 90) {
             ...GatsbyImageSharpFluid_withWebp_noBase64

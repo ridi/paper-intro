@@ -1,10 +1,10 @@
 import styled, { css } from 'astroturf';
 import React from 'react';
 
-import RidibooksLogo from '../svgs/ridibooks.svg';
-import RidiselectLogo from '../svgs/ridiselect.svg';
-import InstagramIcon from '../svgs/ig.inline.svg';
-import FacebookIcon from '../svgs/fb.inline.svg';
+import RidibooksLogo from '@/svgs/ridibooks.svg';
+import RidiselectLogo from '@/svgs/ridiselect.svg';
+import InstagramIcon from '@/svgs/instagram.inline.svg';
+import FacebookIcon from '@/svgs/facebook.inline.svg';
 
 const Container = styled<'div', { noMarginTop?: boolean }>('div')`
   margin-top: 100px;

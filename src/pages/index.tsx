@@ -1,21 +1,51 @@
+import { css } from 'astroturf';
 import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-
 import { Controller } from 'scrollmagic';
 
-import { ScrollmagicProvider } from '../components/ScrollmagicContext';
+import Layout from '@/components/common/Layout';
+import SEO from '@/components/common/SEO';
+import { ScrollmagicProvider } from '@/components/common/ScrollMagicContext';
 
-import BlankLayout from '../components/teaserLayout';
-import SEO from '../components/seo';
-import Body from '../components/teaser/Body';
-import MobileBody from '../components/teaser/MobileBody';
+import AccessoryBanner from '@/components/ridipaper/AccessoryBanner';
+import Details from '@/components/ridipaper/Details';
+import Features from '@/components/ridipaper/Features';
+import Hero from '@/components/ridipaper/RidiPaperHero';
+import Panel from '@/components/ridipaper/Panel';
+import Ridibatang from '@/components/ridipaper/Ridibatang';
+import Specs from '@/components/ridipaper/Specs';
+import ViewerFeatures from '@/components/ridipaper/ViewerFeatures';
 
-const IndexPage = () => {
+const styles = css`
+  .main {
+    > section {
+      display: block;
+
+      &:first-of-type {
+        margin-top: 200px;
+
+        @media (max-width: 800px) {
+          margin-top: 80px;
+        }
+      }
+
+      & + section {
+        margin-top: 200px;
+
+        @media (max-width: 800px) {
+          margin-top: 120px;
+        }
+      }
+    }
+  }
+`;
+
+const RidiPaperPage = () => {
   const [controller, setController] = React.useState<Controller>();
   const data = useStaticQuery(graphql`
     {
-      banner: file(relativePath: { eq: "images/meta/paper4/og.png" }) {
+      banner: file(relativePath: { eq: "images/meta/ridipaper/og.jpg" }) {
         publicURL
       }
     }
@@ -39,17 +69,22 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <BlankLayout
-      desktop={
-        <ScrollmagicProvider value={controller}>
-          <Body />
-        </ScrollmagicProvider>
-      }
-      mobile={<MobileBody />}
-    >
-      <SEO meta={[{ property: 'og:image', content: data.banner.publicURL }]} />
-    </BlankLayout>
+    <Layout className={styles.main}>
+      <ScrollmagicProvider value={controller}>
+        <SEO
+          meta={[{ property: 'og:image', content: data.banner.publicURL }]}
+        />
+        <Hero />
+        <Features />
+        <ViewerFeatures />
+        <Panel />
+        <Details />
+        <Ridibatang />
+        <AccessoryBanner />
+        <Specs />
+      </ScrollmagicProvider>
+    </Layout>
   );
 };
 
-export default IndexPage;
+export default RidiPaperPage;

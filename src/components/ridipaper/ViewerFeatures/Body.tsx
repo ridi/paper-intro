@@ -3,7 +3,7 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { useScrollmagicEffect } from '../ScrollmagicContext';
+import { useScrollmagicEffect } from '@/components/common/ScrollMagicContext';
 
 import AnimationEink from './AnimationEink';
 import AnimationFrontlight from './AnimationFrontlight';
@@ -105,7 +105,7 @@ const texts: TextItem[] = [
 export default function Body() {
   const data = useStaticQuery(graphql`
     {
-      text1: file(relativePath: {eq: "images/viewer-features/text1.png"}) {
+      text1: file(relativePath: {eq: "images/ridipaper/viewer-features/text1.png"}) {
         ...ScreenImage
       }
     }
