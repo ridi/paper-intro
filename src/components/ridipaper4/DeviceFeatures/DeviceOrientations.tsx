@@ -14,9 +14,15 @@ import { PinnedItem } from '@/components/ridipaper4/PinnedItem';
 
 const deviceOrientationsImageQuery = graphql`
   query DeviceOrientationsImageQuery {
-    ridipaper: file(
-      relativePath: { eq: "images/ridipaper4/device-features/ridipaper4.png" }
-    ) {
+    ridipaper: file(relativePath: { eq: "images/ridipaper4/device-features/ridipaper4.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 804, quality: 90) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    
+    text: file(relativePath: { eq: "images/ridipaper4/device-features/text.png" }) {
       childImageSharp {
         fluid(maxWidth: 804, quality: 90) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
@@ -80,11 +86,11 @@ const RidiPaperImage = styled(Img)`
 
 const PreviewTextContainer = styled('div')`
   position: absolute;
-  top: 50%;
+  top: 51%;
   left: 50%;
+  width: 130%;
+  height: 130%;
   transform: translate(-50%, -50%);
-  width: 60%;
-  height: 70%;
   overflow: hidden;
 
   display: flex;
@@ -96,18 +102,14 @@ const PreviewTextContainer = styled('div')`
 
 const PreviewTextContainerReverse = styled(PreviewTextContainer)`
   transform: translate(-50%, -50%) rotate(180deg);
-  transform-origin: 42% 50%;
+  transform-origin: 45.4% 49%;
   opacity: 0;
 `;
 
-const LINE_HEIGHT = 2;
-const FONT_SIZE = 24;
-const PreviewTextSvg = styled('svg')`
-  font-family: RIDIBatang, serif;
-  font-size: ${FONT_SIZE}px;
-  line-height: ${LINE_HEIGHT}em;
-  user-select: none;
-`;
+const PreviewTextImage = styled(Img)`
+  width: 100%;
+  height: 100%;
+` as ComponentType<{ fluid: FluidObject; objectFit: 'cover' | 'contain' }>;
 
 const SubTitle = styled('span')`
   color: #000000;
@@ -151,17 +153,6 @@ const OverflowBlock = styled('div')`
   align-items: center;
   justify-content: center;
 `;
-
-const BASE_WIDTH = 700;
-const BASE_HEIGHT = 900;
-const MAX_LINES = Math.floor(BASE_HEIGHT / (FONT_SIZE * LINE_HEIGHT));
-const LINES = chunkTextByWidth(
-  constants.PREVIEW_TEXT,
-  FONT_SIZE,
-  BASE_WIDTH + 5,
-  MAX_LINES,
-);
-
 const DURATION = 2000;
 export const DeviceOrientations = (): JSX.Element => {
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -174,8 +165,9 @@ export const DeviceOrientations = (): JSX.Element => {
     additionalTransform: 'translate(0, -50%)',
   });
 
-  const { ridipaper } = useStaticQuery<{
+  const { ridipaper, text } = useStaticQuery<{
     ridipaper: { childImageSharp: { fluid: FluidObject } };
+    text: { childImageSharp: { fluid: FluidObject } };
   }>(deviceOrientationsImageQuery);
 
   useScrollmagicEffect((controller, Scene) => {
@@ -213,37 +205,14 @@ export const DeviceOrientations = (): JSX.Element => {
         <OverflowBlock>
           <DeviceOrientationsStage>
             <RidiPaperContainer ref={ridipaperRef}>
-              <RidiPaperImage
-                fluid={ridipaper.childImageSharp.fluid}
-                objectFit="cover"
-              />
+              <RidiPaperImage fluid={ridipaper.childImageSharp.fluid} objectFit="cover" />
 
               <PreviewTextContainer ref={previewTextRef}>
-                {LINES.map((line, index) => (
-                  <PreviewTextSvg
-                    key={index}
-                    viewBox={`0 0 ${BASE_WIDTH} ${FONT_SIZE * LINE_HEIGHT}`}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <text x="0" y={FONT_SIZE * (LINE_HEIGHT / 2)}>
-                      {line}
-                    </text>
-                  </PreviewTextSvg>
-                ))}
+                <PreviewTextImage fluid={text.childImageSharp.fluid} objectFit="cover" />
               </PreviewTextContainer>
 
               <PreviewTextContainerReverse ref={previewTextReverseRef}>
-                {LINES.map((line, index) => (
-                  <PreviewTextSvg
-                    key={index}
-                    viewBox={`0 0 ${BASE_WIDTH} ${FONT_SIZE * LINE_HEIGHT}`}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <text x="0" y={FONT_SIZE * (LINE_HEIGHT / 2)}>
-                      {line}
-                    </text>
-                  </PreviewTextSvg>
-                ))}
+                <PreviewTextImage fluid={text.childImageSharp.fluid} objectFit="cover" />
               </PreviewTextContainerReverse>
             </RidiPaperContainer>
           </DeviceOrientationsStage>

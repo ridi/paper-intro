@@ -34,7 +34,7 @@ const ObjectTouchIndicator = styled('div')`
   }
 
   &[data-is-scale='true'] {
-    margin-left: 36.3%;
+    margin-left: 37.6%;
     margin-right: 0;
   }
 `;
