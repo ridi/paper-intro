@@ -16,7 +16,7 @@ const Tab = styled<'li', { active?: boolean }>('li')`
 
   > a {
     display: block;
-    width: 88px;
+    width: 140px;
     padding: 12px 0 9px;
 
     border-bottom: 4px solid transparent;

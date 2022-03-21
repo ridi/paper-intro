@@ -1,0 +1,43 @@
+slug: ridipaper4-milim-collaborated-hard-case
+for: ridipaper4
+order: 3
+name:
+  short: 하드 케이스 X 밀림
+  en: RIDIPAPER 4 COLLABORATED HARD CASE
+  full: |-
+    리디페이퍼 4
+    하드 케이스 X 밀림
+description: |-
+thumbnail: ../images/accessories/ridipaper4-milim-collaborated-hard-case/thumbnail.png
+bg: ../images/accessories/ridipaper4-milim-collaborated-hard-case/bg.jpg
+bgMobile: ../images/accessories/ridipaper4-milim-collaborated-hard-case/bg-mobile.jpg
+titleImage:
+  src: ../images/accessories/ridipaper4-milim-collaborated-hard-case/titleImage.png
+  width: 485
+  height: 334
+sections:
+  - type: detail
+    name:
+    title: 작가 소개
+    description: |-
+      순수하게 있는 그대로 즐길 수 있는 작업을 하는 밀림(MilliM)입니다. 
+      접근하기 쉽지만 개성 있는 그림을 그리고 싶은 바람과, 
+      예술에게 바라는 가장 근본적인 ‘보는 즐거움’을 채워 줄 수 있도록 
+      ‘나’와 ‘당신’ 모두를 만족 시키는 한 장을 만들기 위해 즐거운 마음으로 작업을 이어가고 있습니다.
+  - type: image
+    image: ../images/accessories/ridipaper4-milim-collaborated-hard-case/1.jpg
+  - type: spec
+    items:
+      - name: 크기
+        desc: 가로 149.7mm x 세로 163.1mm x 두께 11mm
+      - name: 무게
+        desc: 56g
+      - name: 소재
+        desc: 폴리카보네이트(PC)
+      - name: 구성품
+        desc: 하드케이스
+      - name: 제조사
+        desc: 리디 주식회사
+      - name: 제조국
+        desc: 중국
+    disclaimer: '* 제품 색상은 디스플레이 설정에 따라 실제 색상과 차이가 있을 수 있습니다.'

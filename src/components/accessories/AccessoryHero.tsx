@@ -1,4 +1,4 @@
-import styled from 'astroturf';
+import styled, { css } from 'astroturf';
 import React from 'react';
 
 import Hero from '@/components/common/Hero';
@@ -51,14 +51,28 @@ const HeroContainer = styled.div`
   }
 `;
 
+const styles = css`
+  .container {
+    @media (max-width: 600px) {
+      min-height: calc(100vw * 472 / 360);
+    }
+  }
+`;
+
 interface Props {
   children?: React.ReactNode;
+  noOverlay?: boolean;
   renderBackground?(props: { className: string }): React.ReactNode;
 }
 
 export default function AccessoryHero(props: Props) {
   return (
-    <Hero short renderBackground={props.renderBackground}>
+    <Hero
+      short
+      renderBackground={props.renderBackground}
+      noOverlay={props.noOverlay}
+      className={styles.container}
+    >
       <HeroContainer>{props.children}</HeroContainer>
     </Hero>
   );

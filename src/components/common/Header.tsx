@@ -1,55 +1,35 @@
 import styled, { css } from 'astroturf';
 import React from 'react';
+import { useLocation } from '@reach/router';
 
 import { Link } from 'gatsby';
 
 import RidipaperLogo from '@/svgs/ridipaper.inline.svg';
+import Ridipaper4Logo from '@/svgs/paper4-title.black.inline.svg';
+import ArrowDown from '@/svgs/arrow-down.inline.svg';
+import CloseIcon from '@/svgs/close.inline.svg';
 
-import { LinkButton } from './Button';
-
-const Container = styled.header`
-  position: absolute;
+const Container = styled.header<{ open: boolean }>`
+  position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-`;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.5);
 
-const FixedHeader = styled.div`
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  height: 50px;
-  z-index: 4;
-  background-color: white;
-  box-shadow: 0px 1px 5px rgba(48, 53, 56, 0.15);
-`;
-
-const FixedHeaderInner = styled.div`
-  height: 100%;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: 600px) {
-    padding: 0 20px;
+  &.open {
+    background: rgba(255, 255, 255, 1);
   }
 `;
 
 const Center = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   height: 100%;
-  max-width: 1080px;
+
   margin: 0 auto;
   padding: 0 40px;
 
@@ -62,46 +42,88 @@ const Center = styled.div`
   }
 `;
 
-const Top = styled.div`
+const Left = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 16px;
 `;
 
-const Bottom = styled.nav`
+const Right = styled.div<{ open: boolean }>`
   display: flex;
-  margin-bottom: -1px;
+  justify-content: center;
+  align-items: center;
 
-  > * + * {
-    margin-left: 18px;
+  @media (max-width: 600px) {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    top: 60px;
+    left: 0;
+    right: 0;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    overflow: hidden;
+    height: 0;
+    transition: height 0.2s ease-in-out;
+
+    &.open {
+      height: 100px;
+      background: rgba(255, 255, 255, 1);
+      align-items: flex-start;
+    }
   }
+`;
+
+const MobileRight = styled.div`
+  display: none;
+
+  @media (max-width: 600px) {
+    display: flex;
+  }
+`;
+
+const Icon = styled.div`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 `;
 
 const styles = css`
-  .buy {
-    padding: 0 10px;
-  }
-
   .navButton {
     padding: 12px 3px;
     border-bottom: 2px solid transparent;
+    font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.7);
+    color: #000000;
 
     transition: color 0.2s;
 
     &:hover,
     &:active {
-      color: white;
+      color: rgba(0, 0, 0, 0.8);
     }
 
     &.active {
-      border-bottom-color: white;
       font-weight: bold;
-      color: white;
+      color: #000000;
+    }
+
+    @media (min-width: 601px) {
+      & + & {
+        margin-left: 45px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      margin: 0 20px;
+    }
+
+    @media (max-width: 320px) {
+      margin: 0 10px;
     }
   }
 
@@ -119,6 +141,11 @@ const styles = css`
     fill: #303538;
   }
 
+  .ridipaper4Logo {
+    width: 140px;
+    height: 16px;
+  }
+
   .logoLink {
     line-height: 0;
     transition: opacity 0.2s;
@@ -128,93 +155,142 @@ const styles = css`
       opacity: 0.7;
     }
   }
+
+  .menuButton {
+    display: none;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 0 0 20px;
+
+    @media (max-width: 600px) {
+      display: flex;
+    }
+  }
+
+  .purchasButton {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+    padding: 0 25px;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    height: 36px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    @media (max-width: 600px) {
+      margin-left: 10px;
+    }
+  }
 `;
 
 export default function Header() {
-  const headerRef = React.useRef<HTMLElement>(null);
-  const [showFixedHeader, setShowFixedHeader] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const location = useLocation();
+  const isRidiPaper4 =
+    location.pathname.includes('ridipaper4') || location.pathname === '/';
+
   React.useEffect(() => {
-    if (window.IntersectionObserver == null) {
-      // Fallback: use scroll event
-      function checkScroll() {
-        setShowFixedHeader(window.scrollY >= headerRef.current!.clientHeight);
-      }
+    const resetOpen = () => {
+      setIsOpen(false);
+    };
 
-      checkScroll();
-      window.addEventListener('scroll', checkScroll);
-      return () => {
-        window.removeEventListener('scroll', checkScroll);
-      };
-    }
-
-    const io = new window.IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.target === headerRef.current) {
-            setShowFixedHeader(entry.intersectionRatio <= 0);
-          }
-        });
-      },
-      {
-        threshold: [0, 0.05],
-      },
-    );
-    io.observe(headerRef.current!);
+    window.addEventListener('resize', resetOpen);
+    return () => {
+      window.removeEventListener('resize', resetOpen);
+    };
   }, []);
-
   return (
     <>
-      <Container ref={headerRef}>
+      <Container open={isOpen}>
         <Center>
-          <Top>
-            <Link to="/" className={styles.logoLink}>
-              <RidipaperLogo className={styles.ridipaperLogo} />
-            </Link>
-            <LinkButton
-              to="/stockists/"
-              size="small"
-              color="white"
-              className={styles.buy}
+          <Left>
+            {isRidiPaper4 ? (
+              <Link to="/" className={styles.logoLink}>
+                <Ridipaper4Logo className={styles.ridipaper4Logo} />
+              </Link>
+            ) : (
+              <Link to="/ridipaper" className={styles.logoLink}>
+                <RidipaperLogo className={styles.ridipaperLogoDark} />
+              </Link>
+            )}
+          </Left>
+          <Right open={isOpen}>
+            {isRidiPaper4 ? (
+              <>
+                <Link
+                  to="/ridipaper"
+                  className={styles.navButton}
+                  activeClassName={styles.active}
+                >
+                  리디페이퍼 3세대
+                </Link>
+                <Link
+                  to="/accessories/ridipaper4"
+                  className={styles.navButton}
+                  activeClassName={styles.active}
+                  partiallyActive
+                >
+                  액세서리
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/"
+                  className={styles.navButton}
+                  activeClassName={styles.active}
+                >
+                  리디페이퍼 4세대
+                </Link>
+                <Link
+                  to="/accessories/ridipaper"
+                  className={styles.navButton}
+                  activeClassName={styles.active}
+                  partiallyActive
+                >
+                  액세서리
+                </Link>
+                {!isOpen && (
+                  <Link
+                    to="/stockists"
+                    className={styles.purchasButton}
+                    activeClassName={styles.active}
+                    partiallyActive
+                  >
+                    구매하기
+                  </Link>
+                )}
+              </>
+            )}
+          </Right>
+
+          <MobileRight>
+            <button
+              className={styles.menuButton}
+              type="button"
+              onClick={() => setIsOpen(o => !o)}
             >
-              구매하기
-            </LinkButton>
-          </Top>
-          <Bottom>
-            <Link
-              to="/ridipaper"
-              className={styles.navButton}
-              activeClassName={styles.active}
-            >
-              RIDIPAPER
-            </Link>
-            <Link
-              to="/accessories/"
-              className={styles.navButton}
-              activeClassName={styles.active}
-              partiallyActive
-            >
-              Accessory
-            </Link>
-          </Bottom>
+              <Icon>{isOpen ? <CloseIcon /> : <ArrowDown />}</Icon>
+            </button>
+
+            {!isOpen && !isRidiPaper4 && (
+              <Link
+                to="/stockists"
+                className={styles.purchasButton}
+                activeClassName={styles.active}
+                partiallyActive
+              >
+                구매하기
+              </Link>
+            )}
+          </MobileRight>
         </Center>
       </Container>
-      {showFixedHeader && (
-        <FixedHeader>
-          <FixedHeaderInner>
-            <Link to="/" className={styles.logoLink}>
-              <RidipaperLogo className={styles.ridipaperLogoDark} />
-            </Link>
-            <LinkButton
-              to="/stockists/"
-              size="small"
-              color="gray"
-              className={styles.buy}
-            >
-              구매하기
-            </LinkButton>
-          </FixedHeaderInner>
-        </FixedHeader>
-      )}
     </>
   );
 }

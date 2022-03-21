@@ -3,7 +3,7 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { useScrollmagicEffect } from '@/components/ridipaper/RidiPaperScrollMagicContext';
+import { useScrollmagicEffect } from '@/components/ridipaper/RidiPaperScrollmagicContext';
 
 import AnimationEink from './AnimationEink';
 import AnimationFrontlight from './AnimationFrontlight';

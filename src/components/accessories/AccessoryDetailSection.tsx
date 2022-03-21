@@ -17,10 +17,12 @@ export interface DetailSection {
       fluid: FluidObject;
     };
   };
-  tableRows: {
-    head: string;
-    items: string[];
-  }[] | null;
+  tableRows:
+    | {
+        head: string;
+        items: string[];
+      }[]
+    | null;
 }
 
 const Container = styled.div`
@@ -92,22 +94,32 @@ interface Props {
 }
 
 export default function AccessoryDetailSection(props: Props) {
+  console.log(props.data.description);
   return (
     <Container>
       <Padded>
-        <p>{props.data.name}</p>
-        <h2>{props.data.title}</h2>
+        {Boolean(props.data.name) && <p>{props.data.name}</p>}
+        {Boolean(props.data.title) && <h2>{props.data.title}</h2>}
         {Boolean(props.data.description) && (
           <>
-            <Description><LineBreakText text={props.data.description} /></Description>
+            <Description>
+              <LineBreakText text={props.data.description} />
+            </Description>
             <Description mobile>{props.data.description}</Description>
           </>
         )}
       </Padded>
-      <ImgWrapper>
-        <Img fluid={props.data.image.childImageSharp.fluid} backgroundColor="#f0f5fa" />
-      </ImgWrapper>
-      {props.data.tableRows && <AccessoryTableSection rows={props.data.tableRows} />}
+      {props.data.image && (
+        <ImgWrapper>
+          <Img
+            fluid={props.data.image.childImageSharp.fluid}
+            backgroundColor="#f0f5fa"
+          />
+        </ImgWrapper>
+      )}
+      {props.data.tableRows && (
+        <AccessoryTableSection rows={props.data.tableRows} />
+      )}
     </Container>
   );
 }

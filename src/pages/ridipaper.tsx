@@ -3,7 +3,7 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { ScrollmagicProvider } from '@/components/ridipaper/RidiPaperScrollMagicContext';
+import { ScrollmagicProvider } from '@/components/ridipaper/RidiPaperScrollmagicContext';
 import Layout from '@/components/common/Layout';
 import SEO from '@/components/common/SEO';
 
