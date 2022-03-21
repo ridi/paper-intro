@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import HeroBase from '@/components/common/Hero';
 import Ridipaper4Logo from '@/svgs/ridipaper4/ridipaper4.inline.svg';
 import React from 'react';
+import { BreakPoint } from '@/styles/media';
 import { LinkButton } from '@/components/common/Button';
 
 const Background = styled('div')`
@@ -24,8 +25,8 @@ const Background = styled('div')`
     width: 100%;
     min-width: 1600px;
 
-    @media (max-width: 800px) {
-      min-width: 800px;
+    @media (max-width: ${BreakPoint.MobileMax}px) {
+      min-width: ${BreakPoint.MobileMax}px;
     }
   }
 `;
@@ -40,7 +41,7 @@ const HeroContainer = styled('div')`
   
   padding: 0 108px;
 
-  @media (max-width: 800px) {
+  @media (max-width: ${BreakPoint.MobileMax}px) {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
