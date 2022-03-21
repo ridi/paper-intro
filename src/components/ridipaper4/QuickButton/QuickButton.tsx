@@ -1,6 +1,6 @@
 import styled from 'astroturf';
 import { graphql, useStaticQuery } from 'gatsby';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useScrollmagicEffect } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 import QuickMenuBackIcon from '@/svgs/ridipaper4/quickmenu-back.inline.svg';
 import QuickMenuBluetoothIcon from '@/svgs/ridipaper4/quickmenu-bluetooth.inline.svg';
@@ -156,22 +156,26 @@ const QuickButtonMenu = (): JSX.Element => (
 
 const videoQuery = graphql`
   query VideoQuery {
-    quickButtonWebm: file(
-      relativePath: { eq: "images/ridipaper4/quick-button/quick-button.webm" }
-    ) {
+    quickButtonWebm: file(relativePath: { eq: "images/ridipaper4/quick-button/quick-button.webm" }) {
       publicURL
     }
 
-    quickButtonMp4: file(
-      relativePath: { eq: "images/ridipaper4/quick-button/quick-button.mp4" }
-    ) {
+    quickButtonMp4: file(relativePath: { eq: "images/ridipaper4/quick-button/quick-button.mp4" }) {
+      publicURL
+    }
+    
+    quickButtonMobileWebm: file(relativePath: { eq: "images/ridipaper4/quick-button/quick-button-mobile.webm" }) {
+      publicURL
+    }
+
+    quickButtonMobileMp4: file(relativePath: { eq: "images/ridipaper4/quick-button/quick-button-mobile.mp4" }) {
       publicURL
     }
   }
 `;
 
 const QuickButtonContainer = styled('section')`
-  background: #c1c1c1;
+  background: #c8c8c8;
   height: 100vh;
 
   @media (max-width: 600px) {
@@ -202,13 +206,8 @@ const QuickButtonVideo = styled('video')`
   left: 50%;
   width: 100%;
   height: auto;
-  background: #c1c1c1;
+  background: #c8c8c8;
   transform: translate(-50%, 0);
-  
-  @media (max-width: 600px) {
-    left: 7%;
-    width: 200%;
-  }
 `;
 
 const LineWrapper = styled('div')`
@@ -218,7 +217,7 @@ const LineWrapper = styled('div')`
   left: 0;
   right: 0;
   bottom: 0;
-  background: #c1c1c1;
+  background: linear-gradient(to bottom, rgba(200, 200, 200, 1) 80%, rgba(200, 200, 200, 0));
 
   user-select: none;
   pointer-events: none;
@@ -226,7 +225,7 @@ const LineWrapper = styled('div')`
   margin-bottom: calc(56.25vw - 20px);
 
   @media (max-width: 600px) {
-    margin-bottom: 105vw;
+    margin-bottom: 177.78vw;
   }
 `;
 
@@ -244,10 +243,23 @@ const DummyArea = styled('div')`
 export const QuickButton = (): JSX.Element => {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { quickButtonWebm, quickButtonMp4 } = useStaticQuery<{
+  const { quickButtonWebm, quickButtonMp4, quickButtonMobileWebm, quickButtonMobileMp4 } = useStaticQuery<{
     quickButtonWebm: { publicURL: string };
     quickButtonMp4: { publicURL: string };
+    quickButtonMobileWebm: { publicURL: string };
+    quickButtonMobileMp4: { publicURL: string };
   }>(videoQuery);
+  
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const onResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+    onResize();
+    
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   useScrollmagicEffect((controller, Scene) => {
     new Scene({
@@ -264,10 +276,17 @@ export const QuickButton = (): JSX.Element => {
     <QuickButtonContainer ref={containerRef}>
       <QuickButtonStage>
         <DummyArea />
-        <QuickButtonVideo ref={videoRef} playsInline muted>
-          <source src={quickButtonWebm.publicURL} type="video/webm" />
-          <source src={quickButtonMp4.publicURL} type="video/mp4" />
-        </QuickButtonVideo>
+        { isMobile ? (
+            <QuickButtonVideo ref={videoRef} key="mobile" playsInline muted>
+              <source src={quickButtonMobileWebm.publicURL} type="video/webm" />
+              <source src={quickButtonMobileMp4.publicURL} type="video/mp4" />
+            </QuickButtonVideo>
+          ) : (
+            <QuickButtonVideo ref={videoRef} key="desktop" playsInline muted>
+              <source src={quickButtonWebm.publicURL} type="video/webm" />
+              <source src={quickButtonMp4.publicURL} type="video/mp4" />
+            </QuickButtonVideo>
+          ) }
         <LineWrapper />
         <QuickButtonMenu />
       </QuickButtonStage>
