@@ -1,7 +1,7 @@
 import styled from 'astroturf';
 import React from 'react';
 
-import { useScrollmagicEffect } from '@/components/common/ScrollMagicContext';
+import { useScrollmagicEffect } from '@/components/ridipaper/RidiPaperScrollMagicContext';
 
 import PanelAnimation from './PanelAnimation';
 

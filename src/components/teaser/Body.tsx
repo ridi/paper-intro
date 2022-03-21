@@ -10,7 +10,7 @@ import TitleBlack from '../../svgs/paper4-title.black.inline.svg';
 import Header from './Header';
 import Dots from './Dots';
 
-import { useScrollmagicEffect } from '../ScrollmagicContext';
+import { useScrollmagicEffect } from './TeaserScrollmagicContext';
 
 const Container = styled.div`
   position: relative;

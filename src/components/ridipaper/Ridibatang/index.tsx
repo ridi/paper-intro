@@ -7,14 +7,7 @@ import Img from 'gatsby-image';
 import Button from '@/components/common/Button';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
-css`
-  @font-face {
-    font-family: RIDIBatang;
-    font-style: normal;
-    font-weight: normal;
-    src: url("./ridibatang-subset.woff") format("woff");
-  }
-`;
+import '@/fonts/RidiBatang';
 
 const Title = styled.h2`
   font-weight: normal;
