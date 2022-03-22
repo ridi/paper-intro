@@ -219,6 +219,10 @@ export const Hero = ({ showPurchase = false }): JSX.Element => {
   const nextImage = (flushedImage + 1) % usingImages.length;
 
   useEffect(() => {
+    if (currentImage === flushedImage) {
+      return;
+    }
+    
     if (!activeImage.current || !alternativeImage.current) {
       return;
     }
@@ -231,7 +235,7 @@ export const Hero = ({ showPurchase = false }): JSX.Element => {
       TRANSITION,
     );
     return () => clearTimeout(timeoutId);
-  }, [currentImage]);
+  }, [currentImage, flushedImage]);
 
   const renderBackground = useCallback(
     () => (
