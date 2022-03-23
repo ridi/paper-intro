@@ -150,7 +150,7 @@ module.exports = {
           families: ['Noto Sans KR:300,400,700:latin,korean'],
         },
         custom: {
-          families: ['RIDIBatang'],
+          families: ['RIDIBatang', 'Pretendard'],
         },
       },
     },
