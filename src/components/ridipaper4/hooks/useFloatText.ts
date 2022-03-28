@@ -17,8 +17,12 @@ export const useFloatText = <T extends HTMLElement>(
   const transformSuffix = options.additionalTransform ? ` ${options.additionalTransform}` : '';
   
   useEffect(() => {
-    textRef.current!.style.opacity = '0';
-    textRef.current!.style.transform =
+    if(!textRef.current) {
+      return;
+    }
+    
+    textRef.current.style.opacity = '0';
+    textRef.current.style.transform =
       `translate(0, ${(options.height ?? 100).toFixed(2)}px)${transformSuffix}`
   }, []);
   
@@ -29,6 +33,10 @@ export const useFloatText = <T extends HTMLElement>(
       duration: options.duration ?? 100,
     })
       .on('progress', (e: { progress: number }) => {
+        if(!textRef.current) {
+          return;
+        }
+        
         const transition = Math.min(e.progress / 0.2, 1)
         textRef.current!.style.opacity = transition.toFixed(2);
         textRef.current!.style.transform =

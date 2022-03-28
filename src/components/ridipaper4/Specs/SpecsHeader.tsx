@@ -3,7 +3,7 @@ import React from 'react';
 
 const SpecsHeaderContainer = styled('div')`
   position: relative;
-  width: 100%;
+  width: calc(100% - 10px);
   padding-top: 20px;
   padding-bottom: 10px;
   margin: 0 5px;

@@ -40,9 +40,9 @@ const SpecsTitle = styled('h2')`
 
 const SpecsPanelContainer = styled('div')`
   display: none;
+  width: calc(100% - 10px);
   margin: 0 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  width: 100%;
 
   &[data-is-selected='true'] {
     display: flex;
