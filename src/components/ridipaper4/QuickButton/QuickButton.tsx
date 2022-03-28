@@ -267,7 +267,7 @@ export const QuickButton = (): JSX.Element => {
       triggerHook: 1,
     })
       .on('enter', () => {
-        videoRef.current!.play();
+        videoRef.current?.play();
       })
       .addTo(controller);
   });

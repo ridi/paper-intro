@@ -165,17 +165,24 @@ export const DeviceColors = (): JSX.Element => {
       duration: DURATION,
     })
       .on('progress', (e: { progress: number }) => {
+        if (!(
+          blackRef.current && blackTextRef.current && blackDotRef.current &&
+          whiteRef.current && whiteTextRef.current && whiteDotRef.current
+        )) {
+          return;
+        }
+        
         const progress = Math.max(e.progress - 0.2, 0);
         
         // Minimize rerender by using refs and updating imperatively
         const transition = Math.max(0, Math.min((progress - 0.4) / 0.2, 1));
-        blackRef.current!.style.opacity = (1 - transition).toFixed(2);
-        whiteRef.current!.style.opacity = transition.toFixed(2);
+        blackRef.current.style.opacity = (1 - transition).toFixed(2);
+        whiteRef.current.style.opacity = transition.toFixed(2);
         
-        blackTextRef.current!.style.opacity = (1 - transition).toFixed(2);
-        blackDotRef.current!.style.borderColor = `rgba(229, 229, 229, ${(1 - transition).toFixed(2)})`;
-        whiteTextRef.current!.style.opacity = transition.toFixed(2);
-        whiteDotRef.current!.style.borderColor = `rgba(229, 229, 229, ${transition.toFixed(2)})`;
+        blackTextRef.current.style.opacity = (1 - transition).toFixed(2);
+        blackDotRef.current.style.borderColor = `rgba(229, 229, 229, ${(1 - transition).toFixed(2)})`;
+        whiteTextRef.current.style.opacity = transition.toFixed(2);
+        whiteDotRef.current.style.borderColor = `rgba(229, 229, 229, ${transition.toFixed(2)})`;
       })
       .addTo(controller);
   });

@@ -68,7 +68,7 @@ module.exports = {
       options: {
         name: 'RIDIPAPER',
         short_name: 'PAPER',
-        icon: 'src/assets/images/meta/paper4/android-icon-192x192.png',
+        icon: 'src/assets/images/meta/favicon-512x512.png',
         icons: [
           {
             src: '/favicons/48.png',
@@ -81,13 +81,33 @@ module.exports = {
             type: 'image/png',
           },
           {
+            src: '/favicons/128.png',
+            sizes: '128x128',
+            type: 'image/png',
+          },
+          {
             src: '/favicons/192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
+            src: '/favicons/196.png',
+            sizes: '196x196',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/256.png',
+            sizes: '256x256',
+            type: 'image/png',
+          },
+          {
             src: '/favicons/384.png',
             sizes: '384x384',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/512.png',
+            sizes: '512x512',
             type: 'image/png',
           },
         ],
@@ -130,7 +150,7 @@ module.exports = {
           families: ['Noto Sans KR:300,400,700:latin,korean'],
         },
         custom: {
-          families: ['RIDIBatang'],
+          families: ['RIDIBatang', 'Pretendard'],
         },
       },
     },

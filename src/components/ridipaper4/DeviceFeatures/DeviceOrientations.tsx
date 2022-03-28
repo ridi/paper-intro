@@ -1,5 +1,4 @@
 import styled from 'astroturf';
-import { chunkTextByWidth } from '@/utils/chunkTextByWidth';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useFloatText } from '@/components/ridipaper4/hooks/useFloatText';
 import { useRef } from 'react';
@@ -177,21 +176,19 @@ export const DeviceOrientations = (): JSX.Element => {
       offset: DURATION * 0.2,
     })
       .on('progress', (e: { progress: number }) => {
-        // const transition = Math.min(e.progress / 0.9, 1);
-        const transition = e.progress < 0.45 ? 0 : 1;
+        if (!(ridipaperRef.current && previewTextRef.current && previewTextReverseRef.current)) {
+          return;
+        }
         
+        const transition = e.progress < 0.45 ? 0 : 1;
         const rotationTransition = Math.min(transition / 0.45, 1);
-        const textTransition = Math.max(
-          0,
-          Math.min((transition - 0.45) / 0.3, 1),
-        );
-        ridipaperRef.current!.style.transform = `translate(-50%, -50%) rotate(${(
-          180 * rotationTransition
-        ).toFixed(2)}deg)`;
-        previewTextRef.current!.style.opacity = (1 - textTransition).toFixed(2);
-        previewTextReverseRef.current!.style.opacity = textTransition.toFixed(
-          2,
-        );
+        const textTransition = Math.max(0, Math.min((transition - 0.45) / 0.3, 1));
+        
+        ridipaperRef.current.style.transform =
+          `translate(-50%, -50%) rotate(${(180 * rotationTransition).toFixed(2)}deg)`;
+        
+        previewTextRef.current.style.opacity = (1 - textTransition).toFixed(2);
+        previewTextReverseRef.current.style.opacity = textTransition.toFixed(2);
       })
       .addTo(controller);
   });
