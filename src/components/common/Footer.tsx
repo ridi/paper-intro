@@ -199,7 +199,7 @@ export default function Footer(props: Props) {
             <SocialLink href="https://www.instagram.com/ridipaper/?hl=en">
               <InstagramIcon />
             </SocialLink>
-            <SocialLink href="https://www.facebook.com/ridi">
+            <SocialLink href="https://www.facebook.com/official.ridi">
               <FacebookIcon />
             </SocialLink>
           </SocialLinks>
