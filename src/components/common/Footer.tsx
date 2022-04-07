@@ -181,11 +181,11 @@ const CollapsibleButton = styled('button')`
 `;
 
 const CollapsibleContent = styled<'div', { isHidden?: boolean }>('div')`
-  opacity: 0;
+  opacity: 1;
   transition: opacity .4s ease;
   
   &.isHidden {
-    opacity: 1;
+    opacity: 0;
   }
 `;
 
