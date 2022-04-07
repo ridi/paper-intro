@@ -1,6 +1,9 @@
 import styled from 'astroturf';
+import { useState } from 'react';
 import React from 'react';
+import { ReactNode } from 'react';
 
+import ArrowDown from '@/svgs/arrow-down.inline.svg';
 import RidiLogo from '@/svgs/ridi.inline.svg';
 import RidiselectLogo from '@/svgs/ridiselect.inline.svg';
 import InstagramIcon from '@/svgs/instagram.inline.svg';
@@ -27,7 +30,7 @@ const FooterWrapper = styled('footer')`
   margin: 0 auto;
   padding: 40px;
   padding-top: 60px;
-  padding-bottom: 200px;
+  padding-bottom: 150px;
 
   @media (max-width: 800px) {
     padding: 40px 20px;
@@ -145,7 +148,7 @@ const MenuLinkDesktopDivider = styled(MenuLinkDivider)`
   } 
 `;
 
-const Copyright = styled.div`
+const Copyright = styled('div')`
   margin-top: 20px;
   font-size: 12px;
   font-weight: 500;
@@ -153,60 +156,179 @@ const Copyright = styled.div`
   color: #aaaaaa;
 `;
 
-interface Props {
-  noMarginTop?: boolean;
-}
+const IconExpand = styled<typeof ArrowDown, { isExpanded?: boolean }>(ArrowDown)`
+  color: #707070;
+  font-size: 10px;
+  margin-left: 7px;
+  transform: translate(0, 1px) rotate(180deg);
+  
+  &.isExpanded {
+    transform: translate(0, 1px) rotate(0deg);
+  }
+`;
 
-export default function Footer(props: Props) {
+const CollapsibleButton = styled('button')`
+  cursor: pointer;
+  display: block;
+  color: #707070;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 27px;
+  
+  @media(max-width: 800px) {
+    font-size: 12px;
+  }
+`;
+
+const CollapsibleContent = styled<'div', { isHidden?: boolean }>('div')`
+  opacity: 1;
+  transition: opacity .4s ease;
+  
+  &.isHidden {
+    opacity: 0;
+  }
+`;
+
+const Collapsible = ({ id, title, children }: { id: string, title: string, children: ReactNode }): JSX.Element => {
+  const [ isHidden, setIsHidden ] = useState(true);
+  const onToggle = () => setIsHidden(previousValue => !previousValue);
+  
   return (
-    <Container noMarginTop={props.noMarginTop}>
-      <FooterWrapper>
-        <LogoRow>
-          <LogoLinks>
-            <LogoLink href="https://ridibooks.com/">
-              <RidiLogo aria-label="리디로 이동" />
-            </LogoLink>
-            <LogoDivider />
-            <LogoLink href="https://select.ridibooks.com/home">
-              <RidiselectLogo aria-label="리디셀렉트로 이동" />
-            </LogoLink>
-          </LogoLinks>
-        </LogoRow>
-        
-        <BottomRow>
-          <MenuRow>
-            <MenuLinks>
-              <MenuLink href="https://help.ridibooks.com/hc/ko">고객센터</MenuLink>
-              <MenuLinkDivider />
-              <MenuLink href="https://help.ridibooks.com/hc/ko/articles/360026484174">페이퍼 대량 구매 안내</MenuLink>
-              <MenuLinkDivider />
-              <MenuLink href="https://ridibooks.com/legal/terms">이용약관</MenuLink>
-              <MenuLinkDesktopDivider  />
-            </MenuLinks>
-            
-            <MenuLinks>
-              <MenuLink href="https://policy.ridi.com/legal/privacy">
-                <strong>개인 정보 처리 방침</strong>
-              </MenuLink>
-              <MenuLinkDivider />
-              <MenuLink href="http://ftc.go.kr/www/bizCommView.do?key=232&apv_perm_no=2009322012730202139">
-                사업자 정보 확인
-              </MenuLink>
-            </MenuLinks>
-          </MenuRow>
+    <>
+      <CollapsibleButton aria-controls={id} onClick={onToggle}>
+        { title }
+        <IconExpand isExpanded={!isHidden} />
+      </CollapsibleButton>
+      <CollapsibleContent id={id} isHidden={isHidden}>
+        { children }
+      </CollapsibleContent>
+    </>
+  )
+};
+
+const BusinessInfoWrapper = styled('div')`
+  margin-top: 42px;
+
+  @media (max-width: 800) {
+    margin-top: 27px;
+  }
+`;
+
+const BusinessInfoItems = styled('dl')`
+  margin-top: 14px;
+`;
+
+const BusinessInfoItemWrapper = styled('div')`
+  color: #707070;
+  font-size: 14px;
+  line-height: 27px;
+
+  @media (max-width: 800) {
+    font-size: 12px;
+    line-heigth: 24px;
+  }
+`;
+
+const BusinessInfoItemTitle = styled<'dt', { isBold?: boolean }>('dt')`
+  display: inline-block;
+  font-weight: 400;
+  
+  &.isBold {
+    font-weight: 700;
+  }
+`;
+
+const BusinessInfoItemContent = styled('dd')`
+  display: inline;
+  margin: 0;
+  font-weight: 400;
+`;
+
+const LineBreakOnMobile = styled('span')`
+  display: inline-block;
+  
+  @media (max-width: 800px) {
+    display: block;
+  }
+`;
+
+type BusinessInfoItemProps = { title: string, isTitleBold?: boolean, children: ReactNode };
+const BusinessInfoItem = ({ title, isTitleBold = true, children }: BusinessInfoItemProps) => (
+  <BusinessInfoItemWrapper>
+    <BusinessInfoItemTitle isBold={isTitleBold}>{ title }</BusinessInfoItemTitle>
+    {' '}
+    <BusinessInfoItemContent>{ children }</BusinessInfoItemContent>
+  </BusinessInfoItemWrapper>
+);
+
+const BusinessInfo = (): JSX.Element => (
+  <BusinessInfoWrapper>
+    <Collapsible id="footer__businessInfo" title="리디(주) 사업자 정보">
+      <BusinessInfoItems>
+        <BusinessInfoItem title="대표자">배기식</BusinessInfoItem>
+        <BusinessInfoItem title="사업자 등록번호">120-87-27435</BusinessInfoItem>
+        <BusinessInfoItem title="통신판매업 신고번호">제 2009-서울강남 35-02139호</BusinessInfoItem>
+        <BusinessInfoItem title="이메일">help@ridi.com</BusinessInfoItem>
+        <BusinessInfoItem title="대표전화">1644-0331</BusinessInfoItem>
+        <BusinessInfoItem title="주소" isTitleBold={false}>
+          서울시 강남구 역삼동 702-28 <LineBreakOnMobile />어반벤치빌딩 10층(테헤란로 325)
+        </BusinessInfoItem>
+      </BusinessInfoItems>
+    </Collapsible>
+  </BusinessInfoWrapper>
+);
+
+const Footer = ({ noMarginTop }: { noMarginTop?: boolean }): JSX.Element => (
+  <Container noMarginTop={noMarginTop}>
+    <FooterWrapper>
+      <LogoRow>
+        <LogoLinks>
+          <LogoLink href="https://ridibooks.com/">
+            <RidiLogo aria-label="리디로 이동" />
+          </LogoLink>
+          <LogoDivider />
+          <LogoLink href="https://select.ridibooks.com/home">
+            <RidiselectLogo aria-label="리디셀렉트로 이동" />
+          </LogoLink>
+        </LogoLinks>
+      </LogoRow>
+      
+      <BottomRow>
+        <MenuRow>
+          <MenuLinks>
+            <MenuLink href="https://help.ridibooks.com/hc/ko">고객센터</MenuLink>
+            <MenuLinkDivider />
+            <MenuLink href="https://help.ridibooks.com/hc/ko/articles/360026484174">페이퍼 대량 구매 안내</MenuLink>
+            <MenuLinkDivider />
+            <MenuLink href="https://ridibooks.com/legal/terms">이용약관</MenuLink>
+            <MenuLinkDesktopDivider  />
+          </MenuLinks>
           
-          <SocialLinks>
-            <SocialLink href="https://www.instagram.com/ridipaper/?hl=en">
-              <InstagramIcon />
-            </SocialLink>
-            <SocialLink href="https://www.facebook.com/official.ridi">
-              <FacebookIcon />
-            </SocialLink>
-          </SocialLinks>
-        </BottomRow>
+          <MenuLinks>
+            <MenuLink href="https://policy.ridi.com/legal/privacy">
+              <strong>개인 정보 처리 방침</strong>
+            </MenuLink>
+            <MenuLinkDivider />
+            <MenuLink href="http://ftc.go.kr/www/bizCommView.do?key=232&apv_perm_no=2009322012730202139">
+              사업자 정보 확인
+            </MenuLink>
+          </MenuLinks>
+        </MenuRow>
         
-        <Copyright>© RIDI Corporation</Copyright>
-      </FooterWrapper>
-    </Container>
-  );
-}
+        <SocialLinks>
+          <SocialLink href="https://www.instagram.com/ridipaper/?hl=en">
+            <InstagramIcon />
+          </SocialLink>
+          <SocialLink href="https://www.facebook.com/official.ridi">
+            <FacebookIcon />
+          </SocialLink>
+        </SocialLinks>
+      </BottomRow>
+      
+      <Copyright>© RIDI Corporation</Copyright>
+      <BusinessInfo />
+    </FooterWrapper>
+  </Container>
+);
+
+export default Footer;
