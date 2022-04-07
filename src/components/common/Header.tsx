@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 import RidipaperLogo from '@/svgs/ridipaper.inline.svg';
 import Ridipaper4Logo from '@/svgs/paper4-title.black.inline.svg';
 import ArrowDown from '@/svgs/arrow-down.inline.svg';
-import CloseIcon from '@/svgs/close.inline.svg';
+import IconClose from '@/svgs/close.inline.svg';
 
 const Container = styled.header<{ open: boolean }>`
   position: fixed;
@@ -89,6 +89,11 @@ const Icon = styled.div`
   display: flex;
   align-items: center;
   text-decoration: none;
+  color: #000000;
+`;
+
+const IconExpand = styled(ArrowDown)`
+  margin-right: -3px;
 `;
 
 const styles = css`
@@ -275,7 +280,7 @@ export default function Header() {
               type="button"
               onClick={() => setIsOpen(o => !o)}
             >
-              <Icon>{isOpen ? <CloseIcon /> : <ArrowDown />}</Icon>
+              <Icon>{isOpen ? <IconClose /> : <IconExpand />}</Icon>
             </button>
 
             {!isOpen && !isRidiPaper4 && (
