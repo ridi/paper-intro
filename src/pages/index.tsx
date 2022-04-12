@@ -57,7 +57,6 @@ const RidiPaper4Page = () => {
           <SEO
             meta={[{ property: 'og:image', content: data.banner.publicURL }]}
           />
-          <DelayPopup />
           <Hero showPurchase={IS_PURCHASE_ENABLED} />
           <Design />
           <DeviceFeatures />
