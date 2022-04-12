@@ -30,13 +30,13 @@
       url: 'https://www.29cm.co.kr/product/273650'
     - name: SSG.COM
       url: 'http://www.ssg.com/item/itemView.ssg?itemId=1000034360883&siteNo=6004&salestrNo=6005'
-# - slug: ridipaper4
-#   items:
-#     - name: 네이버 스마트스토어
-#       url: https://smartstore.naver.com/ridibooks/products/6410678080
-#     - name: 29CM
-#       url: https://www.29cm.co.kr/product/1453358
-#     - name: 쿠팡
-#       url: https://www.coupang.com/vp/products/6394350336?vendorItemId=80898679190
-#     - name: 11번가
-#       url: https://www.11st.co.kr/products/4233263707
+- slug: ridipaper4
+  items:
+    - name: 네이버 스마트스토어
+      url: https://smartstore.naver.com/ridibooks/products/6410678080
+    - name: 29CM
+      url: https://www.29cm.co.kr/product/1453358
+    - name: 쿠팡
+      url: https://www.coupang.com/vp/products/6394350336?vendorItemId=80898679190
+    - name: 11번가
+      url: https://www.11st.co.kr/products/4321142367

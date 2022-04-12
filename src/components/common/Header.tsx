@@ -262,7 +262,7 @@ export default function Header() {
                 </Link>
                 {!isOpen && (
                   <Link
-                    to="/stockists"
+                    to="/stockists/ridipaper"
                     className={styles.purchasButton}
                     activeClassName={styles.active}
                     partiallyActive

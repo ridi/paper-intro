@@ -77,8 +77,12 @@ const StockistItem = styled.a`
 
 const tabs = [
   {
+    id: 'ridipaper4',
+    name: 'RIDIPAPER4',
+  },
+  {
     id: 'ridipaper',
-    name: 'RIDIPAPER',
+    name: 'RIDIPAPER (3세대)',
   },
 ];
 
@@ -105,7 +109,12 @@ export default function Stockists(props: Props) {
   const { data, pageContext } = props;
 
   function renderBackground(props: { className: string }) {
-    return <PolyfillImg className={props.className} fluid={data.bg.childImageSharp.fluid} />;
+    return (
+      <PolyfillImg
+        className={props.className}
+        fluid={data.bg.childImageSharp.fluid}
+      />
+    );
   }
 
   const items = props.data.stockists.items.map(({ name, url }) => (
@@ -123,8 +132,16 @@ export default function Stockists(props: Props) {
     <Layout>
       <SEO title="온라인 스토어" />
       <AccessoryHero renderBackground={renderBackground}>
-        <h1>리디페이퍼<br />온라인 스토어</h1>
-        <p>추천 쇼핑몰에서 리디페이퍼와<br />액세서리를 구매하세요.</p>
+        <h1>
+          리디페이퍼
+          <br />
+          온라인 스토어
+        </h1>
+        <p>
+          추천 쇼핑몰에서 리디페이퍼와
+          <br />
+          액세서리를 구매하세요.
+        </p>
       </AccessoryHero>
       <StockistsTabWrapper>
         <Tabs>
@@ -146,14 +163,14 @@ export default function Stockists(props: Props) {
 
 export const query = graphql`
   query StockistsQuery($slug: String!) {
-    bg: file(relativePath: {eq: "images/stockists-bg.jpg"}) {
+    bg: file(relativePath: { eq: "images/stockists-bg.jpg" }) {
       childImageSharp {
         fluid(maxHeight: 600, quality: 80) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
-    stockists: stockistsYaml(slug: {eq: $slug}) {
+    stockists: stockistsYaml(slug: { eq: $slug }) {
       items {
         name
         url
