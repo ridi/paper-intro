@@ -293,9 +293,9 @@ export default function Header() {
               <Icon>{isOpen ? <IconClose /> : <IconExpand />}</Icon>
             </button>
 
-            {!isOpen && !isRidiPaper4 && (
+            {!isOpen && (
               <Link
-                to="/stockists"
+                to={isRidiPaper4 ? '/stockists/ridipaper4' : '/stockists/ridipaper'}
                 className={styles.purchaseButton}
                 activeClassName={styles.active}
                 partiallyActive
