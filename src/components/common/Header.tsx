@@ -172,7 +172,7 @@ const styles = css`
     }
   }
 
-  .purchasButton {
+  .purchaseButton {
     font-weight: 700;
     font-size: 14px;
     line-height: 24px;
@@ -242,6 +242,16 @@ export default function Header() {
                 >
                   액세서리
                 </Link>
+                {!isOpen && (
+                  <Link
+                      to="/stockists/ridipaper4"
+                      className={styles.purchaseButton}
+                      activeClassName={styles.active}
+                      partiallyActive
+                    >
+                    구매하기
+                  </Link>
+                ) }
               </>
             ) : (
               <>
@@ -262,8 +272,8 @@ export default function Header() {
                 </Link>
                 {!isOpen && (
                   <Link
-                    to="/stockists"
-                    className={styles.purchasButton}
+                    to="/stockists/ridipaper"
+                    className={styles.purchaseButton}
                     activeClassName={styles.active}
                     partiallyActive
                   >
@@ -283,10 +293,10 @@ export default function Header() {
               <Icon>{isOpen ? <IconClose /> : <IconExpand />}</Icon>
             </button>
 
-            {!isOpen && !isRidiPaper4 && (
+            {!isOpen && (
               <Link
-                to="/stockists"
-                className={styles.purchasButton}
+                to={isRidiPaper4 ? '/stockists/ridipaper4' : '/stockists/ridipaper'}
+                className={styles.purchaseButton}
                 activeClassName={styles.active}
                 partiallyActive
               >

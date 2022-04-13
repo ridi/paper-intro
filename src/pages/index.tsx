@@ -38,7 +38,7 @@ const styles = css`
   }
 `;
 
-const IS_PURCHASE_ENABLED = false;
+const IS_PURCHASE_ENABLED = true;
 const RidiPaper4Page = () => {
   const data = useStaticQuery(graphql`
     {
@@ -57,7 +57,6 @@ const RidiPaper4Page = () => {
           <SEO
             meta={[{ property: 'og:image', content: data.banner.publicURL }]}
           />
-          <DelayPopup />
           <Hero showPurchase={IS_PURCHASE_ENABLED} />
           <Design />
           <DeviceFeatures />
