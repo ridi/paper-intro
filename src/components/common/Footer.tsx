@@ -239,13 +239,9 @@ const BusinessInfoItemWrapper = styled('div')`
   }
 `;
 
-const BusinessInfoItemTitle = styled<'dt', { isBold?: boolean }>('dt')`
+const BusinessInfoItemTitle = styled<'dt'>('dt')`
   display: inline-block;
-  font-weight: 400;
-
-  &.isBold {
-    font-weight: 700;
-  }
+  font-weight: 700;
 `;
 
 const BusinessInfoItemContent = styled('dd')`
@@ -264,16 +260,14 @@ const LineBreakOnMobile = styled('span')`
 
 type BusinessInfoItemProps = {
   title: string;
-  isTitleBold?: boolean;
   children: ReactNode;
 };
 const BusinessInfoItem = ({
   title,
-  isTitleBold = true,
   children,
 }: BusinessInfoItemProps) => (
   <BusinessInfoItemWrapper>
-    <BusinessInfoItemTitle isBold={isTitleBold}>{title}</BusinessInfoItemTitle>{' '}
+    <BusinessInfoItemTitle>{title}</BusinessInfoItemTitle>{' '}
     <BusinessInfoItemContent>{children}</BusinessInfoItemContent>
   </BusinessInfoItemWrapper>
 );
@@ -291,7 +285,7 @@ const BusinessInfo = (): JSX.Element => (
         </BusinessInfoItem>
         <BusinessInfoItem title="이메일">help@ridi.com</BusinessInfoItem>
         <BusinessInfoItem title="대표전화">1644-0331</BusinessInfoItem>
-        <BusinessInfoItem title="주소" isTitleBold={false}>
+        <BusinessInfoItem title="주소">
           서울시 강남구 역삼동 702-28 <LineBreakOnMobile />
           어반벤치빌딩 10층(테헤란로 325)
         </BusinessInfoItem>
