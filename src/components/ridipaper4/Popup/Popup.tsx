@@ -104,6 +104,6 @@ export const Popup = ({ title, content, popupKey }: PopupProps) => {
   );
 };
 
-export const DelayPopup = () => (
-  <Popup title="대고객 공지문" content={constants.DELAY_POPUP_CONTENT} popupKey="delay" />
+export const PurchasePopup = () => (
+  <Popup title="리디페이퍼 4 일반 판매 일정 안내" content={constants.DELAY_POPUP_CONTENT} popupKey="delay" />
 );
