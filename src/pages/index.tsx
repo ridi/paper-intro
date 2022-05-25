@@ -8,7 +8,6 @@ import Layout from '@/components/common/Layout';
 import SEO from '@/components/common/SEO';
 import { ScrollmagicProvider } from '@/components/ridipaper4/RidiPaper4ScrollmagicContext';
 
-import { DelayPopup } from '@/components/ridipaper4/Popup';
 import { Design } from '@/components/ridipaper4/Design';
 import { DeviceFeatures } from '@/components/ridipaper4/DeviceFeatures';
 import { Features } from '@/components/ridipaper4/Features';
@@ -17,6 +16,7 @@ import { Hero } from '@/components/ridipaper4/Hero';
 import { LightboxContextProvider } from '@/components/ridipaper4/Lightbox';
 import { Manual } from '@/components/ridipaper4/Manual';
 import { PurchaseBanner } from '@/components/ridipaper4/PurchaseBanner';
+import { PurchasePopup } from '@/components/ridipaper4/Popup';
 import { QuickButton } from '@/components/ridipaper4/QuickButton';
 import { Specs } from '@/components/ridipaper4/Specs';
 import { Video } from '@/components/ridipaper4/Video';
@@ -57,6 +57,7 @@ const RidiPaper4Page = () => {
           <SEO
             meta={[{ property: 'og:image', content: data.banner.publicURL }]}
           />
+          <PurchasePopup />
           <Hero showPurchase={IS_PURCHASE_ENABLED} />
           <Design />
           <DeviceFeatures />
