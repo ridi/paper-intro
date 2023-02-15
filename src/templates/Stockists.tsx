@@ -80,10 +80,6 @@ const tabs = [
     id: 'ridipaper4',
     name: 'RIDIPAPER4',
   },
-  {
-    id: 'ridipaper',
-    name: 'RIDIPAPER (3세대)',
-  },
 ];
 
 interface Props {
