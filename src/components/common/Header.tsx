@@ -1,10 +1,8 @@
 import styled, { css } from 'astroturf';
 import React from 'react';
-import { useLocation } from '@reach/router';
 
 import { Link } from 'gatsby';
 
-import RidipaperLogo from '@/svgs/ridipaper.inline.svg';
 import Ridipaper4Logo from '@/svgs/paper4-title.black.inline.svg';
 import ArrowDown from '@/svgs/arrow-down.inline.svg';
 import IconClose from '@/svgs/close.inline.svg';
@@ -195,10 +193,6 @@ const styles = css`
 
 export default function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
-  const location = useLocation();
-  const isRidiPaper4 =
-    location.pathname.includes('ridipaper4') || location.pathname === '/';
-
   React.useEffect(() => {
     const resetOpen = () => {
       setIsOpen(false);
@@ -214,74 +208,29 @@ export default function Header() {
       <Container open={isOpen}>
         <Center>
           <Left>
-            {isRidiPaper4 ? (
-              <Link to="/" className={styles.logoLink}>
-                <Ridipaper4Logo className={styles.ridipaper4Logo} />
-              </Link>
-            ) : (
-              <Link to="/ridipaper" className={styles.logoLink}>
-                <RidipaperLogo className={styles.ridipaperLogoDark} />
-              </Link>
-            )}
+            <Link to="/" className={styles.logoLink}>
+              <Ridipaper4Logo className={styles.ridipaper4Logo} />
+            </Link>
           </Left>
           <Right open={isOpen}>
-            {isRidiPaper4 ? (
-              <>
-                <Link
-                  to="/ridipaper"
-                  className={styles.navButton}
-                  activeClassName={styles.active}
-                >
-                  리디페이퍼 3세대
-                </Link>
-                <Link
-                  to="/accessories/ridipaper4"
-                  className={styles.navButton}
-                  activeClassName={styles.active}
-                  partiallyActive
-                >
-                  액세서리
-                </Link>
-                {!isOpen && (
-                  <Link
-                      to="/stockists/ridipaper4"
-                      className={styles.purchaseButton}
-                      activeClassName={styles.active}
-                      partiallyActive
-                    >
-                    구매하기
-                  </Link>
-                ) }
-              </>
-            ) : (
-              <>
-                <Link
-                  to="/"
-                  className={styles.navButton}
-                  activeClassName={styles.active}
-                >
-                  리디페이퍼 4세대
-                </Link>
-                <Link
-                  to="/accessories/ridipaper"
-                  className={styles.navButton}
+            <Link
+              to="/accessories/"
+              className={styles.navButton}
+              activeClassName={styles.active}
+              partiallyActive
+            >
+              액세서리
+            </Link>
+            {!isOpen && (
+              <Link
+                  to="/stockists/"
+                  className={styles.purchaseButton}
                   activeClassName={styles.active}
                   partiallyActive
                 >
-                  액세서리
-                </Link>
-                {!isOpen && (
-                  <Link
-                    to="/stockists/ridipaper"
-                    className={styles.purchaseButton}
-                    activeClassName={styles.active}
-                    partiallyActive
-                  >
-                    구매하기
-                  </Link>
-                )}
-              </>
-            )}
+                구매하기
+              </Link>
+            ) }
           </Right>
 
           <MobileRight>
@@ -295,7 +244,7 @@ export default function Header() {
 
             {!isOpen && (
               <Link
-                to={isRidiPaper4 ? '/stockists/ridipaper4' : '/stockists/ridipaper'}
+                to={'/stockists/'}
                 className={styles.purchaseButton}
                 activeClassName={styles.active}
                 partiallyActive

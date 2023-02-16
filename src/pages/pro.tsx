@@ -13,6 +13,7 @@ import Providers from '@/components/pro/Providers';
 import DesignedBy from '@/components/pro/DesignedBy';
 import Compare from '@/components/pro/Compare';
 import Spec from '@/components/pro/Spec';
+import { useRenderEmptyForDeprecatedPage } from '@/hooks/useRenderEmptyForDeprecatedPage';
 
 import '@/components/pro/styles.css'
 import '@/components/pro/animation.css'
@@ -30,7 +31,7 @@ const ProPage = () => {
     import('@/components/pro/animation.js').then(({ play }) => play());
   }, []);
 
-  return (
+  return useRenderEmptyForDeprecatedPage() && (
     <div id="ridi_shop">
       <Layout noFooterMargin>
         <SEO

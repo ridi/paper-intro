@@ -15,6 +15,7 @@ import Ridibatang from '@/components/ridipaper/Ridibatang';
 import RidiPaperHero from '@/components/ridipaper/RidiPaperHero';
 import Specs from '@/components/ridipaper/Specs';
 import ViewerFeatures from '@/components/ridipaper/ViewerFeatures';
+import { useRenderEmptyForDeprecatedPage } from '@/hooks/useRenderEmptyForDeprecatedPage';
 
 const styles = css`
   .main {
@@ -49,7 +50,7 @@ const RidiPaperPage = () => {
     }
   `);
 
-  return (
+  return useRenderEmptyForDeprecatedPage() && (
     <Layout className={styles.main}>
       <ScrollmagicProvider>
         <SEO
