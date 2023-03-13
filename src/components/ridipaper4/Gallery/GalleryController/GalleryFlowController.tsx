@@ -13,6 +13,7 @@ const GalleryFlowContainer = styled('div')`
   display: flex;
   width: 100%;
   max-width: ${MAX_WIDTH}px;
+  margin: 0 auto;
   overflow: hidden;
 `;
 
