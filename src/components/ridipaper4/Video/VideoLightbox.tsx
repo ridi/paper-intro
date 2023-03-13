@@ -4,17 +4,26 @@ import { useCallback } from 'react';
 import { useLocation, useNavigate } from '@reach/router';
 import React from 'react';
 import { Lightbox } from '@/components/ridipaper4/Lightbox';
+import Ridipaper4TeaserH264 from '@/assets/videos/ridipaper4-teaser/ridipaper4-teaser.h264.mp4';
 
 const styles = css`
   .close {
     right: -15px;
+
+    @media (max-width: 600px) {
+      right: 0;
+    }
   }
 `;
 
-const VideoEmbed = styled('iframe')`
+const VideoEmbed = styled('video')`
   width: 80vw;
-  height: 50vw;
+  max-width: 150vh;
   border: none;
+
+  @media (max-width: 600px) {
+    width: 95vw;
+  }
 `;
 
 export const VideoLightbox = (): JSX.Element => {
@@ -31,13 +40,8 @@ export const VideoLightbox = (): JSX.Element => {
       onClose={onClose}
       closeClassName={styles.close}
     >
-      <VideoEmbed
-        src="https://player.vimeo.com/video/689940986?h=4d2e6f5914"
-        allowFullScreen
-      >
-        <a href="https://player.vimeo.com/video/689940986?h=4d2e6f5914">
-          영상보기
-        </a>
+      <VideoEmbed muted controls>
+        <source src={Ridipaper4TeaserH264} type="video/mp4"></source>
       </VideoEmbed>
     </Lightbox>
   );
