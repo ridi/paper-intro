@@ -40,7 +40,7 @@ export const VideoLightbox = (): JSX.Element => {
       onClose={onClose}
       closeClassName={styles.close}
     >
-      <VideoEmbed muted controls>
+      <VideoEmbed muted controls controlsList="nodownload" onContextMenu={event => event.preventDefault()}>
         <source src={Ridipaper4TeaserH264} type="video/mp4"></source>
       </VideoEmbed>
     </Lightbox>
