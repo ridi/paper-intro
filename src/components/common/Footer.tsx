@@ -287,7 +287,7 @@ const BusinessInfo = (): JSX.Element => (
         <BusinessInfoItem title="대표전화">1644-0331</BusinessInfoItem>
         <BusinessInfoItem title="주소">
           서울시 강남구 역삼동 702-28 <LineBreakOnMobile />
-          어반벤치빌딩 10층(테헤란로 325)
+          어반벤치빌딩 4,10,11층(테헤란로 325)
         </BusinessInfoItem>
       </BusinessInfoItems>
     </Collapsible>
